@@ -3,16 +3,19 @@
 /**
  * Description of IndexController
  *
- * @author ivank
+ * @author ivan kolotilkin
  */
 namespace mvcrb;
 class IndexController extends Controller{
 
     public function IndexAction() {
-        $mdl = new User();
-        
-        return 'Привет мир!';
+        $this->View->content ='Привет мир';
+        return $this->View->execute('index.html');
     }
     
+    public function headerAction() {
+        
+        return $this->View->execute('header.html');
+    }
 
 }

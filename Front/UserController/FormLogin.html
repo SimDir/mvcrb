@@ -1,0 +1,196 @@
+<div id="User" class="col-md-6 mb-4 pb-5 mx-auto">
+    <div class="card">
+        <transition name="slide-fade">
+            <form v-if="state==1" class="card" id="formreg" method="post" name="formreg" action="/im/registre/">
+                <div class="card-body">
+
+                    <!--Header-->
+                    <div class="form-header default-color-dark">
+                        <h3><i class="fa fa-user"></i> Регистрация:</h3>
+                    </div>
+
+                    <!--Body-->
+                    <div class="md-form">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <!--<input type="text" id="orangeForm-name" class="form-control">-->
+                        <input value="<{login}>" id="orangeForm-name" name="login" type="text" class="form-control" required>
+                        <label for="orangeForm-name">Ваш логин</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fa fa-envelope prefix grey-text"></i>
+                        <!--<input type="text" id="orangeForm-email" class="form-control">-->
+                        <input value="<{email}>" name="email" id="orangeForm-email" type="email" class="form-control" required>
+                        <label for="orangeForm-email">Адрес электронной почты</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fa fa-lock prefix grey-text"></i>
+                        <!--<input type="password" id="orangeForm-pass" class="form-control">-->
+                        <input value="<{password}>" name="password" id="orangeForm-pass" type="password" class="form-control" required>
+                        <label for="orangeForm-pass">Ваш пароль</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fa fa-lock prefix grey-text"></i>
+
+                        <input value="<{password}>" name="passwordonf" id="orangeForm-passwordonf" type="password" class="form-control" required>
+                        <label for="orangeForm-passwordonf">Ваш пароль еще раз</label>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-deep-orange waves-effect waves-light">Зарегистрироватся</button>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div id="ErrorMsg"><{ErrorMsg}></div>
+                        <div class="options">
+
+                            <p>У вас есть учетная запись?
+                                <a @click.prevent="state=0" href="/im/registre">вход</a>
+                            </p>
+                            <p>Forgot
+                                <a href="/im/forgot">Password?</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </transition>
+        <transition name="bounce" appear>
+            <form v-if="state==0" @submit="checkForm" id="formlogin" class="card-body" role="form" method="POST" action="/im/login/">
+        
+
+            <!--Header-->
+            <div class="form-header default-color">
+                <h3><i class="fa fa-lock"></i> Вход пользователя:</h3>
+            </div>
+            
+                    <{ErrorMsg}>
+                
+            <!--Body-->
+            <div class="md-form">
+                <i class="fa fa-envelope prefix grey-text"></i>
+                <input v-model="CurUser.email" value="<{email}>" name="email" type="text" id="defaultForm-email" class="form-control" >
+                <label for="defaultForm-email" class="">Адрес электронной почты или логин</label>
+            </div>
+
+            <div class="md-form">
+                <i class="fa fa-lock prefix grey-text"></i>
+                <input v-model="CurUser.password" name="password" id="defaultForm-pass" type="password" class="form-control" required>
+                <label for="defaultForm-pass" class="">Ваш пароль</label>
+            </div>
+
+            <div class="text-center">
+                <button @click.prevent="DoSub" type="submit" class="btn btn-default waves-effect waves-light">Войти</button>
+            </div>
+            <div class="modal-footer">
+                <div class="options">
+                    
+                    <p>У вас нет учетной записи?
+                        <a @click.prevent="state=1" href="/im/registre">Зарегистрируйтесь</a>
+                    </p>
+                    <p>Forgot
+                        <a href="/im/forgot">Password?</a>
+                    </p>
+                </div>
+                
+            </div>
+        
+        </form>
+        </transition>
+        
+        
+    </div>
+
+</div>
+
+<script type="text/javascript">
+var User = new Vue({
+  el: '#User',
+  store,
+  data: {errors:[],state:0,
+    CurUser: {email:"",password:""}
+  },
+  created: function () {
+      //myStorage = window.localStorage;
+      //this.CurUser = localStorage.getItem('CurUser');
+    // `this` указывает на экземпляр vm
+    //console.log('Значение a: ' + this.a)
+  },
+  methods: {
+    DoSub() {
+        
+//        
+
+        var encryptedAES = CryptoJS.AES.encrypt(this.CurUser.password, "Secret");
+        
+        
+        var SendUser = {email:this.CurUser.email,password:encryptedAES.toString()};
+        
+        var SendData = JSON.stringify(SendUser);
+        fetch( window.location.href+'/login/?AJAX=1',{
+            mode: 'cors',
+            method: 'POST',
+            body: SendData
+            })
+            .then((response) => {
+                
+                if(response.redirected){
+                    window.location.href=response.url; //.replace('https://navy-test.afanik.ru',"");
+                    return false;
+                }
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok');
+            })
+//            .then((text) => {
+////                store.commit('content', text);
+//                console.log('FormLogin:DoSub()->text',text);
+//            })
+            .then((json) => {
+//                console.log('FormLogin:DoSub()');
+                this.CurUser=json;
+                var decryptedBytes = CryptoJS.AES.decrypt(this.CurUser.password, "Secret");
+                var plaintext = decryptedBytes.toString(CryptoJS.enc.Utf8);
+                //myStorage = window.localStorage;
+                //localStorage.setItem('CurUser', this.CurUser);
+//                store.commit('content', json.content);
+                console.log(plaintext,json);
+                
+            })
+            .catch((error) => {
+                console.log('FormLogin:DoSub()',error);
+            });
+//            fetch( '/user/get/?AJAX=1')
+//            .then((response) => {
+//                if (response.ok) {
+//                    return response.json();
+//                }
+//                throw new Error('Network response was not ok');
+//            })
+//            .then((json) => {
+//                store.commit('User', json);
+////                console.log(json);
+//
+//            })
+//            .catch((error) => {
+//                console.log(error);
+//            });
+        //store.commit('User', this.CurUser);
+        //console.log(this.CurUser);
+    },
+    checkForm: function (e) {
+        
+
+        e.preventDefault();
+    }
+        
+       
+    },
+  computed: {
+        User: function () {
+            return store.state.User;
+        }
+    }
+})    
+</script>

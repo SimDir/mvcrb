@@ -12,6 +12,7 @@ abstract class Controller{
     public $POST=FALSE;
     public $REQUEST_METHOD=FALSE;
     public $REQUEST;
+    public $View;
     public function __construct(){
         $this->REQUEST_METHOD = filter_input(INPUT_SERVER, 'REQUEST_METHOD', FILTER_SANITIZE_ENCODED);
         switch ($this->REQUEST_METHOD) {
@@ -23,6 +24,7 @@ abstract class Controller{
                 break;
         }
         $this->REQUEST = file_get_contents('php://input');
+        $this->View = new View();
         return $this;
     }
 

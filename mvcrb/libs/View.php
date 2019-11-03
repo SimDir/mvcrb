@@ -80,23 +80,26 @@ class View {
 
     public function Code($code) {
         preg_match_all('/<{(.*?)}>/', $code, $varibles, PREG_SET_ORDER);
-        foreach ($varibles as $value) {
-            $tplVar = $this->VarGet($value[1]);
-//                var_dump($value);
-//                die();
-//            if($tplVar){
-                $code = preg_replace("/<{($value[1])}>/", $tplVar, $code);
-//            }
-            
 
-//                $code=preg_replace( '/{{(.*?)}}/', $tplVar, $code);
+        foreach ($varibles as $value) {
+            
+            if (preg_match("/^Controller(.*)/i", $value[1],$matches)) {
+                $ControllerAction = trim($matches[1], '()');
+                $ArrCtrlAct = explode(':', $ControllerAction);
+                $code = str_replace($value[0], mvcrb::Exec($ArrCtrlAct[0].'Controller', $ArrCtrlAct[1].'Action'), $code);
+            }elseif(preg_match("/^View(.*)/i", $value[1],$matches)){
+                $ViewHtml = trim($matches[1], '()');
+                $tmpDirView = $this->TplDir;
+                $this->TplDir = TEMPLATE_DIR;
+                $code = str_replace($value[0], $this->execute($ViewHtml), $code);
+                $this->TplDir =$tmpDirView;
+            }else {
+                $tplVar = $this->VarGet(trim($value[1], ' '));
+                $code = preg_replace("/<{($value[1])}>/", $tplVar, $code);
+            }
+
         }
-//        preg_match_all('/<@(.*?)@>/', $code, $func, PREG_SET_ORDER);
-//        $tmp='lol'.PHP_EOL;
-//        foreach ($func as $fn) {
-//            $tmp .= $fn[1].PHP_EOL;
-//        }
-//        return $tmp;
+
         return $code;
     }
 
