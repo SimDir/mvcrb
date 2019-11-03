@@ -83,12 +83,14 @@ class View {
 
         foreach ($varibles as $value) {
             
-            if (preg_match("/^Controller(.*)/i", $value[1],$matches)) {
+            if (preg_match("/Controller(\(.*\))/i", $value[1],$matches)) {
+//                dd($matches);
                 $ControllerAction = trim($matches[1], '()');
                 $ArrCtrlAct = explode(':', $ControllerAction);
                 $code = str_replace($value[0], mvcrb::Exec($ArrCtrlAct[0].'Controller', $ArrCtrlAct[1].'Action'), $code);
-            }elseif(preg_match("/^View(.*)/i", $value[1],$matches)){
+            }elseif(preg_match("/View(\(.*\))/i", $value[1],$matches)){
                 $ViewHtml = trim($matches[1], '()');
+                $ViewHtml =trim($ViewHtml);
                 $tmpDirView = $this->TplDir;
                 $this->TplDir = TEMPLATE_DIR;
                 $code = str_replace($value[0], $this->execute($ViewHtml), $code);

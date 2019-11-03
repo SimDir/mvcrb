@@ -4,6 +4,10 @@
  * 
  */
 namespace mvcrb;
+function dd($str){
+    var_dump($str);
+    die();
+}
 
 class mvcrb {
     public static $ErrorMessage;
@@ -52,7 +56,7 @@ class mvcrb {
         self::SetupConfig();
         spl_autoload_register(__CLASS__ . '::AutoLoadClassFile');
 
-//        self::initWhoops();
+        self::initWhoops();
         
         if (!self::GetControllerAndAction()) {
             header("HTTP/1.1 404 Not Found");
