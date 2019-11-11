@@ -58,22 +58,20 @@ class mvcrb {
 
         self::initWhoops();
         
-        if (!self::GetControllerAndAction()) {
-            header("HTTP/1.1 404 Not Found");
-            header("Status: 404 Not Found");
-//            echo '<h1>404 Not Found</h1>';
-            //throw new \Exception(__METHOD__ . ' фаил Контроллера ' . self::$ControllerName . '.php не найден');
-//            return __METHOD__ . ' фаил Контроллера ' . self::$ControllerName . '.php не найден<br>';
-            
-        }
+        $ret = self::GetControllerAndAction();
 
-        self::$ExecRetVal = self::Exec(self::$ControllerName, self::$ActionName, self::$ParametersArray);
-        
-        if (!is_object(self::$ExecRetVal)) {
-            echo self::$ExecRetVal;
-        } else {
-            var_dump(self::$ExecRetVal);
+        if($ret){
+            self::$ExecRetVal = self::Exec(self::$ControllerName, self::$ActionName, self::$ParametersArray);
+
+            if (!is_object(self::$ExecRetVal)) {
+                echo self::$ExecRetVal;
+            } else {
+                var_dump(self::$ExecRetVal);
+            }
+            return;
         }
+        echo $ret;
+        
 
        
         
@@ -85,7 +83,8 @@ class mvcrb {
         
         if (class_exists($ctrl)) {
             $objectCtrl = new $ctrl();
-//            var_dump($objectCtrl,$Action,$Param);die();
+//            var_dump($objectCtrl,$Action,$Param);
+//            die();
             if (method_exists($objectCtrl, $Action)) {
                 
                 if (count($Param)) {
@@ -100,7 +99,7 @@ class mvcrb {
         }
         header("HTTP/1.1 523 Origin Is Unreachable");
         header("Status: 523 Origin Is Unreachable");
-        return "<h1>523 Not Found</h1><hr><h5>Exec:: нет исполнительного контроллера $Controller</h5> <p>$Action<p>";
+        return "<h1>523 Not Found</h1><hr><h5>Exec:: нет исполнительного контроллера $Controller</h5>";
 //        return __METHOD__ . " Контроллер <b style=\"color: red;\">$ctrl</b> не имеет метода <b style=\"color: red;\">$Action</b>";
         //            return FALSE;
         
@@ -182,13 +181,13 @@ class mvcrb {
         $controllerFile = $dirForControllers . $controlerName . '.php';
 
 
-        $action = ucfirst(array_shift($segments)).'Action';
+        $action = ucfirst(array_shift($segments));
 
         if (empty($action)) {
             $action = ucfirst(self::$globalConfig['Router_Default_Action']);
 //            var_dump($this->globalConfig['Router_Default_Action']);
         }
-        $actionName =  $action;
+        $actionName =  $action.'Action';
         self::$ActionName = $actionName;
 
         self::$ParametersArray = $segments;
@@ -258,10 +257,9 @@ class mvcrb {
      * @return boolean
      */
     private static function AutoLoadClassFile($className) {
-//        echo $className. '<br>';
-//        file_put_contents(SITE_DIR.'alog.txt', $className.PHP_EOL,FILE_APPEND);
         $parts = explode('\\', $className);
         $class = end($parts);
+//        file_put_contents(SITE_DIR.'alog.txt', $class.PHP_EOL,FILE_APPEND);
         $classFile = self::$globalConfig['App_lib_Dir'] . $class . '.php';
         if (file_exists($classFile)) {
             include_once $classFile;

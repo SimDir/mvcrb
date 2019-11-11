@@ -11,7 +11,7 @@ class User extends Model{
     public function __construct() {
         parent::__construct();
         Session::init();
-        $this->TableName = 'User';
+        $this->TableName = 'user';
     }
     public function GetCountUser(){
         return $this->count($this->TableName);
@@ -53,21 +53,20 @@ class User extends Model{
     }
     public function GetCurrentUser() {
         $var = Session::get('LoggedUser');
-//        var_dump($var);
-//        die();
+        $AnonimUser=['Name'=>'anonim','login'=>'anonim','role'=>0];
+
         if($var){
-            $email = $var['email'];
-            $user = $this->findOne($this->TableName, 'email = ?', array($email));
-//            var_dump($user);
-//            die();
+            $user = $this->findOne($this->TableName, 'email = ?', array($var['email']));
+
             if($user){
                 $ret = $user->export();
                 unset($ret["password"]);
                 return $ret;
             }
-            return FALSE;
+            return $AnonimUser;
         }
-        return FALSE;
+        
+        return $AnonimUser;
     }
     public function ChekMail($mail) {
         
@@ -89,7 +88,7 @@ class User extends Model{
     }
     public function CreateUser($email, $password, $login, $role = 200, $name='', $middlename='', $surname='', $phone='', $registredatetime='') {
         
-        $user = $this->dispense($this->TableName);
+        $user = $this->Dispense($this->TableName);
         $user->name = $name;
         $user->middlename = $middlename;
         $user->surname = $surname;

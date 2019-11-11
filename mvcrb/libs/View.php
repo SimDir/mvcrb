@@ -87,7 +87,7 @@ class View {
 //                dd($matches);
                 $ControllerAction = trim($matches[1], '()');
                 $ArrCtrlAct = explode(':', $ControllerAction);
-                $code = str_replace($value[0], mvcrb::Exec($ArrCtrlAct[0].'Controller', $ArrCtrlAct[1].'Action'), $code);
+                $code = str_replace($value[0], mvcrb::Exec(ucfirst($ArrCtrlAct[0]).'Controller', ucfirst($ArrCtrlAct[1]).'Action'), $code);
             }elseif(preg_match("/View(\(.*\))/i", $value[1],$matches)){
                 $ViewHtml = trim($matches[1], '()');
                 $ViewHtml =trim($ViewHtml);

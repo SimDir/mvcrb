@@ -8,7 +8,7 @@ namespace mvcrb;
 use RedBeanPHP\Facade as R;
 class Model extends R{
     public function __construct() {
-        $IncFile = CONFIG_DIR . 'DBase.php';
+        $IncFile = CONFIG_DIR . 'DataBase.php';
         
         if(file_exists($IncFile)){
             $Config = include_once($IncFile);
@@ -40,14 +40,24 @@ class Model extends R{
                 break;
         }
         
+//        R::ext("xDispense", function ($table_name) {
+//            return R::getRedBean()->dispense($table_name);
+//        });
         
         if(!$this->testConnection()){
 //            $this->fancyDebug( TRUE );
-            throw new Exception(__METHOD__ . " ошибка бaзы данных $host:$port. неудалось установить соединение c БД $dbname");
+            throw new \Exception(__METHOD__ . " ошибка бaзы данных $host:$port. неудалось установить соединение c БД $dbname");
         }
+        
+        
         return $this;
     }
     public function __destruct() {
         $this->close();
     }
+    
+    public function xDispense($table_name) {
+        return R::getRedBean()->dispense($table_name);
+    }
+
 }

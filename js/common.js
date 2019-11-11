@@ -1,12 +1,5 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-//alert('lol');
-
-var store = new Vuex.Store({
+var mvcrbstore = new Vuex.Store({
     state: {
         content: '',
         MainMenu: {},

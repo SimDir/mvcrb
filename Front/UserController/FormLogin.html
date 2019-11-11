@@ -1,11 +1,11 @@
-<div id="User" class="col-md-6 mb-4 pb-5 mx-auto">
-    <div class="card">
+<div id="User" class="modal-dialog" role="document">
+    
         <transition name="slide-fade">
-            <form v-if="state==1" class="card" id="formreg" method="post" name="formreg" action="/im/registre/">
+            <form class="modal-content" v-if="state==1" id="formreg" method="post" name="formreg" action="/im/registre/">
                 <div class="card-body">
 
                     <!--Header-->
-                    <div class="form-header default-color-dark">
+                    <div class="form-header">
                         <h3><i class="fa fa-user"></i> Регистрация:</h3>
                     </div>
 
@@ -56,11 +56,11 @@
             </form>
         </transition>
         <transition name="bounce" appear>
-            <form v-if="state==0" @submit="checkForm" id="formlogin" class="card-body" role="form" method="POST" action="/im/login/">
+            <form class="modal-content card-body" v-if="state==0" @submit="checkForm" id="formlogin"  role="form" method="POST" action="/im/login/">
         
 
             <!--Header-->
-            <div class="form-header default-color">
+            <div class="form-header">
                 <h3><i class="fa fa-lock"></i> Вход пользователя:</h3>
             </div>
             
@@ -99,14 +99,14 @@
         </transition>
         
         
-    </div>
+    
 
 </div>
 
 <script type="text/javascript">
 var User = new Vue({
   el: '#User',
-  store,
+  mvcrbstore,
   data: {errors:[],state:0,
     CurUser: {email:"",password:""}
   },
@@ -127,7 +127,7 @@ var User = new Vue({
         var SendUser = {email:this.CurUser.email,password:encryptedAES.toString()};
         
         var SendData = JSON.stringify(SendUser);
-        fetch( window.location.href+'/login/?AJAX=1',{
+        fetch( 'user/login/?AJAX=1',{
             mode: 'cors',
             method: 'POST',
             body: SendData

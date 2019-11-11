@@ -18,7 +18,7 @@ class UserController extends Controller{
     public function IndexAction() {
         $UserVars = $this->User->GetCurrentUser();
         if(!$UserVars){
-            return $this->Login();
+            return $this->LoginAction();
         }
 
 
@@ -30,13 +30,14 @@ class UserController extends Controller{
         $this->View->GravUrl = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
 
         $this->View->content = $this->View->execute('usercard.html');
+        $this->View->SetWivePath(TEMPLATE_DIR);
         return $this->View->execute('index.html');
     }
-    public function Logout() {
+    public function LogoutAction() {
         Session::destroy();
         return $this->ActionLogin();
     }
-    public function Login() {
+    public function LoginAction() {
         $this->View->title ='Вход пользователя';
         
         if ($this->POST) {
@@ -55,7 +56,7 @@ class UserController extends Controller{
 
 //        return $this->Exec('index', 'index');
     }
-    public function Get() {
+    public function GetAction() {
 //        $UserVars = $this->User->GetCurrentUser();
         return json_encode($this->User->GetCurrentUser());
     }
@@ -107,7 +108,7 @@ class UserController extends Controller{
     }
     
     
-    public function Registre() {
+    public function RegistreAction() {
         $this->View->title ='Регистрация пользователя';
         if ($_SERVER["REQUEST_METHOD"]=="POST") {
             return $this->UserPostRegistre();
@@ -184,7 +185,7 @@ class UserController extends Controller{
         
     }
 
-    public function List($CamId = 0) {
+    public function ListAction($CamId = 0) {
         $View = $this->View;
         $User = $this->User;
         $u=$User->GetCurrentUser();
