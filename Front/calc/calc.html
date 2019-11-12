@@ -114,8 +114,16 @@
                                                 <select v-model.number="sidebarCatalog" class="form-control">
                                                     <option value="0">Каталог (до 10) товаров</option>
                                                     <option value="35000">Каталог (до 100 товаров)</option>
-                                                </select>
-                                                
+                                                </select>                                                
+                                            </li>
+                                            <li class="list-group-item">
+                                                <input type="checkbox" id="sidebarUnikPage" value="0" v-model="sidebarUnikPage">
+                                                <label for="sidebarUnikPage">Уникальные страницы</label><br>
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <button type="button" >-</button>
+                                                    
+                                                    <button type="button" >+</button>
+                                                </div
                                             </li>
                                         </ul>
                                     </div>
@@ -181,11 +189,12 @@ var app = new Vue({
       { text: 'Чистый код', value:25000, img:'https://wpgutenberg.top/wp-content/uploads/2019/01/PHP7.3-1024x512.png',
         desk:'' }
     ],
-    ParamSait:[],SideBar:0,sidebarAboutTyp:0,SidebarNewsTyp:0,sidebarAboutCompany:0,
+    ParamSait:[],sidebarUnikPage:0,SideBar:0,sidebarAboutTyp:0,SidebarNewsTyp:0,sidebarAboutCompany:0,
     sidebarComents:0,sidebarCatalog:0
   },
   computed: {
     totalprice() {
+        let UnikPage = this.sidebarUnikPage*5000;
         return this.SiteTyp+this.EngineTyp+this.SidebarNewsTyp+this.sidebarAboutTyp+this.sidebarAboutCompany+this.sidebarCatalog;
     }
   },
