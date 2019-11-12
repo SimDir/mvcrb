@@ -1,0 +1,213 @@
+<style> 
+ 
+
+</style>
+
+<div id="calc" class="card">
+    <div class="card-title bg-info">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4"><img src="https://cdn.bitrix24.ru/b4752127/bitrix24/3e3/3e30e0e2e95213b1893c96695ecf9d4d/logo_hlJWhWfi.png" class="img-fluid" alt="Responsive image"></div>
+                <div class="col-md-8"><p v-if="totalprice>0">Цена {{totalprice}} Руб.</p></div>
+            </div>
+        </div>
+        
+
+
+    </div>
+    <div class="card-body">
+       
+        <div v-if="step==1">
+            <div class="text-center">
+                <p>В первую очередь Вы должны определится, с какой целью Вам нужен сайт и выбрать соответствующий тип сайта.В зависимости от Вашего выбора, будут подобраны соответствующие модули.</p>
+            </div>
+            <div class="card-deck">
+                <div class="card mb-4" v-for="option in SiteTypPrice">
+                    <div class="view overlay">
+                        <img class="card-img-top" v-bind:src="option.img" alt="Card image cap">
+                        
+                        
+                        <div class="mask rgba-black-strong">
+                            <p class="white-text">{{ option.desk }}</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" v-bind:id="'ckd'+option.value" v-bind:value="option.value" v-model.number="SiteTyp">
+                            <label class="custom-control-label" v-bind:for="'ckd'+option.value">{{option.text}} всего за {{option.value}} рублей</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div v-if="step==2">
+            <div class="text-center">
+                <p>CMS (в народе называют движком) – система управления контентом сайта. Это костяк, на котором все строится. От движка зависит удобство наполнения сайта, его «дружелюбность» для поискового продвижения, возможность подключения дополнительных сервисов.</p>
+            </div>
+             <div class="card-deck">
+                <div class="card mb-4" v-for="option in EnginePrice">
+                    <div class="view overlay">
+                        <img class="card-img-top" v-bind:src="option.img" alt="Card image cap">
+                        
+                        
+                        <div class="mask rgba-black-strong">
+                            <p class="white-text">{{ option.desk }}</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" v-bind:id="'eckd'+option.value" v-bind:value="option.value" v-model.number="EngineTyp">
+                            <label class="custom-control-label" v-bind:for="'eckd'+option.value">{{option.text}} за {{option.value}} рублей</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div v-if="step==3">
+            <div class="text-center">
+                <p>Дополнительные страницы позволяют расширять функционал Вашего сайта. В зависимости от типа сайта подбираются соответствующие страницы. Но даже на корпоративный сайт никто не мешает установить блог или каталог товаров.</p>
+            </div>
+            <div>
+                <div id="example-3" class="demo">
+                    <div class="card" >
+                        <div class="card-header">
+                            <input type="checkbox" id="header" value="header" v-model="ParamSait">
+                            <label for="header">Шапка сайта</label>
+                            <p>это титульная верхняя часть дизайн-макета веб-страницы.</p>
+                        </div>
+                        <div class="card-body">
+                            
+                            <input type="checkbox" id="menu" value="menu" v-model="ParamSait">
+                            <label for="menu">Меню</label>
+                            <p>это сгруппированный набор ссылок с названиями разделов, облегчающий переход на другие страницы. Они называются пунктами меню и могут обозначаться текстом или графическими значками</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-6 border-right">
+                                        <input type="checkbox" id="sidebar" value="1" v-model="SideBar">
+                                        <label for="sidebar">Боковое меню "Сайдбар"</label>
+                                        <ul v-if="SideBar" class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <select v-model.number="SidebarNewsTyp" class="form-control">
+                                                    <option value="0">Новости, акции</option>
+                                                    <option value="1500">Новости, акции (с управлением)</option>
+                                                </select>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <select v-model.number="sidebarAboutTyp" class="form-control">
+                                                    <option value="0">О товаре/услугах</option>
+                                                    <option value="1000">О товаре/услугах (с управлением)</option>
+                                                </select>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <input type="checkbox" id="sidebarAboutCompany" value="0" v-model="sidebarAboutCompany">
+                                                <label for="sidebarAboutCompany">О компании</label>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <input type="checkbox" id="sidebarComents" value="0" v-model="sidebarComents">
+                                                <label for="sidebarComents">Отзывы</label>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <select v-model.number="sidebarCatalog" class="form-control">
+                                                    <option value="0">Каталог (до 10) товаров</option>
+                                                    <option value="35000">Каталог (до 100 товаров)</option>
+                                                </select>
+                                                
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        
+                                        
+                                        <input type="checkbox" id="content" value="content" v-model="ParamSait">
+                                        <label for="content">Контент сектор</label>
+                                    </div>
+                                    
+                                   
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <span>Входит в базовую стоимость: {{ ParamSait }}</span>
+                </div>
+                
+
+            </div>
+        </div>
+        <div v-if="step==4">
+            Дизайн
+        </div>
+        <div v-if="step==5">
+            Наполнение проекта
+        </div>
+    </div>
+    <div class="card-footer">
+        <div v-if="SiteTyp!==0" class="btn-group float-right" role="group" aria-label="Basic example">
+            <button v-if="step>1" @click="prew" type="button" class="btn btn-default" >назад</button>
+            <button v-if="step<5" @click="next" type="button" class="btn btn-green" >далее</button>
+        </div>
+    </div>
+    
+</div>
+
+
+
+<script>
+var app = new Vue({
+  el: '#calc',
+  data: {
+    message: 'Калькулятор сайтов',
+    step:1,MaxStep:5, 
+    SiteTyp:0,SiteTypPrice: [
+      { text: 'Одностраничный сайт', value:25000,img:'https://sales-generator.ru/upload/resize_cache/iblock/549/790_395_2/5498e3193ea14ff3c7443bdb14737642.png',
+          desk:'Очень популярный в настоящее время формат сайтов, который не предполагает разветвленной структуры. Все содержание такого сайта умещается на одной-единственной странице и просматривается вверх и вниз при помощи прокрутки.' },
+      { text: 'Интернет магазин', value:45000,img:'http://linuxgid.ru/wp-content/uploads/2017/07/plast46-shop2.jpg',
+          desk:'Сайт, торгующий товарами посредством сети Интернет. Позволяет пользователям онлайн, в своём браузере или через мобильное приложение, сформировать заказ на покупку, выбрать способ оплаты и доставки заказа, оплатить заказ. При этом продажа товаров осуществляется дистанционным способом' },
+      { text: 'Корпоративный сайт', value:35000,img:'https://regioninfo.ru/upload/iblock/e7d/e7dafb4bc16e00c1e3c216ba0fd39c8b.jpg',
+          desk:'В общем случае, веб-интерфейс для доступа сотрудника к корпоративным данным и приложениям.' }
+    ],
+    EngineTyp:0,EnginePrice: [
+      { text: 'Bitrix', value:0, img:'https://upload.wikimedia.org/wikipedia/ru/thumb/5/51/1c_bitrix_logo.svg/768px-1c_bitrix_logo.svg.png',
+        desk:''},
+      { text: 'Tilda', value: 10000, img:'https://d2xzmw6cctk25h.cloudfront.net/post/1738/og_cover_image/970fe5a36401ee376059ec3370a08279',
+        desk:''},
+      { text: 'Opencart', value: 15000, img:'https://www.opencart.com/application/view/image/home/hero-image.png',
+        desk:''},
+      { text: 'Чистый код', value:25000, img:'https://wpgutenberg.top/wp-content/uploads/2019/01/PHP7.3-1024x512.png',
+        desk:'' }
+    ],
+    ParamSait:[],SideBar:0,sidebarAboutTyp:0,SidebarNewsTyp:0,sidebarAboutCompany:0,sidebarAboutCompany:0,
+    sidebarComents:0,sidebarCatalog:0
+  },
+  computed: {
+    totalprice() {
+        return this.SiteTyp+this.EngineTyp;
+    }
+  },
+  methods: {
+    next() {
+      this.step++;
+      if(this.step>this.MaxStep){
+          this.step = this.MaxStep;
+      }
+    },
+    prew() {
+      this.step--;
+      if(this.step<1){
+          this.step=1;
+      }
+    },
+    SiteTypChange(event) {
+        console.log(event.target.value);
+        
+    }
+    
+  }
+})
+
+</script>
