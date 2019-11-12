@@ -181,12 +181,12 @@ var app = new Vue({
       { text: 'Чистый код', value:25000, img:'https://wpgutenberg.top/wp-content/uploads/2019/01/PHP7.3-1024x512.png',
         desk:'' }
     ],
-    ParamSait:[],SideBar:0,sidebarAboutTyp:0,SidebarNewsTyp:0,sidebarAboutCompany:0,sidebarAboutCompany:0,
+    ParamSait:[],SideBar:0,sidebarAboutTyp:0,SidebarNewsTyp:0,sidebarAboutCompany:0,
     sidebarComents:0,sidebarCatalog:0
   },
   computed: {
     totalprice() {
-        return this.SiteTyp+this.EngineTyp;
+        return this.SiteTyp+this.EngineTyp+this.SidebarNewsTyp+this.sidebarAboutTyp+this.sidebarAboutCompany+this.sidebarCatalog;
     }
   },
   methods: {
