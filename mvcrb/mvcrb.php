@@ -57,10 +57,10 @@ class mvcrb {
         spl_autoload_register(__CLASS__ . '::AutoLoadClassFile');
 
         self::initWhoops();
-        
+                
         $ret = self::GetControllerAndAction();
 
-        if($ret){
+//        if($ret){
             self::$ExecRetVal = self::Exec(self::$ControllerName, self::$ActionName, self::$ParametersArray);
 
             if (!is_object(self::$ExecRetVal)) {
@@ -68,9 +68,9 @@ class mvcrb {
             } else {
                 var_dump(self::$ExecRetVal);
             }
-            return;
-        }
-        echo $ret;
+//            return;
+//        }
+//        echo $ret;
         
 
        
@@ -93,15 +93,19 @@ class mvcrb {
                     return call_user_func(array($objectCtrl, $Action));
                 }
             }
-            header("HTTP/1.1 405 Method Not Allowed");
-            header("Status: 405 Method Not Allowed");
+            if (!headers_sent()) { 
+                header("HTTP/1.1 405 Method Not Allowed");
+                header("Status: 405 Method Not Allowed");
+            }
+            
             return "<h1>404 Method Not Allowed</h1><hr><h5>". __METHOD__ ." <b style=\"color: red;\">$Controller::$Action()</b> Не имеет метода</h5>";
         }
-        header("HTTP/1.1 523 Origin Is Unreachable");
-        header("Status: 523 Origin Is Unreachable");
+        if (!headers_sent()) { 
+            header("HTTP/1.1 523 Origin Is Unreachable");
+            header("Status: 523 Origin Is Unreachable");
+        }
+        
         return "<h1>523 Not Found</h1><hr><h5>Exec:: нет исполнительного контроллера $Controller</h5>";
-//        return __METHOD__ . " Контроллер <b style=\"color: red;\">$ctrl</b> не имеет метода <b style=\"color: red;\">$Action</b>";
-        //            return FALSE;
         
     }
     /**
@@ -211,15 +215,15 @@ class mvcrb {
             
 //            header('HTTP/1.0 404 Not Found');
 //            exit('Нет контроллера '.$controlerName);
-//            throw new Exception(__METHOD__ . ' [ERROR:404] фаил Контроллера <b style="color: red;">' . $controlerName . '.php</b> не найден<br>');
-            return FALSE;
+            throw new \Exception(__METHOD__ . ' [ERROR:404] фаил Контроллера ' . $controlerName . '.php не найден');
+//            return FALSE;
         } else {
             self::$ControllerFile = $controllerFile;
             return $controllerFile;
         }
 //        require_once ($controllerFile);
-//        throw new Exception(__METHOD__ . ' [ERROR:404] фаил Контроллера <b style="color: red;">' . $controlerName . '.php</b> не найден<br>');
-        return FALSE;
+        throw new \Exception(__METHOD__ . ' [ERROR:404] фаил Контроллера ' . $controlerName . '.php не найден');
+//        return FALSE;
     }
     /**
      * настраиваем основную конфигурацию ядра системы

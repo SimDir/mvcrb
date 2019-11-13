@@ -16,7 +16,13 @@ define('TEMPLATE_DIR', SITE_DIR . 'Front' . DS);
 define('CONFIG_DIR', SITE_DIR . 'Config' . DS); // папка с конфигами
 
 define ('WRITE_LOG', TRUE); // вести логирование работы или нет
-require_once SITE_DIR.'vendor'.DS.'autoload.php'; // подключаем композер
+define ('COMPOSER', SITE_DIR.'vendor'.DS.'autoload.php');
+
+if(file_exists(COMPOSER)){
+    require_once COMPOSER; // подключаем композер
+}else{
+    die('на сервере отсутствует дириктория "vendor" а это значит "Composer" не установлен! продолжить невозможно. установите composer и обновите бибилиотеки. https://getcomposer.org/');
+}
 require_once APP . 'mvcrb.php';
 mvcrb\mvcrb::Run();
 

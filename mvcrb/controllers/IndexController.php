@@ -11,8 +11,10 @@ class IndexController extends Controller{
 
     public function IndexAction() {
         $faker = Faker\Factory::create('Ru_RU');
-        $this->View->content = $faker->realText(300);
-        return $this->View->execute('index.html');
+        $View=&$this->View;
+        $View->title = $faker->words(3,true);
+        $View->content = $View('calc/calc.html');
+        return $View('index.html');
     }
     
     public function headerAction() {

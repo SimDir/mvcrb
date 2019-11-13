@@ -7,8 +7,8 @@
 namespace mvcrb;
 use RedBeanPHP\Facade as R;
 class Model extends R{
-    public function __construct() {
-        $IncFile = CONFIG_DIR . 'DataBase.php';
+    public function __construct($cfgFile='DataBase.php') {
+        $IncFile = CONFIG_DIR . $cfgFile;
         
         if(file_exists($IncFile)){
             $Config = include_once($IncFile);

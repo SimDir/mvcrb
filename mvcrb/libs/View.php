@@ -2,6 +2,7 @@
 
 /**
  * Класс для работы с шаблонами
+ * 
  * view
  * 
  */
@@ -10,7 +11,13 @@ class View {
 
     private $vars = array();
     public $TplDir = TEMPLATE_DIR;
-
+    public function __construct() {
+        $this->vars['headcssjs']='';
+        $this->vars['bodycssjs']='';
+    }
+    public function __invoke($val,$TplDir=false) {
+        return $this->execute($val,$TplDir);
+    }
     public function __set($name, $value) {
         $this->vars[$name] = $value;
 //        var_dump($this->vars);
@@ -24,7 +31,19 @@ class View {
 //        return array();
         return FALSE;
     }
-
+    public function __isset($name) {
+        if (isset($this->vars[$name]) && !empty($this->vars[$name])) {
+            return true;
+        }
+        return false;
+    }
+    public function AddCss($stylesheet,$OnTop=true) {
+        if($OnTop){
+            $this->vars['headcssjs'].="<link rel=\"stylesheet\" href=\"$stylesheet\">".PHP_EOL;
+        }else{
+            $this->vars['bodycssjs'].="<link rel=\"stylesheet\" href=\"$stylesheet\">".PHP_EOL;
+        }
+    }
     public function VarGet($name) {
         if (isset($this->vars[$name])) {
 
@@ -40,12 +59,7 @@ class View {
         }
         
     }
-    public function __isset($name) {
-        if (isset($this->vars[$name]) && !empty($this->vars[$name])) {
-            return true;
-        }
-        return false;
-    }
+
 
     public function assign($name, $value) {
         if (isset($this->vars[$name]) && is_array($this->vars[$name])) {
@@ -62,7 +76,10 @@ class View {
         return  preg_replace(array( '/<!--(.*)-->/Uis','#/\*(?:[^*]*(?:\*(?!/))*)*\*/#'), '', $code); // '/<!--(.*)-->/Uis','\<![ \r\n\t]*(--([^\-]|[\r\n]|-[^\-])*--[ \r\n\t]*)\>','/[\s]+/'  |,'#/\*(?:[^*]*(?:\*(?!/))*)*\*/#'|
         
     }
-    public function execute($path) {
+    public function execute($path,$TplDir=false) {
+        if($TplDir){
+            $this->TplDir=$TplDir;
+        }
         if (!file_exists($this->TplDir . $path)) {
             $code = '<p><b>Error: </b>'.__METHOD__. "('$path')</p>Нет файла <strong>$path</strong> для подключения в <b>$this->TplDir</b>";
             return $code;
