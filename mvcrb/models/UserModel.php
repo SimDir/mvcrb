@@ -6,7 +6,7 @@
  * @author ivank
  */
 namespace mvcrb;
-class User extends Model{
+class UserModel extends Model{
     private $TableName;
     public function __construct() {
         parent::__construct();

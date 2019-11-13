@@ -6,7 +6,7 @@
 <div id="calc" class="card">
     <div class="d-flex justify-content-between bg-primary">
         
-        <div class="align-self-start"><img src="/public/img/logo.png" class="img-fluid" alt="Responsive image"></div>
+        <div class="align-self-start"><img src="/public/img/logo2.png" class="img-fluid" alt="Responsive image"></div>
         <div class="align-self-center">тут какой то текст например</div>
 
     </div>
@@ -24,10 +24,21 @@
                         
                         
                         <div class="mask rgba-black-strong">
-                            <p class="white-text">{{ option.desk }}</p>
+                            <div class="row d-flex justify-content-center">
+
+                                
+                                <div class="col-md-10">
+
+                                    <p class="white-text">{{ option.desk }}</p>
+
+                                </div>
+                                
+
+                            </div>
+                            
                         </div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         <div class="custom-control custom-radio">
                             <input type="radio" class="custom-control-input" v-bind:id="'ckd'+index" v-bind:value="option.value" v-model.number="SiteTyp">
                             <label class="custom-control-label" v-bind:for="'ckd'+index">{{option.text}}</label>
@@ -41,19 +52,30 @@
         </div>
         <div v-if="step==2">
             <div class="text-center">
-                <p>CMS (в народе называют движком) – система управления контентом сайта. Это костяк, на котором все строится. От движка зависит удобство наполнения сайта, его «дружелюбность» для поискового продвижения, возможность подключения дополнительных сервисов.</p>
+                <h2>CMS (в народе называют движком) – система управления контентом сайта. Это костяк, на котором все строится. От движка зависит удобство наполнения сайта, его «дружелюбность» для поискового продвижения, возможность подключения дополнительных сервисов.</h2>
             </div>
-             <div class="card-deck">
-                <div class="card mb-4" v-for="option in EnginePrice">
+             <div class="d-flex flex-wrap bd-highlight mb-3 justify-content-center">
+                <div style="width: 400px;" class="bd-highlight border mx-2 mt-3" v-for="option in EnginePrice" v-on:click="EngineTyp=option.value">
                     <div class="view overlay">
                         <img class="card-img-top" v-bind:src="option.img" alt="Card image cap">
                         
                         
                         <div class="mask rgba-black-strong">
-                            <p class="white-text">{{ option.desk }}</p>
+                            <div class="row d-flex justify-content-center">
+
+                                
+                                <div class="col-md-6">
+
+                                    <p class="white-text">{{ option.desk }}</p>
+
+                                </div>
+                                
+
+                            </div>
+                            
                         </div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         <div class="custom-control custom-radio">
                             <input type="radio" class="custom-control-input" v-bind:id="'eckd'+option.value" v-bind:value="option.value" v-model.number="EngineTyp">
                             <label class="custom-control-label" v-bind:for="'eckd'+option.value">{{option.text}} за {{option.value}} рублей</label>
@@ -121,7 +143,7 @@
                                                     <button type="button" >-</button>
                                                     
                                                     <button type="button" >+</button>
-                                                </div
+                                                </div>
                                             </li>
                                         </ul>
                                     </div>
@@ -184,7 +206,7 @@ var app = new Vue({
           desk:'В общем случае, веб-интерфейс для доступа сотрудника к корпоративным данным и приложениям.' }
     ],
     EngineTyp:0,EnginePrice: [
-      { text: 'Bitrix', value:0, img:'https://upload.wikimedia.org/wikipedia/ru/thumb/5/51/1c_bitrix_logo.svg/768px-1c_bitrix_logo.svg.png',
+      { text: 'Bitrix', value:0, img:'https://www.intervolga.ru/upload/medialibrary/8d0/8d09701103cc66ffedba00feb577b543.jpg',
         desk:''},
       { text: 'Tilda', value: 10000, img:'https://d2xzmw6cctk25h.cloudfront.net/post/1738/og_cover_image/970fe5a36401ee376059ec3370a08279',
         desk:''},
