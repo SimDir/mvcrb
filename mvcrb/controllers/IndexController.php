@@ -10,7 +10,8 @@ use Faker;
 class IndexController extends Controller{
 
     public function IndexAction() {
-        //$faker = Faker\Factory::create('Ru_RU');
+        $faker = Faker\Factory::create('Ru_RU');
+        $this->View->title = $faker->words(3,true);
         $this->View->content = $this->View->execute('calc/calc.html');
         return $this->View->execute('index.html');
     }

@@ -9,8 +9,6 @@
  * 
  * подробнее смотрите описание 
  * https://redbeanphp.com/index.php?p=/connection
- * userid=citycam;password=Eew4eaFaijae6eo<shew
- * db: new_navy
  */
 return array(
     'db_driver' => 'MariaDB',

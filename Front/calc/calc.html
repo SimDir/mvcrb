@@ -4,27 +4,23 @@
 </style>
 
 <div id="calc" class="card">
-    <div class="card-title bg-info">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4"><img src="https://cdn.bitrix24.ru/b4752127/bitrix24/3e3/3e30e0e2e95213b1893c96695ecf9d4d/logo_hlJWhWfi.png" class="img-fluid" alt="Responsive image"></div>
-                <div class="col-md-8"><p v-if="totalprice>0">Цена {{totalprice}} Руб.</p></div>
-            </div>
-        </div>
+    <div class="d-flex justify-content-between bg-primary">
         
-
+        <div class="align-self-start"><img src="/public/img/logo.png" class="img-fluid" alt="Responsive image"></div>
+        <div class="align-self-center">тут какой то текст например</div>
 
     </div>
+    
     <div class="card-body">
        
         <div v-if="step==1">
             <div class="text-center">
-                <p>В первую очередь Вы должны определится, с какой целью Вам нужен сайт и выбрать соответствующий тип сайта.В зависимости от Вашего выбора, будут подобраны соответствующие модули.</p>
+                <h2>В первую очередь Вы должны определится, с какой целью Вам нужен сайт и выбрать соответствующий тип сайта.В зависимости от Вашего выбора, будут подобраны соответствующие модули.</h2>
             </div>
-            <div class="card-deck">
-                <div class="card mb-4" v-for="option in SiteTypPrice">
+            <div class="d-flex flex-wrap bd-highlight mb-3 justify-content-center">
+                <div style="width: 400px;" class="bd-highlight border mx-2 mt-3" v-for="(option, index) in SiteTypPrice" v-on:click="SiteTyp=option.value">
                     <div class="view overlay">
-                        <img class="card-img-top" v-bind:src="option.img" alt="Card image cap">
+                        <img class="img-fluid" v-bind:src="option.img">
                         
                         
                         <div class="mask rgba-black-strong">
@@ -33,9 +29,11 @@
                     </div>
                     <div class="card-body">
                         <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" v-bind:id="'ckd'+option.value" v-bind:value="option.value" v-model.number="SiteTyp">
-                            <label class="custom-control-label" v-bind:for="'ckd'+option.value">{{option.text}} всего за {{option.value}} рублей</label>
+                            <input type="radio" class="custom-control-input" v-bind:id="'ckd'+index" v-bind:value="option.value" v-model.number="SiteTyp">
+                            <label class="custom-control-label" v-bind:for="'ckd'+index">{{option.text}}</label>
+                            
                         </div>
+                        <h5>всего за {{option.value}} рублей</h5>
                     </div>
                 </div>
             </div>
@@ -154,12 +152,14 @@
             Наполнение проекта
         </div>
     </div>
-    <div class="card-footer">
-        <div v-if="SiteTyp!==0" class="btn-group float-right" role="group" aria-label="Basic example">
-            <button v-if="step>1" @click="prew" type="button" class="btn btn-default" >назад</button>
-            <button v-if="step<5" @click="next" type="button" class="btn btn-green" >далее</button>
+    
+        <div v-if="SiteTyp!==0" class="d-flex justify-content-between bd-highlight mb-3">
+            <div class="p-2 bd-highlight"><button v-if="step>1" @click="prew" type="button" class="btn btn-default" >назад</button></div>
+            <div class="p-2 bd-highlight"><span v-if="totalprice>0">Цена {{totalprice}} Руб.</span></div>
+            <div class="p-2 bd-highlight"><button v-if="step<5" @click="next" type="button" class="btn btn-green" >далее</button></div>
         </div>
-    </div>
+       
+    
     
 </div>
 
@@ -172,11 +172,15 @@ var app = new Vue({
     message: 'Калькулятор сайтов',
     step:1,MaxStep:5, 
     SiteTyp:0,SiteTypPrice: [
-      { text: 'Одностраничный сайт', value:25000,img:'https://sales-generator.ru/upload/resize_cache/iblock/549/790_395_2/5498e3193ea14ff3c7443bdb14737642.png',
+      { text: 'Одностраничный сайт', value:25000,img:'/public/img/sample.jpg',
           desk:'Очень популярный в настоящее время формат сайтов, который не предполагает разветвленной структуры. Все содержание такого сайта умещается на одной-единственной странице и просматривается вверх и вниз при помощи прокрутки.' },
-      { text: 'Интернет магазин', value:45000,img:'http://linuxgid.ru/wp-content/uploads/2017/07/plast46-shop2.jpg',
+      { text: 'Интернет магазин', value:45000,img:'/public/img/ecom.jpg',
           desk:'Сайт, торгующий товарами посредством сети Интернет. Позволяет пользователям онлайн, в своём браузере или через мобильное приложение, сформировать заказ на покупку, выбрать способ оплаты и доставки заказа, оплатить заказ. При этом продажа товаров осуществляется дистанционным способом' },
-      { text: 'Корпоративный сайт', value:35000,img:'https://regioninfo.ru/upload/iblock/e7d/e7dafb4bc16e00c1e3c216ba0fd39c8b.jpg',
+      { text: 'Корпоративный сайт', value:35000,img:'/public/img/portal.jpg',
+          desk:'В общем случае, веб-интерфейс для доступа сотрудника к корпоративным данным и приложениям.' },
+      { text: 'Сайт визитка', value:15000,img:'/public/img/leding.jpg',
+          desk:'сайт-визитку используют компании, которые не хотят нести большие затраты на создание отдельного сайта. Очень часто при покупке доменного имени для почты устанавливается сайт-заглушка или сайт-визитка.' },
+      { text: 'Демо сайт', value:10000,img:'/public/img/sample.jpg',
           desk:'В общем случае, веб-интерфейс для доступа сотрудника к корпоративным данным и приложениям.' }
     ],
     EngineTyp:0,EnginePrice: [
