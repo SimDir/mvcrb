@@ -13,7 +13,7 @@ class IndexController extends Controller{
         $faker = Faker\Factory::create('Ru_RU');
         $View=&$this->View;
         $View->title = $faker->words(3,true);
-        $View->content = $View('calc/calc.html');
+        $View->content = 'Привет мир!';
         return $View('index.html');
     }
     
