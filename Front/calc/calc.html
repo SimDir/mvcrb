@@ -3,19 +3,20 @@
 
 </style>
 
-<div id="calc" class="card">
+<div id="calc">
     <div class="d-flex justify-content-between bg-primary">
         
         <div class="align-self-start"><img src="/public/img/logo2.png" class="img-fluid" alt="Responsive image"></div>
-        <div class="align-self-center">тут какой то текст например</div>
+        <div class="align-self-center">Шаг {{step}} из {{MaxStep}}</div>
 
     </div>
     
-    <div class="card-body">
+    <div >
        
         <div v-if="step==1">
             <div class="text-center">
-                <h2>В первую очередь Вы должны определится, с какой целью Вам нужен сайт и выбрать соответствующий тип сайта.В зависимости от Вашего выбора, будут подобраны соответствующие модули.</h2>
+                <h2>Тип сайта</h2>
+                <p>В первую очередь Вы должны определится, с какой целью Вам нужен сайт и выбрать соответствующий тип сайта.В зависимости от Вашего выбора, будут подобраны соответствующие модули.</p>
             </div>
             <div class="d-flex flex-wrap bd-highlight mb-3 justify-content-center">
                 <div style="width: 400px;" class="bd-highlight border mx-2 mt-3" v-for="(option, index) in SiteTypPrice" v-on:click="SiteTyp=option.value">
@@ -50,9 +51,11 @@
             </div>
             
         </div>
+        
         <div v-if="step==2">
             <div class="text-center">
-                <h2>CMS (в народе называют движком) – система управления контентом сайта. Это костяк, на котором все строится. От движка зависит удобство наполнения сайта, его «дружелюбность» для поискового продвижения, возможность подключения дополнительных сервисов.</h2>
+                <h2>Выбор движка</h2>
+                <p>CMS (в народе называют движком) – система управления контентом сайта. Это костяк, на котором все строится. От движка зависит удобство наполнения сайта, его «дружелюбность» для поискового продвижения, возможность подключения дополнительных сервисов.</p>
             </div>
              <div class="d-flex flex-wrap bd-highlight mb-3 justify-content-center">
                 <div style="width: 400px;" class="bd-highlight border mx-2 mt-3" v-for="option in EnginePrice" v-on:click="EngineTyp=option.value">
@@ -64,7 +67,7 @@
                             <div class="row d-flex justify-content-center">
 
                                 
-                                <div class="col-md-6">
+                                <div class="col-md-11">
 
                                     <p class="white-text">{{ option.desk }}</p>
 
@@ -85,100 +88,232 @@
             </div>
             
         </div>
+        
         <div v-if="step==3">
             <div class="text-center">
+                <h2>Перечень страниц для выбора</h2>
                 <p>Дополнительные страницы позволяют расширять функционал Вашего сайта. В зависимости от типа сайта подбираются соответствующие страницы. Но даже на корпоративный сайт никто не мешает установить блог или каталог товаров.</p>
             </div>
-            <div>
-                <div id="example-3" class="demo">
-                    <div class="card" >
-                        <div class="card-header">
-                            <input type="checkbox" id="header" value="header" v-model="ParamSait">
-                            <label for="header">Шапка сайта</label>
-                            <p>это титульная верхняя часть дизайн-макета веб-страницы.</p>
-                        </div>
-                        <div class="card-body">
-                            
-                            <input type="checkbox" id="menu" value="menu" v-model="ParamSait">
-                            <label for="menu">Меню</label>
-                            <p>это сгруппированный набор ссылок с названиями разделов, облегчающий переход на другие страницы. Они называются пунктами меню и могут обозначаться текстом или графическими значками</p>
-                        </div>
-                        <div class="card-footer">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-6 border-right">
-                                        <input type="checkbox" id="sidebar" value="1" v-model="SideBar">
-                                        <label for="sidebar">Боковое меню "Сайдбар"</label>
-                                        <ul v-if="SideBar" class="list-group list-group-flush">
-                                            <li class="list-group-item">
-                                                <select v-model.number="SidebarNewsTyp" class="form-control">
-                                                    <option value="0">Новости, акции</option>
-                                                    <option value="1500">Новости, акции (с управлением)</option>
-                                                </select>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <select v-model.number="sidebarAboutTyp" class="form-control">
-                                                    <option value="0">О товаре/услугах</option>
-                                                    <option value="1000">О товаре/услугах (с управлением)</option>
-                                                </select>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <input type="checkbox" id="sidebarAboutCompany" value="0" v-model="sidebarAboutCompany">
-                                                <label for="sidebarAboutCompany">О компании</label>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <input type="checkbox" id="sidebarComents" value="0" v-model="sidebarComents">
-                                                <label for="sidebarComents">Отзывы</label>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <select v-model.number="sidebarCatalog" class="form-control">
-                                                    <option value="0">Каталог (до 10) товаров</option>
-                                                    <option value="35000">Каталог (до 100 товаров)</option>
-                                                </select>                                                
-                                            </li>
-                                            <li class="list-group-item">
-                                                <input type="checkbox" id="sidebarUnikPage" value="0" v-model="sidebarUnikPage">
-                                                <label for="sidebarUnikPage">Уникальные страницы</label><br>
-                                                <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <button type="button" >-</button>
-                                                    
-                                                    <button type="button" >+</button>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-6">
-                                        
-                                        
-                                        <input type="checkbox" id="content" value="content" v-model="ParamSait">
-                                        <label for="content">Контент сектор</label>
-                                    </div>
-                                    
-                                   
-                                    
-                                </div>
+            <div class="d-flex justify-content-between bd-highlight mb-3">
+                <div class="p-2 bd-highlight col-example">
+                    <p class="text-success">Базовые страницы (входят в стимость)</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="basehederMenu">
+                                <label class="custom-control-label" for="basehederMenu">Шапка(меню,контент,сайдбар)</label>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <span>Входит в базовую стоимость: {{ ParamSait }}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="baseNewsSalers">
+                                <label class="custom-control-label" for="baseNewsSalers">Новости, Акции</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="baseProdukt">
+                                <label class="custom-control-label" for="baseProdukt">О товаре, Услугах</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="baseKompany">
+                                <label class="custom-control-label" for="baseKompany">О компании</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="baseKoments">
+                                <label class="custom-control-label" for="baseKoments">Отзывы</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="baseKatalog">
+                                <label class="custom-control-label" for="baseKatalog">Каталог (до 10) товаров</label>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                
-
+                <div class="p-2 bd-highlight col-example"> </div>
+                <div class="p-2 bd-highlight col-example">
+                    <p class="text-success">Дополнительные страницы</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopWorkers">
+                                <label class="custom-control-label" for="DopWorkers">Комманда, сотрудники</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopFilials">
+                                <label class="custom-control-label" for="DopFilials">Филиалы</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopWorks">
+                                <label class="custom-control-label" for="DopWorks">Вакансии (API c HH)</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopKatalog">
+                                <label class="custom-control-label" for="DopKatalog">Каталог (до 100) товаров</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopUnikPage">
+                                <label class="custom-control-label" for="DopUnikPage">Уникальная страница</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
+        
         <div v-if="step==4">
-            Дизайн
+            <h2>Дизайн</h2>
+            <p>Каждый из дизайн-проектов компании AGATECH - уникальны! Мы работаем с адаптивной версткой. Стоимость разработки макета может отличаться в зависимости от сложности проекта. Количество правок к согласованному макету предложенных заказчиком в процессе создания, увеличивает его стоимость.</p>
+            <div class="d-flex justify-content-between bd-highlight mb-3">
+                <div class="p-2 bd-highlight col-example">
+                    <p class="text-success">Базовые услуги (входят в стимость)</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="baseServicPrototyp">
+                                <label class="custom-control-label" for="baseServicPrototyp">Разработка прототипов страниц проекта</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="baseServicStyles">
+                                <label class="custom-control-label" for="baseServicStyles">Создание карточки стилей пректа</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="baseServicDesine">
+                                <label class="custom-control-label" for="baseServicDesine">Создание дизайн концепции проекта</label>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="p-2 bd-highlight col-example"> </div>
+                <div class="p-2 bd-highlight col-example">
+                    <p class="text-success">Дополнительные услуги</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopServecLogoKompany">
+                                <label class="custom-control-label" for="DopServecLogoKompany">Разработка логотипа и фирменного стиля</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="DopServecSliders">
+                                    <label class="custom-control-label" for="DopServecSliders">Разработка слайдов акции</label>
+                                </div>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">-</span>
+                                </div>
+                                <input type="text" class="form-control" >
+                                <div class="input-group-append">
+                                    <span class="input-group-text">+</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopServecBtnCreate">
+                                <label class="custom-control-label" for="DopServecBtnCreate">Разработка набора кнопок</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="DopServecPictureDev">
+                                    <label class="custom-control-label" for="DopServecPictureDev">Обработка изображений</label>
+                                </div>
+                                
+                                <input type="number" class="form-control" >
+                                
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopServecPresent">
+                                <label class="custom-control-label" for="DopServecPresent">Разработка презентации</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopServecBrandBook">
+                                <label class="custom-control-label" for="DopServecBrandBook">Разработка брендбука</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
+        
         <div v-if="step==5">
-            Наполнение проекта
+            <div class="text-center">
+                <h2>Наполнение</h2>
+                <p>Создание сайта - это только начало. Его следует наполнить. Это можно делать самостоятельно или доверить работу профессионалам. Если Вам необходима помощь в подготовке наполнения для проекта, выберите необходимые услуги ниже.</p>
+            </div>
+            <div class="d-flex justify-content-between bd-highlight mb-3">
+                <div class="p-2 bd-highlight col-example">
+                    
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="WriteText">
+                                <label class="custom-control-label" for="WriteText">Написание текстов (500 знаков)</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="SalePictures">
+                                <label class="custom-control-label" for="SalePictures">Подбор и покупка изображений</label>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="p-2 bd-highlight col-example"> </div>
+                <div class="p-2 bd-highlight col-example">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopMoveCreate">
+                                <label class="custom-control-label" for="DopMoveCreate">Создание видиоролика</label>
+                            </div>
+                            
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopPhotograph">
+                                <label class="custom-control-label" for="DopPhotograph">Работа фотографа (2 часа 50 фотографий)</label>
+                            </div>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
     
         <div v-if="SiteTyp!==0" class="d-flex justify-content-between bd-highlight mb-3">
             <div class="p-2 bd-highlight"><button v-if="step>1" @click="prew" type="button" class="btn btn-default" >назад</button></div>
             <div class="p-2 bd-highlight"><span v-if="totalprice>0">Цена {{totalprice}} Руб.</span></div>
-            <div class="p-2 bd-highlight"><button v-if="step<5" @click="next" type="button" class="btn btn-green" >далее</button></div>
+            <div class="p-2 bd-highlight"><button v-if="step<MaxStep" @click="next" type="button" class="btn btn-green" >далее</button></div>
         </div>
        
     
@@ -192,7 +327,7 @@ var app = new Vue({
   el: '#calc',
   data: {
     message: 'Калькулятор сайтов',
-    step:1,MaxStep:5, 
+    step:1,MaxStep:8, 
     SiteTyp:0,SiteTypPrice: [
       { text: 'Одностраничный сайт', value:25000,img:'/public/img/sample.jpg',
           desk:'Очень популярный в настоящее время формат сайтов, который не предполагает разветвленной структуры. Все содержание такого сайта умещается на одной-единственной странице и просматривается вверх и вниз при помощи прокрутки.' },
@@ -207,21 +342,20 @@ var app = new Vue({
     ],
     EngineTyp:0,EnginePrice: [
       { text: 'Bitrix', value:0, img:'https://www.intervolga.ru/upload/medialibrary/8d0/8d09701103cc66ffedba00feb577b543.jpg',
-        desk:''},
+        desk:'1С-Битрикс: Управление сайтом — система управления содержимым от российской компании 1С-Битрикс. Имеет несколько «редакций» — лицензионных версий: Старт, Стандарт, Малый бизнес, Бизнес, которые отличаются включаемыми модулями системы'},
       { text: 'Tilda', value: 10000, img:'https://d2xzmw6cctk25h.cloudfront.net/post/1738/og_cover_image/970fe5a36401ee376059ec3370a08279',
-        desk:''},
+        desk:'Tilda Publishing — блочный конструктор сайтов, не требующий навыков программирования. Позволяет создавать сайты, интернет-магазины, посадочные страницы, блоги и email-рассылки. Cайты на платформе собираются из готовых блоков, которые автоматически адаптируются под мобильные устройства и выделены в смысловые категории.'},
       { text: 'Opencart', value: 15000, img:'https://www.opencart.com/application/view/image/home/hero-image.png',
-        desk:''},
+        desk:'OpenCart — e-commerce platform, ориентированная на создание интернет-магазинов. Является свободным программным обеспечением, распространяемым по лицензии GNU General Public License v3. Системой «OpenCart» поддерживаются дополнения. «OpenCart» создан и поддерживается Дениэлем Керром в репозитории GitHub.'},
       { text: 'Чистый код', value:25000, img:'https://wpgutenberg.top/wp-content/uploads/2019/01/PHP7.3-1024x512.png',
-        desk:'' }
+        desk:'PHP — скриптовый язык общего назначения, интенсивно применяемый для разработки веб-приложений. В настоящее время поддерживается подавляющим большинством хостинг-провайдеров и является одним из лидеров среди языков, применяющихся для создания динамических веб-сайтов.' }
     ],
-    ParamSait:[],sidebarUnikPage:0,SideBar:0,sidebarAboutTyp:0,SidebarNewsTyp:0,sidebarAboutCompany:0,
-    sidebarComents:0,sidebarCatalog:0
+    ParamSait:[]
   },
   computed: {
     totalprice() {
         let UnikPage = this.sidebarUnikPage*5000;
-        return this.SiteTyp+this.EngineTyp+this.SidebarNewsTyp+this.sidebarAboutTyp+this.sidebarAboutCompany+this.sidebarCatalog;
+        return this.SiteTyp+this.EngineTyp;
     }
   },
   methods: {
