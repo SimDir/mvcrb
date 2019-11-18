@@ -1,4 +1,5 @@
 <?php
+namespace mvcrb;
 
 defined('ROOT') OR die('No direct script access.');
 /**
@@ -6,7 +7,7 @@ defined('ROOT') OR die('No direct script access.');
  *
  * @author Ivan Kolotilkin
  */
-namespace mvcrb;
+
 abstract class Controller{
     public $GET=FALSE;
     public $POST=FALSE;

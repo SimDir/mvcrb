@@ -1,4 +1,5 @@
 <?php
+namespace mvcrb;
 
 defined('ROOT') OR die('No direct script access.');
 /* 
@@ -6,7 +7,7 @@ defined('ROOT') OR die('No direct script access.');
  * он настолько простой что нечего тут даже и пояснять.
  * 
  */
-namespace mvcrb;
+
 define('SESSION_PREFIX', 'IPCamPanel_');
 define("SECURE", FALSE);    // FOR DEVELOPMENT ONLY!!!!
 class Session

@@ -1,10 +1,12 @@
-<?php defined('ROOT') OR die('No direct script access.');
+<?php
+namespace mvcrb;
+defined('ROOT') OR die('No direct script access.');
 /**
  * Description of Model
  *
  * @author ivank
  */
-namespace mvcrb;
+
 use RedBeanPHP\Facade as R;
 class Model extends R{
     public function __construct($cfgFile='DataBase.php') {
