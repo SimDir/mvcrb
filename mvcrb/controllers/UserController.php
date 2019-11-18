@@ -1,23 +1,24 @@
 <?php
-
+namespace mvcrb;
+defined('ROOT') OR die('No direct script access.');
 /**
  * Description of UserController
  *  
  * @author ivan kolotilkin
  */
-namespace mvcrb;
+
 class UserController extends Controller{
     private $User;
     public function __construct() {
         parent::__construct();
-        $this->User = new User();
+        $this->User = new UserModel();
         $this->View->SetWivePath(TEMPLATE_DIR.'UserController'.DS);
 
     }
     
     public function IndexAction() {
         $UserVars = $this->User->GetCurrentUser();
-        if(!$UserVars){
+        if($UserVars['role']<100){
             return $this->LoginAction();
         }
 
