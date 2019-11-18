@@ -1,53 +1,34 @@
-<?php
-namespace mvcrb;
-defined('ROOT') OR die('No direct script access.');
+<?php defined('ROOT') OR die('No direct script access.');
 
 /**
  * Description of IndexController
  *
  * @author ivan kolotilkin
  */
-
+namespace mvcrb;
+use Faker;
 class IndexController extends Controller{
-    public function __construct() {
-        parent::__construct();
-        $this->View->SetWivePath(TEMPLATE_DIR . 'IndexController' . DS);
-        $this->View->title = 'Агротех :-)';
-        $this->View->AddCss('https://fonts.googleapis.com/css?family=Ubuntu:300,400,700&display=swap');
-    }
 
     public function IndexAction() {
-
-        $this->View->title = 'Главная';
-        $this->View->content = $this->View->execute('main.html');
-        return $this->View->execute('index.html',TEMPLATE_DIR);
+        $faker = Faker\Factory::create('Ru_RU');
+        $View=&$this->View;
+        $View->title = $faker->words(3,true);
+        $View->content = 'Привет мир!';
+        return $View('index.html');
     }
     
     public function headerAction() {
-        return $this->View->execute('inc'.DS.'header.html');
-    }
-    public function SliderAction() {
-        return $this->View->execute('inc'.DS.'slider.html');
-    }
-    public function FooterAction() {
-        return $this->View->execute('inc'.DS.'footer.html');
-    }
-    public function PageAction($page) {
-        $this->View->title = 'Страница - ' . $page;
-
-        $this->View->content = $this->View->execute('staticpage'.DS.$page);
-        $this->View->content = $this->View->execute('pages.html');
-        return $this->View->execute('index.html', TEMPLATE_DIR);
-    }
-    public function PagefAction($param1,$param2=null) {
-        $incFile = '';
-        $incDir = TEMPLATE_DIR.'IndexController'.DS.'include'.DS;
-        if($param2){
-            $incFile = $param1.DS.$param2.'.html';
-        } else {
-            $incFile = $param1.'.html';
-        }
-        return $this->View->execute($incFile,$incDir);
+        $faker = Faker\Factory::create('Ru_RU');
+        $this->View->text = $faker->words(18,true);
+        return $this->View->execute('header.html');
     }
 
+    public function MenuAction() {
+        $user = new User();
+        $faker = Faker\Factory::create();
+        
+//        $user->CreateUser( $faker->email, $faker->password,$faker->lastName);
+        
+        return $this->View->execute('navbar.html');
+    }
 }
