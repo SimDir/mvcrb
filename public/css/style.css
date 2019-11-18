@@ -88,22 +88,21 @@ header {
 .header__menu_link:hover .header_bottom {
    visibility: visible;
    opacity: 1;
-   top: 100%;
+   transform: translateY(12vh);
 }
 .header_bottom {
    visibility: hidden;
    z-index: -1;
    width: 100%;
-   height: 0;
    min-height: 8vh;
    background-color: rgba(83,92,112,.75);
    display: flex;
    align-items: flex-start;
    justify-content: space-between;
    position: absolute;
-   top: 0%;
+   top: 0;
    left: 0;
-   transition: all .3s linear .1s;
+   transition: transform .3s linear, opacity 1s ease;
    opacity: 0;
 }
 .header_bottom__content {
@@ -111,6 +110,7 @@ header {
    margin: 0 auto;
    display: flex;
    justify-content: space-between;
+   height: 100%;
 }
 .empty_block {
    flex-basis: 10%;
@@ -128,7 +128,7 @@ header {
 }
 .header_bottom__content_menu_link {
    list-style-type: none;
-   padding: 2vh 2vw 2vh 0;
+   padding: 2.5vh 2vw 2.5vh 0;
    text-align: left;
 }
 .header_bottom__content_menu_link_btn_title{
@@ -1502,13 +1502,58 @@ DIGITAL AGATECH */
 }
 .ourProducts__content_top {
    display: flex;
-   justify-content: space-between;
-   width: 60%;
+   justify-content: center;
+   width: 60vw;
    margin: 0 auto;
 }
 .ourProducts__content_top_circle {
-   
+   height: 45vh;
 }
+.circle_product {
+   height: 35vh;
+   transition: transform 1s;
+
+}
+.ourProducts__content_top_circle:hover .circle_product {
+    transform: rotate(180deg);
+}
+.circle_text_product_1, .circle_text_product_2, .circle_text_product_3{
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+}
+ .circle_text_product_1:after{
+    content: "Интернет-маркетинговое агенство";
+    position: absolute;
+    color: #fff;
+    width: 50%;
+    text-transform: uppercase;
+    font-size: 1.9vh;
+    font-weight: bold;
+    line-height: 2.5vh;
+ }
+ .circle_text_product_2:after{
+    content: "Продвижение и сопровождение";
+    position: absolute;
+    width: 50%;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.9vh;
+    font-weight: bold;
+    line-height: 2.5vh;
+ }
+ .circle_text_product_3:after{
+    content: "Системы управления и автоматизации";
+    position: absolute;
+    width: 50%;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.9vh;
+    font-weight: bold;
+    line-height: 2.5vh;
+ }
 
 
 /* FOOTER */
