@@ -1466,15 +1466,18 @@ DIGITAL AGATECH */
 .colutions__center_block_item::before {
    content: '';
    position: absolute;
-   width: 100%;
-   height: 100%;
+   top: -25%;
+   left: -25%;
+   width: 150%;
+   height: 150%;
    z-index: 1;
    background: #414141;
    opacity: 0.4;
    transition: transform .7s;
+   border-radius: 50%;
 }
 .colutions__center_block_item:hover::before {
-   transform: translate(200%, -200%);
+   transform: scale(0);
 }
 .colutions__center_block_item:hover {
    transform: scale(.9);

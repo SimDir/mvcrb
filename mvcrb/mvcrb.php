@@ -1,17 +1,21 @@
-<?php defined('ROOT') OR die('No direct script access.');
+<?php
+
+defined('ROOT') OR die('No direct script access.');
 /**
  * Главный класс всего приложения
  * 
  */
+
 namespace mvcrb;
-function dd($str){
+
+function dd($str) {
     var_dump($str);
     die();
 }
 
 class mvcrb {
+
     public static $ErrorMessage;
-    
     Private static $globalConfig = [];
     private static $ExecRetVal;
     /*
@@ -22,11 +26,16 @@ class mvcrb {
     Private static $ActionName; // Имя выполняемого метода <Action>
     Private static $ControllerFile; // подключаемый фаил контроллера <...\ControllerPath\*Name*Controller.php>
     Private static $ParametersArray; // массив параметров которые пришли в УРЛ строке
-    
-    public static function ErrorMessage(){return self::$ErrorMessage;}
-    public static function Config(){return self::$globalConfig;}
-    
-    public static function initWhoops(){
+
+    public static function ErrorMessage() {
+        return self::$ErrorMessage;
+    }
+
+    public static function Config() {
+        return self::$globalConfig;
+    }
+
+    public static function initWhoops() {
         $whoops = new \Whoops\Run;
         $whoops_pretty_page_handler = new \Whoops\Handler\PrettyPageHandler();
         $whoops_pretty_page_handler->setEditor('sublime');
@@ -48,66 +57,57 @@ class mvcrb {
         $whoops->pushHandler($whoops_plain_text_handler2);
         $whoops->register();
     }
+
     /**
      * Основной метод запускает все приложение. так называемая точка входа
      * 
      */
     public static function Run() {
-        self::SetupConfig();
-        spl_autoload_register(__CLASS__ . '::AutoLoadClassFile');
-
         self::initWhoops();
-                
-        $ret = self::GetControllerAndAction();
 
-//        if($ret){
-            self::$ExecRetVal = self::Exec(self::$ControllerName, self::$ActionName, self::$ParametersArray);
+        self::SetupConfig();
 
-            if (!is_object(self::$ExecRetVal)) {
-                echo self::$ExecRetVal;
-            } else {
-                var_dump(self::$ExecRetVal);
-            }
-//            return;
-//        }
-//        echo $ret;
-        
-
-       
-        
+        spl_autoload_register(__CLASS__ . '::AutoLoadClassFile');
+        self::GetControllerAndAction();
+        self::$ExecRetVal = self::Exec(self::$ControllerName, self::$ActionName, self::$ParametersArray);
+        if (is_string(self::$ExecRetVal)) {
+            echo self::$ExecRetVal;
+        } else {
+            if (!headers_sent())
+                header('Content-type: application/json');
+            echo json_encode(self::$ExecRetVal);
+        }
     }
-    public static function Exec($Controller ='' ,$Action='',$Param=[]) {
-        
-        $ctrl = 'mvcrb\\'.$Controller;
-        
-        
+
+    public static function Exec($Controller = '', $Action = '', $Param = []) {
+
+        $ctrl = 'mvcrb\\' . $Controller;
+
         if (class_exists($ctrl)) {
             $objectCtrl = new $ctrl();
-//            var_dump($objectCtrl,$Action,$Param);
-//            die();
             if (method_exists($objectCtrl, $Action)) {
-                
+
                 if (count($Param)) {
                     return call_user_func_array(array($objectCtrl, $Action), $Param);
                 } else {
                     return call_user_func(array($objectCtrl, $Action));
                 }
             }
-            if (!headers_sent()) { 
+            if (!headers_sent()) {
                 header("HTTP/1.1 405 Method Not Allowed");
                 header("Status: 405 Method Not Allowed");
             }
-            
-            return "<h1>404 Method Not Allowed</h1><hr><h5>". __METHOD__ ." <b style=\"color: red;\">$Controller::$Action()</b> Не имеет метода</h5>";
+
+            return "<h1>404 Method Not Allowed</h1><hr><h5>" . __METHOD__ . " <b style=\"color: red;\">$Controller::$Action()</b> Не имеет метода</h5>";
         }
-        if (!headers_sent()) { 
+        if (!headers_sent()) {
             header("HTTP/1.1 523 Origin Is Unreachable");
             header("Status: 523 Origin Is Unreachable");
         }
-        
+
         return "<h1>523 Not Found</h1><hr><h5>Exec:: нет исполнительного контроллера $Controller</h5>";
-        
     }
+
     /**
      * функция получения запроса который пришел от пользователя приложением
      * @return String
@@ -115,12 +115,11 @@ class mvcrb {
     private static function GetURI() {
 //        $ee=2/0;
         $pathInfo = filter_input(INPUT_SERVER, 'PATH_INFO');
-
         if ($pathInfo) {
             $path = $pathInfo;
         } else {
             $requestURI = filter_input(INPUT_SERVER, 'REQUEST_URI');
-    //            var_dump($requestURI);
+            //            var_dump($requestURI);
             if (strpos($requestURI, '?') !== false) {
                 $requestURI = substr($requestURI, 0, strpos($requestURI, '?'));
             }
@@ -131,7 +130,6 @@ class mvcrb {
                 $path = $requestURI;
             }
         }
-
         $path = trim($path);
         if (!$path) {
             $path = '/';
@@ -141,6 +139,7 @@ class mvcrb {
         self::$URI = trim($path['path'], '/');
         return self::$URI;
     }
+
     /**
      * Получаем контроллер и метод.
      * данная функция находит в УРЛ тот контроллер и метот на который пршол запрос
@@ -151,15 +150,15 @@ class mvcrb {
     private static function GetControllerAndAction() {
         $access = false;
         self::GetURI();
-        $cfg = self::$globalConfig['App_Config_Dir'].self::$globalConfig['App_Router_Config_File'];
+        $cfg = self::$globalConfig['App_Config_Dir'] . self::$globalConfig['App_Router_Config_File'];
         if (file_exists($cfg)) {
             $routes = include($cfg);
-        }else{
+        } else {
 //            throw new \Exception(__METHOD__ . " Конфигурационный фаил роутинга $cfg не найден. продолжить невозможно");
 //            return false;
             $routes = [];
         }
-        
+
         // проверяю запрос на соответствие регулярному выражению
         foreach ($routes as $uriPattern => $path) {
             if (!preg_match("~$uriPattern~", self::$URI)) {
@@ -168,7 +167,6 @@ class mvcrb {
             // получаем внутренний путь из внешнего согласно правилам маршрутизации
             $access = preg_replace("~$uriPattern~", $path, self::$URI);
         }
-
         if (!$access) {
             if (empty(self::$URI)) {
                 $access = self::$globalConfig['Router_Default_Controller'] . "/" . self::$globalConfig['Router_Default_Action']; //
@@ -177,25 +175,18 @@ class mvcrb {
             }
         }
         $segments = explode('/', $access);
-
         $dirForControllers = self::$globalConfig['App_Controllers_Dir'];
-        $controlerName = ucfirst(array_shift($segments)).'Controller';
+        $controlerName = ucfirst(array_shift($segments)) . 'Controller';
         self::$ControllerName = $controlerName;
-
         $controllerFile = $dirForControllers . $controlerName . '.php';
-
-
         $action = ucfirst(array_shift($segments));
-
         if (empty($action)) {
             $action = ucfirst(self::$globalConfig['Router_Default_Action']);
 //            var_dump($this->globalConfig['Router_Default_Action']);
         }
-        $actionName =  $action.'Action';
+        $actionName = $action . 'Action';
         self::$ActionName = $actionName;
-
         self::$ParametersArray = $segments;
-
         if (!file_exists($controllerFile)) {
 //            if (file_exists($dirForControllers) && is_dir($dirForControllers)) {
 //                die('Директория с контроллерами не найдена');
@@ -203,16 +194,14 @@ class mvcrb {
             $dirArray = scandir($dirForControllers);
             foreach ($dirArray as $da) {
                 if (is_dir($dirForControllers . $da)) {
-
                     $controllerFile = $dirForControllers . $da . DIRECTORY_SEPARATOR . $controlerName . '.php';
-
                     if (file_exists($controllerFile)) { // если в текущей подпапке есть контроллер
                         self::$ControllerFile = $controllerFile;
                         return $controllerFile; // и выходим из функции
                     }
                 }
             }
-            
+
 //            header('HTTP/1.0 404 Not Found');
 //            exit('Нет контроллера '.$controlerName);
             throw new \Exception(__METHOD__ . ' [ERROR:404] фаил Контроллера ' . $controlerName . '.php не найден');
@@ -225,36 +214,37 @@ class mvcrb {
         throw new \Exception(__METHOD__ . ' [ERROR:404] фаил Контроллера ' . $controlerName . '.php не найден');
 //        return FALSE;
     }
+
     /**
      * настраиваем основную конфигурацию ядра системы
      */
-    private static function SetupConfig(){
+    private static function SetupConfig() {
         self::$globalConfig['App_Name'] = 'mvcrb';
         self::$globalConfig['App_Dir'] = APP;
         self::$globalConfig['App_lib_Dir'] = self::$globalConfig['App_Dir'] . 'libs' . DIRECTORY_SEPARATOR;
         self::$globalConfig['App_Config_Dir'] = CONFIG_DIR;
         self::$globalConfig['App_Controllers_Dir'] = self::$globalConfig['App_Dir'] . 'controllers' . DIRECTORY_SEPARATOR;
         self::$globalConfig['App_Models_Dir'] = self::$globalConfig['App_Dir'] . 'models' . DIRECTORY_SEPARATOR;
-        
+
 //        $accept_languages = filter_input(INPUT_SERVER, "HTTP_ACCEPT_LANGUAGE", FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
 //        $locale = locale_accept_from_http($accept_languages);
 //        echo $locale;
-        self::$globalConfig['App_Templates_Dir'] = TEMPLATE_DIR;// . 'default' . DIRECTORY_SEPARATOR;
-        
+        self::$globalConfig['App_Templates_Dir'] = TEMPLATE_DIR; // . 'default' . DIRECTORY_SEPARATOR;
+
         if (!file_exists(self::$globalConfig['App_Config_Dir'] . 'AutoLoader.php')) {
 //            exit('AutoLoaderConfig.php не найден');
-            self::$globalConfig['App_Clas_Loader_Dir_Array'] = ['libs','models','controllers'];
+            self::$globalConfig['App_Clas_Loader_Dir_Array'] = ['libs', 'models', 'controllers'];
         } else {
             self::$globalConfig['App_Clas_Loader_Dir_Array'] = include_once self::$globalConfig['App_Config_Dir'] . 'AutoLoader.php';
         }
-        
+
         self::$globalConfig['App_Router_Config_File'] = 'Routes.php';
         self::$globalConfig['Router_Default_Controller'] = 'index';
         self::$globalConfig['Router_Default_Action'] = 'index';
 //        $str_value = serialize(self::$globalConfig);
 //        echo $str_value;
     }
-    
+
     /**
      * Автоматическая загрузка классов
      * @param type $className
@@ -278,9 +268,7 @@ class mvcrb {
         $dirArr = self::$globalConfig['App_Clas_Loader_Dir_Array'];
         $appDir = self::$globalConfig['App_Dir'];
         foreach ($dirArr as $value) {
-
             $classFile = self::SearchFile($className . '.php', $appDir . $value);
-
             if (file_exists($classFile)) {
                 include_once $classFile;
                 return $classFile;
@@ -296,15 +284,12 @@ class mvcrb {
      */
     public static function SearchFile($fileName, $folderName) {
         // перебираем пока есть файлы
-        if(!is_dir($folderName)){
+        if (!is_dir($folderName)) {
             return false;
         }
         $dirArray = scandir($folderName);
-
         foreach ($dirArray as $file) {
-
             if ($file != "." && $file != "..") {
-
                 // если файл проверяем имя
                 if (is_file($folderName . DIRECTORY_SEPARATOR . $file)) {
                     // если имя файла искомое,
@@ -326,6 +311,12 @@ class mvcrb {
         }
     }
 
-    
-    
+    public static function Redirect($url, $permanent = false) {
+        if (headers_sent() === false) {
+            header('Location: ' . $url, true, ($permanent === true) ? 301 : 302);
+        }
+//        echo '<script type="text/javascript">window.location = "http://www.google.com/"</script>';
+//        exit();
+    }
+
 }

@@ -16,7 +16,7 @@ return array(
     '\binclude\b/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+).html' => 'index/pagef/$1/$2',
 //    '404' => 'main/eror404',
 //    'index.php' => 'main/redirect',
-        'page' => 'index/page/',
+    '\bpage\b' => 'index/page/',
 //    '\bpage\b/([0-9]+)' => 'index/page/$1',
 //    '\bpage\b/([-_a-zA-Z0-9]+).html' => 'index/page/$1',
     '\bpage\b/([-_a-zA-Z0-9]+)' => 'index/page/$1',
