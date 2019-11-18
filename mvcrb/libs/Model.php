@@ -32,7 +32,7 @@ class Model extends R{
                 $this->setup( "mysql:host=$host:$port;dbname=$dbname",$login, $pass );
                 break;
             case "PostgreSQL":
-                $this->setup( "pgsql:host=$host;dbname=$dbname",$login, $pass );
+                $this->setup( "pgsql:host=$host:$port;dbname=$dbname",$login, $pass );
                 break;
             case "SQLite":
                 $this->setup( 'sqlite:'.APP.'database.db' );
