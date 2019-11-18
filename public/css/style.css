@@ -886,9 +886,12 @@ DIGITAL AGATECH */
 }
 .digital-agatech__content_center_block2_graphic {
    background-color: transparent;
-   width: 100%;
+   width: 90%;
    height: 60vh;
    margin-bottom: 5vh;
+}
+.graphic {
+   width: 100%;
 }
 .digital-agatech__content_center_block3 {
    position: relative;
@@ -1670,10 +1673,78 @@ DIGITAL AGATECH */
    line-height: 4vh;
    color: #626779;
    margin-bottom: 3vh;
-
 }
 
 
+
+
+
+
+/* BusinessCooperation */
+.businessCooperation {
+   overflow-x: hidden; 
+}
+.businessCooperationbgc {
+   position: absolute;
+   top: 0; 
+   left: 0;
+   width: 100%;
+   z-index: -1;
+}
+.businessCooperation__top {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   width: 90%;
+   margin: 0 auto;
+}
+.businessCooperation__top h2 {
+   font-weight: bold;
+   font-size: 10vh;
+   line-height: 11vh;
+   letter-spacing: 0.07em;
+   color: #98BAED;
+   text-align: center;
+   margin-top: 10vh;
+   margin-bottom: 15vh;
+}
+.businessCooperation__center {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   background-color: #E4E7F1;
+   min-height: 160vh;
+   border-top: 17px solid #8CB0E4;
+}
+.businessCooperation__center_menu {
+   margin: 5vh 0 10vh;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+}
+.businessCooperation__center_menu_link{
+   text-decoration: none;
+   font-size: 2.5vh;
+   line-height: 2.5vh;
+   padding: 1vh 1.5vw;
+   color: #626779;
+   cursor: pointer;
+   transition: all .2s ease;
+}
+.businessCooperation__center_menu_link:hover{
+   color: #626779;
+}
+.businessCooperation__center h6 {
+   font-weight: bold;
+   font-size: 4vh;
+   line-height: 4vh;
+   color: #626779;
+   margin-bottom: 3vh;
+}
 
 
 
