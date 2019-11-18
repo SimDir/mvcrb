@@ -29,7 +29,7 @@ class Model extends R{
         
         switch ($Config['db_driver']) {
             case "MariaDB":
-                $this->setup( "mysql:host=$host;dbname=$dbname",$login, $pass );
+                $this->setup( "mysql:host=$host:$port;dbname=$dbname",$login, $pass );
                 break;
             case "PostgreSQL":
                 $this->setup( "pgsql:host=$host;dbname=$dbname",$login, $pass );
@@ -47,7 +47,7 @@ class Model extends R{
 //        });
         
         if(!$this->testConnection()){
-//            $this->fancyDebug( TRUE );
+            $this->fancyDebug( TRUE );
             throw new \Exception(__METHOD__ . " ошибка бaзы данных $host:$port. неудалось установить соединение c БД $dbname");
         }
         
