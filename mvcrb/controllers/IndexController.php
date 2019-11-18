@@ -1,11 +1,13 @@
-<?php defined('ROOT') OR die('No direct script access.');
+<?php 
+namespace mvcrb;
+defined('ROOT') OR die('No direct script access.');
 
 /**
  * Description of IndexController
  *
  * @author ivan kolotilkin
  */
-namespace mvcrb;
+
 use Faker;
 class IndexController extends Controller{
 
