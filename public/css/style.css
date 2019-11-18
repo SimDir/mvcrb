@@ -276,7 +276,7 @@ header {
 
 .icons_block {
    text-align: center;
-   width: 5vw;
+   width: 50px;
    margin: 0 .2vw;
    display: flex;
    flex-direction: column;
@@ -284,15 +284,21 @@ header {
    align-items: center;
 }
 .icons_block p {
-   margin-top: 1vh;
+   display: none;
    color: #fff;
+   margin-top: 10px;
+/*   
+
    font-size: 1.4vh;
-   line-height: 1.4vh;
+   line-height: 1.4vh;*/
+}
+.icons_block:hover p{
+    display:block;
 }
 .icons {
    border-radius: 10px;
-   width: 4vw;
-   height: 8vh;
+   width: 50px;
+   height: 50px;
    margin: 0 auto;
    display: flex;
    align-items: center;
