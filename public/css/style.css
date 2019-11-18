@@ -238,7 +238,7 @@ header {
    text-align: center;
 }
 .circle_text1:after{
-   content: "Интернет-маркетинговое агенство";
+   content: "Креативная цифровая разработка";
    position: absolute;
    color: #fff;
    width: 50%;
@@ -248,7 +248,7 @@ header {
    line-height: 3vh;
 }
 .circle_text2:after{
-   content: "Продвижение и сопровождение";
+   content: "Комплексное продвижение и сопровождение";
    position: absolute;
    width: 50%;
    color: #fff;
@@ -258,7 +258,7 @@ header {
    line-height: 3vh;
 }
 .circle_text3:after{
-   content: "Системы управления и автоматизации";
+   content: "Автоматизация вашего бизнеса";
    position: absolute;
    width: 50%;
    color: #fff;
@@ -1499,6 +1499,7 @@ DIGITAL AGATECH */
    left: 0;
    width: 100%;
    z-index: -1;
+   
 }
 .ourProducts__content_top {
    display: flex;
@@ -1507,10 +1508,11 @@ DIGITAL AGATECH */
    margin: 0 auto;
 }
 .ourProducts__content_top_circle {
-   height: 45vh;
+   display: flex;
+   align-items: center;
 }
 .circle_product {
-   height: 35vh;
+   width: 15vw;
    transition: transform 1s;
 
 }
@@ -1525,35 +1527,75 @@ DIGITAL AGATECH */
    text-align: center;
 }
  .circle_text_product_1:after{
-    content: "Интернет-маркетинговое агенство";
+    content: "Креативная цифровая разработка";
     position: absolute;
     color: #fff;
     width: 50%;
     text-transform: uppercase;
-    font-size: 1.9vh;
+    font-size: 1.6vh;
     font-weight: bold;
-    line-height: 2.5vh;
+    line-height: 2.2vh;
  }
  .circle_text_product_2:after{
-    content: "Продвижение и сопровождение";
+    content: "Комплексное продвижение и сопровождение";
     position: absolute;
     width: 50%;
     color: #fff;
     text-transform: uppercase;
-    font-size: 1.9vh;
+    font-size: 1.6vh;
     font-weight: bold;
-    line-height: 2.5vh;
+    line-height: 2.2vh;
  }
  .circle_text_product_3:after{
-    content: "Системы управления и автоматизации";
+    content: "Автоматизация вашего бизнеса";
     position: absolute;
     width: 50%;
     color: #fff;
     text-transform: uppercase;
-    font-size: 1.9vh;
+    font-size: 1.6vh;
     font-weight: bold;
-    line-height: 2.5vh;
+    line-height: 2.2vh;
  }
+.ourProducts__center {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   background-color: #E4E7F1;
+   min-height: 160vh;
+   border-top: 17px solid #8CB0E4;
+}
+.ourProducts__center_menu {
+   margin: 5vh 0 10vh;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+}
+.ourProducts__center_menu_link{
+   text-decoration: none;
+   font-size: 2.5vh;
+   line-height: 2.5vh;
+   padding: 1vh 1.5vw;
+   color: #626779;
+   cursor: pointer;
+   transition: all .2s ease;
+}
+.ourProducts__center_menu_link:hover{
+   color: #626779;
+}
+.ourProducts__center h6{
+   font-weight: bold;
+   font-size: 4vh;
+   line-height: 4vh;
+   color: #626779;
+   margin-bottom: 3vh;
+}
+
+
+
+
 
 
 /* FOOTER */

@@ -29,6 +29,12 @@ class AdminController extends Controller{
         $this->View->content = $this->View->execute('index.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
+    public function PagesAction() {
+        $this->View->admincontent = $this->View->execute('pages.html');
+        $this->View->content = $this->View->execute('index.html');
+        return $this->View->execute('index.html', TEMPLATE_DIR);
+    }
+
     public function CalcAction() {
         $this->View->admincontent = $this->View->execute('calc.html');
         $this->View->content = $this->View->execute('index.html');

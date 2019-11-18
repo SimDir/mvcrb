@@ -31,8 +31,8 @@ class IndexController extends Controller{
         return $this->View->execute('inc'.DS.'footer.html');
     }
     public function PageAction($page) {
-        $this->View->title = 'Страница ' . $page;
-//        var_dump($page);die();
+        $this->View->title = 'Страница - ' . $page;
+
         $this->View->content = $this->View->execute('staticpage'.DS.$page);
         $this->View->content = $this->View->execute('pages.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
