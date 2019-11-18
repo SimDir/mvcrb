@@ -1,7 +1,6 @@
 .jumbotron {
-    padding:1px;
+    padding:0;
     margin-bottom: 0px;
-    background-image: url(/img/bg2.jpg);
     background-position: 50% 0%;
     /*background-size: cover;*/
     /*background-position: center;*/
@@ -10,7 +9,7 @@
     background-attachment: fixed;
     color: white;
     text-shadow: black 0.3em 0.3em 0.3em;
-    height: 445px;
+    height: 250px;
     border-radius: 0;
 }
 .pd0{
