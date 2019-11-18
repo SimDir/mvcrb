@@ -18,6 +18,7 @@ header {
    background-color: transparent;
    position: relative;
    top: 0;
+   z-index: 1;
 }
 .header {
    height: 12vh;
@@ -87,9 +88,11 @@ header {
 .header__menu_link:hover .header_bottom {
    visibility: visible;
    opacity: 1;
+   transform: translateY(12vh);
 }
 .header_bottom {
    visibility: hidden;
+   z-index: -1;
    width: 100%;
    min-height: 8vh;
    background-color: rgba(83,92,112,.75);
@@ -97,9 +100,9 @@ header {
    align-items: flex-start;
    justify-content: space-between;
    position: absolute;
-   top: 100%;
+   top: 0;
    left: 0;
-   transition: all .3s linear .1s;
+   transition: transform .3s linear, opacity 1s ease;
    opacity: 0;
 }
 .header_bottom__content {
@@ -107,6 +110,7 @@ header {
    margin: 0 auto;
    display: flex;
    justify-content: space-between;
+   height: 100%;
 }
 .empty_block {
    flex-basis: 10%;
@@ -124,7 +128,7 @@ header {
 }
 .header_bottom__content_menu_link {
    list-style-type: none;
-   padding: 2vh 2vw 2vh 0;
+   padding: 2.5vh 2vw 2.5vh 0;
    text-align: left;
 }
 .header_bottom__content_menu_link_btn_title{
@@ -200,7 +204,7 @@ header {
   flex-direction: column;
 }
 .slide-2__content:nth-child(2) {
-   width: 35vw;
+   width: 25vw;
    height: 60vh;
    display: flex;
    align-items: center;
@@ -208,7 +212,7 @@ header {
    flex-direction: column;
  }
  .slide-2__content:nth-child(3) {
-   width: 20vw;
+   width: 25vw;
    height: 60vh;
    display: flex;
    align-items: center;
@@ -234,7 +238,7 @@ header {
    text-align: center;
 }
 .circle_text1:after{
-   content: "Интернет-маркетинговое агенство";
+   content: "Креативная цифровая разработка";
    position: absolute;
    color: #fff;
    width: 50%;
@@ -244,7 +248,7 @@ header {
    line-height: 3vh;
 }
 .circle_text2:after{
-   content: "Продвижение и сопровождение";
+   content: "Комплексное продвижение и сопровождение";
    position: absolute;
    width: 50%;
    color: #fff;
@@ -254,7 +258,7 @@ header {
    line-height: 3vh;
 }
 .circle_text3:after{
-   content: "Системы управления и автоматизации";
+   content: "Автоматизация вашего бизнеса";
    position: absolute;
    width: 50%;
    color: #fff;
@@ -598,8 +602,8 @@ header {
    flex-basis: 45%;
 }
 .slide-4__content_left h5 {
-   font-size: 4vh;
-   line-height: 5vh;
+   font-size: 3.5vh;
+   line-height: 4vh;
    color: #FCF9F9;
    margin-bottom: 5vh;
 }
@@ -637,8 +641,8 @@ header {
    flex-basis: 45%;
 }
 .slide-5__content_left h5 {
-   font-size: 4vh;
-   line-height: 5vh;
+   font-size: 3.5vh;
+   line-height: 4vh;
    color: #FCF9F9;
    margin-bottom: 5vh;
 }
@@ -726,8 +730,8 @@ header {
    flex-basis: 45%;
 }
 .slide-7__content_left h5 {
-   font-size: 4vh;
-   line-height: 5vh;
+   font-size: 3.5vh;
+   line-height: 4vh;
    color: #FCF9F9;
    margin-bottom: 5vh;
 }
@@ -1454,11 +1458,143 @@ DIGITAL AGATECH */
    width: 24vw;
    height: 50vh;
    margin: 2vh 1vw;
+   position: relative;
+   z-index: 1;
+   transition: transform .7s;
+   overflow: hidden;
+}
+.colutions__center_block_item::before {
+   content: '';
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   z-index: 1;
+   background: #414141;
+   opacity: 0.4;
+   transition: transform .7s;
+}
+.colutions__center_block_item:hover::before {
+   transform: translate(200%, -200%);
+}
+.colutions__center_block_item:hover {
+   transform: scale(.9);
 }
 .block_item_bgc {
    width: 100%;
    height: 100%;
 }
+
+
+
+
+
+
+/* OUR_PRODUCTS */
+.ourProducts {
+   overflow-x: hidden; 
+}
+.ourproductsbgc {
+   position: absolute;
+   top: 0; 
+   left: 0;
+   width: 100%;
+   z-index: -1;
+   
+}
+.ourProducts__content_top {
+   display: flex;
+   justify-content: center;
+   width: 60vw;
+   margin: 0 auto;
+}
+.ourProducts__content_top_circle {
+   display: flex;
+   align-items: center;
+}
+.circle_product {
+   width: 15vw;
+   transition: transform 1s;
+
+}
+.ourProducts__content_top_circle:hover .circle_product {
+    transform: rotate(180deg);
+}
+.circle_text_product_1, .circle_text_product_2, .circle_text_product_3{
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+}
+ .circle_text_product_1:after{
+    content: "Креативная цифровая разработка";
+    position: absolute;
+    color: #fff;
+    width: 50%;
+    text-transform: uppercase;
+    font-size: 1.6vh;
+    font-weight: bold;
+    line-height: 2.2vh;
+ }
+ .circle_text_product_2:after{
+    content: "Комплексное продвижение и сопровождение";
+    position: absolute;
+    width: 50%;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.6vh;
+    font-weight: bold;
+    line-height: 2.2vh;
+ }
+ .circle_text_product_3:after{
+    content: "Автоматизация вашего бизнеса";
+    position: absolute;
+    width: 50%;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.6vh;
+    font-weight: bold;
+    line-height: 2.2vh;
+ }
+.ourProducts__center {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   background-color: #E4E7F1;
+   min-height: 160vh;
+   border-top: 17px solid #8CB0E4;
+}
+.ourProducts__center_menu {
+   margin: 5vh 0 10vh;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+}
+.ourProducts__center_menu_link{
+   text-decoration: none;
+   font-size: 2.5vh;
+   line-height: 2.5vh;
+   padding: 1vh 1.5vw;
+   color: #626779;
+   cursor: pointer;
+   transition: all .2s ease;
+}
+.ourProducts__center_menu_link:hover{
+   color: #626779;
+}
+.ourProducts__center h6{
+   font-weight: bold;
+   font-size: 4vh;
+   line-height: 4vh;
+   color: #626779;
+   margin-bottom: 3vh;
+}
+
+
+
 
 
 
