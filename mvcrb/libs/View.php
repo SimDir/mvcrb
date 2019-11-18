@@ -1,4 +1,6 @@
-<?php defined('ROOT') OR die('No direct script access.');
+<?php 
+namespace mvcrb;
+defined('ROOT') OR die('No direct script access.');
 
 /**
  * Класс для работы с шаблонами
@@ -6,7 +8,7 @@
  * view
  * 
  */
-namespace mvcrb;
+
 class View {
 
     private $vars = array();

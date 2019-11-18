@@ -1,12 +1,12 @@
 <?php
-
+namespace mvcrb;
 defined('ROOT') OR die('No direct script access.');
 /**
  * Главный класс всего приложения
  * 
  */
 
-namespace mvcrb;
+
 
 function dd($str) {
     var_dump($str);

@@ -1,11 +1,12 @@
 <?php
-
+namespace mvcrb;
+defined('ROOT') OR die('No direct script access.');
 /**
  * Description of UserController
  *  
  * @author ivan kolotilkin
  */
-namespace mvcrb;
+
 class UserController extends Controller{
     private $User;
     public function __construct() {

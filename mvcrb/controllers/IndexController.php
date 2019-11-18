@@ -1,11 +1,13 @@
-<?php defined('ROOT') OR die('No direct script access.');
+<?php
+namespace mvcrb;
+defined('ROOT') OR die('No direct script access.');
 
 /**
  * Description of IndexController
  *
  * @author ivan kolotilkin
  */
-namespace mvcrb;
+
 class IndexController extends Controller{
     public function __construct() {
         parent::__construct();
