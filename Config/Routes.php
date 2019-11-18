@@ -12,15 +12,16 @@ return array(
 //    'cart/addAjax/([0-9]+)' => 'main/addAjax/$1',
 //    'cart/delete/([0-9]+)' => 'main/delete/$1',
 //    'cart/checkout' => 'main/checkout',
-    '\binclude\b/([-_a-zA-Z0-9]+).html' => 'index/page/$1',
-    '\binclude\b/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+).html' => 'index/page/$1/$2',
+    '\binclude\b/([-_a-zA-Z0-9]+).html' => 'index/pagef/$1',
+    '\binclude\b/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+).html' => 'index/pagef/$1/$2',
 //    '404' => 'main/eror404',
 //    'index.php' => 'main/redirect',
-//    '\bpage\b/([0-9]+)' => 'page/page/$1',
-//    '\bpage\b/([-_a-z0-9]+).html' => 'index/page/$1',
-//    '\bpage\b/([-_a-z0-9]+)' => 'site/sefurl/$1',
-    '^id' => 'main/index/$1',
-//    'forums' => 'index/forums/'
+        'page' => 'index/page/',
+//    '\bpage\b/([0-9]+)' => 'index/page/$1',
+//    '\bpage\b/([-_a-zA-Z0-9]+).html' => 'index/page/$1',
+    '\bpage\b/([-_a-zA-Z0-9]+)' => 'index/page/$1',
+//    '^id' => 'main/index/$1',
+
 //    '\bmoney\b/' => 'site/money/',
 //    'logout' => 'user/logout'
 );

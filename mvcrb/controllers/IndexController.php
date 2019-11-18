@@ -6,7 +6,6 @@
  * @author ivan kolotilkin
  */
 namespace mvcrb;
-use Faker;
 class IndexController extends Controller{
     public function __construct() {
         parent::__construct();
@@ -16,34 +15,37 @@ class IndexController extends Controller{
     }
 
     public function IndexAction() {
-        $faker = Faker\Factory::create('Ru_RU');
-        $this->View->title = $faker->words(3,true);
+
+        $this->View->title = 'Главная';
         $this->View->content = $this->View->execute('main.html');
         return $this->View->execute('index.html',TEMPLATE_DIR);
     }
     
     public function headerAction() {
-        return $this->View->execute('slider.html');
+        return $this->View->execute('inc'.DS.'header.html');
     }
     public function SliderAction() {
-        return $this->View->execute('header.html');
+        return $this->View->execute('inc'.DS.'slider.html');
     }
-    public function PageAction($param1,$param2=null) {
+    public function FooterAction() {
+        return $this->View->execute('inc'.DS.'footer.html');
+    }
+    public function PageAction($page) {
+        $this->View->title = 'Страница ' . $page;
+//        var_dump($page);die();
+        $this->View->content = $this->View->execute('staticpage'.DS.$page);
+        $this->View->content = $this->View->execute('pages.html');
+        return $this->View->execute('index.html', TEMPLATE_DIR);
+    }
+    public function PagefAction($param1,$param2=null) {
         $incFile = '';
         $incDir = TEMPLATE_DIR.'IndexController'.DS.'include'.DS;
         if($param2){
-            $incFile = $param1.'/'.$param2.'.html';
+            $incFile = $param1.DS.$param2.'.html';
         } else {
             $incFile = $param1.'.html';
         }
         return $this->View->execute($incFile,$incDir);
     }
-    public function MenuAction() {
-        $user = new User();
-        $faker = Faker\Factory::create();
-        
-//        $user->CreateUser( $faker->email, $faker->password,$faker->lastName);
-        
-        return $this->View->execute('navbar.html');
-    }
+
 }

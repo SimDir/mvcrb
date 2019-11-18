@@ -4,6 +4,7 @@ RewriteEngine on
 RewriteRule ^css/(.*)$ ./public/css/$1 [NC,L]
 RewriteRule ^js/(.*)$ ./public/js/$1 [NC,L]
 RewriteRule ^fonts/(.*)$ ./public/fonts/$1 [NC,L]
+RewriteRule ^font/(.*)$ ./public/font/$1 [NC,L]
 RewriteRule ^img/(.*)$ ./public/img/$1 [NC,L]
 
 RewriteBase /
