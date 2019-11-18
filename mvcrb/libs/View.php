@@ -80,7 +80,7 @@ class View {
         if($TplDir){
             $this->TplDir=$TplDir;
         }
-        if (!file_exists($this->TplDir . $path)) {
+        if (!file_exists($this->TplDir . $path) or is_dir($this->TplDir . $path)) {
             $code = '<p><b>Error: </b>'.__METHOD__. "('$path')</p>Нет файла <strong>$path</strong> для подключения в <b>$this->TplDir</b>";
             return $code;
         }
