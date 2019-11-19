@@ -25,18 +25,20 @@
         </div>
     </div>
 
-
     <div class="digital-agatech__content_center_block3">
         <img class="mountains" src="/img/digital_agency/mountains.png" alt="mountains">
         <img class="undermountains" src="/img/digital_agency/undermountains.png" alt="undermountains">
-        <div class="contacts">
+        <div id="appcontacts" class="contacts">
+            
             <p class="contacts__title">Контакты</p>
             <div class="contacts__city">
-                <span id="ul">Ульяновск</span>
-                <span id="Moscow">Москва</span>
+                <span v-if="state!=0" @click="state=0" id="Moscow">Ульяновск</span>
+                <span v-else @click="state=0" id="ul">Ульяновск</span>
+                <span v-if="state!=1" @click="state=1" id="Moscow">Москва</span>
+                <span v-else @click="state=1" id="ul">Москва</span>
             </div>
 
-            <div class="ULCITY">
+            <div v-if="state==0" class="ULCITY">
                 <div class="contacts__address">
                     <img src="/img/digital_agency/contactsicon1.png" alt="contactsicon1">
                     <span>Московское шоссе 55а, 3 этаж</span>
@@ -47,7 +49,7 @@
                 </div> 
             </div>
 
-            <div class="MCITY">
+            <div v-if="state==1" class="ULCITY">
                 <div class="contacts__address">
                     <img src="/img/digital_agency/contactsicon1.png" alt="contactsicon1">
                     <span>Архангельский переулок, дом 5, строение 4</span>
@@ -58,6 +60,11 @@
                 </div> 
             </div>
         </div>
+<script>new Vue({
+    el: '#appcontacts',
+            data: {
+            state:0
+    }});</script>
     </div>
 </div>
 

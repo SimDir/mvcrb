@@ -39,7 +39,12 @@ class IndexController extends Controller{
         $this->View->content = $this->View->execute('pages.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
-
+    public function ErorAction($err=0) {
+        $this->View->title ='Не найдено!';
+        $this->View->content = $err;
+        $this->View->content = $this->View->execute('error.html');
+        return $this->View->execute('index.html', TEMPLATE_DIR);
+    }
     private function SetTitle($page) {
         $tempPage = explode('_', $page);
 //        dd($tempPage);
