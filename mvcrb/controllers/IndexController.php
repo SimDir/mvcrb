@@ -44,14 +44,31 @@ class IndexController extends Controller{
         $tempPage = explode('_', $page);
 //        dd($tempPage);
         $page=$tempPage[0];
+        if (!empty($tempPage[1])) {
+            $page = $tempPage[1];
+        } else {
+            $page = $page;
+        }
         $page=ucfirst(strtolower($page));
         $title = '';
         switch ($page) {
-            case 'digitalAgensy_team.html';
+            case 'Team.html';
                 $title = 'Наша дружная комманда залог нашего успешного благородного дела';
                 break;
-            case 'BusinessCooperation.html';
-                $title = 'Сотрудничесво с партнерами из Европы России и Китая';
+            case 'Achievements.html';
+                $title = 'Достижения нашей команды';
+                break;
+            case 'Contacts.html';
+                $title = 'Свяжитесь с нами любым из удобных вам способов';
+                break;
+            case 'Files.html';
+                $title = 'Центр загрузки файлов';
+                break;
+            case 'Businesscooperation.html';
+                $title = 'Сотрудничесво с партнерами из России';
+                break;
+            case 'International.html';
+                $title = 'Международное сотрудничесво Европа Китай';
                 break;
             case 'Products.html';
                 $title = 'Продукты';
@@ -59,18 +76,37 @@ class IndexController extends Controller{
             case 'Colutions.html';
                 $title = 'Решения';
                 break;
-            case 'Colutions';
-                $title = 'Наши решения';
+            case 'Promotion.html';
+                $title = 'Комплексное продвижение и сопровождение';
                 break;
-            case 'NewCenter.html';
+            case 'Crm.html';
+                $title = 'Автоматизация вашего бизнеса';
+                break;
+            case 'Newcenter.html';
                 $title = 'Новости';
                 break;
-            case 'digitalAgency.html';
+            case 'Promotionandsupport.html';
+                $title = 'Продвижение вашего продукта в социальных сетях';
+                break;
+            case 'Controlsystems.html';
+                $title = 'Отдел продаж';
+                break;
+            case 'Controlsystems';
+                $title = 'Отдел продаж дополнительные ресурсы';
+                break;
+            case 'Promotionandsupport';
+                $title = 'Комплексные решения';
+                break;
+            case 'Video.html';
+                $title = 'Видио материалы';
+                break;
+            case 'Developments.html';
+                $title = 'Важные события';
+                break;
+            case 'Digitalagency.html';
                 $title = 'Создаем и улучшаем цифровые продукты';
                 break;
-            case 'Digitalagensy';
-                $title = 'Создаем и улучшаем цифровые продукты';
-                break;
+
             default:
                 if(!empty($tempPage[1])){
                     $title = $tempPage[1];     

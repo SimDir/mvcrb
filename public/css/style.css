@@ -176,17 +176,6 @@ header {
    width: 5%;
 }
 
-
-/* .slide-1 img {
-   position: absolute;
-   top: 30vh;
-   left: 30vw;
-   width: 40vw;
-   height: 40vh;
-   z-index: 0.1;
-} */
-
-
 .slide-2 {
    background-color: #06093C;
    height: 100vh;
@@ -230,10 +219,10 @@ header {
 }
 .circle {
   height: 50vh;
-  transition: all 1s ease;
+  transition: transform 1s ease;
 }
 .slide-2__content_top:hover .circle {
-   transform: rotate(180deg);
+   transform: scale(1.1);
 }
 .circle_text1, .circle_text2, .circle_text3 {
    position: relative;
@@ -278,10 +267,9 @@ header {
    justify-content: center;
    margin-top: 2vh;
 }
-
 .icons_block {
    text-align: center;
-   width: 50px;
+   width: 70px;
    margin: 0 .2vw;
    display: flex;
    flex-direction: column;
@@ -294,8 +282,8 @@ header {
    display: none;
    color: #fff;
    margin-top: 10px;
-   font-size: 12px;
-   line-height: 12px;
+   font-size: 18px;
+   line-height: 18px;
 }
 .icons_block:hover p{
     display:block;
@@ -303,36 +291,35 @@ header {
 }
 .icons {
    border-radius: 10px;
-   width: 50px;
-   height: 50px;
+   width: 60px;
+   height: 60px;
    margin: 0 auto;
    display: flex;
    align-items: center;
    justify-content: center;
-   transition: all .3s ease;
+   transition: transform .5s, box-shadow .5s;
 }
 .icons-circle-1 {
    border: 1px solid #47A04B;
 }
 .icons-circle-1:hover {
    box-shadow: 2px 2px 5px #47A04B;
+   transform: scale(1.1);
 }
 .icons-circle-2 {
    border: 1px solid #7F12E3;
 }
 .icons-circle-2:hover {
    box-shadow: 2px 2px 5px #7F12E3;
+   transform: scale(1.1);
 }
 .icons-circle-3 {
    border: 1px solid #2D6EAB;
 }
 .icons-circle-3:hover {
    box-shadow: 2px 2px 5px #2D6EAB;
+   transform: scale(1.1);
 }
-/*.icons:hover {
-   width: 48px;
-   height: 48px;
-}*/
 .icons img {
    width: 30px;
    height: 30px;
@@ -1513,17 +1500,27 @@ DIGITAL AGATECH */
 
 
 
-
 /* OUR_PRODUCTS */
 .ourProducts {
    overflow-x: hidden; 
+   
 }
 .ourproductsbgc {
    position: absolute;
    top: 0; 
    left: 0;
-   width: 100%;
    z-index: -1;
+   background-color: #06093C;
+   width: 100%;
+   height: 100%;
+}
+.ourProducts_content {
+   padding-top: 8vh;
+   height: 88vh;
+   width: 85vw;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-between;
 }
 .ourProducts__content_top {
    display: flex;
