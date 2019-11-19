@@ -12,7 +12,7 @@ class IndexController extends Controller{
     public function __construct() {
         parent::__construct();
         $this->View->SetWivePath(TEMPLATE_DIR . 'IndexController' . DS);
-        $this->View->title = 'Агротех :-)';
+        $this->View->title = ':-)';
         $this->View->AddCss('https://fonts.googleapis.com/css?family=Ubuntu:300,400,700&display=swap');
     }
 
@@ -41,6 +41,10 @@ class IndexController extends Controller{
     }
 
     private function SetTitle($page) {
+        $tempPage = explode('_', $page);
+//        dd($tempPage);
+        $page=$tempPage[0];
+        $page=ucfirst(strtolower($page));
         $title = '';
         switch ($page) {
             case 'digitalAgensy_team.html';
@@ -55,14 +59,25 @@ class IndexController extends Controller{
             case 'Colutions.html';
                 $title = 'Решения';
                 break;
+            case 'Colutions';
+                $title = 'Наши решения';
+                break;
             case 'NewCenter.html';
                 $title = 'Новости';
                 break;
             case 'digitalAgency.html';
                 $title = 'Создаем и улучшаем цифровые продукты';
                 break;
+            case 'Digitalagensy';
+                $title = 'Создаем и улучшаем цифровые продукты';
+                break;
             default:
-                $title = $page;      
+                if(!empty($tempPage[1])){
+                    $title = $tempPage[1];     
+                }else{
+                    $title = $page;     
+                }
+                 
         }
         return ucfirst(strtolower($title));
     }
