@@ -297,6 +297,7 @@ header {
 }
 .icons_block:hover p{
     display:block;
+    position: relative;
 }
 .icons {
    border-radius: 10px;
@@ -326,13 +327,13 @@ header {
 .icons-circle-3:hover {
    box-shadow: 2px 2px 5px #2D6EAB;
 }
-.icons:hover {
-   width: 3.5vw;
-   height: 7.5vh;
-}
+/*.icons:hover {
+   width: 48px;
+   height: 48px;
+}*/
 .icons img {
-   width: 2vw;
-   height: 4vh;
+   width: 30px;
+   height: 30px;
 }
 
 
