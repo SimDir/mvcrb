@@ -14,8 +14,9 @@
             <a class="digital-agatech__content_top_menu_link" href="/page/digitalAgensy_files.html">Файлы</a>
         </nav>
         <div class="digital-agatech__content_center_block1">
-            <h6>Компания Агатеч</h6>
-            <p>Global Tone Communication Technology Co., Ltd. (GTCOM) is a global leading fintech and research data analytical company. With advanced NLP and semantic computing technologies, we analyze massive global data, and build industrial knowledge graphs, algorithm models and visualization platforms for finance, technology, consulting and multiple other sectors, providing global corporate users with comprehensive cutting-edge scenario-based solutions.</p>
+            <h6>О НАС</h6>
+            <p>Если вы ищете команду, способную реализовать Ваши ожидания и понимаете всю необходимость не только присутствия, но и не посредственного участия в процессе формирования интернет рынка - обратитесь к профессионалам!</p>
+            <p>На сегодняшний день в нашем портфолио более пятидесяти реализованных проектов в разных областях бизнеса, каждый из которых имеет уникальный дизайн и стиль. Наш опыт станет лучшим критерием выбора, а цена приятным бонусом!</p>
         </div>
         <div class="digital-agatech__content_center_block2">
             <h6>Основные этапы</h6>
@@ -25,20 +26,18 @@
         </div>
     </div>
 
+
     <div class="digital-agatech__content_center_block3">
         <img class="mountains" src="/img/digital_agency/mountains.png" alt="mountains">
         <img class="undermountains" src="/img/digital_agency/undermountains.png" alt="undermountains">
-        <div id="appcontacts" class="contacts">
-            
+        <div class="contacts">
             <p class="contacts__title">Контакты</p>
             <div class="contacts__city">
-                <span v-if="state!=0" @click="state=0" id="Moscow">Ульяновск</span>
-                <span v-else @click="state=0" id="ul">Ульяновск</span>
-                <span v-if="state!=1" @click="state=1" id="Moscow">Москва</span>
-                <span v-else @click="state=1" id="ul">Москва</span>
+                <span id="ul">Ульяновск</span>
+                <span id="Moscow">Москва</span>
             </div>
 
-            <div v-if="state==0" class="ULCITY">
+            <div class="ULCITY">
                 <div class="contacts__address">
                     <img src="/img/digital_agency/contactsicon1.png" alt="contactsicon1">
                     <span>Московское шоссе 55а, 3 этаж</span>
@@ -49,7 +48,7 @@
                 </div> 
             </div>
 
-            <div v-if="state==1" class="ULCITY">
+            <div class="MCITY">
                 <div class="contacts__address">
                     <img src="/img/digital_agency/contactsicon1.png" alt="contactsicon1">
                     <span>Архангельский переулок, дом 5, строение 4</span>
@@ -60,11 +59,6 @@
                 </div> 
             </div>
         </div>
-<script>new Vue({
-    el: '#appcontacts',
-            data: {
-            state:0
-    }});</script>
     </div>
 </div>
 
