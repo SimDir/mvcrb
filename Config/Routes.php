@@ -14,7 +14,7 @@ return array(
 //    'cart/checkout' => 'main/checkout',
     '\binclude\b/([-_a-zA-Z0-9]+).html' => 'index/pagef/$1',
     '\binclude\b/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+).html' => 'index/pagef/$1/$2',
-//    '404' => 'main/eror404',
+    'error/([0-9]+)' => 'index/eror/$1',
 //    'index.php' => 'main/redirect',
     '\bpage\b' => 'index/page/',
 //    '\bpage\b/([0-9]+)' => 'index/page/$1',
