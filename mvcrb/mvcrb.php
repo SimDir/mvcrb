@@ -97,15 +97,15 @@ class mvcrb {
                 header("HTTP/1.1 405 Method Not Allowed");
                 header("Status: 405 Method Not Allowed");
             }
-
-            return "<h1>404 Method Not Allowed</h1><hr><h5>" . __METHOD__ . " <b style=\"color: red;\">$Controller::$Action()</b> Не имеет метода</h5>";
+            self::Redirect('/error/404');
+            //return "<h1>404 Method Not Allowed</h1><hr><h5>" . __METHOD__ . " <b style=\"color: red;\">$Controller::$Action()</b> Не имеет метода</h5>";
         }
         if (!headers_sent()) {
             header("HTTP/1.1 523 Origin Is Unreachable");
             header("Status: 523 Origin Is Unreachable");
         }
-
-        return "<h1>523 Not Found</h1><hr><h5>Exec:: нет исполнительного контроллера $Controller</h5>";
+        self::Redirect('/error/404');
+        //return "<h1>523 Not Found</h1><hr><h5>Exec:: нет исполнительного контроллера $Controller</h5>";
     }
 
     /**
@@ -204,15 +204,15 @@ class mvcrb {
 
 //            header('HTTP/1.0 404 Not Found');
 //            exit('Нет контроллера '.$controlerName);
-            throw new \Exception(__METHOD__ . ' [ERROR:404] фаил Контроллера ' . $controlerName . '.php не найден');
-//            return FALSE;
+            //throw new \Exception(__METHOD__ . ' [ERROR:404] фаил Контроллера ' . $controlerName . '.php не найден');
+            return self::Redirect('/error/404');
         } else {
             self::$ControllerFile = $controllerFile;
             return $controllerFile;
         }
 //        require_once ($controllerFile);
-        throw new \Exception(__METHOD__ . ' [ERROR:404] фаил Контроллера ' . $controlerName . '.php не найден');
-//        return FALSE;
+//        throw new \Exception(__METHOD__ . ' [ERROR:404] фаил Контроллера ' . $controlerName . '.php не найден');
+        return self::Redirect('/error/404');
     }
 
     /**
