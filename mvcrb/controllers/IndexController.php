@@ -43,8 +43,11 @@ class IndexController extends Controller{
     private function SetTitle($page) {
         $title = '';
         switch ($page) {
+            case 'digitalAgensy_team.html';
+                $title = 'Наша дружная комманда залог нашего успешного благородного дела';
+                break;
             case 'BusinessCooperation.html';
-                $title = 'Сотрудничесво с партнерами из Европы России и китая';
+                $title = 'Сотрудничесво с партнерами из Европы России и Китая';
                 break;
             case 'Products.html';
                 $title = 'Продукты';
