@@ -33,21 +33,35 @@ class IndexController extends Controller{
         return $this->View->execute('inc'.DS.'footer.html');
     }
     public function PageAction($page) {
-        $this->View->title = 'Страница - ' . $page;
+        $this->View->title = $this->SetTitle($page);
 
         $this->View->content = $this->View->execute('staticpage'.DS.$page);
         $this->View->content = $this->View->execute('pages.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
-    public function PagefAction($param1,$param2=null) {
-        $incFile = '';
-        $incDir = TEMPLATE_DIR.'IndexController'.DS.'include'.DS;
-        if($param2){
-            $incFile = $param1.DS.$param2.'.html';
-        } else {
-            $incFile = $param1.'.html';
+
+    private function SetTitle($page) {
+        $title = '';
+        switch ($page) {
+            case 'BusinessCooperation.html';
+                $title = 'Сотрудничесво с партнерами из Европы России и китая';
+                break;
+            case 'Products.html';
+                $title = 'Продукты';
+                break;
+            case 'Colutions.html';
+                $title = 'Решения';
+                break;
+            case 'NewCenter.html';
+                $title = 'Новости';
+                break;
+            case 'digitalAgency.html';
+                $title = 'Создаем и улучшаем цифровые продукты';
+                break;
+            default:
+                $title = $page;      
         }
-        return $this->View->execute($incFile,$incDir);
+        return ucfirst(strtolower($title));
     }
 
 }
