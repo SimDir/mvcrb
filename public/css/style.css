@@ -38,8 +38,11 @@ header {
 .header__logo img{
    width: 100%;
    height: 100%;
+   transition: transform 1s;
 }
-
+.header__logo:hover img {
+   transform: scale(1.05);
+}
 
 .header__menu {
    flex-basis: 75%;
@@ -154,8 +157,7 @@ header {
 .header_bottom__content_menu_link ul>li>a{
    text-decoration: none;
    font-size: 1.7vh;
-
-   color: #e9e9e9;
+   color: #B9B9B9;
 }
 
 
@@ -872,7 +874,7 @@ DIGITAL AGATECH */
 .digital-agatech__content_center_block1 p {
    font-size: 2vh;
    line-height: 4vh;
-   text-align: justify;
+   text-align: left;
    color: #FFFFFF;
    height: 20vh;
 }
