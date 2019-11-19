@@ -34,7 +34,10 @@ class IndexController extends Controller{
     }
     public function PageAction($page) {
         $this->View->title = $this->SetTitle($page);
-
+        $testFile = TEMPLATE_DIR.'IndexController'.DS.'staticpage'.DS.$page;
+        if(!file_exists($testFile)){
+            mvcrb::Redirect('/error/404');
+        }
         $this->View->content = $this->View->execute('staticpage'.DS.$page);
         $this->View->content = $this->View->execute('pages.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
