@@ -30,6 +30,22 @@ class AdminController extends Controller{
         $this->View->content = $this->View->execute('index.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
+    public function GetuserlistAction() {
+        return $this->User->GetList(json_decode($this->REQUEST));
+    }
+    public function AdduserAction() {
+        $PostData = json_decode($this->REQUEST);
+        if($this->User->ChekMail($PostData->email)){
+            $errors[] = 'Пользователь с таким Email уже существует!';
+        }
+        if($this->User->ChekUserLogin($PostData->login)){
+            $errors[] = 'Пользователь с таким логином уже существует!';
+        }
+        if(isset($errors)){
+            return ['Errors'=>$errors];
+        }
+        return ['id'=>$this->User->CreateUser($PostData->email, $PostData->password, $PostData->login,$PostData->role,$PostData->firstname,$PostData->lastname,$PostData->phone)];
+    }
     public function PagesAction() {
         $this->View->admincontent = $this->View->execute('pages.html');
         $this->View->content = $this->View->execute('index.html');

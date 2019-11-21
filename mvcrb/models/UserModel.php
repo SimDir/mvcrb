@@ -19,26 +19,28 @@ class UserModel extends Model{
         return $this->count($this->TableName);
     }
 
-    public function GetListUser($start=0,$limit=10,$order=null) {
-//        return $order;
-        if(is_array($order)){
-            if($order['search']==''){
-                $users = $this->findAll($this->TableName,'ORDER BY '.$order['data'].' '.$order['dir']. ' LIMIT '.$start.', '.$limit);
-            } else {
-//                return $order;
-                    $Farr = array(
-                        ':find' => '%' . $order['search'] . '%',
-                        ':start' => $start,
-                        ':limit' => $limit
-                        );
-                $users = $this->find($this->TableName, ' name LIKE :find OR middlename LIKE :find OR surname LIKE :find OR login LIKE :find OR email LIKE :find LIMIT :start, :limit ', $Farr);
-            }
-            
-        } else {
-            $users = $this->findAll($this->TableName,'LIMIT '.$start.', '.$limit);
+    public function GetList($PostData=null) {
+        $start = $PostData->start ? $PostData->start :0; 
+        $limit = $PostData->limit ? $PostData->limit :10; 
+        $List['count'] = $this->count($this->TableName);
+        if(isset($PostData->data) && $PostData->data !== ''){
+            $order['data'] = $PostData->data;
+            $order['dir'] = $PostData->dir;
+        }else{
+            $order = null;
         }
-        if($users){  
-            return $users;
+        
+        if (is_array($order)) {
+            $tempbean = $this->findAll($this->TableName, 'ORDER BY ' . $order['data'] . ' ' . $order['dir'] . ' LIMIT ' . $start . ', ' . $limit);
+        } else {
+            $tempbean = $this->findAll($this->TableName, 'LIMIT ' . $start . ', ' . $limit);
+        }
+        if ($tempbean) {
+
+            $tempdata = $this->exportAll($tempbean, TRUE);
+
+            $List['data']=$tempdata;
+            return $List;
         }
         return FALSE;
     }
@@ -88,12 +90,12 @@ class UserModel extends Model{
         }
         return FALSE;
     }
-    public function CreateUser($email, $password, $login, $role = 200, $name='', $middlename='', $surname='', $phone='', $registredatetime='') {
+    public function CreateUser($email, $password, $login, $role = 200, $firstname='', $lastname='', $phone='', $registredatetime='') {
         
         $user = $this->Dispense($this->TableName);
-        $user->name = $name;
-        $user->middlename = $middlename;
-        $user->surname = $surname;
+        $user->firstname = $firstname;
+//        $user->middlename = $middlename;
+        $user->lastname = $lastname;
         
         $user->login = $login;
         $user->email = $email;
@@ -102,9 +104,9 @@ class UserModel extends Model{
         //пароль нельзя хранить в открытом виде, 
         //мы его шифруем при помощи функции password_hash для php > 5.6
         
-        $user->role = empty($role) ? 200 : $role;
+        $user->role = empty($role) ? 100 : $role;
         
-        $user->activation = TRUE;
+//        $user->activation = TRUE;
         if($registredatetime == ''){
             $registredatetime  = date('Y-m-d H:i:s');
         }
