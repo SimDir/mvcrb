@@ -15,7 +15,7 @@ class IndexController extends Controller{
         $faker = Faker\Factory::create('Ru_RU');
         $View=&$this->View;
         $View->title = $faker->words(3,true);
-        $View->content = 'Привет мир!';
+        $View->content = $_SERVER['HTTP_USER_AGENT'];
         return $View('index.html');
     }
     
