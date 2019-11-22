@@ -1,0 +1,195 @@
+
+<div id="pagelist">
+    <div class="d-flex align-items-start">
+        <button v-if="state==0" @click="state=1" type="button" class="btn btn-primary">Добавить</button>
+        <button v-if="state==1" @click="state=0" type="button" class="btn btn-primary">Вернутся</button>
+        <div v-if="state==0" class="d-flex flex-wrap justify-content-around">
+            <div class="p-2">
+                <div class="input-group pt-2">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Показать</span>
+                    </div>
+                    <select class="browser-default custom-select" v-model.number="perPage" @change.prevent="setPage(1)">
+                        <option value="3">3</option>
+                        <option value="6">6</option>
+                        <option value="10">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+
+                </div>
+
+            </div>
+            <div class="p-2">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-info" @click.prevent="setPage(1)"><i class="fas fa-angle-double-left"></i></button>
+                    <button type="button" class="btn btn-info" @click.prevent="setPage(currentPage-1)"><i class="fas fa-angle-left"></i></button>
+                    <div v-for="p in paginator.pages" class="btn-group mr-2" role="group">
+                        <button type="button" class="btn btn-primary" v-if="currentPage == p" @click.prevent="setPage(p)">{{ p }}</button>
+                        <button type="button" class="btn btn-default" v-else @click.prevent="setPage(p)">{{ p }}</button>
+                    </div>
+                    <button type="button" class="btn btn-info" @click.prevent="setPage(currentPage+1)"><i class="fas fa-angle-right"></i></button>
+                    <button type="button" class="btn btn-info" @click.prevent="setPage(paginator.count)"><i class="fas fa-angle-double-right"></i></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="d-flex align-items-start">
+            <div v-if="errors" class="alert alert-danger" role="alert">
+                {{errors}}
+            </div>
+            <div v-if="id" class="alert alert-success" role="alert">
+                Страница с ID{{id}} добавлена успешно.
+            </div>
+            <table v-if="state==0" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col" class="hoverable" style="cursor: pointer;" @click="sort('id')"><i class="fas fa-sort"></i> ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in Data">
+                        <th scope="row">{{item.id}}</th>
+                       
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div v-if="state==1" >
+        
+        <!-- Default form contact -->
+        <form class="text-center border border-light p-5" action="/admin/pageadd" @submit="AddPageForm">
+
+            <p class="h4 mb-4">добавление страници</p>
+
+            <div class="form-row mb-4">
+                <div class="col">
+                    <!-- First name -->
+                    <input v-model="Page.name" type="text" id="Name" class="form-control" placeholder="Название" required>
+                </div>
+                <div class="col">
+                    <!-- Last name -->
+                    <input v-model="Page.title" type="text" id="title" class="form-control" placeholder="Заголовок" required>
+                </div>
+
+            </div>
+            <input v-model="Page.metadescription" type="text" id="metadescription" class="form-control mb-4" placeholder="description">
+            <input v-model="Page.metatag" type="text" id="metatag" class="form-control mb-4" placeholder="tag">
+            <!-- Subject -->
+            <label>Тип страници</label>
+            <select class="browser-default custom-select mb-4">
+                <option value="100" selected>Страница</option>
+                <option value="200">Новость</option>
+                <option value="300">Событие</option>
+                <option value="400">Статья</option>
+            </select>
+
+            <!-- Message -->
+            <div class="form-group">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-primary" v-if="EdititorMode==0" @click="EdititorMode=1">Код</button>
+
+                    <button type="button" class="btn btn-primary" v-if="EdititorMode==1" @click="EdititorMode=0">HTML</button>
+                </div>
+                <div v-if="EdititorMode==0" v-html="Page.content"></div>
+                <textarea v-if="EdititorMode==1" v-model="Page.content" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="9" placeholder="Текст страници или HTML код"></textarea>
+            </div>
+
+            <!-- Send button -->
+            <button class="btn btn-info btn-block" type="submit" style="width: 150px;">Отправить</button>
+
+        </form>
+        <!-- Default form contact -->
+
+        
+    </div>
+</div>
+<script>
+    var pagelist = new Vue({
+        el: '#pagelist',
+        mvcrbstore,
+        data: {
+            Data: {}, Count: 0,
+            errors: null, id: null,
+            Page: {content:''},
+            ErrData: {},
+            perPage: 10, currentPage: 1,
+            searchStr: '', currentSortDir: 'asc', currentSort: 'id', state: '0',EdititorMode:1
+        },
+        created() {
+            this.setPage(1);
+        },
+        computed: {
+            paginator() {
+                let p = _.range(1, Math.ceil(this.Count / this.perPage) + 1);
+                let st = this.currentPage - 2;
+                if (st < 1)
+                    st = 0;
+                return {
+                    count: p.length,
+                    currentPage: this.currentPage,
+                    pages: p.slice(st, st + 3)
+                };
+            }
+        },
+        methods: {
+            setPage(p) {
+                if (p > this.paginator.count)
+                    p = this.paginator.count;
+                if (p < 1)
+                    p = 1;
+
+                this.currentPage = p;
+                fetch('/admin/getpagelist/?AJAX=1', {
+                    mode: 'cors',
+                    method: 'POST',
+                    body: JSON.stringify({start: (p - 1) * this.perPage, limit: this.perPage, data: this.currentSort, dir: this.currentSortDir})
+                })
+                        .then(res => res.json())
+                        .then(res => {
+                            this.Data = res.data;
+                            this.Count = res.count;
+//                    console.log(res);
+                        });
+            },
+            sort(s) {
+                if (s === this.currentSort) {
+                    this.currentSortDir = this.currentSortDir === 'asc' ? 'desc' : 'asc';
+                }
+                this.currentSort = s;
+                this.setPage(this.currentPage);
+//            console.log(this.currentSortDir,this.currentSort);
+            },
+            AddPageForm(e){
+                e.preventDefault();
+                fetch('/admin/addpage/?AJAX=1', {
+                    mode: 'cors',
+                    method: 'POST',
+                    cache: 'no-cache',
+                    credentials: 'same-origin',
+                    body: JSON.stringify(this.Page)
+                })
+                .then(res => res.json())
+                .then(res => {
+
+                    if(res.Errors){
+                        this.errors = res.Errors;
+                    }else{
+                        this.errors = null;
+                    }
+                    if(res.id){
+                        this.id = res.id;
+                    }else{
+                        this.id = null;
+                    }
+                    console.log(res);
+                });
+
+            },
+        }
+    });
+</script>

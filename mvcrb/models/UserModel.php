@@ -38,7 +38,11 @@ class UserModel extends Model{
         if ($tempbean) {
 
             $tempdata = $this->exportAll($tempbean, TRUE);
-
+            foreach ($tempdata as $key => $value){
+                // удаляю пароли из массива
+                // нехуя их ваще посылать кудато. да они захешированы но всеравно нннааадаа
+                unset($tempdata[$key]['password']);
+            }
             $List['data']=$tempdata;
             return $List;
         }

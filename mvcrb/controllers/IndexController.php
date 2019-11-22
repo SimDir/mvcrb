@@ -119,11 +119,14 @@ class IndexController extends Controller{
                 if(!empty($tempPage[1])){
                     $title = $tempPage[1];     
                 }else{
-                    $title = $page;     
+                    $title = $page;    
+                    
                 }
                  
         }
-        return ucfirst(strtolower($title));
+        $title=ucfirst($title);
+//        dd($title);
+        return $title;
     }
 
 }
