@@ -1,21 +1,114 @@
 window.onload = function () {
    //CONTACTS
-   document.querySelector('#Moscow').onclick = function() {
-      document.querySelector('.ULCITY').style.display = "none";
+   function showMoscow() {
       document.querySelector('.MCITY').style.display = "block";
       document.querySelector('#Moscow').style.borderBottom ="1px solid grey";
-      document.querySelector('#ul').style.borderBottom ="none";
-      document.querySelector('.MoscowMap').style.display ="block";
-      document.querySelector('.UlMap').style.display ="none";
    }
-   document.querySelector('#ul').onclick = function() {
-      document.querySelector('.ULCITY').style.display = "block";
+   function hideMoscow() {
       document.querySelector('.MCITY').style.display = "none";
-      document.querySelector('#ul').style.borderBottom ="1px solid grey";
       document.querySelector('#Moscow').style.borderBottom ="none";
-      document.querySelector('.MoscowMap').style.display ="none";
-      document.querySelector('.UlMap').style.display ="block";
    }
+   function showUlsk() {
+      document.querySelector('.ULCITY').style.display = "block";
+      document.querySelector('#Ulsk').style.borderBottom ="1px solid grey";
+   }
+   function hideUlsk() {
+      document.querySelector('.ULCITY').style.display = "none";
+      document.querySelector('#Ulsk').style.borderBottom ="none";
+   }
+   function showLiny() {
+      document.querySelector('.LCITY').style.display = "block";
+      document.querySelector('#Liny').style.borderBottom ="1px solid grey";
+   }
+   function hideliny() {
+      document.querySelector('.LCITY').style.display = "none";
+      document.querySelector('#Liny').style.borderBottom ="none";
+   }
+   function showVilnus() {
+      document.querySelector('.VCITY').style.display = "block";
+      document.querySelector('#Vilnus').style.borderBottom ="1px solid grey";
+   }
+   function hideVilnus() {
+      document.querySelector('.VCITY').style.display = "none";
+      document.querySelector('#Vilnus').style.borderBottom ="none";
+   }
+
+   document.querySelector('#Moscow').onclick = function() {
+      showMoscow();
+      hideUlsk();
+      hideliny();
+      hideVilnus();
+   }
+   document.querySelector('#Ulsk').onclick = function() {
+      showUlsk();
+      hideMoscow();
+      hideliny();
+      hideVilnus();
+   }
+   // document.querySelector('#Liny').onclick = function() {
+   //    showLiny();
+   //    hideMoscow();
+   //    hideUlsk();
+   //    hideVilnus();
+   // }
+   // document.querySelector('#Vilnus').onclick = function() {
+   //    showVilnus();
+   //    hideMoscow();
+   //    hideUlsk();
+   //    hideliny();
+   // }
+
+
+
+
+
+
+}
+// document.querySelector('#Moscow').onclick = function() {
+   //    document.querySelector('.MCITY').style.display = "block";
+   //    document.querySelector('#Moscow').style.borderBottom ="1px solid grey";
+   //    document.querySelector('.MoscowMap').style.display ="block";
+   //    document.querySelector('.ULCITY').style.display = "none";
+   //    document.querySelector('#Ulsk').style.borderBottom ="none";
+   //    document.querySelector('.UlMap').style.display ="none";
+   //    document.querySelector('.LCITY').style.display = "none";
+   //    document.querySelector('#Liny').style.borderBottom ="none";
+   //    document.querySelector('.LMap').style.display ="none";
+   //    document.querySelector('.VCITY').style.display = "none";
+   //    document.querySelector('#Vilnus').style.borderBottom ="none";
+   //    document.querySelector('.VMap').style.display ="none";
+   // }
+   // document.querySelector('#Ulsk').onclick = function() {
+   //    document.querySelector('.ULCITY').style.display = "block";
+   //    document.querySelector('#Ulsk').style.borderBottom ="1px solid grey";
+   //    document.querySelector('.UlMap').style.display ="block";
+   //    document.querySelector('.MCITY').style.display = "none";
+   //    document.querySelector('#Moscow').style.borderBottom ="none";
+   //    document.querySelector('.MoscowMap').style.display ="none";
+   //    document.querySelector('.LCITY').style.display = "none";
+   //    document.querySelector('#Liny').style.borderBottom ="none";
+   //    document.querySelector('.LMap').style.display ="none";
+   //    document.querySelector('.VCITY').style.display = "none";
+   //    document.querySelector('#Vilnus').style.borderBottom ="none";
+   //    document.querySelector('.VMap').style.display ="none";
+   // }
+   // document.querySelector('#Liny').onclick = function() {
+   //    document.querySelector('.LCITY').style.display = "block";
+   //    document.querySelector('#Liny').style.borderBottom ="1px solid grey";
+   //    document.querySelector('.LMap').style.display ="block";
+   //    document.querySelector('.ULCITY').style.display = "none";
+   //    document.querySelector('#Ulsk').style.borderBottom ="none";
+   //    document.querySelector('.UlMap').style.display ="none";
+   //    document.querySelector('.MCITY').style.display = "none";
+   //    document.querySelector('#Moscow').style.borderBottom ="none";
+   //    document.querySelector('.MoscowMap').style.display ="none";
+   //    document.querySelector('.LCITY').style.display = "none";
+   //    document.querySelector('#Liny').style.borderBottom ="none";
+   //    document.querySelector('.LMap').style.display ="none";
+   //    document.querySelector('.VCITY').style.display = "none";
+   //    document.querySelector('#Vilnus').style.borderBottom ="none";
+   //    document.querySelector('.VMap').style.display ="none";
+   // }
 
 
 
@@ -202,13 +295,3 @@ window.onload = function () {
 //    checkurl();
 
  
-   
-
-
-   
-  
-
-
-
-
-}

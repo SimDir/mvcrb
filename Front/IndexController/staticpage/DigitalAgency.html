@@ -14,44 +14,91 @@
             <a class="digital-agatech__content_top_menu_link" href="/page/digitalAgensy_files.html">Файлы</a>
         </nav>
         <div class="digital-agatech__content_center_block1">
-            <h6>О НАС</h6>
+            <h6>О нас</h6>
             <p>Если вы ищете команду, способную реализовать Ваши ожидания и понимаете всю необходимость не только присутствия, но и не посредственного участия в процессе формирования интернет рынка - обратитесь к профессионалам!</p>
             <p>На сегодняшний день в нашем портфолио более пятидесяти реализованных проектов в разных областях бизнеса, каждый из которых имеет уникальный дизайн и стиль. Наш опыт станет лучшим критерием выбора, а цена приятным бонусом!</p>
         </div>
         <div class="digital-agatech__content_center_block2">
             <h6>Основные этапы</h6>
             <div class="digital-agatech__content_center_block2_graphic">
-                <img class="graphic" src="/public/img/digital_agency/graphic.png" alt="graphic">
+                <div class="graphic">
+                    <div class="g2009">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda officiis cumque saepe corporis vitae, eos ducimus id voluptate? Voluptatum, officiis.</p>
+                    </div>  
+                    <div class="g2011">  
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo velit eveniet quos nobis! Minima, ullam?</p>
+                    </div>
+                    <div class="g2013">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, aliquam?</p>
+                    </div>
+                    <div class="g2015">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, aliquam?</p>
+                    </div>
+                    <div class="g2017">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, aliquam?</p>
+                    </div>
+                    <div class="g2019">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, aliquam?</p>
+                    </div>
+                </div>
+                <div class="graphic_bottom">
+                        <div class="g2010">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda officiis cumque saepe corporis vitae, eos ducimus id voluptate? Voluptatum, officiis.</p>
+                        </div>  
+                        <div class="g2012">  
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo velit eveniet quos nobis! Minima, ullam?</p>
+                        </div>
+                        <div class="g2014">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, aliquam?</p>
+                        </div>
+                        <div class="g2016">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, aliquam?</p>
+                        </div>
+                        <div class="g2018">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, aliquam?</p>
+                        </div>
+                    </div>
             </div>
-        </div>
+            </div>
     </div>
 
 
     <div class="digital-agatech__content_center_block3">
         <img class="mountains" src="/img/digital_agency/mountains.png" alt="mountains">
         <img class="undermountains" src="/img/digital_agency/undermountains.png" alt="undermountains">
-        <div id="appcontacts" class="contacts">
-            
+        <div class="contacts">
             <p class="contacts__title">Контакты</p>
             <div class="contacts__city">
-                <span v-if="state!=0" @click="state=0" id="Moscow">Ульяновск</span>
-                <span v-else @click="state=0" id="ul">Ульяновск</span>
-                <span v-if="state!=1" @click="state=1" id="Moscow">Москва</span>
-                <span v-else @click="state=1" id="ul">Москва</span>
+                <div id="Ulsk">
+                    <img src="/public/img/digital_agency/ulsk.png" alt="ulsk">
+                    <span>Ульяновск</span>
+                </div>
+                <div id="Moscow">
+                    <img src="/public/img/digital_agency/moscow.png" alt="moscow">
+                    <span>Москва</span> 
+                </div>
+                <div id="Liny">
+                    <img src="/public/img/digital_agency/liny.png" alt="liny">
+                    <span>Линьи</span> 
+                </div>
+                <div id="Vilnus">
+                    <img src="/public/img/digital_agency/vilnus.png" alt="vilnus">
+                    <span>Вильнюс</span> 
+                </div>
             </div>
 
-            <div v-if="state==0" class="ULCITY">
+            <div class="ULCITY">
                 <div class="contacts__address">
                     <img src="/img/digital_agency/contactsicon1.png" alt="contactsicon1">
                     <span>Московское шоссе 55а, 3 этаж</span>
                 </div> 
                 <div class="contacts__phone moscowCity">
                     <img src="/img/digital_agency/contactsicon2.png" alt="contactsicon1">
-                    <span>8 (422) 33-50-08</span>
+                    <span>8 (927) 270-53-30</span>
                 </div> 
             </div>
 
-            <div v-if="state==1" class="ULCITY">
+            <div class="MCITY">
                 <div class="contacts__address">
                     <img src="/img/digital_agency/contactsicon1.png" alt="contactsicon1">
                     <span>Архангельский переулок, дом 5, строение 4</span>
@@ -61,13 +108,32 @@
                     <span>8 (904) 181-60-04</span>
                 </div> 
             </div>
+
+            <div class="LCITY">
+                <div class="contacts__address">
+                    <img src="/img/digital_agency/contactsicon1.png" alt="contactsicon1">
+                    <span>Линьи</span>
+                </div> 
+                <div class="contacts__phone">
+                    <img src="/img/digital_agency/contactsicon2.png" alt="contactsicon1">
+                    <span>8 (927) 270-53-30</span>
+                </div> 
+            </div>
+        
+            <div class="VCITY">
+                <div class="contacts__address">
+                    <img src="/img/digital_agency/contactsicon1.png" alt="contactsicon1">
+                    <span>Вильнюс</span>
+                </div> 
+                <div class="contacts__phone">
+                    <img src="/img/digital_agency/contactsicon2.png" alt="contactsicon1">
+                    <span>8 (904) 181-60-04</span>
+                </div> 
+            </div>
         </div>
-<script>new Vue({
-    el: '#appcontacts',
-            data: {
-            state:0
-    }});</script>
-    </div>
+        </div>
+        <script type="text/javascript" src="/public/js/script.js"></script>        
+
     </div>
 </div>
 
