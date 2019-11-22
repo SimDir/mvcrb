@@ -61,16 +61,16 @@ class IndexController extends Controller{
         $title = '';
         switch ($page) {
             case 'Team.html';
-                $title = 'Наша дружная комманда залог нашего успешного благородного дела';
+                $title = 'Команда';
                 break;
             case 'Achievements.html';
-                $title = 'Достижения нашей команды';
+                $title = 'Достижения';
                 break;
             case 'Contacts.html';
-                $title = 'Свяжитесь с нами любым из удобных вам способов';
+                $title = 'Контакты';
                 break;
             case 'Files.html';
-                $title = 'Центр загрузки файлов';
+                $title = 'Файлы';
                 break;
             case 'Businesscooperation.html';
                 $title = 'Сотрудничесво с партнерами из России';
@@ -82,7 +82,7 @@ class IndexController extends Controller{
                 $title = 'Продукты';
                 break;
             case 'Colutions.html';
-                $title = 'Решения';
+                $title = 'Креативаная цифровая разработка';
                 break;
             case 'Promotion.html';
                 $title = 'Комплексное продвижение и сопровождение';
@@ -106,13 +106,13 @@ class IndexController extends Controller{
                 $title = 'Комплексные решения';
                 break;
             case 'Video.html';
-                $title = 'Видио материалы';
+                $title = 'Видео';
                 break;
             case 'Developments.html';
-                $title = 'Важные события';
+                $title = 'События';
                 break;
             case 'Digitalagency.html';
-                $title = 'Создаем и улучшаем цифровые продукты';
+                $title = 'О комапании';
                 break;
 
             default:
