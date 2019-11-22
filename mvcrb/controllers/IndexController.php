@@ -16,7 +16,7 @@ class IndexController extends Controller{
         $View=&$this->View;
         $View->title = $faker->words(3,true);
         $View->content = $_SERVER['HTTP_USER_AGENT'];
-        return $View('index.html');
+        return $View('index.html',TEMPLATE_DIR);
     }
     
     public function headerAction() {

@@ -13,9 +13,10 @@ class View {
 
     private $vars = array();
     public $TplDir = TEMPLATE_DIR;
-    public function __construct() {
+    public function __construct($TplDir='') {
         $this->vars['headcssjs']='';
         $this->vars['bodycssjs']='';
+        $this->TplDir = TEMPLATE_DIR.$TplDir.DS;
     }
     public function __invoke($val,$TplDir=false) {
         return $this->execute($val,$TplDir);
