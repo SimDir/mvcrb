@@ -65,6 +65,8 @@ class AdminController extends Controller{
         return ['id'=>$page->Add($PostData)]; 
     }
     public function PagesAction() {
+        $this->View->AddJs('https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js');
+        
         $this->View->admincontent = $this->View->execute('pages.html');
         $this->View->content = $this->View->execute('index.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);

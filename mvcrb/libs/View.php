@@ -47,6 +47,13 @@ class View {
             $this->vars['bodycssjs'].="<link rel=\"stylesheet\" href=\"$stylesheet\">".PHP_EOL;
         }
     }
+    public function AddJs($stylesheet,$OnTop=true) {
+        if($OnTop){
+            $this->vars['headcssjs'].="<script src=\"$stylesheet\"></script>".PHP_EOL;
+        }else{
+            $this->vars['bodycssjs'].="<script src=\"$stylesheet\"></script>".PHP_EOL;
+        }
+    }
     public function VarGet($name) {
         if (isset($this->vars[$name])) {
 

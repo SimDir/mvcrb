@@ -1,7 +1,7 @@
 
 <div id="pagelist">
     <div class="d-flex align-items-start">
-        <button v-if="state==0" @click="state=1" type="button" class="btn btn-primary">Добавить</button>
+        <button v-if="state==0" @click="SetEditor" type="button" class="btn btn-primary">Добавить</button>
         <button v-if="state==1" @click="state=0" type="button" class="btn btn-primary">Вернутся</button>
         <div v-if="state==0" class="d-flex flex-wrap justify-content-around">
             <div class="p-2">
@@ -96,7 +96,7 @@
                     <button type="button" class="btn btn-primary" v-if="EdititorMode==1" @click="EdititorMode=0">HTML</button>
                 </div>
                 <div v-if="EdititorMode==0" v-html="Page.content"></div>
-                <textarea v-if="EdititorMode==1" v-model="Page.content" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="9" placeholder="Текст страници или HTML код"></textarea>
+                <textarea name="content" id="editor" class="form-control rounded-0" rows="9" placeholder="Текст страници или HTML код"></textarea>
             </div>
 
             <!-- Send button -->
@@ -109,6 +109,7 @@
     </div>
 </div>
 <script>
+    
     var pagelist = new Vue({
         el: '#pagelist',
         mvcrbstore,
@@ -121,6 +122,7 @@
             searchStr: '', currentSortDir: 'asc', currentSort: 'id', state: '0',EdititorMode:1
         },
         created() {
+            
             this.setPage(1);
         },
         computed: {
@@ -137,6 +139,10 @@
             }
         },
         methods: {
+            SetEditor(){
+                this.state=1;
+                ClassicEditor.create( document.querySelector( '#editor' ) ).catch( error => {console.error( error );});
+            },
             setPage(p) {
                 if (p > this.paginator.count)
                     p = this.paginator.count;
