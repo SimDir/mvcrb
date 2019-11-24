@@ -19,8 +19,16 @@ class AdminController extends Controller{
         }
         $this->View->AddCss('/public/css/adminstyle.css');
         $this->View->title = 'Админка';
+
     }
-    
+    public function UpdateAction($param=null) {
+        $FileName = null;
+        foreach (glob(mvcrb::Config()['App_Controllers_Dir'] . '*Controller.php') as $file) {
+            //$LastModified[] = filemtime($file); // массив файлов со временем изменения файла
+            $FileName[] = $file; // массив всех файлов
+        }
+        dd($FileName);
+    }
     public function IndexAction() {
         $this->View->admincontent = $this->View->execute('main.html');
         $this->View->content = $this->View->execute('index.html');
