@@ -14,14 +14,21 @@ class AdminController extends Controller{
         $this->User = new UserModel();
         if($this->User->GetCurrentUser()['role']<900){
 //            die('Asses denide');
-            Session::set('UrerRedirect', '/admin');
-            return mvcrb::Redirect('/user');
+            //Session::set('UrerRedirect', '/admin');
+            //return mvcrb::Redirect('/user');
         }
         $this->View->AddCss('/public/css/adminstyle.css');
-        $this->View->SetWivePath(TEMPLATE_DIR.'AdminController'.DS);
         $this->View->title = 'Админка';
+
     }
-    
+    public function UpdateAction($param=null) {
+        $FileName = null;
+        foreach (glob(mvcrb::Config()['App_Controllers_Dir'] . '*Controller.php') as $file) {
+            //$LastModified[] = filemtime($file); // массив файлов со временем изменения файла
+            $FileName[] = $file; // массив всех файлов
+        }
+        dd($FileName);
+    }
     public function IndexAction() {
         $this->View->admincontent = $this->View->execute('main.html');
         $this->View->content = $this->View->execute('index.html');
@@ -58,6 +65,8 @@ class AdminController extends Controller{
         return ['id'=>$page->Add($PostData)]; 
     }
     public function PagesAction() {
+        $this->View->AddJs('https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js');
+        
         $this->View->admincontent = $this->View->execute('pages.html');
         $this->View->content = $this->View->execute('index.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);

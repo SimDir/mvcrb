@@ -13,9 +13,10 @@ class View {
 
     private $vars = array();
     public $TplDir = TEMPLATE_DIR;
-    public function __construct() {
+    public function __construct($TplDir='') {
         $this->vars['headcssjs']='';
         $this->vars['bodycssjs']='';
+        $this->TplDir = TEMPLATE_DIR.$TplDir.DS;
     }
     public function __invoke($val,$TplDir=false) {
         return $this->execute($val,$TplDir);
@@ -44,6 +45,13 @@ class View {
             $this->vars['headcssjs'].="<link rel=\"stylesheet\" href=\"$stylesheet\">".PHP_EOL;
         }else{
             $this->vars['bodycssjs'].="<link rel=\"stylesheet\" href=\"$stylesheet\">".PHP_EOL;
+        }
+    }
+    public function AddJs($stylesheet,$OnTop=true) {
+        if($OnTop){
+            $this->vars['headcssjs'].="<script src=\"$stylesheet\"></script>".PHP_EOL;
+        }else{
+            $this->vars['bodycssjs'].="<script src=\"$stylesheet\"></script>".PHP_EOL;
         }
     }
     public function VarGet($name) {
