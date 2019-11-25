@@ -4,12 +4,12 @@
 </style>
 
 <div id="configurator">
-    <div class="d-flex justify-content-between bg-primary">
+<!--    <div class="d-flex justify-content-between bg-primary">
         
         <div class="align-self-start"><img src="/public/img/logo2.png" class="img-fluid" alt="Responsive image"></div>
         <div class="align-self-center">Шаг {{step}} из {{MaxStep}}</div>
 
-    </div>
+    </div>-->
     
     <div v-if="step==1">
         <div class="text-center">
@@ -346,20 +346,23 @@
     </div>
  
     <div v-if="step==7">
-        <div class="text-center">
+
+        <iframe width="100%" height="600px" src="https://calk.bitrix24.site/" frameborder="0"></iframe>
+
+<!--        <div class="text-center">
             <h2>Итоги</h2>
             
         </div>
         <div class="d-flex justify-content-center bd-highlight mb-3">
             
             <h1>Цена {{totalprice}} Руб.</h1>
-        </div>
+        </div>-->
     </div>
     <div v-if="step==8">
         <div class="d-flex justify-content-center bd-highlight mb-3">
             
             <!-- Default form register -->
-            <form class="text-center border border-light p-5" action="#!">
+            <div class="text-center border border-light p-5">
 
                 <p class="h4 mb-4">Оформить заказ</p>
 
@@ -386,7 +389,7 @@
 
                 <!-- Sign up button -->
                 <button class="btn btn-info my-4 btn-block" type="submit">Заказать сайт</button>
-            </form>
+            </div>
             <!-- Default form register -->
         </div>
     </div>
@@ -407,18 +410,17 @@ var configurator = new Vue({
   el: '#configurator',
   data: {
     message: 'Калькулятор сайтов',
-    step:1,MaxStep:8, 
+    step:1,MaxStep:7, 
     SiteTyp:0,SiteTypPrice: [
-      { text: 'Одностраничный сайт', value:25000,img:'/public/img/sample.jpg',
+      { text: 'Одностраничный сайт', value:25000,img:'https://agatech.ru/img/services-item-01.png',
           desk:'Очень популярный в настоящее время формат сайтов, который не предполагает разветвленной структуры. Все содержание такого сайта умещается на одной-единственной странице и просматривается вверх и вниз при помощи прокрутки.' },
-      { text: 'Интернет магазин', value:45000,img:'/public/img/ecom.jpg',
+      { text: 'Интернет магазин', value:45000,img:'https://agatech.ru/img/services-item-02.png',
           desk:'Сайт, торгующий товарами посредством сети Интернет. Позволяет пользователям онлайн, в своём браузере или через мобильное приложение, сформировать заказ на покупку, выбрать способ оплаты и доставки заказа, оплатить заказ. При этом продажа товаров осуществляется дистанционным способом' },
-      { text: 'Корпоративный сайт', value:35000,img:'/public/img/portal.jpg',
+      { text: 'Корпоративный сайт', value:35000,img:'https://agatech.ru/img/services-item-03.png',
           desk:'В общем случае, веб-интерфейс для доступа сотрудника к корпоративным данным и приложениям.' },
-      { text: 'Сайт визитка', value:15000,img:'/public/img/leding.jpg',
+      { text: 'Сайт визитка', value:15000,img:'https://agatech.ru/img/services-item-04.png',
           desk:'сайт-визитку используют компании, которые не хотят нести большие затраты на создание отдельного сайта. Очень часто при покупке доменного имени для почты устанавливается сайт-заглушка или сайт-визитка.' },
-      { text: 'Демо сайт', value:10000,img:'/public/img/sample.jpg',
-          desk:'В общем случае, веб-интерфейс для доступа сотрудника к корпоративным данным и приложениям.' }
+      
     ],
     EngineTyp:0,EnginePrice: [
       { text: 'Bitrix', value:0, img:'https://www.intervolga.ru/upload/medialibrary/8d0/8d09701103cc66ffedba00feb577b543.jpg',

@@ -25,7 +25,8 @@ class IndexController extends Controller{
     public function ConfiguratorAction() {
 
         $this->View->title = 'Главная';
-        $this->View->content = $this->View->execute('Configurator.html',TEMPLATE_DIR.'Configurator'.DS);
+        $this->View->content = $this->View->execute('configurator.html',TEMPLATE_DIR.'Configurator'.DS);
+        $this->View->content = $this->View->execute('pages.html');
         return $this->View->execute('index.html',TEMPLATE_DIR);
     }    
     public function headerAction() {
