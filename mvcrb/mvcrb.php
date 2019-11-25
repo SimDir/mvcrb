@@ -315,8 +315,8 @@ class mvcrb {
         if (headers_sent() === false) {
             header('Location: ' . $url, true, ($permanent === true) ? 301 : 302);
         }
-//        echo '<script type="text/javascript">window.location = "http://www.google.com/"</script>';
-//        exit();
+        echo '<script type="text/javascript">window.location = "http://www.google.com/"</script>';
+        exit();
     }
 
 }

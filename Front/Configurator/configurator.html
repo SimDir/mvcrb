@@ -33,7 +33,7 @@
                         <input type="radio" class="custom-control-input" v-bind:id="'ckd'+index" v-bind:value="option.value" v-model.number="SiteTyp">
                         <label class="custom-control-label" v-bind:for="'ckd'+index">{{option.text}}</label>
                     </div>
-                    <h5>всего за {{option.value}} рублей</h5>
+                    <h5>за {{option.value}} рублей</h5>
                 </div>
             </div>
         </div>
@@ -114,7 +114,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="p-2 bd-highlight col-example"> </div>
+            <!--<div class="p-2 bd-highlight col-example">{{ bStep3 }} </div>-->
             <div class="p-2 bd-highlight col-example">
                 <p class="text-success">Дополнительные страницы</p>
                 <ul class="list-group">
@@ -276,13 +276,13 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="WriteText">
+                            <input type="checkbox" class="custom-control-input" id="WriteText" v-model.number="Step5" value="1000">
                             <label class="custom-control-label" for="WriteText">Написание текстов (500 знаков)</label>
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="SalePictures">
+                            <input type="checkbox" class="custom-control-input" id="SalePictures" v-model.number="Step4" value="2000">
                             <label class="custom-control-label" for="SalePictures">Подбор и покупка изображений</label>
                         </div>
                     </li>
@@ -294,14 +294,14 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="DopMoveCreate">
+                            <input type="checkbox" class="custom-control-input" id="DopMoveCreate" v-model.number="Step5" value="1500">
                             <label class="custom-control-label" for="DopMoveCreate">Создание видиоролика</label>
                         </div>
 
                     </li>
                     <li class="list-group-item">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="DopPhotograph">
+                            <input type="checkbox" class="custom-control-input" id="DopPhotograph" v-model.number="Step5" value="500">
                             <label class="custom-control-label" for="DopPhotograph">Работа фотографа (2 часа 50 фотографий)</label>
                         </div>
                     </li>
@@ -311,7 +311,85 @@
         </div>
     </div>
 
+    <div v-if="step==6">
+        <div class="text-center">
+            <h2>Домен, хостинг, SSL сертификат</h2>
+            <p>Домен - это адрес вашего сайта. Хостинг - это место где ваш сайт располагается. SSL сертификат - позволяет вашему сайту работать по защищенному каналу связи. многие современные сервысы отказывают в обслуживании сайта если он не имеет сертификата безопастности.</p>
+        </div>
+        <div class="d-flex justify-content-center bd-highlight mb-3">
+            <div class="p-2 bd-highlight col-example">
 
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="WriteText" v-model.number="Step6" value="1600">
+                            <label class="custom-control-label" for="WriteText">Доменное имя</label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="SalePictures" v-model.number="Step6" value="7000">
+                            <label class="custom-control-label" for="SalePictures">Хостинг</label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="DopMoveCreate" v-model.number="Step6" value="3000">
+                            <label class="custom-control-label" for="DopMoveCreate">SSL сертификат</label>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+ 
+    <div v-if="step==7">
+        <div class="text-center">
+            <h2>Итоги</h2>
+            
+        </div>
+        <div class="d-flex justify-content-center bd-highlight mb-3">
+            
+            <h1>Цена {{totalprice}} Руб.</h1>
+        </div>
+    </div>
+    <div v-if="step==8">
+        <div class="d-flex justify-content-center bd-highlight mb-3">
+            
+            <!-- Default form register -->
+            <form class="text-center border border-light p-5" action="#!">
+
+                <p class="h4 mb-4">Оформить заказ</p>
+
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <!-- First name -->
+                        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Имя">
+                    </div>
+                    <div class="col">
+                        <!-- Last name -->
+                        <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Фамилия">
+                    </div>
+                </div>
+
+                <!-- E-mail -->
+                <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+
+                <!-- Phone number -->
+                <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Номер телефона" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                    Ваш контактный телефон
+                </small>
+
+
+                <!-- Sign up button -->
+                <button class="btn btn-info my-4 btn-block" type="submit">Заказать сайт</button>
+            </form>
+            <!-- Default form register -->
+        </div>
+    </div>
     <div v-if="totalprice!==0" class="d-flex justify-content-between bd-highlight mb-3">
         <div class="p-2 bd-highlight"><button v-if="step>1" @click="prew" type="button" class="btn btn-default" >назад</button></div>
         <div class="p-2 bd-highlight"><span v-if="totalprice>0">Цена {{totalprice}} Руб.</span></div>
@@ -329,7 +407,7 @@ var configurator = new Vue({
   el: '#configurator',
   data: {
     message: 'Калькулятор сайтов',
-    step:4,MaxStep:8, 
+    step:1,MaxStep:8, 
     SiteTyp:0,SiteTypPrice: [
       { text: 'Одностраничный сайт', value:25000,img:'/public/img/sample.jpg',
           desk:'Очень популярный в настоящее время формат сайтов, который не предполагает разветвленной структуры. Все содержание такого сайта умещается на одной-единственной странице и просматривается вверх и вниз при помощи прокрутки.' },
@@ -355,20 +433,22 @@ var configurator = new Vue({
     Step3:[],bStep3:[],
     DopServecSlidersCount:1,DopServecSliders:0,
     DopServecPictureDevCount:1,DopServecPictureDev:0, 
-    Step4:[],bStep4:[]
+    Step4:[],bStep4:[],Step5:[],Step6:[]
   },
   computed: {
     totalprice() {
         //let UnikPage = this.sidebarUnikPage*5000;
         let step3 = this.arraySum(this.Step3);
         let step4 = this.arraySum(this.Step4);
+        let step5 = this.arraySum(this.Step5);
+        let step6 = this.arraySum(this.Step6);
         if(this.DopServecSliders){
             step4=step4+(1500*this.DopServecSlidersCount);
         }
         if(this.DopServecPictureDev){
             step4=step4+(1600*this.DopServecPictureDevCount);
         }
-        return this.SiteTyp+this.EngineTyp+step3+step4;
+        return this.SiteTyp+this.EngineTyp+step3+step4+step5+step6;
     }
   },
   methods: {
