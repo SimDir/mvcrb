@@ -94,7 +94,7 @@ class UserModel extends Model{
         }
         return FALSE;
     }
-    public function CreateUser($email, $password, $login, $role = 200, $firstname='', $lastname='', $phone='', $registredatetime='') {
+    public function CreateUser($email, $password, $login, $role = 100, $firstname='', $lastname='', $phone='', $registredatetime='') {
         
         $user = $this->Dispense($this->TableName);
         $user->firstname = $firstname;
