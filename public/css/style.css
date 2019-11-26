@@ -25,13 +25,15 @@
 ul {
    margin: 0;
 }
-
+p {
+   margin-bottom: 0;
+}
 header {
    width: 100%;
    background-color: transparent;
    position: relative;
    top: 0;
-   z-index: 1;
+   z-index: 2;
 }
 .header {
    height: 100px;
@@ -822,6 +824,8 @@ header {
 .team__row-item img {
    width: 250px;
    height: 300px;
+   border: 7px solid #BFA082;
+   box-sizing: content-box;
 }
 .cart__text {
    display: flex;
@@ -1328,7 +1332,7 @@ header {
    margin-bottom: 30px;
 }
 .colutions__center_block {
-   width: 1200px;
+   width: 1250px;
    margin: 50px auto 100px;
    display: flex;
    flex-direction: row;
@@ -1339,31 +1343,49 @@ header {
 .colutions__center_block_item {
    width: 280px;
    height: 210px;
-   margin: 10px;
+   margin: 16px;
    position: relative;
    transition: transform .7s, filter .7s;
-   overflow: hidden;
-   filter: grayscale(80%);
+   filter: grayscale(100%);
    background-size: cover;
    z-index: 1;
+   cursor: pointer;
 }
 .colutions__center_block_item:nth-child(1) {
-   background-image: url(../img/colutions/rmhbgc.jpg);
+   background-image: url(../img/colutions/1-toyota.png);
 }
 .colutions__center_block_item:nth-child(2) {
-   background-image: url(../img/colutions/cronosbgc.jpg);
+   background-image: url(../img/colutions/2-canon.png);
 }
 .colutions__center_block_item:nth-child(3) {
-   background-image: url(../img/colutions/prodosbgc.jpg);
+   background-image: url(../img/colutions/3-forma.png);
 }
 .colutions__center_block_item:nth-child(4) {
-   background-image: url(../img/colutions/bebrandbgc.jpg);
+   background-image: url(../img/colutions/4-kronos.png);
 }
 .colutions__center_block_item:nth-child(5) {
-   background-image: url(../img/colutions/canonbgc.jpg);
+   background-image: url(../img/colutions/5-APB.png);
 }
 .colutions__center_block_item:nth-child(6) {
-   background-image: url(../img/colutions/toyotabgc.jpg);
+   background-image: url(../img/colutions/6-muka.png);
+}
+.colutions__center_block_item:nth-child(7) {
+   background-image: url(../img/colutions/7-bebrand.png);
+}
+.colutions__center_block_item:nth-child(8) {
+   background-image: url(../img/colutions/8-bsk.png);
+}
+.colutions__center_block_item:nth-child(9) {
+   background-image: url(../img/colutions/9-rmh.png);
+}
+.colutions__center_block_item:nth-child(10) {
+   background-image: url(../img/colutions/10-bl.png);
+}
+.colutions__center_block_item:nth-child(11) {
+   background-image: url(../img/colutions/11-cirk.png);
+}
+.colutions__center_block_item:nth-child(12) {
+   background-image: url(../img/colutions/12-evita.png);
 }
 .colutions__center_block_item a {
    width: 100%;
@@ -1372,15 +1394,14 @@ header {
 }
 .colutions_circle {
    position: absolute;
-   top: 15px;
-   left: 50px;
-   width: 180px;
-   height: 180px;
+   top: 5px;
+   left: 40px;
+   width: 200px;
+   height: 200px;
    background-color: rgba(255,255,255, .8);
    border-radius: 50%;
    transform: scale(0);
    transition: transform .7s;
-   cursor: pointer;
    z-index: 2;
    text-align: center;
    display: flex;
@@ -1389,8 +1410,9 @@ header {
    align-items: center;
 }
 .colutions_circle p {
-   font-size: 18px;
-   color: #444;
+   font-size: 16px;
+   color: #56698f;
+   font-weight: bold;
 }
 .colutions_border {
    position: absolute;
@@ -1398,29 +1420,29 @@ header {
    left: 15px;
    width: 250px;
    height: 250px;
-   background-color: rgba(255,255,255,.3);
+   background-color: rgba(255,255,255,.4);
    border-radius: 50%;
    transform: scale(0);
    transition: transform .7s;
-   cursor: pointer;
 }
 .colutions_arrow {
    position: absolute;
-   width: 50px;
-   height: 30px;
-   bottom: 25px;
-   left: 115px;
+   width: 60px;
+   height: 35px;
+   bottom: -15px;
+   left: 110px;
    background-color: transparent;
    z-index: 3;
-   transform: translateY(100px);
+   transform: translateY(60px);
    transition: transform .7s;
    display: flex;
    justify-content: center;
    align-items: center;
+   background-color: #8CB0E4;
+   visibility: hidden;
 }
 .colutions__center_block_item:hover {
    filter: grayscale(0%);
-   z-index: 2;
 }
 .colutions__center_block_item:hover .colutions_circle {
    transform: scale(1);
@@ -1430,12 +1452,13 @@ header {
 }
 .colutions__center_block_item:hover .colutions_arrow  {
    transform: translateY(0px);
+   visibility: visible;
 }
-
 .block_item_bgc {
    width: 100%;
    height: 100%;
 }
+
 
 
 
