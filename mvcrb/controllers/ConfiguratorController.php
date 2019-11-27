@@ -18,7 +18,7 @@ class ConfiguratorController extends Controller{
     public function IndexAction() {
 
         $this->View->content = $this->View->execute('configurator.html');
-//        $this->View->content = $this->View->execute('wrapper.html');
+        $this->View->content = $this->View->execute('wrapper.html');
         return $this->View->execute('index.html',TEMPLATE_DIR);
     }    
     
@@ -30,7 +30,7 @@ class ConfiguratorController extends Controller{
             return mvcrb::Redirect('/user');
         }
         $this->View->content = $this->View->execute('admin.html');
-//        $this->View->content = $this->View->execute('wrapper.html');
+        $this->View->content = $this->View->execute('wrapper.html');
         return $this->View->execute('index.html',TEMPLATE_DIR);
     } 
 }
