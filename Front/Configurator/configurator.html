@@ -17,7 +17,7 @@
             <p>В первую очередь Вы должны определится, с какой целью Вам нужен сайт и выбрать соответствующий тип сайта.В зависимости от Вашего выбора, будут подобраны соответствующие модули.</p>
         </div>
         <div class="d-flex flex-wrap bd-highlight mb-3 justify-content-center">
-            <div style="width: 400px;" class="bd-highlight border mx-2 mt-3" v-for="(option, index) in SiteTypPrice" v-on:click="SiteTyp=option.value">
+            <div style="width: 400px;" class="bd-highlight border mx-2 mt-3" v-for="(option, index) in SiteTypPrice" v-on:click="SetSiteTyp(option.value)">
                 <div class="view overlay">
                     <img class="img-fluid" v-bind:src="option.img">
                     <div class="mask rgba-black-strong">
@@ -45,7 +45,7 @@
             <p>CMS (в народе называют движком) – система управления контентом сайта. Это костяк, на котором все строится. От движка зависит удобство наполнения сайта, его «дружелюбность» для поискового продвижения, возможность подключения дополнительных сервисов.</p>
         </div>
          <div class="d-flex flex-wrap bd-highlight mb-3 justify-content-center">
-            <div style="width: 400px;" class="bd-highlight border mx-2 mt-3" v-for="option in EnginePrice" v-on:click="EngineTyp=option.value">
+            <div style="width: 400px;" class="bd-highlight border mx-2 mt-3" v-for="option in EnginePrice" v-on:click="SetEngineTyp(option.value)">
                 <div class="view overlay">
                     <img class="card-img-top" v-bind:src="option.img" alt="Card image cap">
                     <div class="mask rgba-black-strong">
@@ -162,6 +162,7 @@
     <div v-if="step==4">
         <h2>Дизайн</h2>
         <p>Каждый из дизайн-проектов компании AGATECH - уникальны! Мы работаем с адаптивной версткой. Стоимость разработки макета может отличаться в зависимости от сложности проекта. Количество правок к согласованному макету предложенных заказчиком в процессе создания, увеличивает его стоимость.</p>
+        
         <div class="d-flex justify-content-between bd-highlight mb-3">
             <div class="p-2 bd-highlight col-example">
                 <p class="text-success">Базовые услуги (входят в стимость)</p>
@@ -347,7 +348,7 @@
  
     <div v-if="step==7">
 
-        <iframe width="100%" height="600px" src="https://calk.bitrix24.site/" frameborder="0"></iframe>
+        <iframe width="100%" height="1100px" src="https://calk.bitrix24.site/" frameborder="0"></iframe>
 
 <!--        <div class="text-center">
             <h2>Итоги</h2>
@@ -432,10 +433,11 @@ var configurator = new Vue({
       { text: 'Чистый код', value:25000, img:'https://wpgutenberg.top/wp-content/uploads/2019/01/PHP7.3-1024x512.png',
         desk:'PHP — скриптовый язык общего назначения, интенсивно применяемый для разработки веб-приложений. В настоящее время поддерживается подавляющим большинством хостинг-провайдеров и является одним из лидеров среди языков, применяющихся для создания динамических веб-сайтов.' }
     ],
-    Step3:[],bStep3:[],
+    Step3:[],bStep3:["basehederMenu", "baseNewsSalers", "baseProdukt", "baseKompany", "baseKoments", "baseKatalog"],bStep3Val:true,
     DopServecSlidersCount:1,DopServecSliders:0,
     DopServecPictureDevCount:1,DopServecPictureDev:0, 
-    Step4:[],bStep4:[],Step5:[],Step6:[]
+    Step4:[],bStep4:["baseServicPrototyp", "baseServicStyles", "baseServicDesine"],
+    Step5:[],Step6:[]
   },
   computed: {
     totalprice() {
@@ -454,6 +456,14 @@ var configurator = new Vue({
     }
   },
   methods: {
+    SetSiteTyp(Typ){
+          this.SiteTyp = Typ;
+          this.step =2;
+    },
+    SetEngineTyp(Typ){
+          this.EngineTyp = Typ;
+          this.step =3;
+    },
     arraySum(arr) {
         let sum = 0;
         if (arr.length) {
