@@ -111,6 +111,36 @@
 
 
 
+/* toyota */
+.container-toyota__img-1 {
+   width: 100%;
+   height: 560px;
+   margin-bottom: 50px;
+}
+.container-toyota__img-2 {
+   width: 100%;
+   height: 540px;
+   margin-bottom: 50px;
+}
+.container-toyota__img-3 {
+   width: 100%;
+   height: 515px;
+   margin-bottom: 50px;
+}
+.container-toyota__img-4 {
+ width: 80%;
+ margin: 0 auto;
+ margin-bottom: 100px;
+}
+.container-toyota__img-1 img,
+.container-toyota__img-2 img,
+.container-toyota__img-3 img,
+.container-toyota__img-4 img {
+   width: 100%;
+   height: 100%;
+}
+
+
 /* canon */
 .container-canon__img-1 {
    width: 100%;
@@ -208,6 +238,36 @@
 .container-arb__img-2 img,
 .container-arb__img-3 img,
 .container-arb__img-4 img {
+   width: 100%;
+   height: 100%;
+}
+
+
+/* comet */
+.container-comet__img-1 {
+   width: 100%;
+   height: 690px;
+   margin-bottom: 50px;
+}
+.container-comet__img-2 {
+   width: 100%;
+   height: 270px;
+   margin-bottom: 50px;
+}
+.container-comet__img-3 {
+   width: 100%;
+   height: 280px;
+   margin-bottom: 10px;
+}
+.container-comet__img-4 {
+   width: 100%;
+   height: 280px;
+   margin-bottom: 50px;
+}
+.container-comet__img-1 img,
+.container-comet__img-2 img,
+.container-comet__img-3 img,
+.container-comet__img-4 img {
    width: 100%;
    height: 100%;
 }

@@ -1,11 +1,25 @@
 window.onload = function () { 
    let colutions__center = document.querySelector('.colutions__center');
-   // let toyota_item = document.querySelector('#toyota-item');
-
-   // let flour_item = document.querySelector('#flour-item');
 
    function scrolling() {
       window.scrollTo(0,0);
+   }
+
+
+   //TOYOTA
+   let toyota_item = document.querySelector('#toyota-item');
+   let toyota_page = document.querySelector('#TOYOTA-PAGE');
+   let toyota_back_btn = document.querySelector('#toyota-back-btn');
+   toyota_item.onclick = function() {
+      toyota_page.style.visibility = "visible";
+      toyota_page.style.transform = "scale(1)";
+      colutions__center.style.minHeight = "3240px";
+      scrolling();
+   }
+   toyota_back_btn.onclick= function() {
+      toyota_page.style.transform = "scale(0)";
+      toyota_page.style.visibility = "hidden";
+      colutions__center.style.minHeight = "1000px";
    }
 
 
@@ -60,7 +74,6 @@ window.onload = function () {
    }
 
 
-
    //ARB
    let arb_item = document.querySelector('#ARB-item');
    let arb_page = document.querySelector('#ARB-PAGE');
@@ -78,6 +91,23 @@ window.onload = function () {
    }
 
 
+   //comet
+   let comet_item = document.querySelector('#comet-item');
+   let comet_page = document.querySelector('#COMET-PAGE');
+   let comet_back_btn = document.querySelector('#comet-back-btn');
+   comet_item.onclick = function() {
+      comet_page.style.visibility = "visible";
+      comet_page.style.transform = "scale(1)";
+      colutions__center.style.minHeight = "2340px";
+      scrolling();
+   }
+   comet_back_btn.onclick= function() {
+      comet_page.style.transform = "scale(0)";
+      comet_page.style.visibility = "hidden";
+      colutions__center.style.minHeight = "1000px";
+   }
+
+   
    // BEBRAND
    let bebrand_item = document.querySelector('#bebrand-item');
    let bebrand_page = document.querySelector('#BEBRAND-PAGE');
@@ -85,7 +115,7 @@ window.onload = function () {
    bebrand_item.onclick = function() {
       bebrand_page.style.visibility = "visible";
       bebrand_page.style.transform = "scale(1)";
-      colutions__center.style.minHeight = "2500px";
+      colutions__center.style.minHeight = "2450px";
       scrolling();
    }
    bebrand_back_btn.onclick = function() {
