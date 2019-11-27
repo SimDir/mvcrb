@@ -347,17 +347,18 @@
     </div>
  
     <div v-if="step==7">
-
-        <iframe width="100%" height="1100px" src="https://calk.bitrix24.site/" frameborder="0"></iframe>
-
-<!--        <div class="text-center">
-            <h2>Итоги</h2>
-            
+        <div class="text-center">
+            <p class="mt-5 mb-5">Для проверки что вы не робот а реальный человек, необходимо отправить в коментарии уникальный код заказа который сгенерирован системой конфигурации заказа</p>
+            <button v-if="!ShowUniKod" @click="ShowUniKod=true" type="button" class="btn btn-warning mt-5 mb-5">Показать код</button>
+            <div v-if="ShowUniKod" class="border bg-light mt-5 mb-5">
+                <h3>Ваш уникальный код заказа</h3>
+                <h2 class="text-success">{{ UniKod }}</h2>
+            </div>
         </div>
-        <div class="d-flex justify-content-center bd-highlight mb-3">
-            
-            <h1>Цена {{totalprice}} Руб.</h1>
-        </div>-->
+        <iframe width="100%" height="1100px" src="https://calk.bitrix24.site/" frameborder="0"></iframe>
+        
+        
+        
     </div>
     <div v-if="step==8">
         <div class="d-flex justify-content-center bd-highlight mb-3">
@@ -411,7 +412,7 @@ var configurator = new Vue({
   el: '#configurator',
   data: {
     message: 'Калькулятор сайтов',
-    step:1,MaxStep:7, 
+    step:7,MaxStep:7, 
     SiteTyp:0,SiteTypPrice: [
       { text: 'Одностраничный сайт', value:25000,img:'https://agatech.ru/img/services-item-01.png',
           desk:'Очень популярный в настоящее время формат сайтов, который не предполагает разветвленной структуры. Все содержание такого сайта умещается на одной-единственной странице и просматривается вверх и вниз при помощи прокрутки.' },
@@ -437,7 +438,11 @@ var configurator = new Vue({
     DopServecSlidersCount:1,DopServecSliders:0,
     DopServecPictureDevCount:1,DopServecPictureDev:0, 
     Step4:[],bStep4:["baseServicPrototyp", "baseServicStyles", "baseServicDesine"],
-    Step5:[],Step6:[]
+    Step5:[],Step6:[],
+    UniKod:'',ShowUniKod:false
+  },
+  created() {
+    this.UniKod = this.GetUID;
   },
   computed: {
     totalprice() {
@@ -453,6 +458,10 @@ var configurator = new Vue({
             step4=step4+(1600*this.DopServecPictureDevCount);
         }
         return this.SiteTyp+this.EngineTyp+step3+step4+step5+step6;
+    },
+    GetUID(){
+        const uuid = ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15 >> c/4).toString(16));
+        return uuid;
     }
   },
   methods: {

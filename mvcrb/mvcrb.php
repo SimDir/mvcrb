@@ -93,19 +93,27 @@ class mvcrb {
                     return call_user_func(array($objectCtrl, $Action));
                 }
             }
-            if (!headers_sent()) {
-                header("HTTP/1.1 405 Method Not Allowed");
-                header("Status: 405 Method Not Allowed");
+            if(SHOW_ERROR){
+                if (!headers_sent()) {
+                    header("HTTP/1.1 405 Method Not Allowed");
+                    header("Status: 405 Method Not Allowed");
+                }
+                return "<h1>405 Method Not Allowed</h1>".__METHOD__."<h5> Контроллер <b style=\"color: red;\">" . $Controller . "</b> Не имеет метода <b style=\"color: red;\">$Action()</b></h5>";
+        
+            } else {
+                return self::Redirect(ERROR_URL);
             }
-
-            return "<h1>404 Method Not Allowed</h1><hr><h5>" . __METHOD__ . " <b style=\"color: red;\">$Controller::$Action()</b> Не имеет метода</h5>";
         }
-        if (!headers_sent()) {
-            header("HTTP/1.1 523 Origin Is Unreachable");
-            header("Status: 523 Origin Is Unreachable");
+        if(SHOW_ERROR){
+            if (!headers_sent()) {
+                header("HTTP/1.1 523 Origin Is Unreachable");
+                header("Status: 523 Origin Is Unreachable");
+            }
+            return "<h1>523 Origin Is Unreachable</h1>".__METHOD__."<h5> Нет исполнительного контроллера <b style=\"color: red;\">$Controller</b></h5>";
+        } else {
+            return self::Redirect(ERROR_URL);
         }
-
-        return "<h1>523 Not Found</h1><hr><h5>Exec:: нет исполнительного контроллера $Controller</h5>";
+        
     }
 
     /**
@@ -204,15 +212,15 @@ class mvcrb {
 
 //            header('HTTP/1.0 404 Not Found');
 //            exit('Нет контроллера '.$controlerName);
-            throw new \Exception(__METHOD__ . ' [ERROR:404] фаил Контроллера ' . $controlerName . '.php не найден');
-//            return FALSE;
+//            throw new \Exception(__METHOD__ . ' [ERROR:404] фаил Контроллера ' . $controlerName . '.php не найден');
+            return FALSE;
         } else {
             self::$ControllerFile = $controllerFile;
             return $controllerFile;
         }
 //        require_once ($controllerFile);
-        throw new \Exception(__METHOD__ . ' [ERROR:404] фаил Контроллера ' . $controlerName . '.php не найден');
-//        return FALSE;
+//        throw new \Exception(__METHOD__ . ' [ERROR:404] фаил Контроллера ' . $controlerName . '.php не найден');
+        return FALSE;
     }
 
     /**
@@ -315,8 +323,8 @@ class mvcrb {
         if (headers_sent() === false) {
             header('Location: ' . $url, true, ($permanent === true) ? 301 : 302);
         }
-        echo '<script type="text/javascript">window.location = "http://www.google.com/"</script>';
-        exit();
+        return '<script type="text/javascript">window.location = "'.$url.'"</script>';
+        
     }
 
 }

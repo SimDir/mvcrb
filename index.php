@@ -15,7 +15,8 @@ define('TEMPLATE_DIR', SITE_DIR . 'Front' . DS);
 
 define('CONFIG_DIR', SITE_DIR . 'Config' . DS); // папка с конфигами
 
-define ('WRITE_LOG', TRUE); // вести логирование работы или нет
+define ('SHOW_ERROR', FALSE); // вести логирование работы или нет
+define ('ERROR_URL', '/error/404');
 define ('COMPOSER', SITE_DIR.'vendor'.DS.'autoload.php');
 
 if(file_exists(COMPOSER)){

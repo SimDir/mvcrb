@@ -12,7 +12,7 @@ class IndexController extends Controller{
     public function __construct() {
         parent::__construct();
         $this->View->SetWivePath(TEMPLATE_DIR . 'IndexController' . DS);
-        $this->View->title = ':-)';
+        $this->View->title = 'Агатех';
         $this->View->AddCss('https://fonts.googleapis.com/css?family=Ubuntu:300,400,700&display=swap');
     }
 
@@ -22,13 +22,6 @@ class IndexController extends Controller{
         $this->View->content = $this->View->execute('main.html');
         return $this->View->execute('index.html',TEMPLATE_DIR);
     }
-    public function ConfiguratorAction() {
-
-        $this->View->title = 'Главная';
-        $this->View->content = $this->View->execute('configurator.html',TEMPLATE_DIR.'Configurator'.DS);
-        $this->View->content = $this->View->execute('pages.html');
-        return $this->View->execute('index.html',TEMPLATE_DIR);
-    }    
     public function headerAction() {
         return $this->View->execute('inc'.DS.'header.html');
     }
@@ -42,7 +35,7 @@ class IndexController extends Controller{
         $this->View->title = $this->SetTitle($page);
         $testFile = TEMPLATE_DIR.'IndexController'.DS.'staticpage'.DS.$page;
         if(!file_exists($testFile)){
-            mvcrb::Redirect('/error/404');
+            mvcrb::Redirect(ERROR_URL);
         }
         $this->View->content = $this->View->execute('staticpage'.DS.$page);
         $this->View->content = $this->View->execute('pages.html');
