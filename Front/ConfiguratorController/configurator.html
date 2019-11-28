@@ -4,11 +4,9 @@
 </style>
 
 <div id="configurator">
-<!--    <div class="d-flex justify-content-between bg-primary">
-        
-        <div class="align-self-start"><img src="/public/img/logo2.png" class="img-fluid" alt="Responsive image"></div>
-        <div class="align-self-center">Шаг {{step}} из {{MaxStep}}</div>
-
+<!--    <div class="progress">
+        <input class="progress-bar" type="range" id="start" name="volume" min="1" max="7">
+        <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
     </div>-->
     
     <div v-if="step==1">
@@ -17,23 +15,23 @@
             <p>В первую очередь Вы должны определится, с какой целью Вам нужен сайт и выбрать соответствующий тип сайта.В зависимости от Вашего выбора, будут подобраны соответствующие модули.</p>
         </div>
         <div class="d-flex flex-wrap bd-highlight mb-3 justify-content-center">
-            <div style="width: 400px;" class="bd-highlight border mx-2 mt-3" v-for="(option, index) in SiteTypPrice" v-on:click="SetSiteTyp(option.value)">
-                <div class="view overlay">
+            <div style="width: 400px;cursor:pointer;" class="bd-highlight mx-2 mt-3 hoverable" v-for="(option, index) in SiteTypArray" v-on:click="SetSiteTyp(option)">
+                <div style="height:300px;cursor:pointer;" class="view overlay">
                     <img class="img-fluid" v-bind:src="option.img">
                     <div class="mask rgba-black-strong">
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-md-10">
-                                <p class="white-text">{{ option.desk }}</p>
+                        <div class="d-flex align-items-center bd-highlight mb-3">
+                            <div class="p-2 bd-highlight">
+                                <div class="align-items-center white-text">{{ option.desk }}</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card-body text-center">
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" v-bind:id="'ckd'+index" v-bind:value="option.value" v-model.number="SiteTyp">
-                        <label class="custom-control-label" v-bind:for="'ckd'+index">{{option.text}}</label>
-                    </div>
-                    <h5>за {{option.value}} рублей</h5>
+                    
+                        
+                    <span>{{option.text}}</span>
+                    
+                    <h5>за {{option.sum}} рублей</h5>
                 </div>
             </div>
         </div>
@@ -45,22 +43,20 @@
             <p>CMS (в народе называют движком) – система управления контентом сайта. Это костяк, на котором все строится. От движка зависит удобство наполнения сайта, его «дружелюбность» для поискового продвижения, возможность подключения дополнительных сервисов.</p>
         </div>
          <div class="d-flex flex-wrap bd-highlight mb-3 justify-content-center">
-            <div style="width: 400px;" class="bd-highlight border mx-2 mt-3" v-for="option in EnginePrice" v-on:click="SetEngineTyp(option.value)">
-                <div class="view overlay">
-                    <img class="card-img-top" v-bind:src="option.img" alt="Card image cap">
+            <div style="width: 400px;cursor:pointer;" class="bd-highlight mx-2 mt-3 hoverable" v-for="option in EnginePriceArray" v-on:click="SetEngineTyp(option)">
+                <div style="height:300px;cursor:pointer;" class="view overlay">
+                    <img class="img-fluid" v-bind:src="option.img">
                     <div class="mask rgba-black-strong">
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-md-11">
-                                <p class="white-text">{{ option.desk }}</p>
+                        <div class="d-flex align-items-center bd-highlight mb-3">
+                            <div class="p-2 bd-highlight">
+                                <div class="align-items-center white-text">{{ option.desk }}</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card-body text-center">
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" v-bind:id="'eckd'+option.value" v-bind:value="option.value" v-model.number="EngineTyp">
-                        <label class="custom-control-label" v-bind:for="'eckd'+option.value">{{option.text}} за {{option.value}} рублей</label>
-                    </div>
+                    <span>{{option.text}}</span>
+                    <h5>за {{option.sum}} рублей</h5>
                 </div>
             </div>
         </div>
@@ -72,8 +68,8 @@
             <h2>Перечень страниц для выбора</h2>
             <p>Дополнительные страницы позволяют расширять функционал Вашего сайта. В зависимости от типа сайта подбираются соответствующие страницы. Но даже на корпоративный сайт никто не мешает установить блог или каталог товаров.</p>
         </div>
-        <div class="d-flex justify-content-between bd-highlight mb-3">
-            <div class="p-2 bd-highlight col-example">
+        <div class="d-flex d-flex justify-content-around bd-highlight mb-3">
+            <div class="p-2 bd-highlight">
                 <p class="text-success">Базовые страницы (входят в стимость)</p>
                 <ul class="list-group">
                     <li class="list-group-item">
@@ -114,8 +110,12 @@
                     </li>
                 </ul>
             </div>
-            <!--<div class="p-2 bd-highlight col-example">{{ bStep3 }} </div>-->
-            <div class="p-2 bd-highlight col-example">
+            
+            <div class="p-2 mt-5 bd-highlight">
+                <div class="d-flex align-items-center mt-5 text-muted">Шаг {{ step }} из {{MaxStep}}</div>
+                
+            </div>
+            <div class="p-2 bd-highlight">
                 <p class="text-success">Дополнительные страницы</p>
                 <ul class="list-group">
                     <li class="list-group-item">
@@ -160,10 +160,11 @@
     </div>
 
     <div v-if="step==4">
-        <h2>Дизайн</h2>
-        <p>Каждый из дизайн-проектов компании AGATECH - уникальны! Мы работаем с адаптивной версткой. Стоимость разработки макета может отличаться в зависимости от сложности проекта. Количество правок к согласованному макету предложенных заказчиком в процессе создания, увеличивает его стоимость.</p>
-        
-        <div class="d-flex justify-content-between bd-highlight mb-3">
+        <div class="text-center">
+            <h2>Дизайн</h2>
+            <p>Каждый из дизайн-проектов компании AGATECH - уникальны! Мы работаем с адаптивной версткой. Стоимость разработки макета может отличаться в зависимости от сложности проекта. Количество правок к согласованному макету предложенных заказчиком в процессе создания, увеличивает его стоимость.</p>
+        </div>
+        <div class="d-flex justify-content-around bd-highlight mb-3">
             <div class="p-2 bd-highlight col-example">
                 <p class="text-success">Базовые услуги (входят в стимость)</p>
                 <ul class="list-group">
@@ -188,7 +189,10 @@
 
                 </ul>
             </div>
-            <div class="p-2 bd-highlight col-example"> </div>
+            <div class="p-2 mt-5 bd-highlight">
+                <div class="d-flex align-items-center mt-5 text-muted">Шаг {{ step }} из {{MaxStep}}</div>
+                
+            </div>
             <div class="p-2 bd-highlight col-example">
                 <p class="text-success">Дополнительные услуги</p>
                 <ul class="list-group">
@@ -199,27 +203,21 @@
                         </div>
                     </li>
                     <li class="list-group-item">
-                        
-                        <div class="btn-group btn-group-sm mr-2" role="group">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="DopServecSliders" v-model.number="DopServecSliders" value="1500">
-                                <label class="custom-control-label" for="DopServecSliders">Разработка слайдов акции</label>
-                            </div>
-                            <div class="input-group input-group-sm" style="width: 110px; margin-left: 10px;">
-                                <div class="input-group-prepend hoverable" style="cursor: pointer;" v-on:click="DopServecSlidersCount--">
-                                    <span class="input-group-text" >
-                                    <i class="fas fa-minus"></i>
-                                    </span>
-                                </div>
-                                <input type="number" min="1" max="99" class="form-control" v-model.number="DopServecSlidersCount">
-                                <div class="input-group-append hoverable" style="cursor: pointer;" v-on:click="DopServecSlidersCount++">
-                                    <span class="input-group-text">
-                                    <i class="fas fa-plus"></i>
-                                    </span>
-                                </div>
-                            </div>
-
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="DopServecSliders" v-model.number="DopServecSliders" value="1500">
+                            <label class="custom-control-label" for="DopServecSliders">Разработка слайдов акции</label>
                         </div>
+                        <div v-if="DopServecSliders" class="input-group mb-3 pt-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon3">Количество</span>
+                            </div>
+                            <input type="number" min="1" max="99" class="form-control" v-model.number="DopServecSlidersCount">
+                            <div class="input-group-append">
+                                <span class="input-group-text">штук</span>
+                            </div>
+                        </div>
+                        
+                        
                     </li>
                     <li class="list-group-item">
                         <div class="custom-control custom-checkbox">
@@ -228,26 +226,23 @@
                         </div>
                     </li>
                     <li class="list-group-item">
-                        <div class="input-group input-group-sm mb-3">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="DopServecPictureDev" v-model.number="DopServecPictureDev" value="1600">
-                                <label class="custom-control-label" for="DopServecPictureDev">Обработка изображений</label>
-                            </div>
-                            <div class="input-group input-group-sm" style="width: 110px; margin-left: 10px;">
-                                <div class="input-group-prepend hoverable" style="cursor: pointer;" v-on:click="DopServecPictureDevCount--">
-                                    <span class="input-group-text" >
-                                    <i class="fas fa-minus"></i>
-                                    </span>
-                                </div>
-                                <input type="number" min="1" max="99" class="form-control" v-model.number="DopServecPictureDevCount">
-                                <div class="input-group-append hoverable" style="cursor: pointer;" v-on:click="DopServecPictureDevCount++">
-                                    <span class="input-group-text">
-                                    <i class="fas fa-plus"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            
+                        
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="DopServecPictureDev" v-model.number="DopServecPictureDev" value="1600">
+                            <label class="custom-control-label" for="DopServecPictureDev">Обработка изображений</label>
                         </div>
+                        <div v-if="DopServecPictureDev" class="input-group mb-3 pt-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon3">Количество</span>
+                            </div>
+                            <input id="DopServecPictureDevCount" type="number" min="1" max="99" class="form-control" v-model.number="DopServecPictureDevCount">
+                            <div class="input-group-append">
+                                <span class="input-group-text">штук</span>
+                            </div>
+                        </div>
+                           
+                            
+                        
                     </li>
                     <li class="list-group-item">
                         <div class="custom-control custom-checkbox">
@@ -271,7 +266,7 @@
             <h2>Наполнение</h2>
             <p>Создание сайта - это только начало. Его следует наполнить. Это можно делать самостоятельно или доверить работу профессионалам. Если Вам необходима помощь в подготовке наполнения для проекта, выберите необходимые услуги ниже.</p>
         </div>
-        <div class="d-flex justify-content-between bd-highlight mb-3">
+        <div class="d-flex justify-content-around bd-highlight mb-3">
             <div class="p-2 bd-highlight col-example">
 
                 <ul class="list-group">
@@ -290,7 +285,10 @@
 
                 </ul>
             </div>
-            <div class="p-2 bd-highlight col-example"> </div>
+            <div class="p-2 mt-5 bd-highlight">
+                <div class="d-flex align-items-center text-muted">Шаг {{ step }} из {{MaxStep}}</div>
+                
+            </div>
             <div class="p-2 bd-highlight col-example">
                 <ul class="list-group">
                     <li class="list-group-item">
@@ -360,6 +358,7 @@
         
         
     </div>
+
     <div v-if="step==8">
         <div class="d-flex justify-content-center bd-highlight mb-3">
             
@@ -395,6 +394,7 @@
             <!-- Default form register -->
         </div>
     </div>
+    
     <div v-if="step>=2 && step<MaxStep" class="d-flex justify-content-between bd-highlight mb-3">
         <div class="p-2 bd-highlight">
             <button v-if="step>1" @click="prew" type="button" class="btn btn-default" >назад</button>
@@ -418,25 +418,25 @@ var configurator = new Vue({
   data: {
     message: 'Конфигуратор сайтов',
     step:1,MaxStep:7, 
-    SiteTyp:0,SiteTypPrice: [
-      { text: 'Одностраничный сайт', value:25000,img:'https://agatech.ru/img/services-item-01.png',
+    SiteTyp:{},SiteTypSum:0, SiteTypArray: [
+      { name:'Liding',text: 'Одностраничный сайт', sum:25000,img:'https://agatech.ru/img/services-item-01.png',
           desk:'Очень популярный в настоящее время формат сайтов, который не предполагает разветвленной структуры. Все содержание такого сайта умещается на одной-единственной странице и просматривается вверх и вниз при помощи прокрутки.' },
-      { text: 'Интернет магазин', value:45000,img:'https://agatech.ru/img/services-item-02.png',
+      { name:'market',text: 'Интернет магазин', sum:45000,img:'https://agatech.ru/img/services-item-02.png',
           desk:'Сайт, торгующий товарами посредством сети Интернет. Позволяет пользователям онлайн, в своём браузере или через мобильное приложение, сформировать заказ на покупку, выбрать способ оплаты и доставки заказа, оплатить заказ. При этом продажа товаров осуществляется дистанционным способом' },
-      { text: 'Корпоративный сайт', value:35000,img:'https://agatech.ru/img/services-item-03.png',
+      { name:'korporarion',text: 'Корпоративный сайт', sum:35000,img:'https://agatech.ru/img/services-item-03.png',
           desk:'В общем случае, веб-интерфейс для доступа сотрудника к корпоративным данным и приложениям.' },
-      { text: 'Сайт визитка', value:15000,img:'https://agatech.ru/img/services-item-04.png',
+      { name:'singl',text: 'Сайт визитка', sum:15000,img:'https://agatech.ru/img/services-item-04.png',
           desk:'сайт-визитку используют компании, которые не хотят нести большие затраты на создание отдельного сайта. Очень часто при покупке доменного имени для почты устанавливается сайт-заглушка или сайт-визитка.' },
       
     ],
-    EngineTyp:0,EnginePrice: [
-      { text: 'Bitrix', value:0, img:'https://www.intervolga.ru/upload/medialibrary/8d0/8d09701103cc66ffedba00feb577b543.jpg',
+    EngineTyp:{},EngineTypSum:0,EnginePriceArray: [
+      { name:'bitrix24',text: 'Bitrix24', sum:0, img:'https://www.intervolga.ru/upload/medialibrary/8d0/8d09701103cc66ffedba00feb577b543.jpg',
         desk:'1С-Битрикс: Управление сайтом — система управления содержимым от российской компании 1С-Битрикс. Имеет несколько «редакций» — лицензионных версий: Старт, Стандарт, Малый бизнес, Бизнес, которые отличаются включаемыми модулями системы'},
-      { text: 'Tilda', value: 10000, img:'https://d2xzmw6cctk25h.cloudfront.net/post/1738/og_cover_image/970fe5a36401ee376059ec3370a08279',
+      { name:'tilda',text: 'Tilda', sum: 10000, img:'https://d2xzmw6cctk25h.cloudfront.net/post/1738/og_cover_image/970fe5a36401ee376059ec3370a08279',
         desk:'Tilda Publishing — блочный конструктор сайтов, не требующий навыков программирования. Позволяет создавать сайты, интернет-магазины, посадочные страницы, блоги и email-рассылки. Cайты на платформе собираются из готовых блоков, которые автоматически адаптируются под мобильные устройства и выделены в смысловые категории.'},
-      { text: 'Opencart', value: 15000, img:'https://www.opencart.com/application/view/image/home/hero-image.png',
+      { name:'opencart',text: 'Opencart', sum: 15000, img:'https://www.opencart.com/application/view/image/home/hero-image.png',
         desk:'OpenCart ориентированная на создание интернет-магазинов. Является свободным программным обеспечением, распространяемым по лицензии GNU General Public License v3. Системой «OpenCart» поддерживаются дополнения. «OpenCart» создан и поддерживается Дениэлем Керром в репозитории GitHub.'},
-      { text: 'Чистый код', value:25000, img:'https://wpgutenberg.top/wp-content/uploads/2019/01/PHP7.3-1024x512.png',
+      { name:'php',text: 'Чистый код', sum:25000, img:'https://wpgutenberg.top/wp-content/uploads/2019/01/PHP7.3-1024x512.png',
         desk:'PHP — скриптовый язык общего назначения, интенсивно применяемый для разработки веб-приложений. В настоящее время поддерживается подавляющим большинством хостинг-провайдеров и является одним из лидеров среди языков, применяющихся для создания динамических веб-сайтов.' }
     ],
     Step3:[],bStep3:["basehederMenu", "baseNewsSalers", "baseProdukt", "baseKompany", "baseKoments", "baseKatalog"],bStep3Val:true,
@@ -462,7 +462,7 @@ var configurator = new Vue({
         if(this.DopServecPictureDev){
             step4=step4+(1600*this.DopServecPictureDevCount);
         }
-        return this.SiteTyp+this.EngineTyp+step3+step4+step5+step6;
+        return this.SiteTypSum+this.EngineTypSum+step3+step4+step5+step6;
     },
     GetUID(){
         const uuid = ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15 >> c/4).toString(16));
@@ -477,10 +477,12 @@ var configurator = new Vue({
     },
     SetSiteTyp(Typ){
           this.SiteTyp = Typ;
+          this.SiteTypSum = Typ.sum;
           this.step =2;
     },
     SetEngineTyp(Typ){
           this.EngineTyp = Typ;
+          this.EngineTypSum = Typ.sum;
           this.step =3;
     },
     arraySum(arr) {
