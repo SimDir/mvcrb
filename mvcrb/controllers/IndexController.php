@@ -82,7 +82,7 @@ class IndexController extends Controller{
                 $title = 'Продукты';
                 break;
             case 'Colutions.html';
-                $title = 'Креативаная цифровая разработка';
+                $title = 'Креативная цифровая разработка';
                 break;
             case 'Promotion.html';
                 $title = 'Комплексное продвижение и сопровождение';

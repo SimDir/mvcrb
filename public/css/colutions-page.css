@@ -9,7 +9,6 @@
    padding: 50px 100px;
    display: flex;
    flex-direction: column;
-   visibility: hidden;
    transform: scale(0);
    transition: transform 1s;
 }

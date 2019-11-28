@@ -73,6 +73,7 @@
    background-color: #E4E7F1;
    min-height: 1000px;
    border-top: 17px solid #8CB0E4;
+   text-align: center;
 }
 .products__center_menu {
    margin: 30px 0 50px;
@@ -133,8 +134,8 @@
 }
 .products_center__block-top-text__top {
    font-weight: bold;
-   font-size: 40px;
-   line-height: 40px;
+   font-size: 50px;
+   line-height: 50px;
    color: #FFFFFF;
    margin-bottom: 20px;
 }
@@ -283,6 +284,7 @@
    justify-content: flex-start;
    align-items: center;
    margin-bottom: 100px;
+   text-align: center;
 }
 .products_center__block-center h6 {
    font-size: 30px;
@@ -302,16 +304,83 @@
 
 
 
-/* Сопровождение сайтов*/
-.products_center__block {
-   width: 1600px;
-   margin: 0 auto;
+/* target and seo*/
+.products_center__block-targetseo-top {
+   width: 100%;
+   height: 800px;
+   background-image: url(../img/products/target-seo/target-seo-image.png);
+   background-repeat: no-repeat;
+   background-size: cover;
+   margin-bottom: 80px;
    display: flex;
    flex-direction: column;
-   justify-content: center;
+   justify-content: space-around;
    align-items: center;
 }
-.products-maintenance_center__block-top {
+.products_center__targetseo {
+   width: 70%;
+   display: flex;
+   flex-direction: column;
+}
+.products_center__targetseo-container-img {
+   width: 100%;
+   margin-bottom: 40px;
+}
+.products_center__targetseo-container-img img {
+   width: 100%;
+}
+
+/* Контекстаная реклама*/
+.products_center__block-contextualAdvertising-top {
+   width: 100%;
+   height: 800px;
+   background-image: url(../img/products/contextualAdvertising/contextualAdvertising-image.png);
+   background-repeat: no-repeat;
+   background-size: cover;
+   margin-bottom: 80px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+}
+.products_center__block-center-under-title {
+   font-size: 18px;
+   line-height: 28px;
+   color: #626779;
+}
+.products_center__top-contextualAdvertising{
+   width: 70%;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: flex-start;
+}
+.products_center__top-contextualAdvertising__container-img {
+   flex-basis: 48%;
+   margin-bottom: 40px;
+}
+.products_center__top-contextualAdvertising__container-img img {
+   width: 100%;
+}
+.products_center__bottom-contextualAdvertising {
+   width: 70%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.products_center__bottom-contextualAdvertising__container-img {
+   width: 100%;
+   margin-bottom: 40px;
+}
+.products_center__bottom-contextualAdvertising__container-img img {
+   width: 100%;
+}
+
+
+
+/* Сопровождение сайтов*/
+.products_center__block-maintenance-top{
    width: 100%;
    height: 800px;
    background-image: url(../img/products/maintenance/maintenance-image.png);
@@ -380,18 +449,21 @@
    flex-wrap: wrap;
    justify-content: space-around;
    align-items: center;
+   position: relative;
 }
 .products_center__bottom-maintenance__container-img {
    cursor: pointer;
    display: block;
    flex-basis: 300px;
    margin-bottom: 20px;
+   transition: transform 1s;
+}
+.products_center__bottom-maintenance__container-img:hover {
+   transform: scale(1.1);
 }
 .products_center__bottom-maintenance__container-img img {
    width: 100%;
 }
-
-
 
 
 

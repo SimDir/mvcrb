@@ -1,0 +1,111 @@
+.products-tariff {
+   position: fixed;
+   top: 0;
+   right: 0;
+   width: 900px;
+   z-index: 1;
+   box-shadow: -2px -2px 20px #81736c;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: flex-start;
+   background-color: #F5F7FD;
+   transform: scale(0);
+   transition: transform 1s;
+}
+.products-tariff__left {
+   flex-basis: 300px;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   background-color: #fff;
+}
+.products-tariff__left-container-img {
+   width: 100%;
+   margin-bottom: 20px;
+}
+.products-tariff__left-container-img img {
+   width: 100%;
+}
+.products-tariff__left-title {
+   font-weight: bold;
+   font-size: 18px;
+   line-height: 18px;
+   color: #626779;
+   margin: 20px 0 0;
+}
+.products-tariff__left-form {
+   width: 100%;
+   padding: 30px;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+}
+.products-tariff__left-form input {
+   width: 100%;
+   margin-bottom: 15px;
+}
+.products-tariff__left-name,
+.products-tariff__left-tel {
+   background-color: transparent;
+   border-top: none;
+   border-right: none;
+   border-left: none;
+   border-bottom: 1px solid #626779;
+   color: #626779;
+   outline: none;
+   font-size: 16px;
+   padding: 5px;
+}
+.products-tariff__left-btn {
+   background-color: #BFA082;
+   color: #fff;
+   border-radius: 40px;
+   border: none;
+   padding: 10px 30px;
+   font-size: 16px;
+   line-height: 24px;
+   cursor: pointer;
+   transition: box-shadow 1s, color 1s;
+   outline: none;
+   margin-top: 20px;
+}
+.products-tariff__left-btn:hover {
+   transition: box-shadow 1s, color 1s;
+   box-shadow: inset 300px 0 0 #fff;
+   color: #BFA082;
+}
+
+.products-tariff__right {
+   flex-basis: 600px;
+   height: 100%;
+   padding: 40px 40px 40px 40px;
+   position: relative;
+}
+.products-tariff__right-title {
+   font-weight: bold;
+   font-size: 22px;
+   line-height: 28px;
+   color: #626779;
+   margin-bottom: 40px;
+   width: 80%;
+}
+.products-tariff__right ul {
+   width: 80%;
+   padding-left: 20px;
+}
+.products-tariff__right li {
+   font-size: 16px;
+   line-height: 20px;
+   color: #626779;
+   margin-bottom: 20px;
+}
+.products-tariff__right-cross {
+   position: absolute;
+   top: 30px;
+   right: 20px;
+   width: 25px;
+   cursor: pointer;
+}
