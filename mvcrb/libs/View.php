@@ -122,6 +122,10 @@ class View {
                 $this->TplDir = TEMPLATE_DIR;
                 $code = str_replace($value[0], $this->execute($ViewHtml), $code);
                 $this->TplDir =$tmpDirView;
+            }elseif(preg_match("/Addcss(\(.*\))/i", $value[1],$matches)){
+                $stylesheet = trim($matches[1], '()');
+                $this->AddCss($stylesheet);
+//                dd($stylesheet);
             }else {
                 $tplVar = $this->VarGet(trim($value[1], ' '));
                 $code = preg_replace("/<{($value[1])}>/", $tplVar, $code);
