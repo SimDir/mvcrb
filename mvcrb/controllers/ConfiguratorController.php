@@ -9,14 +9,9 @@ defined('ROOT') OR die('No direct script access.');
  */
 
 class ConfiguratorController extends Controller{
-    public function __construct() {
-        parent::__construct();
-        $this->View->title = 'Конфигуратор заказа';
-
-    }
 
     public function IndexAction() {
-
+        $this->View->title = 'Конфигуратор заказа';
         $this->View->content = $this->View->execute('configurator.html');
         $this->View->content = $this->View->execute('wrapper.html');
         return $this->View->execute('index.html',TEMPLATE_DIR);

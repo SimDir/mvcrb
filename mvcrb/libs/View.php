@@ -16,9 +16,11 @@ final class View {
     
     public $TplDir = TEMPLATE_DIR;
     public static function getInstance($TplDir=''): View {
+        
         if (self::$instance === null) {
             self::$instance = new self($TplDir);
         }
+        self::$instance->SetWivePath(TEMPLATE_DIR.$TplDir.DS);
         return self::$instance;
     }
 
