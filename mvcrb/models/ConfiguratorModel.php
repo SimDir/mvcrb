@@ -18,8 +18,14 @@ class ConfiguratorModel extends Model{
         return $this->count($this->TableName);
     }
     public function GetList($PostData = null) {
-        $start = $PostData->start ? $PostData->start : 0;
-        $limit = $PostData->limit ? $PostData->limit : 10;
+        if(is_null($PostData)){
+            $start = 0;
+            $limit = 10;
+        }else{
+            $start = $PostData->start ? $PostData->start : 0;
+            $limit = $PostData->limit ? $PostData->limit : 10;
+        }
+        
         $List['count'] = $this->count($this->TableName);
         if (isset($PostData->data) && $PostData->data !== '') {
             $order['data'] = $PostData->data;
