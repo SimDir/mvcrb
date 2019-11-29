@@ -21,7 +21,7 @@ class mvcrb {
     /*
      * Переменные роутинга 
      */
-    Private static $URI = ''; // Строка УРЛ запроса  site.com/Controller/Action/Param1/Param2/Param3/ и так далее
+    public static $URI = ''; // Строка УРЛ запроса  site.com/Controller/Action/Param1/Param2/Param3/ и так далее
     Private static $ControllerName; // Имя выполняемого контроллера <Controller>
     Private static $ActionName; // Имя выполняемого метода <Action>
     Private static $ControllerFile; // подключаемый фаил контроллера <...\ControllerPath\*Name*Controller.php>
@@ -35,7 +35,7 @@ class mvcrb {
         return self::$globalConfig;
     }
 
-    public static function initWhoops() {
+    private static function initWhoops() {
         $whoops = new \Whoops\Run;
         $whoops_pretty_page_handler = new \Whoops\Handler\PrettyPageHandler();
         $whoops_pretty_page_handler->setEditor('sublime');
