@@ -529,12 +529,12 @@ header {
 } 
 .mountains{
    width: 100%;
-   height: 1400px;
+   height: 1000px;
    background-color: #4A79BD;
 }
 .undermountains {
    width: 100%;
-   height: 1000px;
+   height: 850px;
    position: absolute;
    bottom: 0;
    left: 0;
@@ -544,22 +544,22 @@ header {
    bottom: 0;
    left: 0;
    width: 100%;
-   height: 800px;
+   height: 700px;
    display: flex;
    flex-direction: column;
    justify-content: space-around;
 }
 .culture {
-   width: 60%;
+   width: 600px;
    margin: 0 auto;
    display: flex;
    flex-direction: column;
    align-items: center;
-   height: 230px;
+   height: 200px;
 }
 .culture-title {
-   font-size: 35px;
-   line-height: 35px;
+   font-size: 30px;
+   line-height: 30px;
    color: #8D92A5;
    margin-bottom: 50px;
 }
@@ -571,37 +571,37 @@ header {
    align-items: flex-start;
 }
 .culture-item {
-   flex-basis: 30%;
+   flex-basis: 33%;
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
    align-items: center;
 }
 .culture-item span {
-   font-size: 20px;
-   line-height: 24px;
+   font-size: 16px;
+   line-height: 20px;
    text-align: center;
    color: #8D92A5;
    margin-top: 10px;
 }
 .culture-item img {
-   height: 90px;
+   height: 70px;
 }
 .contacts {
    padding: 30px;
-   width: 600px;
+   width: 500px;
    margin: 0 auto;
-   height: 400px;
+   height: 300px;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
 }
 .contacts__title {
-   font-size: 35px;
-   line-height: 35px;
+   font-size: 30px;
+   line-height: 30px;
    color: #8D92A5;
-   margin-bottom: 50px;
+   margin-bottom: 40px;
 }
 .contacts__city {
    display: flex;
@@ -611,13 +611,13 @@ header {
    margin-bottom: 10px;
 }
 .contacts__city img {
-   width: 40px;
-   height: 120px;
+   width: 35px;
+   height: 100px;
    align-self: center;
 }
 .contacts__city span {
-   font-size: 22px;
-   line-height: 30px;
+   font-size: 16px;
+   line-height: 20px;
    color: #8D92A5;
 }
 #Ulsk {
@@ -697,7 +697,7 @@ header {
    display: none;
 }
 .contacts__address {
-   width: 60%;
+   width: 70%;
    margin: 0 auto;
    padding-top: 20px;
    display: flex;
@@ -706,14 +706,14 @@ header {
    align-items: center;
 }
 .contacts__address span{
-   font-size: 20px;
+   font-size: 16px;
    line-height: 20px;
    color: #8D92A5;
    margin-left: 15px;
    font-weight: bold;
 }
 .contacts__phone {
-   width: 60%;
+   width: 70%;
    margin: 0 auto;
    padding-top: 10px;
    display: flex;
@@ -722,8 +722,8 @@ header {
    align-items: center;
 }
 .contacts__phone span{
-   font-size: 35px;
-   line-height: 35px;
+   font-size: 30px;
+   line-height: 30px;
    color: #8D92A5;
    margin-left: 15px;
 }
