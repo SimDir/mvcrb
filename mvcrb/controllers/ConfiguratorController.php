@@ -40,4 +40,12 @@ class ConfiguratorController extends Controller{
         $model = new ConfiguratorModel();
         return $model->Add($Data);
     }
+    public function GetAction() {
+        $User = new UserModel();
+        if($User->GetCurrentUser()['role']<200){
+            return 'Asses denide';
+        }
+        $model = new ConfiguratorModel();
+        return $model->GetList();
+    }
 }
