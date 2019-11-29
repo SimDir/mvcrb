@@ -9,14 +9,29 @@ defined('ROOT') OR die('No direct script access.');
  * 
  */
 
-class View {
+final class View {
 
     private $vars = array();
+    private static $instance;
+    
     public $TplDir = TEMPLATE_DIR;
+    public static function getInstance($TplDir=''): View {
+        if (self::$instance === null) {
+            self::$instance = new self($TplDir);
+        }
+        return self::$instance;
+    }
+
     public function __construct($TplDir='') {
         $this->vars['headcssjs']='';
         $this->vars['bodycssjs']='';
         $this->TplDir = TEMPLATE_DIR.$TplDir.DS;
+    }
+    private function __clone()
+    {
+    }
+    private function __wakeup()
+    {
     }
     public function __invoke($val,$TplDir=false) {
         return $this->execute($val,$TplDir);
@@ -125,6 +140,9 @@ class View {
             }elseif(preg_match("/Addcss(\(.*\))/i", $value[1],$matches)){
                 $code = str_replace($value[0], '', $code);
                 $this->AddCss(trim($matches[1], '()'));
+            }elseif(preg_match("/Title(\(.*\))/i", $value[1],$matches)){
+                $code = str_replace($value[0], '', $code);
+                $this->title = trim($matches[1], '()');
             }else {
                 $tplVar = $this->VarGet(trim($value[1], ' '));
                 $code = preg_replace("/<{($value[1])}>/", $tplVar, $code);

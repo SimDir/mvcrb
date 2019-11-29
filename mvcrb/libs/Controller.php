@@ -26,11 +26,12 @@ abstract class Controller{
                 break;
         }
         //злоебучий кастыль для евробайта. самый уебанский хостер который можно только изобрести.
-        // пидорасы сэр
         $gclass = get_class($this);
         $varclass = explode("\\",$gclass );
         $vclass = end($varclass);
-        $this->View = new View($vclass);
+        // пидорасы сэр
+        
+        $this->View =  View::getInstance($vclass);
         
         return $this;
     }

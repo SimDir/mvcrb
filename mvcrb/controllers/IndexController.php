@@ -9,16 +9,14 @@ defined('ROOT') OR die('No direct script access.');
  */
 
 class IndexController extends Controller{
-    public function __construct() {
-        parent::__construct();
-        $this->View->SetWivePath(TEMPLATE_DIR . 'IndexController' . DS);
-        $this->View->title = 'Агатех';
-        $this->View->AddCss('https://fonts.googleapis.com/css?family=Ubuntu:300,400,700&display=swap');
-    }
 
     public function IndexAction() {
-
-        $this->View->title = 'Главная';
+//        $x1 = 100;
+//        $x2 = 12;
+//        $x3 = $x2/$x1*100;
+//        $x4= 100-$x3;
+//        dd($x4);
+//        $this->View->title = 'Главная';
         $this->View->content = $this->View->execute('main.html');
         return $this->View->execute('index.html',TEMPLATE_DIR);
     }
@@ -32,7 +30,7 @@ class IndexController extends Controller{
         return $this->View->execute('inc'.DS.'footer.html');
     }
     public function PageAction($page) {
-        $this->View->title = $this->SetTitle($page);
+//        $this->View->title = $this->SetTitle($page);
         $testFile = TEMPLATE_DIR.'IndexController'.DS.'staticpage'.DS.$page;
         if(!file_exists($testFile)){
             mvcrb::Redirect(ERROR_URL);
