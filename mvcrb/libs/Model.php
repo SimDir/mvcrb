@@ -4,7 +4,7 @@ defined('ROOT') OR die('No direct script access.');
 /**
  * Description of Model
  *
- * @author ivank
+ * @author Ivan Kolotilkin
  */
 
 use RedBeanPHP\Facade as R;

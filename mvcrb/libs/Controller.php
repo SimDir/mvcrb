@@ -12,20 +12,27 @@ abstract class Controller{
     public $GET=FALSE;
     public $POST=FALSE;
     public $REQUEST_METHOD=FALSE;
-    public $REQUEST;
+    public $REQUEST=null;
     public $View;
     public function __construct(){
         $this->REQUEST_METHOD = filter_input(INPUT_SERVER, 'REQUEST_METHOD', FILTER_SANITIZE_ENCODED);
         switch ($this->REQUEST_METHOD) {
             case 'GET':
-                $this->GET=TRUE;//Here Handle GET Request 
+                $this->GET=TRUE;
                 break;
             case 'POST':
-                $this->POST=TRUE;//Here Handle POST Request 
+                $this->REQUEST = file_get_contents('php://input');
+                $this->POST=TRUE;
                 break;
         }
-        $this->REQUEST = file_get_contents('php://input');
-        $this->View = new View();
+        //злоебучий кастыль для евробайта. самый уебанский хостер который можно только изобрести.
+        $gclass = get_class($this);
+        $varclass = explode("\\",$gclass );
+        $vclass = end($varclass);
+        // пидорасы сэр
+        
+        $this->View =  View::getInstance($vclass);
+        
         return $this;
     }
 
