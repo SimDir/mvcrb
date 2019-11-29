@@ -15,6 +15,14 @@ final class View {
     private static $instance;
     
     public $TplDir = TEMPLATE_DIR;
+    /**
+     * входной параметр устанавливает спецефическую дирикторию с шаблонами
+     * если не задать то установится дириктория по умолчанию
+     * 
+     * TEMPLATE_DIR смотрите обявление в index.php в корен сайта
+     *
+     * @param string $TplDir Строка дириктории с шаблонами
+     */
     public static function getInstance($TplDir=''): View {
         
         if (self::$instance === null) {
@@ -35,12 +43,17 @@ final class View {
     private function __wakeup()
     {
     }
+    /**
+     * магический метод аналог метода execute()
+     * 
+     * @param string $val Строка шаблона который подключится
+     * @param string $TplDir Строка дириктории с шаблонами
+     */
     public function __invoke($val,$TplDir=false) {
         return $this->execute($val,$TplDir);
     }
     public function __set($name, $value) {
         $this->vars[$name] = $value;
-//        var_dump($this->vars);
     }
 
     public function __get($name) {
@@ -48,7 +61,6 @@ final class View {
 
             return $this->vars[$name];
         }
-//        return array();
         return FALSE;
     }
     public function __isset($name) {
@@ -57,13 +69,22 @@ final class View {
         }
         return false;
     }
-    public function AddCss($stylesheet,$OnTop=true) {
-        if($OnTop){
-            $this->vars['headcssjs'].="<link rel=\"stylesheet\" href=\"$stylesheet\">".PHP_EOL;
-        }else{
-            $this->vars['bodycssjs'].="<link rel=\"stylesheet\" href=\"$stylesheet\">".PHP_EOL;
-        }
+    /**
+     * Добавляет CSS к странице
+     * 
+     * @param string $stylesheet полный относительный сайта путь к стилю либо путь до стороннего сервера
+     */
+    public function AddCss($stylesheet) {
+        $this->vars['headcssjs'].="<link rel=\"stylesheet\" href=\"$stylesheet\">".PHP_EOL;
     }
+    /**
+     * Добавляет JavaScript к странице
+     * 
+     * @param string $stylesheet полный путь к подсклюяаемому скрипту
+     * @param boolean $OnTop по умолчанию true определяет в каком месте подключить скрипт. 
+     * 
+     * либо в начале странице в хедаре либо в низу странице
+     */
     public function AddJs($stylesheet,$OnTop=true) {
         if($OnTop){
             $this->vars['headcssjs'].="<script src=\"$stylesheet\"></script>".PHP_EOL;
@@ -71,6 +92,11 @@ final class View {
             $this->vars['bodycssjs'].="<script src=\"$stylesheet\"></script>".PHP_EOL;
         }
     }
+    /**
+     * получаем значение переменно которую мы добавили шаблонизатору
+     * 
+     * @param string $name имя необходимой переменной
+     */
     public function VarGet($name) {
         if (isset($this->vars[$name])) {
 
@@ -78,6 +104,12 @@ final class View {
         }
         return FALSE;
     }
+    /**
+     * Устанавливаем массив переменных шаблонизатору
+     * дальее шаблонизатор будет с ними работать
+     * 
+     * @param array $Array имя необходимой переменной
+     */
     public function VarSetArray($Array) {
         if(is_array($Array)){
             foreach ($Array as $key => $value) {
@@ -86,7 +118,6 @@ final class View {
         }
         
     }
-
 
     public function assign($name, $value) {
         if (isset($this->vars[$name]) && is_array($this->vars[$name])) {
@@ -98,21 +129,30 @@ final class View {
     /**
      * дописать регулярок!!!!!
      */
-    public function compress($code) {
+    private function compress($code) {
         //,'#/\*(?:[^*]*(?:\*(?!/))*)*\*/#','/[\s]+/' ,'/\/\/(.*)[\r\n]/'
         return  preg_replace(array( '/<!--(.*)-->/Uis','#/\*(?:[^*]*(?:\*(?!/))*)*\*/#'), '', $code); // '/<!--(.*)-->/Uis','\<![ \r\n\t]*(--([^\-]|[\r\n]|-[^\-])*--[ \r\n\t]*)\>','/[\s]+/'  |,'#/\*(?:[^*]*(?:\*(?!/))*)*\*/#'|
         
     }
-    public function execute($path,$TplDir=false) {
+    /**
+     * подключает необходимый шаблон к шаблонизатору
+     * после шаблонизатор будет этот шаблон обрабатывать
+     * 
+     * TEMPLATE_DIR смотрите обявление в index.php в корен сайта
+     * 
+     * @param string $template имя необходимого шаблона
+     * @param string $TplDir каталог в котором будет искатся сам шаблон. по умелчанию каталог для поиска TEMPLATE_DIR
+     */
+    public function execute($template,$TplDir=false) {
         if($TplDir){
             $this->TplDir=$TplDir;
         }
-        if (!file_exists($this->TplDir . $path) or is_dir($this->TplDir . $path)) {
-            $code = '<p><b>Error: </b>'.__METHOD__. "('$path')</p>Нет файла <strong>$path</strong> для подключения в <b>$this->TplDir</b>";
+        if (!file_exists($this->TplDir . $template) or is_dir($this->TplDir . $template)) {
+            $code = '<p><b>Error: </b>'.__METHOD__. "('$template')</p>Нет файла <strong>$template</strong> для подключения в <b>$this->TplDir</b>";
             return $code;
         }
         ob_start();
-        include $this->TplDir . $path;
+        include $this->TplDir . $template;
         $code = ob_get_contents();
         ob_end_clean();
 //        return $code;
@@ -121,7 +161,12 @@ final class View {
 //        echo $code;
         return $code;
     }
-
+    /**
+     * основная функция шаблонизатора он и занимается всей магией шаблонизации и обработки шаблонов
+     * на вход подается HTML текст в функциями шаблонизации
+     * на выходе обработанный HTML
+     * @param string $code HTML текст который подлежит обработке
+     */
     public function Code($code) {
         preg_match_all('/<{(.*?)}>/', $code, $varibles, PREG_SET_ORDER);
 
@@ -157,7 +202,6 @@ final class View {
 
     public function SetWivePath($path) {
         $this->TplDir = $path;
-//        echo $path;
     }
 
 }
