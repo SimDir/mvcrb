@@ -9,21 +9,52 @@ defined('ROOT') OR die('No direct script access.');
  * 
  */
 
-class View {
+final class View {
 
     private $vars = array();
-    public $TplDir = TEMPLATE_DIR;
-    public function __construct($TplDir='') {
+    private static $instance;
+    
+    public $TplDir = '';
+    /**
+     * входной параметр устанавливает спецефическую дирикторию с шаблонами
+     * если не задать то установится дириктория по умолчанию
+     * 
+     * TEMPLATE_DIR смотрите обявление в index.php в корен сайта
+     *
+     * @param string $TplDir Строка дириктории с шаблонами
+     */
+    public static function getInstance($TplDir=''): View {
+//        dd($TplDir);
+        if (self::$instance === null) {
+            self::$instance = new self($TplDir);
+        }
+        self::$instance->SetWivePath(TEMPLATE_DIR.$TplDir.DS);
+//        dd(self::$instance->TplDir);
+        return self::$instance;
+    }
+
+    public function __construct() {
         $this->vars['headcssjs']='';
         $this->vars['bodycssjs']='';
-        $this->TplDir = TEMPLATE_DIR.$TplDir.DS;
+//        $this->TplDir = TEMPLATE_DIR.$TplDir.DS;
     }
+    private function __clone()
+    {
+    }
+    private function __wakeup()
+    {
+    }
+    /**
+     * магический метод аналог метода execute()
+     * 
+     * @param string $val Строка шаблона который подключится
+     * @param string $TplDir Строка дириктории с шаблонами
+     */
     public function __invoke($val,$TplDir=false) {
         return $this->execute($val,$TplDir);
     }
     public function __set($name, $value) {
         $this->vars[$name] = $value;
-//        var_dump($this->vars);
     }
 
     public function __get($name) {
@@ -31,7 +62,6 @@ class View {
 
             return $this->vars[$name];
         }
-//        return array();
         return FALSE;
     }
     public function __isset($name) {
@@ -40,13 +70,22 @@ class View {
         }
         return false;
     }
-    public function AddCss($stylesheet,$OnTop=true) {
-        if($OnTop){
-            $this->vars['headcssjs'].="<link rel=\"stylesheet\" href=\"$stylesheet\">".PHP_EOL;
-        }else{
-            $this->vars['bodycssjs'].="<link rel=\"stylesheet\" href=\"$stylesheet\">".PHP_EOL;
-        }
+    /**
+     * Добавляет CSS к странице
+     * 
+     * @param string $stylesheet полный относительный сайта путь к стилю либо путь до стороннего сервера
+     */
+    public function AddCss($stylesheet) {
+        $this->vars['headcssjs'].="<link rel=\"stylesheet\" href=\"$stylesheet\">".PHP_EOL;
     }
+    /**
+     * Добавляет JavaScript к странице
+     * 
+     * @param string $stylesheet полный путь к подсклюяаемому скрипту
+     * @param boolean $OnTop по умолчанию true определяет в каком месте подключить скрипт. 
+     * 
+     * либо в начале странице в хедаре либо в низу странице
+     */
     public function AddJs($stylesheet,$OnTop=true) {
         if($OnTop){
             $this->vars['headcssjs'].="<script src=\"$stylesheet\"></script>".PHP_EOL;
@@ -54,6 +93,11 @@ class View {
             $this->vars['bodycssjs'].="<script src=\"$stylesheet\"></script>".PHP_EOL;
         }
     }
+    /**
+     * получаем значение переменно которую мы добавили шаблонизатору
+     * 
+     * @param string $name имя необходимой переменной
+     */
     public function VarGet($name) {
         if (isset($this->vars[$name])) {
 
@@ -61,6 +105,12 @@ class View {
         }
         return FALSE;
     }
+    /**
+     * Устанавливаем массив переменных шаблонизатору
+     * дальее шаблонизатор будет с ними работать
+     * 
+     * @param array $Array имя необходимой переменной
+     */
     public function VarSetArray($Array) {
         if(is_array($Array)){
             foreach ($Array as $key => $value) {
@@ -69,7 +119,6 @@ class View {
         }
         
     }
-
 
     public function assign($name, $value) {
         if (isset($this->vars[$name]) && is_array($this->vars[$name])) {
@@ -81,21 +130,30 @@ class View {
     /**
      * дописать регулярок!!!!!
      */
-    public function compress($code) {
+    private function compress(&$code) {
         //,'#/\*(?:[^*]*(?:\*(?!/))*)*\*/#','/[\s]+/' ,'/\/\/(.*)[\r\n]/'
         return  preg_replace(array( '/<!--(.*)-->/Uis','#/\*(?:[^*]*(?:\*(?!/))*)*\*/#'), '', $code); // '/<!--(.*)-->/Uis','\<![ \r\n\t]*(--([^\-]|[\r\n]|-[^\-])*--[ \r\n\t]*)\>','/[\s]+/'  |,'#/\*(?:[^*]*(?:\*(?!/))*)*\*/#'|
         
     }
-    public function execute($path,$TplDir=false) {
+    /**
+     * подключает необходимый шаблон к шаблонизатору
+     * после шаблонизатор будет этот шаблон обрабатывать
+     * 
+     * TEMPLATE_DIR смотрите обявление в index.php в корен сайта
+     * 
+     * @param string $template имя необходимого шаблона
+     * @param string $TplDir каталог в котором будет искатся сам шаблон. по умелчанию каталог для поиска TEMPLATE_DIR
+     */
+    public function execute($template,&$TplDir=false) {
         if($TplDir){
             $this->TplDir=$TplDir;
         }
-        if (!file_exists($this->TplDir . $path) or is_dir($this->TplDir . $path)) {
-            $code = '<p><b>Error: </b>'.__METHOD__. "('$path')</p>Нет файла <strong>$path</strong> для подключения в <b>$this->TplDir</b>";
+        if (!file_exists($this->TplDir . $template) or is_dir($this->TplDir . $template)) {
+            $code = '<p><b>Error: </b>'.__METHOD__. "('$template')</p>Нет файла <strong>$template</strong> для подключения в <b>$this->TplDir</b>";
             return $code;
         }
         ob_start();
-        include $this->TplDir . $path;
+        include $this->TplDir . $template;
         $code = ob_get_contents();
         ob_end_clean();
 //        return $code;
@@ -104,8 +162,13 @@ class View {
 //        echo $code;
         return $code;
     }
-
-    public function Code($code) {
+    /**
+     * основная функция шаблонизатора он и занимается всей магией шаблонизации и обработки шаблонов
+     * на вход подается HTML текст в функциями шаблонизации
+     * на выходе обработанный HTML
+     * @param string $code HTML текст который подлежит обработке
+     */
+    public function Code(&$code) {
         preg_match_all('/<{(.*?)}>/', $code, $varibles, PREG_SET_ORDER);
 
         foreach ($varibles as $value) {
@@ -122,6 +185,12 @@ class View {
                 $this->TplDir = TEMPLATE_DIR;
                 $code = str_replace($value[0], $this->execute($ViewHtml), $code);
                 $this->TplDir =$tmpDirView;
+            }elseif(preg_match("/Addcss(\(.*\))/i", $value[1],$matches)){
+                $code = str_replace($value[0], '', $code);
+                $this->AddCss(trim($matches[1], '()'));
+            }elseif(preg_match("/Title(\(.*\))/i", $value[1],$matches)){
+                $code = str_replace($value[0], '', $code);
+                $this->title = trim($matches[1], '()');
             }else {
                 $tplVar = $this->VarGet(trim($value[1], ' '));
                 $code = preg_replace("/<{($value[1])}>/", $tplVar, $code);
@@ -134,7 +203,6 @@ class View {
 
     public function SetWivePath($path) {
         $this->TplDir = $path;
-//        echo $path;
     }
 
 }
