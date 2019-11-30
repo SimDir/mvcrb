@@ -144,7 +144,7 @@ final class View {
      * @param string $template имя необходимого шаблона
      * @param string $TplDir каталог в котором будет искатся сам шаблон. по умелчанию каталог для поиска TEMPLATE_DIR
      */
-    public function execute($template,&$TplDir=false) {
+    public function execute($template,$TplDir=false) {
         if($TplDir){
             $this->TplDir=$TplDir;
         }
