@@ -36,7 +36,7 @@ class UserController extends Controller{
     }
     public function LogoutAction() {
         Session::destroy();
-        return $this->ActionLogin();
+        return $this->LoginAction();
     }
     public function LoginAction() {
         $this->View->title ='Вход пользователя';
