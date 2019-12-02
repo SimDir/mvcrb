@@ -14,7 +14,7 @@ final class View {
     private $vars = array();
     private static $instance;
     
-    public $TplDir = TEMPLATE_DIR;
+    public $TplDir = '';
     /**
      * входной параметр устанавливает спецефическую дирикторию с шаблонами
      * если не задать то установится дириктория по умолчанию
@@ -24,18 +24,19 @@ final class View {
      * @param string $TplDir Строка дириктории с шаблонами
      */
     public static function getInstance($TplDir=''): View {
-        
+//        dd($TplDir);
         if (self::$instance === null) {
             self::$instance = new self($TplDir);
         }
         self::$instance->SetWivePath(TEMPLATE_DIR.$TplDir.DS);
+//        dd(self::$instance->TplDir);
         return self::$instance;
     }
 
-    public function __construct($TplDir='') {
+    public function __construct() {
         $this->vars['headcssjs']='';
         $this->vars['bodycssjs']='';
-        $this->TplDir = TEMPLATE_DIR.$TplDir.DS;
+//        $this->TplDir = TEMPLATE_DIR.$TplDir.DS;
     }
     private function __clone()
     {
@@ -129,7 +130,7 @@ final class View {
     /**
      * дописать регулярок!!!!!
      */
-    private function compress($code) {
+    private function compress(&$code) {
         //,'#/\*(?:[^*]*(?:\*(?!/))*)*\*/#','/[\s]+/' ,'/\/\/(.*)[\r\n]/'
         return  preg_replace(array( '/<!--(.*)-->/Uis','#/\*(?:[^*]*(?:\*(?!/))*)*\*/#'), '', $code); // '/<!--(.*)-->/Uis','\<![ \r\n\t]*(--([^\-]|[\r\n]|-[^\-])*--[ \r\n\t]*)\>','/[\s]+/'  |,'#/\*(?:[^*]*(?:\*(?!/))*)*\*/#'|
         
@@ -167,7 +168,7 @@ final class View {
      * на выходе обработанный HTML
      * @param string $code HTML текст который подлежит обработке
      */
-    public function Code($code) {
+    public function Code(&$code) {
         preg_match_all('/<{(.*?)}>/', $code, $varibles, PREG_SET_ORDER);
 
         foreach ($varibles as $value) {

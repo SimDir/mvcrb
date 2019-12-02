@@ -25,13 +25,7 @@ abstract class Controller{
                 $this->POST=TRUE;
                 break;
         }
-        //злоебучий кастыль для евробайта. самый уебанский хостер который можно только изобрести.
-        $gclass = get_class($this);
-        $varclass = explode("\\",$gclass );
-        $vclass = end($varclass);
-        // пидорасы сэр
-        
-        $this->View =  View::getInstance($vclass);
+        $this->View =  &View::getInstance(end(explode('\\',get_class($this))));
         
         return $this;
     }

@@ -77,5 +77,14 @@ class AdminController extends Controller{
         $this->View->content = $this->View->execute('index.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
+    public function GetmenuAction() {
+        $Data = [
+            ['name'=>'Главная','src'=>'/admin','class'=>'fas fa-home'],
+            ['name'=>'Пользователи','src'=>'/admin/user','class'=>'fas fa-users-cog'],
+            ['name'=>'Страници','src'=>'/admin/pages','class'=>'far fa-file'],
+            ['name'=>'Калюкулятор','src'=>'/admin/calc','class'=>'fas fa-calculator']
+            ];
+        return $Data;
+    }
 
 }
