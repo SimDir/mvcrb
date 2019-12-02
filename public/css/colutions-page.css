@@ -109,21 +109,20 @@
 }
 
 
-
 /* toyota */
 .container-toyota__img-1 {
    width: 100%;
-   height: 560px;
+   /* height: 560px; */
    margin-bottom: 50px;
 }
 .container-toyota__img-2 {
    width: 100%;
-   height: 540px;
+   /* height: 540px; */
    margin-bottom: 50px;
 }
 .container-toyota__img-3 {
    width: 100%;
-   height: 515px;
+   /* height: 515px; */
    margin-bottom: 50px;
 }
 .container-toyota__img-4 {
@@ -143,13 +142,13 @@
 /* canon */
 .container-canon__img-1 {
    width: 100%;
-   height: 1400px;
+   /* height: 1400px; */
    margin-bottom: 50px;
 }
 .container-canon__img-2,
 .container-canon__img-3{
    width: 100%;
-   height: 550px;
+   /* height: 550px; */
    margin-bottom: 50px;
 }
 .container-canon__img-4 {
@@ -171,7 +170,7 @@
 .container-forma__img-2,
 .container-forma__img-3 {
    width: 100%;
-   height: 550px;
+   /* height: 550px; */
    margin-bottom: 50px;
 }
 .container-forma__img-1 img,
@@ -185,17 +184,17 @@
 /* cronos */
 .container-cronos__img-1 {
    width: 100%;
-   height: 1500px;
+   /* height: 1500px; */
    margin-bottom: 50px;
 }
 .container-cronos__img-2 {
    width: 100%;
-   height: 800px;
+   /* height: 800px; */
    margin-bottom: 50px;
 }
 .container-cronos__img-3 {
    width: 100%;
-   height: 120px;
+   /* height: 120px; */
    margin-bottom: 50px;
 }
 .container-cronos__img-4 {
@@ -215,17 +214,17 @@
 /* arb */
 .container-arb__img-1 {
    width: 100%;
-   height: 500px;
+   /* height: 500px; */
    margin-bottom: 50px;
 }
 .container-arb__img-2 {
    width: 100%;
-   height: 550px;
+   /* height: 550px; */
    margin-bottom: 50px;
 }
 .container-arb__img-3 {
    width: 100%;
-   height: 520px;
+   /* height: 520px; */
    margin-bottom: 50px;
 }
 .container-arb__img-4 {
@@ -245,22 +244,22 @@
 /* comet */
 .container-comet__img-1 {
    width: 100%;
-   height: 690px;
+   /* height: 690px; */
    margin-bottom: 50px;
 }
 .container-comet__img-2 {
    width: 100%;
-   height: 270px;
+   /* height: 270px; */
    margin-bottom: 50px;
 }
 .container-comet__img-3 {
    width: 100%;
-   height: 280px;
+   /* height: 280px; */
    margin-bottom: 10px;
 }
 .container-comet__img-4 {
    width: 100%;
-   height: 280px;
+   /* height: 280px; */
    margin-bottom: 50px;
 }
 .container-comet__img-1 img,
@@ -277,7 +276,7 @@
 .container-bebrand__img-2,
 .container-bebrand__img-3 {
    width: 100%;
-   height: 550px;
+   /* height: 550px; */
    margin-bottom: 50px;
 }
 .container-bebrand__img-1 img,
@@ -293,7 +292,7 @@
 .container-bsk__img-2,
 .container-bsk__img-3 {
    width: 100%;
-   height: 480px;
+   /* height: 480px; */
    margin-bottom: 50px;
 }
 .container-bsk__img-1 img,
@@ -309,7 +308,7 @@
 .container-rmh__img-2,
 .container-rmh__img-3 {
    width: 100%;
-   height: 500px;
+   /* height: 500px; */
    margin-bottom: 50px;
 }
 .container-rmh__img-4 {
@@ -329,17 +328,17 @@
 /* business */
 .container-business__img-1 {
    width: 100%;
-   height: 560px;
+   /* height: 560px; */
    margin-bottom: 50px;
 }
 .container-business__img-2 {
    width: 100%;
-   height: 900px;
+   /* height: 900px; */
    margin-bottom: 50px;
 }
 .container-business__img-3 {
    width: 100%;
-   height: 440px;
+   /* height: 440px; */
    margin-bottom: 50px;
 }
 .container-business__img-4 {
@@ -360,17 +359,17 @@
 /* circus */
 .container-circus__img-1 {
    width: 100%;
-   height: 870px;
+   /* height: 870px; */
    margin-bottom: 50px;
 }
 .container-circus__img-2 {
    width: 100%;
-   height: 250px;
+   /* height: 250px; */
    margin-bottom: 50px;
 }
 .container-circus__img-3 {
    width: 100%;
-   height: 420px;
+   /* height: 420px; */
    margin-bottom: 50px;
 }
 .container-circus__img-1 img,
@@ -384,17 +383,17 @@
 /* evita */
 .container-evita__img-1 {
    width: 100%;
-   height: 980px;
+   /* height: 980px; */
    margin-bottom: 50px;
 }
 .container-evita__img-2 {
    width: 100%;
-   height: 880px;
+   /* height: 880px; */
    margin-bottom: 50px;
 }
 .container-evita__img-3 {
    width: 100%;
-   height: 700px;
+   /* height: 700px; */
    margin-bottom: 50px;
 }
 .container-evita__img-4 {
@@ -409,3 +408,131 @@
    width: 100%;
    height: 100%;
 }
+
+
+
+
+@media(max-width: 1600px) {
+   .container-page {
+      width: 1100px;
+   }
+}
+@media(max-width: 1400px) {
+   .container-page {
+      width: 1000px;
+   }
+   .container-page__header-title {
+      font-size: 35px;
+      line-height: 35px;
+      margin-bottom: 40px;
+   }
+   .container-page__header-text {
+      font-size: 16px;
+      margin-bottom: 30px;
+   }
+   .container-page__header-text-2{
+      font-size: 16px;
+   }
+   .container-page__header-data {
+      font-size: 35px;
+      line-height: 35px;
+   }
+   .container-page__task-title,
+   .container-page__descriptions-title,
+   .container-page__result-title,
+   .container-page__additionally-title {
+      font-size: 22px;
+      line-height: 22px;
+      margin-bottom: 10px;
+   }
+   .container-page__task-text,
+   .container-page__descriptions-text,
+   .container-page__result-text,
+   .container-page__additionally-text {
+      font-size: 16px;
+   }
+   .container-page__task-text {
+      margin-bottom: 40px;
+   }
+   .container-page__look-btn-text {
+      font-size: 16px;
+   }
+}
+@media(max-width: 1200px) {
+   .container-page {
+      width: 800px;
+   }
+}
+@media(max-width: 1000px) {
+   .container-page {
+      width: 700px;
+   }
+   .container-page__header,
+   .container-page__task-and-description {
+      width: 80%;
+      margin-bottom: 40px;
+   }
+   .container-page__rusult,
+   .container-page__additionally {
+      width: 80%;
+      margin-bottom: 40px;
+   }
+   .container-page__header-title {
+      font-size: 30px;
+      line-height: 30px;
+      margin-bottom: 30px;
+   }
+   .container-page__header-text {
+      font-size: 14px;
+      margin-bottom: 20px;
+   }
+   .container-page__header-text-2{
+      font-size: 14px;
+   }
+   .container-page__header-data {
+      font-size: 30px;
+      line-height: 30px;
+   }
+   .container-page__task-title,
+   .container-page__descriptions-title,
+   .container-page__result-title,
+   .container-page__additionally-title {
+      font-size: 20px;
+      line-height: 20px;
+      margin-bottom: 10px;
+   }
+   .container-page__task-text,
+   .container-page__descriptions-text,
+   .container-page__result-text,
+   .container-page__additionally-text {
+      font-size: 14px;
+   }
+   .container-page__task-text {
+      margin-bottom: 30px;
+   }
+   .container-page__look-btn-text {
+      font-size: 14px;
+   }
+   .container-toyota__img-4,
+   .container-canon__img-4,
+   .container-cronos__img-4,
+   .container-arb__img-4,
+   .container-rmh__img-4,
+   .container-business__img-4,
+   .container-evita__img-4{
+      margin-bottom: 50px;
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

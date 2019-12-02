@@ -17,7 +17,7 @@ window.onload = function () {
    }
    toyota_back_btn.onclick= function() {
       toyota_page.style.transform = "scale(0)";
-      colutions__center.style.minHeight = "1000px";
+      colutions__center.style.minHeight = "800px";
    }
 
 
@@ -32,7 +32,7 @@ window.onload = function () {
    }
    canon_back_btn.onclick= function() {
       canon_page.style.transform = "scale(0)";
-      colutions__center.style.minHeight = "1000px";
+      colutions__center.style.minHeight = "800px";
    }
 
 
@@ -47,7 +47,7 @@ window.onload = function () {
    }
    forma_back_btn.onclick= function() {
       forma_page.style.transform = "scale(0)";
-      colutions__center.style.minHeight = "1000px";
+      colutions__center.style.minHeight = "800px";
    }
 
 
@@ -62,7 +62,7 @@ window.onload = function () {
    }
    cronos_back_btn.onclick= function() {
       cronos_page.style.transform = "scale(0)";
-      colutions__center.style.minHeight = "1000px";
+      colutions__center.style.minHeight = "800px";
    }
 
 
@@ -77,7 +77,7 @@ window.onload = function () {
    }
    arb_back_btn.onclick= function() {
       arb_page.style.transform = "scale(0)";
-      colutions__center.style.minHeight = "1000px";
+      colutions__center.style.minHeight = "800px";
    }
 
 
@@ -92,7 +92,7 @@ window.onload = function () {
    }
    comet_back_btn.onclick= function() {
       comet_page.style.transform = "scale(0)";
-      colutions__center.style.minHeight = "1000px";
+      colutions__center.style.minHeight = "800px";
    }
 
    
@@ -107,7 +107,7 @@ window.onload = function () {
    }
    bebrand_back_btn.onclick = function() {
       bebrand_page.style.transform = "scale(0)";
-      colutions__center.style.minHeight = "1000px";
+      colutions__center.style.minHeight = "800px";
    }
 
 
@@ -122,7 +122,7 @@ window.onload = function () {
     }
     bsk_back_btn.onclick = function() {
       bsk_page.style.transform = "scale(0)";
-      colutions__center.style.minHeight = "1000px";
+      colutions__center.style.minHeight = "800px";
     }
 
 
@@ -137,7 +137,7 @@ window.onload = function () {
     }
     rmh_back_btn.onclick = function() {
       rmh_page.style.transform = "scale(0)";
-      colutions__center.style.minHeight = "1000px";
+      colutions__center.style.minHeight = "800px";
     }
 
 
@@ -152,7 +152,7 @@ window.onload = function () {
     }
     business_back_btn.onclick = function() {
       business_page.style.transform = "scale(0)";
-      colutions__center.style.minHeight = "1000px";
+      colutions__center.style.minHeight = "800px";
     }
 
 
@@ -167,7 +167,7 @@ window.onload = function () {
     }
     circus_back_btn.onclick = function() {
       circus_page.style.transform = "scale(0)";
-      colutions__center.style.minHeight = "1000px";
+      colutions__center.style.minHeight = "800px";
     }
 
 
@@ -182,6 +182,6 @@ window.onload = function () {
     }
     evita_back_btn.onclick = function() {
       evita_page.style.transform = "scale(0)";
-      colutions__center.style.minHeight = "1000px";
+      colutions__center.style.minHeight = "800px";
     }
 }
