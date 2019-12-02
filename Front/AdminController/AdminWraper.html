@@ -60,22 +60,6 @@
         <a v-for="item in Menu" :href="item.src" class="list-group-item list-group-item-action waves-effect d-flex justify-content-between">
             <span>{{item.name}}</span><i class="mr-2" :class="item.class"></i>
         </a>
-<!--        <a href="/admin/" class="list-group-item list-group-item-action waves-effect">
-            <i class="fas fa-home"></i><span>Главная</span>
-        </a>
-        <a href="/admin/user/" class="list-group-item list-group-item-action waves-effect">
-            <i class="fas fa-users-cog"></i>Пользователи
-        </a>
-        <a href="/admin/pages/" class="list-group-item list-group-item-action waves-effect">
-            <i class="far fa-file"></i>Страници
-        </a>
-        <a href="/admin/calc/" class="list-group-item list-group-item-action waves-effect">
-            <i class="fas fa-calculator"></i>Калюкулятор
-        </a>
-        <a href="#" class="list-group-item list-group-item-action waves-effect">
-            <i class="fas fa-money-bill-alt"></i>Orders
-        </a>-->
-
     </div>
 </div>
 <script>
@@ -85,14 +69,9 @@ var AdminMenu = new Vue({
       Menu:[]
     },
     beforeCreate() {
-        console.log('Go');
         fetch('/admin/getmenu/?AJAX=1')
             .then(res => res.json())
-            .then(res => {
-              this.Menu = res;
-
-                console.log(res);
-            });
+            .then(res => {this.Menu = res;});
     }
 })
 </script>
