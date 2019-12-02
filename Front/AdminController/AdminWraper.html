@@ -35,7 +35,7 @@
             <ul class="navbar-nav ml-auto nav-flex-icons">
                 <li class="nav-item avatar dropdown">
                     <a class="nav-link" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="/public/img/rblogo.png" class="rounded-circle z-depth-0" alt="avatar image" height="35">
+                        <img src="/public/img/rblogom.png" class="rounded-circle z-depth-0" alt="avatar image" height="35">
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
 
@@ -54,9 +54,9 @@
 <!-- Sidebar -->
 <div id="AdminMenu" class="sidebar-fixed position-fixed stylish-color-dark">
    
-    <div class="d-flex flex-column align-items-center">
+    <div class="list-group list-group-flush">
         <a v-for="item in Menu" :href="item.src" class="list-group-item list-group-item-action waves-effect d-flex justify-content-between">
-            <span>{{item.name}}</span><i class="mr-2" :class="item.class"></i>
+            <span>{{item.name}}</span><i :class="item.class"></i>
         </a>
     </div>
 </div>
