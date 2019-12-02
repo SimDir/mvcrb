@@ -9,121 +9,56 @@ defined('ROOT') OR die('No direct script access.');
 
 class UserController extends Controller{
     private $User;
+    
     public function __construct() {
         parent::__construct();
         $this->User = new UserModel();
         $this->View->SetWivePath(TEMPLATE_DIR.'UserController'.DS);
-
     }
     
     public function IndexAction() {
         $UserVars = $this->User->GetCurrentUser();
-        if($UserVars['role']<100){
-            return $this->LoginAction();
+        if($UserVars['role']==0){
+            return mvcrb::Redirect('/user/login');
         }
-
-
+        $redir = Session::get('UrerRedirect');
+        if($redir){
+            Session::set('UrerRedirect', null);
+            return mvcrb::Redirect($redir);
+        }
         $this->View->VarSetArray($UserVars);
        
         $email = $UserVars['email'];
         $default = "http://rusodality.ru/img/gerbrr.png";
         $size = 256;
         $this->View->GravUrl = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
-
         $this->View->content = $this->View->execute('usercard.html');
-        $this->View->SetWivePath(TEMPLATE_DIR);
-        return $this->View->execute('index.html');
+        return $this->View->execute('index.html',TEMPLATE_DIR);
     }
     public function LogoutAction() {
         Session::destroy();
-        return $this->LoginAction();
+        return mvcrb::Redirect('/user/login');
     }
     public function LoginAction() {
+        if ($this->User->GetCurrentUser()['role'] > 0) {
+            return mvcrb::Redirect('/user');
+        }
         $this->View->title ='Вход пользователя';
-        
         if ($this->POST) {
             $user= json_decode($this->REQUEST);
-            $UserVars = $this->User->GetCurrentUser();
-            if($UserVars){
-                $user->password=$UserVars;
-            }
-            
-            return json_encode($user);
-        } else {
-            $this->View->content =  $this->View->execute('FormLogin.html');
-            $this->View->SetWivePath(TEMPLATE_DIR);
-            return $this->View->execute('index.html');
-        }
-
-//        return $this->Exec('index', 'index');
+            return $this->User->login($user->email, $user->password);;
+        } 
+        $this->View->content =  $this->View->execute('FormLogin.html');
+        return $this->View->execute('index.html',TEMPLATE_DIR);
     }
     public function GetAction() {
-//        $UserVars = $this->User->GetCurrentUser();
-        return json_encode($this->User->GetCurrentUser());
+        if ($this->POST)
+            return $this->User->GetCurrentUser();
+        return mvcrb::Redirect('/user');
     }
-    private function UserPostLogin(){
-        $ErrorMsg = "";
-        
-
-//        $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
-//        
-//        $email = filter_var($email, FILTER_VALIDATE_EMAIL);
-//        $this->View->email = $email;
-//        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-//            // Not a valid email
-//            $ErrorMsg .= '<p class="error">Введенный адрес электронной почты <p>{'.$email.'}</p> не является действительным</p>';
-//        }
-////        $eml = $this->user->ChekMail($email);
-//        if(!$this->User->ChekMail($email)){
-//            $ErrorMsg .= '<p class="error">Введенный адрес электронной почты не используется на сайте</p>';
-//        }
-        $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_STRING);
-        $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
-//        if (strlen($password) <= 4) {
-//            // The hashed pwd should be 128 characters long.
-//            // If it's not, something really odd has happened
-//            $ErrorMsg .= '<p class="error">Неверная конфигурация пароля</p>';
-////            $ErrorMsg .= '<p class="error">'.strlen($password).'</p>';
-//        }
-        if (empty($ErrorMsg)) {
-            //ошибок нет, теперь регистрируем
-//            $this->View->uid = $this->User->CreateUser($email, $password, $login, $name, $middlename, $surname);
-            if($this->User->login($email, $password)){
-                header("LOCATION: /");
-//                $this->View->content = $this->View->execute('RegFinish.html');
-                return 1;
-//                return $this->Exec('IndexController', 'ActionIndex');
-//                $this->View->content = true;//$this->View->execute('LoginFinish.html');
-            } else {
-                $ErrorMsg .= '<div class="md-form" id="ErrorMsg"><div class="alert alert-danger" role="alert">Имя пользователя или пароль неправильны. Попробуйте еще раз</div></div>';
-                $this->View->ErrorMsg = $ErrorMsg;
-                $this->View->content = $this->View->execute('FormLogin.html');
-            }
-            
-            return $this->Generate($this->View);
-        }
-//        echo $ErrorMsg;
-        $this->View->ErrorMsg = $ErrorMsg;
-        $this->View->content = $this->View->execute('FormLogin.html');
-        return $this->View->execute('index.html');
-    }
-    
-    
     public function RegistreAction() {
         $this->View->title ='Регистрация пользователя';
-        if ($_SERVER["REQUEST_METHOD"]=="POST") {
-            return $this->UserPostRegistre();
-//            return TRUE;
-        } else {
-//            $this->View->name = 'David';
-//            $this->View->middlename = 'Sukerman';
-//            $this->View->surname = 'Ogly';
-//            $this->View->email = 'example@mail.com';
-//            $this->View->login = 'test';
-//            $this->View->password = '123456';
-            $this->View->content = $this->View->execute('FormRegistre.html');
-            return $this->View->execute('index.html');
-        }
+        
         
     }
     private function UserPostRegistre(){

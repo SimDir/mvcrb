@@ -1,17 +1,17 @@
-
 <div id="userlist">
-    <!-- Heading -->
-    <div v-if="state==0" class="card mb-4 wow fadeIn">
+    <!-- Список пользователей -->
+    <div v-if="state==0" class="card wow fadeIn">
         <!--Card content-->
         <div  class="card-body d-flex flex-wrap justify-content-between">
                 
                     <div class="p-2">
-                        <button v-if="state==0" @click="state=1" type="button" class="btn btn-primary">Добавить</button>
+                        <button @click="state=1" type="button" class="btn btn-primary" title="Добавить нового пользователя"><i class="fas fa-user-plus"></i></button>
+                        <button @click="setPage(currentPage)" type="button" class="btn btn-success" title="Обновить\Перезагрузить данные таблици"><i class="fas fa-sync"></i></button>
                         
                     </div>
             
                     <div class="p-2">
-                        <div class="input-group pt-2">
+                        <div class="input-group pt-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">Показать</span>
                             </div>
@@ -22,7 +22,9 @@
                                 <option value="50">50</option>
                                 <option value="100">100</option>
                             </select>
-
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon1">строк</span>
+                            </div>
                         </div>
 
                     </div>
@@ -50,44 +52,52 @@
 
         </div>
        
-        <div class="card-body d-flex align-items-start" style="overflow-y: auto;">
-
-            <table class="table table-hover">
-                <thead>
+        <div class="card-body d-flex justify-content-center" >
+            <div style="overflow-y: auto;">
+            <table class="table table table-hover table-bordered">
+                <thead class="bg-warning">
                     <tr>
-                        <th scope="col" class="hoverable" style="cursor: pointer;" @click="sort('id')"><i class="fas fa-sort"></i> ID</th>
-                        <th scope="col" class="hoverable" style="cursor: pointer;" @click="sort('firstname')"><i class="fas fa-sort"></i> Имя</th>
-                        <th scope="col" class="hoverable" style="cursor: pointer;" @click="sort('lastname')"><i class="fas fa-sort"></i> Фамилия</th>
-                        <th scope="col" class="hoverable" style="cursor: pointer;" @click="sort('login')"><i class="fas fa-sort"></i> Логин</th>
-                        <th scope="col" class="hoverable" style="cursor: pointer;" @click="sort('email')"><i class="fas fa-sort"></i> E-mail</th>
-                        <th scope="col" class="hoverable" style="cursor: pointer;" @click="sort('phone')"><i class="fas fa-sort"></i> Телефон</th>
-                        <th scope="col" class="hoverable" style="cursor: pointer;" @click="sort('registredatetime')"><i class="fas fa-sort"></i> Дата\Время</th>
+                        <th scope="col" style="cursor: pointer;" @click="sort('id')"><i class="fas fa-sort"></i> ID</th>
+                        <th scope="col" style="cursor: pointer;" @click="sort('firstname')"><i class="fas fa-sort"></i> Имя</th>
+                        <th scope="col" style="cursor: pointer;" @click="sort('lastname')"><i class="fas fa-sort"></i> Фамилия</th>
+                        <th scope="col" style="cursor: pointer;" @click="sort('login')"><i class="fas fa-sort"></i> Логин</th>
+                        <th scope="col" style="cursor: pointer;" @click="sort('email')"><i class="fas fa-sort"></i> E-mail</th>
+                        <th scope="col" style="cursor: pointer;" @click="sort('phone')"><i class="fas fa-sort"></i> Телефон</th>
+                        <th scope="col" style="cursor: pointer;" @click="sort('registredatetime')"><i class="fas fa-sort"></i> Дата\Время</th>
+                        <th>Инструменты</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="item in Data">
-                        <th scope="row">{{item.id}}</th>
+                    <tr v-for="item in Data" >
+                        <th>{{item.id}}</th>
                         <td>{{item.firstname}}</td>
                         <td>{{item.lastname}}</td>
                         <td>{{item.login}}</td>
                         <td>{{item.email}}</td>
                         <td>{{item.phone}}</td>
                         <td>{{item.registredatetime}}</td>
+                        <td>
+                            <div class="d-flex justify-content-between">
+                                <a title="Изменить пользователя" class="text-success" @click="SetUserEdit(item)"><i class="fas fa-user-edit"></i></a>
+                                <!--<a title="Показать пользователя на личной странице" class="text-info" @click="ShowUser(item.id)"><i class="fas fa-user-cog"></i></a>-->
+                                <a title="Удалить пользователя на всегда" class="text-danger" @click="DelUser(item.id)"><i class="fas fa-user-times"></i></a>
+                            </div>
+                        </td>
                     </tr>
 
                 </tbody>
             </table>
-        
+            </div>
         </div>
        
     </div>
 
     <!-- Добавление пользователя -->
-    <div v-if="state==1" class="card mb-4 wow fadeIn">
+    <div v-if="state==1" class="card mb-1 wow fadeIn">
         <!--Card content-->
         <div class="card-body d-flex justify-content-between">
             <div class="p-2">
-                <button v-if="state==1" @click="state=0" type="button" class="btn btn-primary">Вернутся</button>
+                <button @click="ResetState" type="button" class="btn btn-primary" title="Вернутся"><i class="fas fa-arrow-circle-left"></i></button>
             </div>
         </div>
         <div class="card-body d-flex justify-content-center">
@@ -100,9 +110,15 @@
                         <p class="h4 mb-4">Добавить пользователя</p>
                         <div v-if="errors" class="alert alert-danger" role="alert">
                             {{errors}}
+                            <button @click="errors=false" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <div v-if="id" class="alert alert-success" role="alert">
+                        <div v-if="success" class="alert alert-success" role="alert">
                             пользователь с ID{{id}} добален успешно.
+                            <button @click="success=false" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                         <!-- login -->
                         <input type="text" id="login" class="form-control" aria-describedby="LoginHelpBlock" placeholder="Логин" v-model="User.login" required>
@@ -150,79 +166,91 @@
 
                     </form>
                 </div>
-
-
-                
             </div>
 
         </div>
+        
+    </div>
+    <!-- Редактирование пользователя -->
+    <div v-if="state==2" class="card mb-1 wow fadeIn">
+        <div class="card-body d-flex justify-content-between">
+            <div class="p-2">
+                <button @click="ResetState" type="button" class="btn btn-primary" title="Вернутся"><i class="fas fa-arrow-circle-left"></i></button>
+            </div>
+        </div>
         <div class="card-body d-flex justify-content-center">
-
-            <!-- Heading -->
             <div class="d-flex justify-content-center">
                 <div class="d-flex align-items-start">
-                    <!-- Default form register -->
-            <form v-if="state==2" class="text-center border border-light p-5" action="/" @submit="EditUserForm" style="width: 500px;">
+                    <!-- Форма редактирования пользователя -->
+                    <form v-if="state==2" class="text-center border border-light p-5" action="/" @submit="EditUserForm" style="width: 500px;">
 
-                <p class="h4 mb-4">Изменить пользователя с {{id}}</p>
-                <div v-if="errors" class="alert alert-danger" role="alert">
-                    {{errors}}
-                </div>
-                <div v-if="id" class="alert alert-success" role="alert">
-                    пользователь с ID{{id}} изменён успешно.
-                </div>
-                <!-- login -->
-                <input type="text" id="login" class="form-control" aria-describedby="LoginHelpBlock" placeholder="Логин" v-model="User.login" required>
-                <small id="LoginHelpBlock" class="form-text text-muted mb-4">
-                    Логин для входа в систему
-                </small>
-                <div class="form-row mb-4">
-                    <div class="col-6">
-                        <!-- First name -->
-                        <input type="text" id="FirstName" class="form-control" placeholder="Имя" v-model="User.firstname" required>
-                    </div>
-                    <div class="col-6">
-                        <!-- Last name -->
-                        <input type="text" id="LastName" class="form-control" placeholder="Фамилия" v-model="User.lastname" required>
-                    </div>
-                </div>
+                        <p class="h4 mb-4">Изменить пользователя с ID{{id}}</p>
+                        <div v-if="errors" class="alert alert-danger" role="alert">
+                            {{errors}}
+                            <button @click="errors=false" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div v-if="success" class="alert alert-success" role="alert">
+                            пользователь с ID{{id}} изменён успешно.
+                            <button @click="success=false" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <!-- login -->
+                        <input type="text" id="login" class="form-control" aria-describedby="LoginHelpBlock" placeholder="Логин" v-model="User.login" required>
+                        <small id="LoginHelpBlock" class="form-text text-muted mb-4">
+                            Логин для входа в систему
+                        </small>
+                        <div class="form-row mb-4">
+                            <div class="col-6">
+                                <!-- First name -->
+                                <input type="text" id="FirstName" class="form-control" placeholder="Имя" v-model="User.firstname" required>
+                            </div>
+                            <div class="col-6">
+                                <!-- Last name -->
+                                <input type="text" id="LastName" class="form-control" placeholder="Фамилия" v-model="User.lastname" required>
+                            </div>
+                        </div>
 
-                <!-- E-mail -->
-                <input type="email" id="Email" class="form-control mb-4" placeholder="E-mail" v-model="User.email" required>
+                        <!-- E-mail -->
+                        <input type="email" id="Email" class="form-control" placeholder="E-mail" aria-describedby="EmailHelpBlock" v-model="User.email" required>
+                        <small id="EmailHelpBlock" class="form-text text-muted mb-4">
+                            Почта пользователя                         
+                        </small>
+                        <!-- Password -->
+                        <input type="password" id="Password" class="form-control" placeholder="Пароль" aria-describedby="PasswordHelpBlock" v-model="User.password">
+                        <small id="PasswordHelpBlock" class="form-text text-muted mb-4">
+                            Пароль от 4 до 64 символов.<br>
+                            <span class="text-muted">Если не заполнить поля пароля то пароль не будет изменен и останется тем который был изначально</span>
+                        </small>
 
-                <!-- Password -->
-                <input type="password" id="Password" class="form-control" placeholder="Пароль" aria-describedby="PasswordHelpBlock" v-model="User.password" required>
-                <small id="PasswordHelpBlock" class="form-text text-muted mb-4">
-                    Пароль от 4 до 64 символов
-                </small>
-
-                <!-- Phone number -->
-                <input type="tel" id="Phone" class="form-control" placeholder="Номер телефона" aria-describedby="PhoneHelpBlock" v-model="User.phone">
-                <small id="PhoneHelpBlock" class="form-text text-muted mb-4">
-                    Номер телефона 
-                </small>
-                <label>Статус пользователя</label>
-                <select class="browser-default custom-select mb-4" v-model.number="User.role">
-                    <option value="50">заблокированный пользователь</option>
-                    <option value="100">Обычный пользователь</option>
-                    <option value="200">Модератор</option>
-                    <option value="300">Редактор</option>
-                    <option value="900">Администратор</option>
-                    <option value="999">Разработчик системы. полные права на всё без проверок.</option>
-                </select>
+                        <!-- Phone number -->
+                        <input type="tel" id="Phone" class="form-control" placeholder="Номер телефона" aria-describedby="PhoneHelpBlock" v-model="User.phone">
+                        <small id="PhoneHelpBlock" class="form-text text-muted mb-4">
+                            Номер телефона 
+                        </small>
+                        <label>Статус пользователя</label>
+                        <select class="browser-default custom-select mb-4" v-model.number="User.role">
+                            <option value="50">заблокированный пользователь</option>
+                            <option value="100">Обычный пользователь</option>
+                            <option value="200">Модератор</option>
+                            <option value="300">Редактор</option>
+                            <option value="900">Администратор</option>
+                            <option value="999">Разработчик системы. полные права на всё без проверок.</option>
+                        </select>
 
 
-                <!-- Sign up button -->
-                <button class="btn btn-info my-4 btn-block" type="submit">Создать</button>
+                        <!-- Sign up button -->
+                        <button class="btn btn-info my-4 btn-block" type="submit">Сохранить</button>
 
-            </form>
+                    </form>
                 </div>
 
             </div>
 
         </div>
     </div>
-
 </div>
 <script>
 var userlist = new Vue({
@@ -230,11 +258,11 @@ var userlist = new Vue({
         mvcrbstore,
         data: {
             Data: {}, Count: 0,
-            errors:null,id:null,
-            User: {role: 100},
+            errors:null,id:null,success:false,
+            User: {id:0,role: 100},
             ErrData: {},
             perPage: 10, currentPage: 1,
-            searchStr: '', currentSortDir: 'asc', currentSort: 'id',state:'0'
+            searchStr:'', currentSortDir:'asc', currentSort:'id',state:0
         },
         created() {
             this.setPage(1);
@@ -288,6 +316,7 @@ var userlist = new Vue({
             },
             AddUserForm(e){
                 e.preventDefault();
+                this.success = false;
                 fetch('/admin/adduser/?AJAX=1', {
                     mode: 'cors',
                     method: 'POST',
@@ -303,9 +332,11 @@ var userlist = new Vue({
                     }else{
                         this.errors = null;
                     }
-                    if(res.id){
+                    if(res.success){
+                        this.success = res.success;
                         this.id = res.id;
                     }else{
+                        this.success = false;
                         this.id = null;
                     }
                     console.log(res);
@@ -314,6 +345,8 @@ var userlist = new Vue({
             },
             EditUserForm(e){
                 e.preventDefault();
+                this.User.id = this.id;
+                this.success = false;
                 fetch('/admin/edituser/?AJAX=1', {
                     mode: 'cors',
                     method: 'POST',
@@ -323,20 +356,35 @@ var userlist = new Vue({
                 })
                 .then(res => res.json())
                 .then(res => {
-
                     if(res.Errors){
                         this.errors = res.Errors;
                     }else{
                         this.errors = null;
                     }
-                    if(res.id){
+                    if(res.success){
+                        this.success = res.success;
                         this.id = res.id;
                     }else{
-                        this.id = null;
+                        this.success = false;
+//                        this.id = null;
                     }
-                    console.log(res);
-                });
+                    
+                }).catch((e) => this.errors = 'Запрос серверу отправлен но ответ вернулся ошибочный! '+ e);
 
+            },
+            SetUserEdit(User){
+                this.User = User;
+                this.id = User.id;
+                this.state = 2;
+            },
+            ResetState(){
+                this.success = false;
+                this.errors = null;
+                this.id = 0;
+                this.state = 0;
+            },
+            DelUser(id){
+                console.log(id);
             }
         }
     });

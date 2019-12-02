@@ -1,0 +1,86 @@
+<!-- Navbar -->
+<nav class="navbar sticky-top navbar-expand-sm navbar-dark unique-color">
+    <div class="container-fluid">
+
+        <!-- Brand -->
+        <a class="navbar-brand waves-effect" href="/" target="_blank">
+            <strong class="blue-text">На сайт</strong>
+        </a>
+
+        <!-- Collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">Подробнее об MDB</a>
+                </li>
+
+            </ul>
+
+            <!-- Right -->
+            <ul class="navbar-nav nav-flex-icons">
+                <li class="nav-item">
+                    <a href="https://github.com/SimDir/mvcrb" class="nav-link border border-secondary rounded waves-effect" target="_blank">
+                        <i class="fab fa-github mr-2"></i>фреймворк RusBeard на GitHub
+                    </a>
+                </li>
+
+
+            </ul>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+                <li class="nav-item avatar dropdown">
+                    <a class="nav-link" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="/public/img/rblogo.png" class="rounded-circle z-depth-0" alt="avatar image" height="35">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
+
+                        <a href="/user/logout" class="dropdown-item"> Выход
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<!-- Navbar -->
+
+<!-- Sidebar -->
+<div id="AdminMenu" class="sidebar-fixed position-fixed stylish-color-dark">
+   
+    <div class="d-flex flex-column align-items-center">
+        <a v-for="item in Menu" :href="item.src" class="list-group-item list-group-item-action waves-effect d-flex justify-content-between">
+            <span>{{item.name}}</span><i class="mr-2" :class="item.class"></i>
+        </a>
+    </div>
+</div>
+<script>
+var AdminMenu = new Vue({
+    el: '#AdminMenu',
+    data: {
+      Menu:[]
+    },
+    beforeCreate() {
+        fetch('/admin/getmenu/?AJAX=1')
+            .then(res => res.json())
+            .then(res => {this.Menu = res;});
+    }
+});
+</script>
+<!-- Sidebar -->
+
+
+
+<!--Main layout-->
+<main>
+
+    <div class="mr-3 ml-3 mt-3"><{ admincontent }></div>
+
+</main>
+<!--Main layout-->

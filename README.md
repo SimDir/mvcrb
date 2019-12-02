@@ -1,14 +1,4 @@
-# mvcrb
-поехали сказал Гагарин! а сам полетел.
-
-mvcRB - Model View Controller **Rus Beard**
-
-## основная используемая бибилиотека
-RedBeanPHP
-https://redbeanphp.com/index.php
-https://github.com/gabordemooij/redbean
-
-## остальные смотрите composer.json
+## mvcRB - Model View Controller **Rus Beard**
 
 # Используйте `Git` для установки
 
