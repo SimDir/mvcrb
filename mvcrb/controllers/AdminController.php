@@ -69,7 +69,7 @@ class AdminController extends Controller{
     }
     public function EdituserAction() {
         $PostData = json_decode($this->REQUEST);
-        return 'eee';//['success'=>true,'id'=>$this->User->EditUser($PostData->email, isset($PostData->password)? $PostData->password:'', $PostData->login,$PostData->role,$PostData->firstname,$PostData->lastname,$PostData->phone,$PostData->id)];
+        return ['success'=>true,'id'=>$this->User->EditUser($PostData->email, isset($PostData->password)? $PostData->password:'', $PostData->login,$PostData->role,$PostData->firstname,$PostData->lastname,$PostData->phone,$PostData->id)];
     }
     public function AddpageAction() {
         $PostData = json_decode($this->REQUEST);
