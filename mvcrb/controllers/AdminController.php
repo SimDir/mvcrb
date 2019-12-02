@@ -13,9 +13,17 @@ class AdminController extends Controller{
         parent::__construct();
         $this->User = new UserModel();
         if($this->User->GetCurrentUser()['role']<900){
-//            die('Asses denide');
-            //Session::set('UrerRedirect', '/admin');
-            //return mvcrb::Redirect('/user');
+
+            if($this->POST){
+                if (!headers_sent()) {
+                    header("HTTP/1.1 403 Forbidden");
+                    header("Status: 403 Forbidden");
+                }
+                die('Forbidden: Asses denide');
+            }else{
+                Session::set('UrerRedirect', mvcrb::$URI);
+                return mvcrb::Redirect('/user');
+            }
         }
         $this->View->AddCss('/public/css/adminstyle.css');
         $this->View->title = 'Админка';
@@ -61,16 +69,7 @@ class AdminController extends Controller{
     }
     public function EdituserAction() {
         $PostData = json_decode($this->REQUEST);
-//        if ($this->User->ChekMail($PostData->email)) {
-//            $errors[] = 'Пользователь с таким Email уже существует!';
-//        }
-//        if ($this->User->ChekUserLogin($PostData->login)) {
-//            $errors[] = 'Пользователь с таким логином уже существует!';
-//        }
-//        if (isset($errors)) {
-//            return ['Errors' => $errors];
-//        }
-        return ['success'=>true,'id'=>$this->User->EditUser($PostData->email, $PostData->password, $PostData->login,$PostData->role,$PostData->firstname,$PostData->lastname,$PostData->phone,$PostData->id)];
+        return 'eee';//['success'=>true,'id'=>$this->User->EditUser($PostData->email, isset($PostData->password)? $PostData->password:'', $PostData->login,$PostData->role,$PostData->firstname,$PostData->lastname,$PostData->phone,$PostData->id)];
     }
     public function AddpageAction() {
         $PostData = json_decode($this->REQUEST);

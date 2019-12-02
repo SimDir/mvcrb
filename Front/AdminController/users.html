@@ -1,4 +1,18 @@
+<!-- Heading -->
+<div class="card mb-4 wow fadeIn">
 
+    <!--Card content-->
+    <div class="card-body d-flex justify-content-between">
+
+        <h4 class="mb-2 mb-sm-0 pt-1">
+
+            <span>Работа с пользователями - Добавление Редактирование Удаление все находится в этом разделе админки</span>
+            
+        </h4>
+
+    </div>
+
+</div>
 <div id="userlist">
     <!-- Список пользователей -->
     <div v-if="state==0" class="card mb-1 wow fadeIn">
@@ -6,12 +20,13 @@
         <div  class="card-body d-flex flex-wrap justify-content-between">
                 
                     <div class="p-2">
-                        <button v-if="state==0" @click="state=1" type="button" class="btn btn-primary" title="Добавить нового пользователя"><i class="fas fa-user-plus"></i></button>
+                        <button @click="state=1" type="button" class="btn btn-primary" title="Добавить нового пользователя"><i class="fas fa-user-plus"></i></button>
+                        <button @click="setPage(currentPage)" type="button" class="btn btn-success" title="Обновить\Перезагрузить данные таблици"><i class="fas fa-sync"></i></button>
                         
                     </div>
             
                     <div class="p-2">
-                        <div class="input-group pt-2">
+                        <div class="input-group pt-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">Показать</span>
                             </div>
@@ -22,7 +37,9 @@
                                 <option value="50">50</option>
                                 <option value="100">100</option>
                             </select>
-
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon1">строк</span>
+                            </div>
                         </div>
 
                     </div>
@@ -50,7 +67,7 @@
 
         </div>
        
-        <div class="card-body d-flex align-items-start" >
+        <div class="card-body d-flex justify-content-center" >
             <div style="overflow-y: auto;">
             <table class="table table-sm table-hover table-bordered">
                 <thead class="bg-warning">
@@ -62,17 +79,25 @@
                         <th scope="col" style="cursor: pointer;" @click="sort('email')"><i class="fas fa-sort"></i> E-mail</th>
                         <th scope="col" style="cursor: pointer;" @click="sort('phone')"><i class="fas fa-sort"></i> Телефон</th>
                         <th scope="col" style="cursor: pointer;" @click="sort('registredatetime')"><i class="fas fa-sort"></i> Дата\Время</th>
+                        <th>Инструменты</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="item in Data" @click="SetUserEdit(item)">
-                        <th scope="row">{{item.id}}</th>
+                    <tr v-for="item in Data" >
+                        <th>{{item.id}}</th>
                         <td>{{item.firstname}}</td>
                         <td>{{item.lastname}}</td>
                         <td>{{item.login}}</td>
                         <td>{{item.email}}</td>
                         <td>{{item.phone}}</td>
                         <td>{{item.registredatetime}}</td>
+                        <td>
+                            <div class="d-flex justify-content-between">
+                                <a title="Изменить пользователя" class="text-success" @click="SetUserEdit(item)"><i class="fas fa-user-edit"></i></a>
+                                <!--<a title="Показать пользователя на личной странице" class="text-info" @click="ShowUser(item.id)"><i class="fas fa-user-cog"></i></a>-->
+                                <a title="Удалить пользователя на всегда" class="text-danger" @click="DelUser(item.id)"><i class="fas fa-user-times"></i></a>
+                            </div>
+                        </td>
                     </tr>
 
                 </tbody>
@@ -346,7 +371,6 @@ var userlist = new Vue({
                 })
                 .then(res => res.json())
                 .then(res => {
-
                     if(res.Errors){
                         this.errors = res.Errors;
                     }else{
@@ -359,8 +383,8 @@ var userlist = new Vue({
                         this.success = false;
 //                        this.id = null;
                     }
-                    console.log(res);
-                });
+                    
+                }).catch((e) => this.errors = 'Запрос серверу отправлен но ответ вернулся ошибочный! '+ e);
 
             },
             SetUserEdit(User){
@@ -373,6 +397,9 @@ var userlist = new Vue({
                 this.errors = null;
                 this.id = 0;
                 this.state = 0;
+            },
+            DelUser(id){
+                console.log(id);
             }
         }
     });
