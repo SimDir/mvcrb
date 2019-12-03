@@ -10,7 +10,6 @@
    z-index: -1;
 }
 
-
 .digital-agatech-gradient {
    width: 100%;
    position: absolute;
@@ -41,77 +40,65 @@
    }
 }
 
-
-.digital-agatech__content_top {
+.digital-agatech__main_top{
    display: flex;
    flex-direction: column;
-   justify-content: space-evenly;
+   justify-content: center;
    align-items: center;
    width: 100%;
    margin: 0 auto;
-   height: 400px;
+   height: 450px;
 }
-.digital-agatech__content_top img {
-   width: 300px;
+.digital-agatech__main_top img {
+   width: 600px;
+   margin-bottom:15px;
 }
-.digital-agatech__content_top h2 {
-   font-weight: bold;
-   font-size: 80px;
-   line-height: 80px;
-   letter-spacing: 0.07em;
+.digital-agatech__main_top h1{
+   font-size: 60px;
+   line-height: 60px;
    color: #fff;
    text-align: center;
-   text-transform: uppercase;
-}
-@media(max-width: 1500px) {
-   .digital-agatech__content_top h2 {
-      font-size: 75px;
-      line-height: 75px;
-   }
 }
 @media(max-width: 1400px) {
-   .digital-agatech__content_top {
-      height: 350px;
+   .digital-agatech__main_top{
+      height: 400px;
    }
-   .digital-agatech__content_top h2 {
-      font-size: 70px;
-      line-height: 70px;
+   .digital-agatech__main_top img {
+      width: 550px;
    }
-}
-@media(max-width: 1300px) {
-   .digital-agatech__content_top h2 {
-      font-size: 65px;
-      line-height: 65px;
-   }
-}
-@media(max-width: 1200px) {
-   .digital-agatech__content_top {
-      height: 300px;
-   }
-   .digital-agatech__content_top h2 {
-      font-size: 60px;
-      line-height: 60px;
-   }
-}
-@media(max-width: 1100px) {
-   .digital-agatech__content_top h2 {
-      font-size: 55px;
-      line-height: 55px;
-   }
-}
-@media(max-width: 1000px) {
-   .digital-agatech__content_top {
-      height: 250px;
-   }
-   .digital-agatech__content_top h2 {
+   .digital-agatech__main_top h1{
       font-size: 50px;
       line-height: 50px;
    }
 }
-
+@media(max-width: 1200px) {
+   .digital-agatech__main_top{
+      height: 350px;
+   }
+   .digital-agatech__main_top img {
+      width: 500px;
+   }
+   .digital-agatech__main_top h1{
+      font-size: 45px;
+      line-height: 45px;
+   }
+}
+@media(max-width: 1000px) {
+   .digital-agatech__main_top{
+      height: 300px;
+   }
+   .digital-agatech__main_top img {
+      width: 450px;
+      margin-bottom:10px;
+   }
+   .digital-agatech__main_top h1{
+      font-size: 40px;
+      line-height: 40px;
+   }
+}
 
 .digital-agatech__content_top_menu {
-   margin: 100px 0 50px;
+   margin: 50px 0 50px;
    display: flex;
    flex-direction: row;
    justify-content: center;
@@ -170,6 +157,7 @@
    line-height: 28px;
    text-align: left;
    color: #FFFFFF;
+   text-align: justify;
 }
 @media(max-width: 1400px) {
    .digital-agatech__content_center_block1 h6 {
@@ -602,6 +590,53 @@
 
 
 /* КОМАНДА */
+.digital-agatech__content_top {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   align-items: center;
+   width: 100%;
+   margin: 0 auto;
+   height: 400px;
+}
+.digital-agatech__content_top h2 {
+   font-weight: bold;
+   font-size: 50px;
+   line-height: 60px;
+   letter-spacing: 0.07em;
+   color: #fff;
+   text-align: center;
+   text-transform: uppercase;
+}
+
+@media(max-width: 1400px) {
+   .digital-agatech__content_top {
+      height: 350px;
+   }
+   .digital-agatech__content_top h2 {
+      font-size: 45px;
+      line-height: 55px;
+   }
+}
+@media(max-width: 1200px) {
+   .digital-agatech__content_top {
+      height: 300px;
+   }
+   .digital-agatech__content_top h2 {
+      font-size: 40px;
+      line-height: 50px;
+   }
+}
+@media(max-width: 1000px) {
+   .digital-agatech__content_top {
+      height: 250px;
+   }
+   .digital-agatech__content_top h2 {
+      font-size: 35px;
+      line-height: 45px;
+   }
+}
+
 .digital-agatech__content_center_digAg {
    width: 100%;
    margin: 0 auto;
@@ -619,7 +654,7 @@
 
 
 .digital-agatech__content_top_menu_digAg  {
-   margin: 30px 0 50px;
+   margin: 30px 0 30px;
    display: flex;
    flex-direction: row;
    justify-content: center;

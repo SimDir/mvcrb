@@ -33,7 +33,9 @@
    font-size: 18px;
    line-height: 18px;
    color: #626779;
-   margin: 20px 0 0;
+   margin-top: 20px;
+   padding: 0 10px;
+   text-align: center;
 }
 .products-tariff__left-form {
    width: 100%;
@@ -81,7 +83,7 @@
 .products-tariff__right {
    flex-basis: 600px;
    height: 100%;
-   padding: 40px 40px 40px 40px;
+   padding: 40px;
    position: relative;
 }
 .products-tariff__right-title {
@@ -108,4 +110,113 @@
    right: 20px;
    width: 25px;
    cursor: pointer;
+}
+@media(max-width: 1400px) {
+   .products-tariff {
+      width: 700px;
+   }
+   .products-tariff__left {
+      flex-basis: 200px;
+   }
+   .products-tariff__left-container-img {
+      margin-bottom: 15px;
+   }
+   .products-tariff__left-title {
+      font-size: 16px;
+      line-height: 16px;
+   }
+   .products-tariff__left-form {
+      padding: 20px;
+   }
+   .products-tariff__left-name,
+   .products-tariff__left-tel {
+      font-size: 14px;
+   }
+   .products-tariff__left-btn {
+      font-size: 14px;
+      line-height: 22px;
+   }
+   .products-tariff__right {
+      flex-basis: 500px;
+      padding: 30px;
+   }
+   .products-tariff__right-title {
+      font-size: 20px;
+      line-height: 24px;
+      margin-bottom: 30px;
+   }
+   .products-tariff__right li {
+      font-size: 14px;
+      line-height: 18px;
+      margin-bottom: 15px;
+   }
+}
+@media(max-width: 1200px) {
+   .products-tariff {
+      width: 600px;
+   }
+   .products-tariff__left {
+      flex-basis: 150px;
+   }
+   .products-tariff__left-container-img {
+      margin-bottom: 10px;
+   }
+   .products-tariff__left-form {
+      padding: 15px;
+   }
+   .products-tariff__right {
+      flex-basis: 450px;
+      padding: 20px;
+   }
+   .products-tariff__right-title {
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 25px;
+   }
+}
+@media(max-width: 1000px) {
+   .products-tariff {
+      width: 500px;
+   }
+   .products-tariff__left {
+      flex-basis: 100px;
+   }
+   .products-tariff__left-container-img {
+      margin-bottom: 10px;
+   }
+
+   .products-tariff__left-title {
+      font-size: 14px;
+      line-height: 14px;
+   }
+   .products-tariff__left-form {
+      padding: 10px;
+   }
+   .products-tariff__left-form input {
+      margin-bottom: 10px;
+   } 
+   .products-tariff__left-name,
+   .products-tariff__left-tel {
+      font-size: 12px;
+   } 
+   .products-tariff__left-btn {
+      font-size: 12px;
+      line-height: 20px;
+      margin-top: 15px;
+      padding: 5px 20px;
+   }
+   .products-tariff__right {
+      flex-basis: 400px;
+      padding: 10px;
+   }
+   .products-tariff__right-title {
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 20px;
+   }
+   .products-tariff__right li {
+      font-size: 12px;
+      line-height: 16px;
+      margin-bottom: 10px;
+   }
 }

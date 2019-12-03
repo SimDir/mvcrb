@@ -358,22 +358,10 @@
 }
 
 @media(max-width: 1500px) {
-   .products_center__block-top {
-      height: 700px;
-      margin-bottom: 70px;
-   }
-   .products_center__block-internetCatalog-top {
-      height: 700px;
-      margin-bottom: 70px;
-   }
-   .products_center__block-promoSite-top {
-      height: 700px;
-      margin-bottom: 70px;
-   }
-   .products_center__block-mobileApps-top {
-      height: 700px;
-      margin-bottom: 70px;
-   }
+   .products_center__block-top,
+   .products_center__block-internetCatalog-top,
+   .products_center__block-promoSite-top,
+   .products_center__block-mobileApps-top,
    .products_center__block-individualSolutions-top {
       height: 700px;
       margin-bottom: 70px;
@@ -418,22 +406,10 @@
    }
 }
 @media(max-width: 1300px) {
-   .products_center__block-top {
-      height: 600px;
-      margin-bottom: 60px;
-   }
-   .products_center__block-internetCatalog-top {
-      height: 600px;
-      margin-bottom: 60px;
-   }
-   .products_center__block-promoSite-top {
-      height: 600px;
-      margin-bottom: 60px;
-   }
-   .products_center__block-mobileApps-top {
-      height: 600px;
-      margin-bottom: 60px;
-   }
+   .products_center__block-top,
+   .products_center__block-internetCatalog-top,
+   .products_center__block-promoSite-top,
+   .products_center__block-mobileApps-top,
    .products_center__block-individualSolutions-top {
       height: 600px;
       margin-bottom: 60px;
@@ -478,22 +454,10 @@
    }
 }
 @media(max-width: 1100px) {
-   .products_center__block-top {
-      height: 500px;
-      margin-bottom: 50px;
-   }
-   .products_center__block-internetCatalog-top {
-      height: 500px;
-      margin-bottom: 50px;
-   }
-   .products_center__block-promoSite-top {
-      height: 500px;
-      margin-bottom: 50px;
-   }
-   .products_center__block-mobileApps-top {
-      height: 500px;
-      margin-bottom: 50px;
-   }
+   .products_center__block-top,
+   .products_center__block-internetCatalog-top,
+   .products_center__block-promoSite-top,
+   .products_center__block-mobileApps-top,
    .products_center__block-individualSolutions-top {
       height: 500px;
       margin-bottom: 50px;
