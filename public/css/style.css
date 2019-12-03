@@ -326,8 +326,8 @@ header {
       border-bottom: none;
    }
    .header__menu_link:hover .header_bottom {
-      visibility: visible;
-      opacity: 1;
+      visibility: hidden;
+      opacity: 0;
       transform: translateY(0px);
    }
    .header_bottom {
