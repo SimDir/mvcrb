@@ -187,7 +187,7 @@ final class View {
                 $this->TplDir =$tmpDirView;
             }elseif(preg_match("/Addjs(\(.*\))/i", $value[1],$matches)){
                 $code = str_replace($value[0], '', $code);
-                $this->AddJs(trim($matches[1], '()'));
+                $this->AddJs(trim($matches[1], '()'),false);
             }elseif(preg_match("/Addcss(\(.*\))/i", $value[1],$matches)){
                 $code = str_replace($value[0], '', $code);
                 $this->AddCss(trim($matches[1], '()'));
