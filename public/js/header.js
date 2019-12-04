@@ -14,4 +14,15 @@ $( document ).ready(function() {
         $('#HeaderMenu').css({"visibility": "hidden", "opacity": "0"});
         $('#HeaderMenuCross').css({"visibility": "hidden", "transform": "rotate(0deg)"});
     });
+    $('.header__menu_link>img').click(function(e) {
+        
+        if($('.header__menu_link>img').hasClass('MnuActiv')){
+            $('.header__menu_link>div').removeClass("header_bottom_mobile").addClass("header_bottom");
+//            console.log('MnuActiv');
+        }else{
+            $('.header__menu_link>div').removeClass("header_bottom").addClass("header_bottom_mobile");
+        }
+        $('.header__menu_link>img').toggleClass('MnuActiv');
+//        console.log(e);
+    });
 });
