@@ -10,12 +10,13 @@ $( document ).ready(function() {
             return;
         if ($(e.target).closest("#HeaderMenuBurger").length)
             return;
+        if($(document).width()>900)return;
         $('#HeaderMenuBurger').css({"visibility": "visible", "transform": "rotate(180deg)"});
         $('#HeaderMenu').css({"visibility": "hidden", "opacity": "0", "transform": "translateY(-100px)"});
         $('#HeaderMenuCross').css({"visibility": "hidden", "transform": "rotate(0deg)"});
     });
-    $('.header__menu_link>img').click(function(e) {
-        let parDiv = $(e.target).parent();
+    $('.header__menu_link').click(function(e) {
+        let parDiv = $(e.target);
         let ImgCild = parDiv.children("img");
         let DivCild = parDiv.children("div");
         if(ImgCild.hasClass('MnuActiv')){
