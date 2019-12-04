@@ -307,7 +307,7 @@ header {
       transition: transform .5s;
    }
    .header__menu_link_btn {
-      width: 100%;
+      /*width: 100%;*/
       height: initial;
       color: #717171;
       padding: 15px 20px;
