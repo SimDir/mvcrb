@@ -3,7 +3,7 @@ $( document ).ready(function() {
     $('#HeaderMenuBurger').click(function() {
         $('#HeaderMenuBurger').css({ "visibility": "hidden", "transform": "rotate(0deg)" });
         $('#HeaderMenuCross').css({ "visibility": "visible", "transform": "rotate(180deg)" });
-        $('#HeaderMenu').css({ "visibility": "visible", "opacity": "1" });
+        $('#HeaderMenu').css({ "visibility": "visible", "opacity": "1", "transform": "translateY(0)"});
     });
     $(document).click(function (e) {
         if ($(e.target).closest("#HeaderMenu").length)
@@ -11,7 +11,7 @@ $( document ).ready(function() {
         if ($(e.target).closest("#HeaderMenuBurger").length)
             return;
         $('#HeaderMenuBurger').css({"visibility": "visible", "transform": "rotate(180deg)"});
-        $('#HeaderMenu').css({"visibility": "hidden", "opacity": "0"});
+        $('#HeaderMenu').css({"visibility": "hidden", "opacity": "0", "transform": "translateY(-100px)"});
         $('#HeaderMenuCross').css({"visibility": "hidden", "transform": "rotate(0deg)"});
     });
     $('.header__menu_link>img').click(function(e) {
@@ -24,6 +24,5 @@ $( document ).ready(function() {
             DivCild.removeClass("header_bottom").addClass("header_bottom_mobile");
         }
         ImgCild.toggleClass('MnuActiv');
-//        console.log($(e.target).parent());
     });
 });
