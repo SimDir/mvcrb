@@ -58,24 +58,28 @@
                 <thead class="bg-warning">
                     <tr>
                         <th scope="col" style="cursor: pointer;" @click="sort('id')"><i class="fas fa-sort"></i> ID</th>
+                        <th scope="col" style="cursor: pointer;" @click="sort('login')"><i class="fas fa-sort"></i> Логин</th>
                         <th scope="col" style="cursor: pointer;" @click="sort('firstname')"><i class="fas fa-sort"></i> Имя</th>
                         <th scope="col" style="cursor: pointer;" @click="sort('lastname')"><i class="fas fa-sort"></i> Фамилия</th>
-                        <th scope="col" style="cursor: pointer;" @click="sort('login')"><i class="fas fa-sort"></i> Логин</th>
+                        
                         <th scope="col" style="cursor: pointer;" @click="sort('email')"><i class="fas fa-sort"></i> E-mail</th>
                         <th scope="col" style="cursor: pointer;" @click="sort('phone')"><i class="fas fa-sort"></i> Телефон</th>
-                        <th scope="col" style="cursor: pointer;" @click="sort('registredatetime')"><i class="fas fa-sort"></i> Дата\Время</th>
+                        <th scope="col" style="cursor: pointer;" @click="sort('registredatetime')"><i class="fas fa-sort"></i> Регистрация</th>
+                        <th scope="col" style="cursor: pointer;" @click="sort('lastlogin')"><i class="fas fa-sort"></i> Дата\Время</th>
                         <th>Инструменты</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="item in Data" >
                         <th>{{item.id}}</th>
+                        <td>{{item.login}}</td>
                         <td>{{item.firstname}}</td>
                         <td>{{item.lastname}}</td>
-                        <td>{{item.login}}</td>
+                        
                         <td>{{item.email}}</td>
                         <td>{{item.phone}}</td>
                         <td>{{item.registredatetime}}</td>
+                        <td>{{item.lastlogin}}</td>
                         <td>
                             <div class="d-flex justify-content-between">
                                 <a title="Изменить пользователя" class="text-success" @click="SetUserEdit(item)"><i class="fas fa-user-edit"></i></a>
@@ -154,7 +158,7 @@
                     <option value="200">Модератор</option>
                     <option value="300">Редактор</option>
                     <option value="900">Администратор</option>
-                    <option value="999">Разработчик системы. полные права на всё без проверок.</option>
+                    <!--<option value="999">Разработчик системы. полные права на всё без проверок.</option>-->
                 </select>
 
 
@@ -292,7 +296,7 @@ var userlist = new Vue({
 //                  }
 
                     this.Count = res.count;
-//                    console.log(res);
+                    console.log(res);
                 });
             },
             sort(s) {

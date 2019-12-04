@@ -1,6 +1,6 @@
 'use strict';
 $( document ).ready(function() {  
-   $('#Moscow').click(function(){
+   $('#Moscow').click(e=>{
       $('.ULCITY').css({"display": "none"});
       $('.MCITY').css({"display": "block"});
       $('.LCITY').css({"display": "none"});
@@ -11,7 +11,7 @@ $( document ).ready(function() {
       $('#Vilnus').css({"borderBottom": "none"});
    });
 
-   $('#Ulsk').click(function(){
+   $('#Ulsk').click(e=>{
       $('.ULCITY').css({"display": "block"});
       $('.MCITY').css({"display": "none"});
       $('.LCITY').css({"display": "none"});
