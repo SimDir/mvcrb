@@ -1,0 +1,30 @@
+.news-page {
+   width: 800px;
+   margin: 0 auto 100px;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+}
+.news-page h6 {
+   font-weight: bold;
+   font-size: 36px;
+   line-height: 36px;
+   color: #626779;
+   margin-bottom: 50px;
+}
+.news-page_block-text {
+   width: 100%;
+}
+.news-page_block-text p {
+   font-size: 14px;
+   line-height: 21px;
+   color: #83969C;
+   margin-bottom: 30px;
+}
+.news-page_container-img {
+   width: 100%;
+}
+.news-page_container-img img {
+   width: 100%;
+}
