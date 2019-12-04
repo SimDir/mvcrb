@@ -4,8 +4,11 @@
 
         <!-- Brand -->
         <a class="navbar-brand waves-effect" href="/" target="_blank">
-            <strong class="blue-text">На сайт</strong>
+            <img src="/public/img/all-seeing-eye.webp" class="rounded-circle z-depth-0" alt="avatar image" height="35">
         </a>
+<!--        <a class="navbar-brand waves-effect" href="/" target="_blank">
+            <strong class="blue-text">На сайт</strong>
+        </a>-->
 
         <!-- Collapse -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -33,16 +36,17 @@
 
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
-                <li class="nav-item avatar dropdown">
-                    <a class="nav-link" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="/public/img/rblogom.png" class="rounded-circle z-depth-0" alt="avatar image" height="35">
+<!--                <li class="nav-item avatar">
+                    <a class="nav-link" >
+                        <img src="/public/img/all-seeing-eye.webp" class="rounded-circle z-depth-0" alt="avatar image" height="35">
                     </a>
-                    <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
-
-                        <a href="/user/logout" class="dropdown-item"> Выход
-                            <i class="fas fa-sign-out-alt"></i>
-                        </a>
-                    </div>
+                 
+                </li>-->
+                <li class="nav-item avatar">
+                    <a href="/user/logout" class="nav-link waves-effect waves-light"> Выход
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                    
                 </li>
             </ul>
         </div>
@@ -54,7 +58,7 @@
 <!-- Sidebar -->
 <div id="AdminMenu" class="sidebar-fixed position-fixed stylish-color-dark">
    
-    <div class="list-group list-group-flush">
+    <div class="list-group list-group-flush rounded-0">
         <a v-for="item in Menu" :href="item.src" class="list-group-item list-group-item-action waves-effect d-flex justify-content-between">
             <span>{{item.name}}</span><i :class="item.class"></i>
         </a>

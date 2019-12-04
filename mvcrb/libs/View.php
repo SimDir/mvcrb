@@ -185,6 +185,9 @@ final class View {
                 $this->TplDir = TEMPLATE_DIR;
                 $code = str_replace($value[0], $this->execute($ViewHtml), $code);
                 $this->TplDir =$tmpDirView;
+            }elseif(preg_match("/Addjs(\(.*\))/i", $value[1],$matches)){
+                $code = str_replace($value[0], '', $code);
+                $this->AddJs(trim($matches[1], '()'),false);
             }elseif(preg_match("/Addcss(\(.*\))/i", $value[1],$matches)){
                 $code = str_replace($value[0], '', $code);
                 $this->AddCss(trim($matches[1], '()'));

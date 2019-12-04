@@ -43,9 +43,10 @@ class PageModel extends Model {
         $Table->createdatetime = date('Y-m-d H:i:s');
         return $this->store($Table);
     }
-    public function Edit($Data = null) {
+    public function Edit($Data = null,$id) {
         if(is_null($Data)) return false;
-        $Table = $this->Dispense($this->TableName);
+//        $Table = $this->Dispense($this->TableName);
+        $Table = $this->findOne($this->TableName, 'id = ?', array($id));
         $Table->import($Data);
         $Table->editdatetime = date('Y-m-d H:i:s');
         return $this->store($Table);

@@ -72,7 +72,7 @@ class AdminController extends Controller{
         return ['success'=>true,'id'=>$this->User->EditUser($PostData->email, isset($PostData->password)? $PostData->password:'', $PostData->login,$PostData->role,$PostData->firstname,$PostData->lastname,$PostData->phone,$PostData->id)];
     }
     public function AddpageAction() {
-        $PostData = json_decode($this->REQUEST);
+        $PostData = json_decode($this->REQUEST,true);
         $page = new PageModel();
         return ['success'=>true,'id'=>$page->Add($PostData)]; 
     }
@@ -93,8 +93,8 @@ class AdminController extends Controller{
         $Data = [
             ['name'=>'Главная','src'=>'/admin','class'=>'fas fa-home'],
             ['name'=>'Пользователи','src'=>'/admin/user','class'=>'fas fa-users-cog'],
-            ['name'=>'Страници','src'=>'/admin/pages','class'=>'far fa-file'],
-            ['name'=>'Конфигуратор','src'=>'/admin/Configurator','class'=>'fas fa-calculator']
+            ['name'=>'Страницы','src'=>'/admin/pages','class'=>'far fa-file'],
+//            ['name'=>'Конфигуратор','src'=>'/admin/Configurator','class'=>'fas fa-calculator']
             ];
         return $Data;
     }
