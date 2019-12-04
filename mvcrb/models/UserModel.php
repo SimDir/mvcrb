@@ -94,7 +94,7 @@ class UserModel extends Model{
         }
         return FALSE;
     }
-    public function CreateUser($email, $password, $login, $role = 200, $firstname='', $lastname='', $phone='', $registredatetime='') {
+    public function CreateUser($email, $password, $login, $role = 100, $firstname='', $lastname='', $phone='', $registredatetime='') {
         
         $user = $this->Dispense($this->TableName);
         $user->firstname = $firstname;
@@ -118,13 +118,13 @@ class UserModel extends Model{
         
         return $this->store($user);
     }
-    public function EditUser($id, $email, $password, $login, $name, $middlename, $surname, $role = 200, $phone = '') {
+    public function EditUser($email, $password, $login, $role = 100, $firstname='', $lastname='', $phone='', $id=0) {
 
 //        $user = $this->dispense($this->TableName);
         $user = $this->findOne($this->TableName, 'id = ?', array($id));
-        $user->name = $name;
-        $user->middlename = $middlename;
-        $user->surname = $surname;
+        $user->firstname = $firstname;
+//        $user->middlename = $middlename;
+        $user->lastname = $lastname;
 
         $user->login = $login;
         $user->email = $email;

@@ -56,7 +56,7 @@
             </form>
         </transition>
         <transition name="bounce" appear>
-            <form class="modal-content card-body" v-if="state==0" @submit="checkForm" id="formlogin"  role="form" method="POST" action="/im/login/">
+            <form class="modal-content card-body" v-if="state==0" @submit="UserLogin" id="formlogin"  role="form" method="POST" action="/im/login/">
         
 
             <!--Header-->
@@ -64,25 +64,27 @@
                 <h3><i class="fa fa-lock"></i> Вход пользователя:</h3>
             </div>
             
-                    <{ErrorMsg}>
+            <div v-if="errors" class="alert alert-danger" role="alert">
+                {{errors}}
+            </div>
                 
             <!--Body-->
             <div class="md-form">
                 <i class="fa fa-envelope prefix grey-text"></i>
-                <input v-model="CurUser.email" value="<{email}>" name="email" type="text" id="defaultForm-email" class="form-control" >
+                <input v-model="CurrentUser.email" value="<{email}>" name="email" type="text" id="defaultForm-email" class="form-control" required>
                 <label for="defaultForm-email" class="">Адрес электронной почты или логин</label>
             </div>
 
             <div class="md-form">
                 <i class="fa fa-lock prefix grey-text"></i>
-                <input v-model="CurUser.password" name="password" id="defaultForm-pass" type="password" class="form-control" required>
+                <input v-model="CurrentUser.password" name="password" id="defaultForm-pass" type="password" class="form-control" required>
                 <label for="defaultForm-pass" class="">Ваш пароль</label>
             </div>
 
             <div class="text-center">
-                <button @click.prevent="DoSub" type="submit" class="btn btn-default waves-effect waves-light">Войти</button>
+                <button type="submit" class="btn btn-default waves-effect waves-light">Войти</button>
             </div>
-            <div class="modal-footer">
+<!--            <div class="modal-footer">
                 <div class="options">
                     
                     <p>У вас нет учетной записи?
@@ -93,7 +95,7 @@
                     </p>
                 </div>
                 
-            </div>
+            </div>-->
         
         </form>
         </transition>
@@ -107,35 +109,24 @@
 var User = new Vue({
   el: '#User',
   mvcrbstore,
-  data: {errors:[],state:0,
-    CurUser: {email:"",password:""}
-  },
-  created: function () {
-      //myStorage = window.localStorage;
-      //this.CurUser = localStorage.getItem('CurUser');
-    // `this` указывает на экземпляр vm
-    //console.log('Значение a: ' + this.a)
+  data: {
+      errors:'',
+      CurrentUser: {email:"",password:""},
+      state:0
   },
   methods: {
-    DoSub() {
-        
-//        
-
-        var encryptedAES = CryptoJS.AES.encrypt(this.CurUser.password, "Secret");
-        
-        
-        var SendUser = {email:this.CurUser.email,password:encryptedAES.toString()};
-        
-        var SendData = JSON.stringify(SendUser);
-        fetch( 'user/login/?AJAX=1',{
+    UserLogin(e) {
+        e.preventDefault();
+        var SendUser = {email:this.CurrentUser.email,password:this.CurrentUser.password};
+        fetch( '/user/login/?AJAX=1',{
             mode: 'cors',
             method: 'POST',
-            body: SendData
+            body: JSON.stringify(SendUser)
             })
             .then((response) => {
                 
                 if(response.redirected){
-                    window.location.href=response.url; //.replace('https://navy-test.afanik.ru',"");
+                    window.location.href=response.url;
                     return false;
                 }
                 if (response.ok) {
@@ -143,54 +134,20 @@ var User = new Vue({
                 }
                 throw new Error('Network response was not ok');
             })
-//            .then((text) => {
-////                store.commit('content', text);
-//                console.log('FormLogin:DoSub()->text',text);
-//            })
             .then((json) => {
-//                console.log('FormLogin:DoSub()');
-                this.CurUser=json;
-                var decryptedBytes = CryptoJS.AES.decrypt(this.CurUser.password, "Secret");
-                var plaintext = decryptedBytes.toString(CryptoJS.enc.Utf8);
-                //myStorage = window.localStorage;
-                //localStorage.setItem('CurUser', this.CurUser);
-//                store.commit('content', json.content);
-                console.log(plaintext,json);
+                if(json){
+                    window.location.href='/user';
+                }else{
+                    this.errors = 'Неверное имя пользователя или пароль';
+                }
+   
+                console.log(json);
                 
             })
             .catch((error) => {
-                console.log('FormLogin:DoSub()',error);
+                console.log('FormLogin',error);
             });
-//            fetch( '/user/get/?AJAX=1')
-//            .then((response) => {
-//                if (response.ok) {
-//                    return response.json();
-//                }
-//                throw new Error('Network response was not ok');
-//            })
-//            .then((json) => {
-//                store.commit('User', json);
-////                console.log(json);
-//
-//            })
-//            .catch((error) => {
-//                console.log(error);
-//            });
-        //store.commit('User', this.CurUser);
-        //console.log(this.CurUser);
-    },
-    checkForm: function (e) {
-        
-
-        e.preventDefault();
+        } 
     }
-        
-       
-    },
-  computed: {
-        User: function () {
-            return store.state.User;
-        }
-    }
-})    
+});
 </script>

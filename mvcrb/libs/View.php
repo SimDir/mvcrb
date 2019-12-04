@@ -1,9 +1,10 @@
 <?php 
+declare(strict_types=1);
 namespace mvcrb;
 defined('ROOT') OR die('No direct script access.');
 
 /**
- * Класс для работы с шаблонами
+ * Класс для работы с HTML шаблонами
  * 
  * view
  * 
@@ -14,7 +15,7 @@ final class View {
     private $vars = array();
     private static $instance;
     
-    public $TplDir = TEMPLATE_DIR;
+    public $TplDir = '';
     /**
      * входной параметр устанавливает спецефическую дирикторию с шаблонами
      * если не задать то установится дириктория по умолчанию
@@ -23,19 +24,20 @@ final class View {
      *
      * @param string $TplDir Строка дириктории с шаблонами
      */
-    public static function getInstance($TplDir=''): View {
-        
+    public static function getInstance(string $TplDir=''):View {
+//        dd($TplDir);
         if (self::$instance === null) {
             self::$instance = new self($TplDir);
         }
         self::$instance->SetWivePath(TEMPLATE_DIR.$TplDir.DS);
+//        dd(self::$instance->TplDir);
         return self::$instance;
     }
 
-    public function __construct($TplDir='') {
+    public function __construct() {
         $this->vars['headcssjs']='';
         $this->vars['bodycssjs']='';
-        $this->TplDir = TEMPLATE_DIR.$TplDir.DS;
+//        $this->TplDir = TEMPLATE_DIR.$TplDir.DS;
     }
     private function __clone()
     {
@@ -49,21 +51,21 @@ final class View {
      * @param string $val Строка шаблона который подключится
      * @param string $TplDir Строка дириктории с шаблонами
      */
-    public function __invoke($val,$TplDir=false) {
+    public function __invoke(string $val,$TplDir=false):string {
         return $this->execute($val,$TplDir);
     }
-    public function __set($name, $value) {
+    public function __set(string $name, string $value){
         $this->vars[$name] = $value;
     }
 
-    public function __get($name) {
+    public function __get(string $name):string {
         if (isset($this->vars[$name])) {
 
             return $this->vars[$name];
         }
         return FALSE;
     }
-    public function __isset($name) {
+    public function __isset(string $name):bool {
         if (isset($this->vars[$name]) && !empty($this->vars[$name])) {
             return true;
         }
@@ -74,7 +76,7 @@ final class View {
      * 
      * @param string $stylesheet полный относительный сайта путь к стилю либо путь до стороннего сервера
      */
-    public function AddCss($stylesheet) {
+    public function AddCss(string $stylesheet){
         $this->vars['headcssjs'].="<link rel=\"stylesheet\" href=\"$stylesheet\">".PHP_EOL;
     }
     /**
@@ -85,7 +87,7 @@ final class View {
      * 
      * либо в начале странице в хедаре либо в низу странице
      */
-    public function AddJs($stylesheet,$OnTop=true) {
+    public function AddJs(string $stylesheet,bool $OnTop=true){
         if($OnTop){
             $this->vars['headcssjs'].="<script src=\"$stylesheet\"></script>".PHP_EOL;
         }else{
@@ -97,7 +99,7 @@ final class View {
      * 
      * @param string $name имя необходимой переменной
      */
-    public function VarGet($name) {
+    public function VarGet(string$name){
         if (isset($this->vars[$name])) {
 
             return $this->vars[$name];
@@ -110,16 +112,15 @@ final class View {
      * 
      * @param array $Array имя необходимой переменной
      */
-    public function VarSetArray($Array) {
+    public function VarSetArray(array $Array){
         if(is_array($Array)){
             foreach ($Array as $key => $value) {
                 $this->vars[$key] = $value;
             }
         }
-        
     }
 
-    public function assign($name, $value) {
+    public function assign(string $name, string $value){
         if (isset($this->vars[$name]) && is_array($this->vars[$name])) {
             $this->vars[$name] = array_merge($this->vars[$name], (array) $value);
         } else {
@@ -129,7 +130,7 @@ final class View {
     /**
      * дописать регулярок!!!!!
      */
-    private function compress($code) {
+    private function compress(&$code):string {
         //,'#/\*(?:[^*]*(?:\*(?!/))*)*\*/#','/[\s]+/' ,'/\/\/(.*)[\r\n]/'
         return  preg_replace(array( '/<!--(.*)-->/Uis','#/\*(?:[^*]*(?:\*(?!/))*)*\*/#'), '', $code); // '/<!--(.*)-->/Uis','\<![ \r\n\t]*(--([^\-]|[\r\n]|-[^\-])*--[ \r\n\t]*)\>','/[\s]+/'  |,'#/\*(?:[^*]*(?:\*(?!/))*)*\*/#'|
         
@@ -143,7 +144,7 @@ final class View {
      * @param string $template имя необходимого шаблона
      * @param string $TplDir каталог в котором будет искатся сам шаблон. по умелчанию каталог для поиска TEMPLATE_DIR
      */
-    public function execute($template,$TplDir=false) {
+    public function execute(string $template,$TplDir=false):string {
         if($TplDir){
             $this->TplDir=$TplDir;
         }
@@ -167,7 +168,7 @@ final class View {
      * на выходе обработанный HTML
      * @param string $code HTML текст который подлежит обработке
      */
-    public function Code($code) {
+    public function Code(&$code):string {
         preg_match_all('/<{(.*?)}>/', $code, $varibles, PREG_SET_ORDER);
 
         foreach ($varibles as $value) {
@@ -184,6 +185,9 @@ final class View {
                 $this->TplDir = TEMPLATE_DIR;
                 $code = str_replace($value[0], $this->execute($ViewHtml), $code);
                 $this->TplDir =$tmpDirView;
+            }elseif(preg_match("/Addjs(\(.*\))/i", $value[1],$matches)){
+                $code = str_replace($value[0], '', $code);
+                $this->AddJs(trim($matches[1], '()'));
             }elseif(preg_match("/Addcss(\(.*\))/i", $value[1],$matches)){
                 $code = str_replace($value[0], '', $code);
                 $this->AddCss(trim($matches[1], '()'));
@@ -200,7 +204,7 @@ final class View {
         return $code;
     }
 
-    public function SetWivePath($path) {
+    public function SetWivePath($path){
         $this->TplDir = $path;
     }
 

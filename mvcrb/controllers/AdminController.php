@@ -13,9 +13,17 @@ class AdminController extends Controller{
         parent::__construct();
         $this->User = new UserModel();
         if($this->User->GetCurrentUser()['role']<900){
-//            die('Asses denide');
-            //Session::set('UrerRedirect', '/admin');
-            //return mvcrb::Redirect('/user');
+
+            if($this->POST){
+                if (!headers_sent()) {
+                    header("HTTP/1.1 403 Forbidden");
+                    header("Status: 403 Forbidden");
+                }
+                die('Forbidden: Asses denide');
+            }else{
+                Session::set('UrerRedirect', mvcrb::$URI);
+                return mvcrb::Redirect('/user');
+            }
         }
         $this->View->AddCss('/public/css/adminstyle.css');
         $this->View->title = 'Админка';
@@ -31,12 +39,12 @@ class AdminController extends Controller{
     }
     public function IndexAction() {
         $this->View->admincontent = $this->View->execute('main.html');
-        $this->View->content = $this->View->execute('index.html');
+        $this->View->content = $this->View->execute('AdminWraper.html');
         return $this->View->execute('index.html',TEMPLATE_DIR);
     }
     public function UserAction() {
         $this->View->admincontent = $this->View->execute('users.html');
-        $this->View->content = $this->View->execute('index.html');
+        $this->View->content = $this->View->execute('AdminWraper.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
     public function GetuserlistAction() {
@@ -57,25 +65,38 @@ class AdminController extends Controller{
         if(isset($errors)){
             return ['Errors'=>$errors];
         }
-        return ['id'=>$this->User->CreateUser($PostData->email, $PostData->password, $PostData->login,$PostData->role,$PostData->firstname,$PostData->lastname,$PostData->phone)];
+        return ['success'=>true,'id'=>$this->User->CreateUser($PostData->email, $PostData->password, $PostData->login,$PostData->role,$PostData->firstname,$PostData->lastname,$PostData->phone)];
+    }
+    public function EdituserAction() {
+        $PostData = json_decode($this->REQUEST);
+        return ['success'=>true,'id'=>$this->User->EditUser($PostData->email, isset($PostData->password)? $PostData->password:'', $PostData->login,$PostData->role,$PostData->firstname,$PostData->lastname,$PostData->phone,$PostData->id)];
     }
     public function AddpageAction() {
-        $PostData = json_decode($this->REQUEST);
+        $PostData = json_decode($this->REQUEST,true);
         $page = new PageModel();
-        return ['id'=>$page->Add($PostData)]; 
+        return ['success'=>true,'id'=>$page->Add($PostData)]; 
     }
     public function PagesAction() {
-        $this->View->AddJs('https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js');
+//        $this->View->AddJs('https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js');
         
         $this->View->admincontent = $this->View->execute('pages.html');
-        $this->View->content = $this->View->execute('index.html');
+        $this->View->content = $this->View->execute('AdminWraper.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
 
-    public function CalcAction() {
-        $this->View->admincontent = $this->View->execute('calc.html');
-        $this->View->content = $this->View->execute('index.html');
+    public function ConfiguratorAction() {
+        $this->View->admincontent = $this->View->execute('Configurator.html');
+        $this->View->content = $this->View->execute('AdminWraper.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
+    }
+    public function GetmenuAction() {
+        $Data = [
+            ['name'=>'Главная','src'=>'/admin','class'=>'fas fa-home'],
+            ['name'=>'Пользователи','src'=>'/admin/user','class'=>'fas fa-users-cog'],
+            ['name'=>'Страницы','src'=>'/admin/pages','class'=>'far fa-file'],
+//            ['name'=>'Конфигуратор','src'=>'/admin/Configurator','class'=>'fas fa-calculator']
+            ];
+        return $Data;
     }
 
 }
