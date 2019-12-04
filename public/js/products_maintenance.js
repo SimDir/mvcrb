@@ -1,7 +1,10 @@
-window.onload = function () {
-   function scrolling() {
-      window.scrollTo(0,0);
-   }
+'use strict';
+$( document ).ready(function() {  
+  $('#item-1')
+});
+
+
+
 
    //tariff-1
    let item_1 = document.querySelector('#item-1');
@@ -47,6 +50,3 @@ window.onload = function () {
    cross_4.onclick= function() {
       tarrif_4.style.transform = "scale(0)";
    }
-
-
-}

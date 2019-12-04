@@ -1,69 +1,57 @@
-window.onload = function () {
-   //CONTACTS
-   function showMoscow() {
-      document.querySelector('.MCITY').style.display = "block";
-      document.querySelector('#Moscow').style.borderBottom ="1px solid grey";
-   }
-   function hideMoscow() {
-      document.querySelector('.MCITY').style.display = "none";
-      document.querySelector('#Moscow').style.borderBottom ="none";
-   }
-   function showUlsk() {
-      document.querySelector('.ULCITY').style.display = "block";
-      document.querySelector('#Ulsk').style.borderBottom ="1px solid grey";
-   }
-   function hideUlsk() {
-      document.querySelector('.ULCITY').style.display = "none";
-      document.querySelector('#Ulsk').style.borderBottom ="none";
-   }
-   function showLiny() {
-      document.querySelector('.LCITY').style.display = "block";
-      document.querySelector('#Liny').style.borderBottom ="1px solid grey";
-   }
-   function hideliny() {
-      document.querySelector('.LCITY').style.display = "none";
-      document.querySelector('#Liny').style.borderBottom ="none";
-   }
-   function showVilnus() {
-      document.querySelector('.VCITY').style.display = "block";
-      document.querySelector('#Vilnus').style.borderBottom ="1px solid grey";
-   }
-   function hideVilnus() {
-      document.querySelector('.VCITY').style.display = "none";
-      document.querySelector('#Vilnus').style.borderBottom ="none";
-   }
+'use strict';
+$( document ).ready(function() {  
+   $('#Moscow').click(function(){
+      $('.ULCITY').css({"display": "none"});
+      $('.MCITY').css({"display": "block"});
+      $('.LCITY').css({"display": "none"});
+      $('.VCITY').css({"display": "none"});
+      $('#Ulsk').css({"borderBottom": "none"});
+      $('#Moscow').css({"borderBottom": "1px solid grey"});
+      $('#Liny').css({"borderBottom": "none"});
+      $('#Vilnus').css({"borderBottom": "none"});
+   });
 
-   document.querySelector('#Moscow').onclick = function() {
-      showMoscow();
-      hideUlsk();
-      hideliny();
-      hideVilnus();
-   }
-   document.querySelector('#Ulsk').onclick = function() {
-      showUlsk();
-      hideMoscow();
-      hideliny();
-      hideVilnus();
-   }
-   // document.querySelector('#Liny').onclick = function() {
-   //    showLiny();
-   //    hideMoscow();
-   //    hideUlsk();
-   //    hideVilnus();
-   // }
-   // document.querySelector('#Vilnus').onclick = function() {
-   //    showVilnus();
-   //    hideMoscow();
-   //    hideUlsk();
-   //    hideliny();
-   // }
+   $('#Ulsk').click(function(){
+      $('.ULCITY').css({"display": "block"});
+      $('.MCITY').css({"display": "none"});
+      $('.LCITY').css({"display": "none"});
+      $('.VCITY').css({"display": "none"});
+      $('#Ulsk').css({"borderBottom": "1px solid grey"});
+      $('#Moscow').css({"borderBottom": "none"});
+      $('#Liny').css({"borderBottom": "none"});
+      $('#Vilnus').css({"borderBottom": "none"});
+   });
+
+   // $('#Liny').click(function(){ 
+   //    $('.ULCITY').css({"display": "none"});
+   //    $('.MCITY').css({"display": "none"});
+   //    $('.LCITY').css({"display": "block"});
+   //    $('.VCITY').css({"display": "none"});
+   //    $('#Ulsk').css({"borderBottom": "none"});
+   //    $('#Moscow').css({"borderBottom": "none"});
+   //    $('#Liny').css({"borderBottom": "1px solid grey"});
+   //    $('#Vilnus').css({"borderBottom": "none"});
+   // });
+   
+   // $('#Vilnus').click(function(){ 
+   //    $('.ULCITY').css({"display": "none"});
+   //    $('.MCITY').css({"display": "none"});
+   //    $('.LCITY').css({"display": "none"});
+   //    $('.VCITY').css({"display": "block"});
+   //    $('#Ulsk').css({"borderBottom": "none"});
+   //    $('#Moscow').css({"borderBottom": "none"});
+   //    $('#Liny').css({"borderBottom": "none"});
+   //    $('#Vilnus').css({"borderBottom": "1px solid grey"});
+   // });
+});
 
 
 
 
 
 
-}
+
+
 // document.querySelector('#Moscow').onclick = function() {
    //    document.querySelector('.MCITY').style.display = "block";
    //    document.querySelector('#Moscow').style.borderBottom ="1px solid grey";

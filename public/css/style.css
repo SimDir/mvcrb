@@ -118,16 +118,7 @@ header {
    border-bottom: 3px solid #fff;
 }
 .header__menu_link img{
-   position: absolute;
-   background-size: 20px;
-   top: 12px;
-   right: 20px; 
-   width: 22px;
-   height: 22px;
-   display: flex;
-   align-items: center;
-   cursor: pointer;
-   transition: transform .5s;
+   display: none;
 }
 .MnuActiv {
    transform: rotate(180deg);
@@ -303,6 +294,18 @@ header {
       font-size: 14px;
       line-height: 14px;
    }
+   .header__menu_link img{
+      position: absolute;
+      background-size: 20px;
+      top: 12px;
+      right: 20px; 
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: transform .5s;
+   }
    .header__menu_link_btn {
       width: 100%;
       height: initial;
@@ -382,8 +385,8 @@ header {
       transition: transform .5s;
    }  
    .burger img{
-      width: 40px;
-      height: 40px;
+      width: 35px;
+      height: 35px;
    }
    .cross_menu {
       position: absolute;
@@ -396,8 +399,8 @@ header {
       transition: transform .5s;
    }
    .cross_menu img {
-      width: 40px;
-      height: 40px;
+      width: 35px;
+      height: 35px;
    }
 }
 
