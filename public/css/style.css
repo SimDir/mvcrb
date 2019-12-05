@@ -7,7 +7,6 @@
    font-weight: normal;
    font-style: normal;
 }
-
 @font-face {
    font-family: 'Helvetica Neue Cyr Roman';
    src: url('../fonts/HelveticaNeueCyr-Roman.eot');
@@ -264,6 +263,9 @@ header {
 
 
 @media(max-width: 900px) {
+   .header {
+      height: 80px;
+   }
    .header__menu {
       position: absolute;
       width: 100%;
@@ -297,10 +299,10 @@ header {
    .header__menu_link img{
       position: absolute;
       background-size: 20px;
-      top: 12px;
+      top: 15px;
       right: 20px; 
-      width: 22px;
-      height: 22px;
+      width: 15px;
+      height: 15px;
       display: flex;
       align-items: center;
       cursor: pointer;
@@ -376,8 +378,8 @@ header {
    }
    .burger {
       position: absolute;
-      top: 30px;
-      right: 30px;
+      top: 25px;
+      right: 35px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -385,18 +387,40 @@ header {
       transition: transform .5s;
    }  
    .burger img{
-      width: 35px;
-      height: 35px;
+      width: 30px;
+      height: 30px;
    }
    .cross_menu {
       position: absolute;
-      top: 30px;
+      top: 20px;
       right: 30px;
       display: flex;
       align-items: center;
       justify-content: center;
       visibility: hidden;
       transition: transform .5s;
+   }
+   .cross_menu img {
+      width: 40px;
+      height: 40px;
+   }
+}
+@media(max-width: 500px) {
+   .header {
+      height: 60px;
+      width: 95%;
+   }
+   .burger {
+      top: 18px;
+      right: 25px;
+   }  
+   .burger img{
+      width: 25px;
+      height: 25px;
+   }
+   .cross_menu {
+      top: 13px;
+      right: 20px;
    }
    .cross_menu img {
       width: 35px;
@@ -627,8 +651,6 @@ header {
       height: 25px;
    }
 }
-
-
 
 .slide-3 {
    height: 100vh;

@@ -37,7 +37,7 @@ define('TEMPLATE_DIR', SITE_DIR . 'Front' . DS);
 
 define('CONFIG_DIR', SITE_DIR . 'Config' . DS); // папка с конфигами
 
-define ('SHOW_ERROR', FALSE); // Показывать ошибки контроллеров или перенаправлять на 404 страницу?
+define ('SHOW_ERROR', true); // Показывать ошибки контроллеров или перенаправлять на 404 страницу?
 define ('ERROR_URL', '/error/404');
 define ('COMPOSER', SITE_DIR.'vendor'.DS.'autoload.php');
 

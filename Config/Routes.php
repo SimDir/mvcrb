@@ -24,4 +24,13 @@ return array(
 
 //    '\bmoney\b/' => 'site/money/',
 //    'logout' => 'user/logout'
+    
+    'font' => 'res/font/',
+    'font/([-_a-z0-9]+)' => 'res/font/$1',
+//    '\bcss\b' => 'res/css/',
+    '\bcss\b/([-_a-z0-9]+)' => 'res/css/$1',
+    '\bjs\b' => 'res/js/',
+    '\bjs\b/([-_a-z0-9]+)' => 'res/js/$1',
+    '\bimg\b' => 'res/img/',
+    '\bimg\b/([-_a-z0-9]+)' => 'res/img/$1'
 );

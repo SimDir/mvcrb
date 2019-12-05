@@ -1,44 +1,49 @@
 /*DIGITAL AGATECH */
 .digital-agatech {
    overflow-x: hidden;
+   background: linear-gradient(180deg, rgba(74, 121, 189, 0) 0%, #4A79BD 20%);
 }
+@media(max-width: 1000px) {
+   .digital-agatech {
+      background: linear-gradient(180deg, rgba(74, 121, 189, 0) 0, #4A79BD 15%);
+   }
+}
+@media(max-width: 800px) {
+   .digital-agatech {
+      background: linear-gradient(180deg, rgba(74, 121, 189, 0) -0, #4A79BD 10%);
+   }
+}
+
+
 .digitalAgatechBGC{
    position: absolute;
    top: 0; 
    left: 0;
    width: 100%;
+   height: 800px;
    z-index: -1;
-}
-
-.digital-agatech-gradient {
-   width: 100%;
-   position: absolute;
-   top: 55vh;
-   background: linear-gradient(180deg, rgba(74, 121, 189, 0) -2.23%, #4A79BD 43.49%);
-   height: 1000px;
-   z-index: -1;
-}
-@media(max-width: 1600px) {
-   .digital-agatech-gradient {
-      top: 40vh;
-      height: 1000px;
-      z-index: -1;
-   }
 }
 @media(max-width: 1400px) {
-   .digital-agatech-gradient {
-      top: 30vh;
-      height: 1000px;
-      z-index: -1;
+   .digitalAgatechBGC{
+      height: 700px;
    }
 }
 @media(max-width: 1200px) {
-   .digital-agatech-gradient {
-      top: 20vh;
-      height: 800px;
-      z-index: -1;
+   .digitalAgatechBGC{
+      height: 600px;
    }
 }
+@media(max-width: 1000px) {
+   .digitalAgatechBGC{
+      height: 500px;
+   }
+}
+@media(max-width: 800px) {
+   .digitalAgatechBGC{
+      height: 400px;
+   }
+}
+
 
 .digital-agatech__main_top{
    display: flex;
@@ -96,6 +101,59 @@
       line-height: 40px;
    }
 }
+@media(max-width: 700px) {
+   .digital-agatech__main_top{
+      height: 250px;
+   }
+   .digital-agatech__main_top img {
+      width: 400px;  
+   }
+   .digital-agatech__main_top h1{
+      font-size: 35px;
+      line-height: 35px;
+   }
+}
+@media(max-width: 600px) {
+   .digital-agatech__main_top{
+      height: 200px;
+   }
+   .digital-agatech__main_top img {
+      width: 350px;
+      margin-bottom:10px;
+   }
+   .digital-agatech__main_top h1{
+      font-size: 30px;
+      line-height: 30px;
+   }
+}
+@media(max-width: 500px) {
+   .digital-agatech__main_top{
+      height: 200px;
+   }
+   .digital-agatech__main_top img {
+      width: 300px;
+      margin-bottom:5px;
+   }
+   .digital-agatech__main_top h1{
+      font-size: 25px;
+      line-height: 25px;
+   }
+}
+@media(max-width: 400px) {
+   .digital-agatech__main_top{
+      height: 150px;
+      width: 90%;
+   }
+   .digital-agatech__main_top img {
+      width: 90%;
+      margin-bottom:5px;
+   }
+   .digital-agatech__main_top h1{
+      font-size: 20px;
+      line-height: 20px;
+   }
+}
+
 
 .digital-agatech__content_top_menu {
    margin: 50px 0 50px;
@@ -103,6 +161,7 @@
    flex-direction: row;
    justify-content: center;
    align-items: center;
+   flex-wrap: wrap;
 }
 .digital-agatech__content_top_menu_link{
    text-decoration: none;
@@ -123,7 +182,27 @@
       line-height: 14px;
    }
 }
-
+@media(max-width: 1000px) {
+   .digital-agatech__content_top_menu {
+      margin: 40px 0 40px;
+   }
+}
+@media(max-width: 700px) {
+   .digital-agatech__content_top_menu {
+      margin: 30px 0 30px;
+      
+   }
+   .digital-agatech__content_top_menu_link{
+      padding: 10px 20px;
+   }
+}
+@media(max-width: 400px) {
+   .digital-agatech__content_top_menu_link{
+      padding: 5px 10px;
+      font-size: 12px;
+      line-height: 12px;
+   }
+}
 
 
 .digital-agatech__content_center{
@@ -132,6 +211,12 @@
    display: flex;
    flex-direction: column;
    align-items: center;
+   
+}
+@media(max-width: 900px) {
+   .digital-agatech__content_center{
+      width: 100%;
+   }
 }
 .digital-agatech__content_center_block1 {
    width: 900px;
@@ -174,8 +259,40 @@
       line-height: 26px;
    }
 }
-
-
+@media(max-width: 800px) {
+   .digital-agatech__content_center_block1 h6 {
+      font-size: 23px;
+      line-height: 23px;
+      margin-bottom: 20px;
+   }
+   .digital-agatech__content_center_block2 h6 {
+      font-size: 22px;
+      line-height: 22px;
+   }
+   .digital-agatech__content_center_block1 p {
+      font-size: 12px;
+      line-height: 22px;
+   }
+}
+@media(max-width: 1100px) {
+   .digital-agatech__content_center_block1 {
+      width: 90%;
+      margin-bottom: 50px;
+   }
+}
+@media(max-width: 900px) {
+   .digital-agatech__content_center_block1 {
+      width: 100%;
+      padding: 0 50px;
+      margin-bottom: 40px;
+   }
+}
+@media(max-width: 500px) {
+   .digital-agatech__content_center_block1 {
+      padding: 0 30px;
+      margin-bottom: 30px;
+   }
+}
 
 .digital-agatech__content_center_block2 {
    width: 100%;
@@ -345,8 +462,6 @@
       padding: 10px 10px;
    }
 }
-
-
 
 
 .digital-agatech__content_center_block3 {
