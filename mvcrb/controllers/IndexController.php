@@ -32,11 +32,13 @@ class IndexController extends Controller{
     public function PageAction($page) {
         $FinDir = TEMPLATE_DIR.'IndexController'.DS.'staticpage';
         $testFile = mvcrb::SearchFile($page, $FinDir);
-        if(!file_exists($testFile)){
-            mvcrb::Redirect(ERROR_URL);
-        }else{
+        if($testFile){
             $testFile = str_ireplace(TEMPLATE_DIR.'IndexController'.DS,'',$testFile);
+        }else{
+//            dd($testFile);
+            return mvcrb::Redirect(ERROR_URL);
         }
+        
         $this->View->content = $this->View->execute($testFile);
         $this->View->content = $this->View->execute('pages.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
