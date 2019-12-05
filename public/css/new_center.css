@@ -45,12 +45,17 @@
    line-height: 80px;
    margin-bottom: 5px;
    font-weight: bold;
+   text-align: center;
+   width: 90%;
+   margin-top: 40px;
 }
 .new_center-slide-1--text {
    color: #fff;
    font-size: 30px;
    line-height: 30px;
    font-weight: bold;
+   text-align: center;
+   width: 90%;
 }
 @media(max-width: 1500px) {
    .new_center-slide-1--title {
@@ -142,8 +147,102 @@
       line-height: 18px;
    }
 }
-
-
+@media(max-width: 900px) {
+   .new_center__top {
+      height: 230px;
+   }
+   .new_center-slider {
+      height: 310px;
+   }
+   .new_center-slide-1 img,
+   .new_center-slide-2 img {
+      height: 310px;
+   }
+   .new_center-slide-1--title {
+      margin-top: 30px;
+   }
+   
+}
+@media(max-width: 800px) {
+   .new_center__top {
+      height: 200px;
+   }
+   .new_center-slider {
+      height: 280px;
+   }
+   .new_center-slide-1 img,
+   .new_center-slide-2 img {
+      height: 280px;
+   }
+   .new_center-slide-1--title {
+      font-size: 40px;
+      line-height: 40px;
+   }
+   .new_center-slide-1--text {
+      font-size: 16px;
+      line-height: 16px;
+   }
+}
+@media(max-width: 600px) {
+   .new_center__top {
+      height: 150px;
+   }
+   .new_center-slider {
+      height: 230px;
+   }
+   .new_center-slide-1 img,
+   .new_center-slide-2 img {
+      height: 230px;
+   }
+   .new_center-slide-1--title {
+      font-size: 35px;
+      line-height: 35px;
+   }
+   .new_center-slide-1--text {
+      font-size: 15px;
+      line-height: 15px;
+   }
+}
+@media(max-width: 500px) {
+   .new_center__top {
+      height: 130px;
+   }
+   .new_center-slider {
+      height: 190px;
+   }
+   .new_center-slide-1 img,
+   .new_center-slide-2 img {
+      height: 190px;
+   }
+   .new_center-slide-1--title {
+      font-size: 30px;
+      line-height: 30px;
+   }
+   .new_center-slide-1--text {
+      font-size: 14px;
+      line-height: 14px;
+   }
+}
+@media(max-width: 400px) {
+   .new_center__top {
+      height: 120px;
+   }
+   .new_center-slider {
+      height: 180px;
+   }
+   .new_center-slide-1 img,
+   .new_center-slide-2 img {
+      height: 180px;
+   }
+   .new_center-slide-1--title {
+      font-size: 25px;
+      line-height: 25px;
+   }
+   .new_center-slide-1--text {
+      font-size: 13px;
+      line-height: 13px;
+   }
+}
 
 .new_center__center {
    width: 100%;
@@ -155,12 +254,30 @@
    min-height: 800px;
    border-top: 17px solid #8CB0E4;
 }
+@media(max-width: 1200px) {
+   .new_center__center {
+      border-top: 15px solid #8CB0E4;
+   }
+}
+@media(max-width: 800px) {
+   .new_center__center {
+      border-top: 13px solid #8CB0E4;
+   }
+}
+@media(max-width: 500px) {
+   .new_center__center {
+      border-top: 10px solid #8CB0E4;
+   }
+}
+
+
 .new_center__center_menu {
-   margin: 30px 0 50px;
+   margin: 30px 0 30px;
    display: flex;
    flex-direction: row;
    justify-content: center;
    align-items: center;
+   flex-wrap: wrap;
 }
 .new_center__center_menu_link{
    text-decoration: none;
@@ -176,9 +293,30 @@
    text-decoration: underline;
 }
 @media(max-width: 1400px) {
+   .new_center__center_menu {
+      margin: 25px 0 25px;
+   }
    .new_center__center_menu_link{
       font-size: 14px;
       line-height: 14px;
+   }
+}
+@media(max-width: 700px) {
+   .new_center__center_menu {
+      margin: 15px 0 20px;
+   }
+   .new_center__center_menu_link{
+      padding: 10px 20px;
+   }
+}
+@media(max-width: 400px) {
+   .new_center__center_menu {
+      margin: 10px 0 15px;
+   }
+   .new_center__center_menu_link{
+      padding: 5px 10px;
+      font-size: 12px;
+      line-height: 12px;
    }
 }
 
@@ -193,6 +331,13 @@
       font-size: 25px;
       line-height: 25px;
       margin-bottom: 25px;
+   }
+}
+@media(max-width: 800px) {
+   .new_center__center h6{
+      font-size: 23px;
+      line-height: 23px;
+      margin-bottom: 20px;
    }
 }
 
@@ -402,8 +547,52 @@
       line-height: 14px;
    }
 }
-
-
+@media(max-width: 800px) {
+   .new_center__center_news {
+      width: 90%;
+   }
+   .news__center_news_data {
+      font-size: 13px;
+      line-height: 13px;
+      margin-bottom: 10px;  
+   }
+   .news_block_img {
+      height: 160px;
+   }
+   .news_block__container-text {
+      height: 160px;
+   } 
+   .news_block__title {
+      font-size: 15px;
+      line-height: 15px;
+      height: 30px;
+      margin-bottom: 10px;
+   }
+   .news_block__text {
+      margin-bottom: 10px;
+   }
+   .news_block__other {
+      height: 12px;
+   }
+   .news_block__other_data {
+      font-size: 12px;
+      line-height: 12px;
+   }
+   .news_block__other_icon span{
+      font-size: 12px;
+      line-height: 12px;
+   }
+}
+@media(max-width: 480px) {
+   .news_block_img {
+      flex-basis: 0;
+      margin: 0;
+   }
+   .news_block__container-text {
+      flex-basis: 100%;
+      margin: 20px;
+   } 
+}
 
 /* Видео материалы */
 .new_center__video_block {
@@ -481,8 +670,74 @@
       line-height: 18px;
    }
 }
-
-
+@media(max-width: 1000px) {
+   .new_center__video_block {
+      width: 90%;  
+   }
+   .new_center__video_block-video {
+      flex-basis: 50%;
+      margin: 0 15px;
+   }
+   .new_center__video_block-text {
+      flex-basis: 50%;
+      margin: 0 15px;
+   }
+   .new_center__video_block-text h6{
+      font-size: 20px;
+      line-height: 20px;
+      margin-bottom: 10px;
+   }
+   .new_center__video_block-text p {
+      font-size: 13px;
+      line-height: 16px;
+   }
+   .new_center__video_block-text li{
+      font-size: 11px;
+      line-height: 16px;
+   }
+}
+@media(max-width: 800px) {
+   .new_center__video_block {
+      align-items: center;
+   }
+   .new_center__video_block-row {
+      flex-direction: column;
+      width: 80%;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 30px 0;
+      height: initial;
+   }
+   .new_center__video_block-video {
+      flex-basis: 100%;
+      width: 90%;
+      margin: 0 0 20px 0;
+      height: 250px;
+   }
+   .new_center__video_block-text {
+      flex-basis: 100%;
+      width: 80%;
+      margin: 0px 0;
+   }
+}
+@media(max-width: 500px) {
+   
+   .new_center__video_block-row {
+      width: 100%;
+      margin: 20px 0;
+   }
+   .new_center__video_block-video {
+      flex-basis: 100%;
+      width: 90%;
+      margin: 0 0 20px 0;
+      height: 200px;
+   }
+   .new_center__video_block-text {
+      flex-basis: 100%;
+      width: 80%;
+      margin: 0px 0;
+   }
+}
 
 .active_underline {
    text-decoration: underline;

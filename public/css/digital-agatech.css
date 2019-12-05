@@ -161,6 +161,7 @@
    flex-direction: row;
    justify-content: center;
    align-items: center;
+   flex-wrap: wrap;
 }
 .digital-agatech__content_top_menu_link{
    text-decoration: none;
@@ -189,7 +190,7 @@
 @media(max-width: 700px) {
    .digital-agatech__content_top_menu {
       margin: 30px 0 30px;
-      flex-wrap: wrap;
+      
    }
    .digital-agatech__content_top_menu_link{
       padding: 10px 20px;
@@ -256,6 +257,21 @@
    .digital-agatech__content_center_block1 p {
       font-size: 14px;
       line-height: 26px;
+   }
+}
+@media(max-width: 800px) {
+   .digital-agatech__content_center_block1 h6 {
+      font-size: 23px;
+      line-height: 23px;
+      margin-bottom: 20px;
+   }
+   .digital-agatech__content_center_block2 h6 {
+      font-size: 22px;
+      line-height: 22px;
+   }
+   .digital-agatech__content_center_block1 p {
+      font-size: 12px;
+      line-height: 22px;
    }
 }
 @media(max-width: 1100px) {

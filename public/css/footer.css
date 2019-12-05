@@ -128,6 +128,12 @@ footer p {
    }
 }
 @media(max-width: 740px) {
+   .footer {
+      width: 80%;
+   }
+   footer p {
+      width: 80%;
+   }
    .footer__menu nav {
       justify-content: space-between;
    }
