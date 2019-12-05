@@ -86,9 +86,9 @@ https://codemirror.net/doc/manual.html
                         <!--<th>{{item.id}}</th>-->
                         <td>
                             <div class="d-flex justify-content-between">
-                                <a title="Изменить пользователя" class="text-success" @click="SetPageEdit(item.id)"><i class="fas fa-user-edit"></i></a>
-                                <a title="Показать пользователя на личной странице" class="text-info" :href="'/page/'+item.name" target="_blank"><i class="fas fa-user-cog"></i></a>
-                                <a title="Удалить пользователя на всегда" class="text-danger" @click="DelUser(item.id)"><i class="fas fa-user-times"></i></a>
+                                <a title="Изменить страницу" class="text-success" @click="SetPageEdit(item.id)"><i class="far fa-edit"></i></a>
+                                <a title="Показать страницу в отдельной страницу" class="text-info" :href="'/page/'+item.name" target="_blank"><i class="far fa-eye"></i></a>
+                                <a title="Удалить страницу навсегда" class="text-danger" @click="DelUser(item.id)"><i class="far fa-trash-alt"></i></a>
                             </div>
                         </td>
                     </tr>
