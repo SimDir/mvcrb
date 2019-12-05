@@ -121,28 +121,22 @@ class mvcrb {
      * @return String
      */
     private static function GetURI() {
-//        $ee=2/0;
         $pathInfo = filter_input(INPUT_SERVER, 'PATH_INFO');
         if ($pathInfo) {
             $path = $pathInfo;
         } else {
             $requestURI = filter_input(INPUT_SERVER, 'REQUEST_URI');
-            //            var_dump($requestURI);
-            if (strpos($requestURI, '?') !== false) {
+            if (strpos($requestURI, '?')) {
                 $requestURI = substr($requestURI, 0, strpos($requestURI, '?'));
+            }elseif(strpos($requestURI, '&')){
+                $requestURI = substr($requestURI, 0, strpos($requestURI, '&'));
             }
-            $base = filter_input(INPUT_SERVER, 'BASE');
-            if ($base) {
-                $path = substr($requestURI, strlen($base));
-            } else {
-                $path = $requestURI;
-            }
+            $path = trim($requestURI);
         }
-        $path = trim($path);
+//        dd($path);
         if (!$path) {
             $path = '/';
         }
-//        var_dump($requestURI);
         $path = parse_url($path);
         self::$URI = trim($path['path'], '/');
         return self::$URI;

@@ -30,12 +30,16 @@ class IndexController extends Controller{
         return $this->View->execute('inc'.DS.'footer.html');
     }
     public function PageAction($page) {
-//        $this->View->title = $this->SetTitle($page);
-        $testFile = TEMPLATE_DIR.'IndexController'.DS.'staticpage'.DS.$page;
-        if(!file_exists($testFile)){
-            mvcrb::Redirect(ERROR_URL);
+        $FinDir = TEMPLATE_DIR.'IndexController'.DS.'staticpage';
+        $testFile = mvcrb::SearchFile($page, $FinDir);
+        if($testFile){
+            $testFile = str_ireplace(TEMPLATE_DIR.'IndexController'.DS,'',$testFile);
+        }else{
+//            dd($testFile);
+            return mvcrb::Redirect(ERROR_URL);
         }
-        $this->View->content = $this->View->execute('staticpage'.DS.$page);
+        
+        $this->View->content = $this->View->execute($testFile);
         $this->View->content = $this->View->execute('pages.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
