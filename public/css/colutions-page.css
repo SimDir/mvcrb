@@ -112,17 +112,14 @@
 /* toyota */
 .container-toyota__img-1 {
    width: 100%;
-   /* height: 560px; */
    margin-bottom: 50px;
 }
 .container-toyota__img-2 {
    width: 100%;
-   /* height: 540px; */
    margin-bottom: 50px;
 }
 .container-toyota__img-3 {
    width: 100%;
-   /* height: 515px; */
    margin-bottom: 50px;
 }
 .container-toyota__img-4 {
@@ -142,13 +139,11 @@
 /* canon */
 .container-canon__img-1 {
    width: 100%;
-   /* height: 1400px; */
    margin-bottom: 50px;
 }
 .container-canon__img-2,
 .container-canon__img-3{
    width: 100%;
-   /* height: 550px; */
    margin-bottom: 50px;
 }
 .container-canon__img-4 {
@@ -170,7 +165,6 @@
 .container-forma__img-2,
 .container-forma__img-3 {
    width: 100%;
-   /* height: 550px; */
    margin-bottom: 50px;
 }
 .container-forma__img-1 img,
@@ -183,18 +177,15 @@
 
 /* cronos */
 .container-cronos__img-1 {
-   width: 100%;
-   /* height: 1500px; */
+   width: 100%;/
    margin-bottom: 50px;
 }
 .container-cronos__img-2 {
    width: 100%;
-   /* height: 800px; */
    margin-bottom: 50px;
 }
 .container-cronos__img-3 {
    width: 100%;
-   /* height: 120px; */
    margin-bottom: 50px;
 }
 .container-cronos__img-4 {
@@ -214,17 +205,14 @@
 /* arb */
 .container-arb__img-1 {
    width: 100%;
-   /* height: 500px; */
    margin-bottom: 50px;
 }
 .container-arb__img-2 {
    width: 100%;
-   /* height: 550px; */
    margin-bottom: 50px;
 }
 .container-arb__img-3 {
    width: 100%;
-   /* height: 520px; */
    margin-bottom: 50px;
 }
 .container-arb__img-4 {
@@ -244,22 +232,18 @@
 /* comet */
 .container-comet__img-1 {
    width: 100%;
-   /* height: 690px; */
    margin-bottom: 50px;
 }
 .container-comet__img-2 {
    width: 100%;
-   /* height: 270px; */
    margin-bottom: 50px;
 }
 .container-comet__img-3 {
    width: 100%;
-   /* height: 280px; */
    margin-bottom: 10px;
 }
 .container-comet__img-4 {
    width: 100%;
-   /* height: 280px; */
    margin-bottom: 50px;
 }
 .container-comet__img-1 img,
@@ -276,7 +260,6 @@
 .container-bebrand__img-2,
 .container-bebrand__img-3 {
    width: 100%;
-   /* height: 550px; */
    margin-bottom: 50px;
 }
 .container-bebrand__img-1 img,
@@ -292,7 +275,6 @@
 .container-bsk__img-2,
 .container-bsk__img-3 {
    width: 100%;
-   /* height: 480px; */
    margin-bottom: 50px;
 }
 .container-bsk__img-1 img,
@@ -308,7 +290,6 @@
 .container-rmh__img-2,
 .container-rmh__img-3 {
    width: 100%;
-   /* height: 500px; */
    margin-bottom: 50px;
 }
 .container-rmh__img-4 {
@@ -328,17 +309,14 @@
 /* business */
 .container-business__img-1 {
    width: 100%;
-   /* height: 560px; */
    margin-bottom: 50px;
 }
 .container-business__img-2 {
    width: 100%;
-   /* height: 900px; */
    margin-bottom: 50px;
 }
 .container-business__img-3 {
    width: 100%;
-   /* height: 440px; */
    margin-bottom: 50px;
 }
 .container-business__img-4 {
@@ -359,17 +337,14 @@
 /* circus */
 .container-circus__img-1 {
    width: 100%;
-   /* height: 870px; */
    margin-bottom: 50px;
 }
 .container-circus__img-2 {
    width: 100%;
-   /* height: 250px; */
    margin-bottom: 50px;
 }
 .container-circus__img-3 {
    width: 100%;
-   /* height: 420px; */
    margin-bottom: 50px;
 }
 .container-circus__img-1 img,
@@ -383,17 +358,14 @@
 /* evita */
 .container-evita__img-1 {
    width: 100%;
-   /* height: 980px; */
    margin-bottom: 50px;
 }
 .container-evita__img-2 {
    width: 100%;
-   /* height: 880px; */
    margin-bottom: 50px;
 }
 .container-evita__img-3 {
    width: 100%;
-   /* height: 700px; */
    margin-bottom: 50px;
 }
 .container-evita__img-4 {
@@ -462,6 +434,13 @@
    .container-page {
       width: 800px;
    }
+   .container-page__look-btn-arrow {
+      width: 60px;
+      height: 40px;
+   }
+   .container-page__look-btn-arrow img {
+      width: 30px;
+   }
 }
 @media(max-width: 1000px) {
    .container-page {
@@ -523,10 +502,190 @@
       margin-bottom: 50px;
    }
 }
-
-
-
-
+@media(max-width: 900px) {
+   .container-page {
+      top: 80px;
+   }
+}
+@media(max-width: 800px) {
+   .container-page {
+      width: 90%;
+      padding: 40px 75px;
+   }
+   .container-page__back-btn {
+      width: 55px;
+      height: 35px;
+   }
+   .container-page__back-btn img {
+      width: 35px;
+   }
+   .container-page__header,
+   .container-page__task-and-description {
+      width: 100%;
+      margin-bottom: 35px;
+   }
+   .container-page__rusult,
+   .container-page__additionally {
+      width: 100%;
+      margin-bottom: 35px;
+   }
+   .container-page__header-title {
+      font-size: 25px;
+      line-height: 25px;
+      margin-bottom: 25px;
+   }
+   .container-page__header-text {
+      font-size: 13px;
+      margin-bottom: 15px;
+   }
+   .container-page__header-text-2{
+      font-size: 13px;
+   }
+   .container-page__header-data {
+      font-size: 25px;
+      line-height: 25px;
+   }
+   .container-page__task-title,
+   .container-page__descriptions-title,
+   .container-page__result-title,
+   .container-page__additionally-title {
+      font-size: 18px;
+      line-height: 18px;
+      margin-bottom: 10px;
+   }
+   .container-page__task-text,
+   .container-page__descriptions-text,
+   .container-page__result-text,
+   .container-page__additionally-text {
+      font-size: 13px;
+   }
+   .container-page__task-text {
+      margin-bottom: 25px;
+   }
+   .container-page__look-btn-text {
+      font-size: 13px;
+   }
+   .container-toyota__img-4,
+   .container-canon__img-4,
+   .container-cronos__img-4,
+   .container-arb__img-4,
+   .container-rmh__img-4,
+   .container-business__img-4,
+   .container-evita__img-4{
+      margin-bottom: 40px;
+   }
+   .container-page__look-btn-arrow {
+      width: 50px;
+      height: 30px;
+   }
+   .container-page__look-btn-arrow img {
+      width: 20px;
+   }
+}
+@media(max-width: 600px) {
+   .container-page {
+      padding: 30px 60px;
+   }
+   .container-page__back-btn {
+      width: 45px;
+      height: 30px;
+   }
+   .container-page__back-btn img {
+      width: 25px;
+   }
+   .container-page__header,
+   .container-page__task-and-description {
+      margin-bottom: 25px;
+   }
+   .container-page__rusult,
+   .container-page__additionally {
+      margin-bottom: 25px;
+   }
+   .container-page__header-title {
+      font-size: 22px;
+      line-height: 22px;
+      margin-bottom: 22px;
+   }
+   .container-page__header-text {
+      font-size: 12px;
+      margin-bottom: 10px;
+   }
+   .container-page__header-text-2{
+      font-size: 12px;
+   }
+   .container-page__header-data {
+      font-size: 22px;
+      line-height: 22px;
+   }
+   .container-page__task-title,
+   .container-page__descriptions-title,
+   .container-page__result-title,
+   .container-page__additionally-title {
+      font-size: 16px;
+      line-height: 16px;
+      margin-bottom: 5px;
+   }
+   .container-page__task-text,
+   .container-page__descriptions-text,
+   .container-page__result-text,
+   .container-page__additionally-text {
+      font-size: 12px;
+   }
+   .container-page__task-text {
+      margin-bottom: 20px;
+   }
+   .container-page__look-btn-text {
+      font-size: 12px;
+   }
+   .container-toyota__img-4,
+   .container-canon__img-4,
+   .container-cronos__img-4,
+   .container-arb__img-4,
+   .container-rmh__img-4,
+   .container-business__img-4,
+   .container-evita__img-4{
+      margin-bottom: 30px;
+   }
+}
+@media(max-width: 500px) {
+   .container-page {
+      top: 60px;
+      padding: 25px 30px;
+   }
+   .container-page__back-btn {
+      width: 23px;
+      height: 18px;
+   }
+   .container-page__back-btn img {
+      width: 14px;
+   }
+   .container-page__header,
+   .container-page__task-and-description {
+      margin-bottom: 15px;
+   }
+   .container-page__rusult,
+   .container-page__additionally {
+      margin-bottom: 15px;
+   }
+   .container-page__header-title {
+      margin-bottom: 15px;
+   }
+   .container-page__header-text {
+      margin-bottom: 10px;
+   }
+   .container-page__task-text {
+      margin-bottom: 10px;
+   }
+   .container-toyota__img-4,
+   .container-canon__img-4,
+   .container-cronos__img-4,
+   .container-arb__img-4,
+   .container-rmh__img-4,
+   .container-business__img-4,
+   .container-evita__img-4{
+      margin-bottom: 20px;
+   }
+}
 
 
 
