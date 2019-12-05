@@ -30,16 +30,40 @@ class IndexController extends Controller{
         return $this->View->execute('inc'.DS.'footer.html');
     }
     public function PageAction($page) {
+        $Pages = new PageModel();
+        $PRet = $Pages->GetPage($page);
+//         if($PRet){
+// //            dd($PRet);
+//             $this->View->content = $this->View->Code($PRet['content']);
+//             $this->View->title = $PRet['title'];
+//             $this->View->content = $this->View->execute('pages.html');
+//             return $this->View->execute('index.html', TEMPLATE_DIR);
+//         }
+        
         $FinDir = TEMPLATE_DIR.'IndexController'.DS.'staticpage';
         $testFile = mvcrb::SearchFile($page, $FinDir);
+        $tempFile = $testFile;
         if($testFile){
             $testFile = str_ireplace(TEMPLATE_DIR.'IndexController'.DS,'',$testFile);
         }else{
 //            dd($testFile);
             return mvcrb::Redirect(ERROR_URL);
         }
-        
         $this->View->content = $this->View->execute($testFile);
+        
+        if(!$PRet){
+            
+            $Data['name']=$page;
+            $Data['type']='notpublic';
+            $Data['author']='Agatech';
+            $Data['title']=$this->View->title;
+            $content = file_get_contents($tempFile);
+            $Data['content']=$content;
+            
+            $Pages->Add($Data);
+        }
+        
+        
         $this->View->content = $this->View->execute('pages.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }

@@ -1,20 +1,20 @@
 /*DIGITAL AGATECH */
 .digital-agatech {
    overflow-x: hidden;
+}
+.bgc-gradient {
    background: linear-gradient(180deg, rgba(74, 121, 189, 0) 0%, #4A79BD 20%);
 }
 @media(max-width: 1000px) {
-   .digital-agatech {
+   .bgc-gradient {
       background: linear-gradient(180deg, rgba(74, 121, 189, 0) 0, #4A79BD 15%);
    }
 }
 @media(max-width: 800px) {
-   .digital-agatech {
+   .bgc-gradient {
       background: linear-gradient(180deg, rgba(74, 121, 189, 0) -0, #4A79BD 10%);
    }
 }
-
-
 .digitalAgatechBGC{
    position: absolute;
    top: 0; 
@@ -706,6 +706,14 @@
 
 
 /* КОМАНДА */
+.digitalAgatechBGC-other {
+   position: absolute;
+   top: 0; 
+   left: 0;
+   width: 100%;
+   z-index: -1;
+   height: 800px;
+}
 .digital-agatech__content_top {
    display: flex;
    flex-direction: column;
@@ -720,6 +728,7 @@
    font-size: 50px;
    line-height: 60px;
    letter-spacing: 0.07em;
+   margin-bottom: 40px;
    color: #fff;
    text-align: center;
    text-transform: uppercase;
@@ -728,6 +737,9 @@
 @media(max-width: 1400px) {
    .digital-agatech__content_top {
       height: 350px;
+   }
+   .digitalAgatechBGC-other {
+      height: 750px;
    }
    .digital-agatech__content_top h2 {
       font-size: 45px;
@@ -738,6 +750,9 @@
    .digital-agatech__content_top {
       height: 300px;
    }
+   .digitalAgatechBGC-other {
+      height: 700px;
+   }
    .digital-agatech__content_top h2 {
       font-size: 40px;
       line-height: 50px;
@@ -747,12 +762,76 @@
    .digital-agatech__content_top {
       height: 250px;
    }
+   .digitalAgatechBGC-other {
+      height: 650px;
+   }
    .digital-agatech__content_top h2 {
       font-size: 35px;
       line-height: 45px;
    }
 }
-
+@media(max-width: 900px) {
+   .digital-agatech__content_top {
+      height: 230px;
+   }
+   .digitalAgatechBGC-other {
+      height: 630px;
+   }
+   .digital-agatech__content_top h2 {
+      font-size: 33px;
+      line-height: 43px;
+      margin-bottom: 30px;
+   }
+}
+@media(max-width: 800px) {
+   .digital-agatech__content_top {
+      height: 200px;
+   }
+   .digitalAgatechBGC-other {
+      height: 600px;
+   }
+   .digital-agatech__content_top h2 {
+      font-size: 30px;
+      line-height: 40px;
+   }
+}
+@media(max-width: 600px) {
+   .digital-agatech__content_top {
+      height: 150px;
+   }
+   .digitalAgatechBGC-other {
+      height: 550px;
+   }
+   .digital-agatech__content_top h2 {
+      font-size: 25px;
+      line-height: 35px;
+   }
+}
+@media(max-width: 500px) {
+   .digital-agatech__content_top {
+      height: 130px;
+   }
+   .digitalAgatechBGC-other {
+      height: 530px;
+   }
+   .digital-agatech__content_top h2 {
+      font-size: 23px;
+      line-height: 33px;
+      margin-bottom: 20px;
+   }
+}
+@media(max-width: 400px) {
+   .digital-agatech__content_top {
+      height: 120px;
+   }
+   .digitalAgatechBGC-other {
+      height: 520px;
+   }
+   .digital-agatech__content_top h2 {
+      font-size: 20px;
+      line-height: 30px;
+   }
+}
 .digital-agatech__content_center_digAg {
    width: 100%;
    margin: 0 auto;
@@ -761,6 +840,22 @@
    align-items: center;
    border-top: 17px solid #8CB0E4;
 }
+@media(max-width: 1200px) {
+   .digital-agatech__content_center_digAg {
+      border-top: 15px solid #8CB0E4;
+   }
+}
+@media(max-width: 800px) {
+   .digital-agatech__content_center_digAg {
+      border-top: 10px solid #8CB0E4;
+   }
+}
+@media(max-width: 500px) {
+   .digital-agatech__content_center_digAg {
+      border-top: 7px solid #8CB0E4;
+   }
+}
+
 .team_bgc {
   background-image: linear-gradient(rgba(140,176,228, .4), rgba(255,255,255, 1)), url(../img/digital_agency/mountains1.jpg);
   background-repeat: no-repeat;
@@ -790,11 +885,20 @@
    text-decoration: underline;
 }
 @media(max-width: 1400px) {
+   .digital-agatech__content_top_menu_digAg  {
+      margin: 25px 0 25px;
+   }
    .digital-agatech__content_top_menu_link_digAg{
       font-size: 14px;
       line-height: 14px;
    }
 }
+@media(max-width: 900px) {
+   .digital-agatech__content_top_menu_digAg  {
+      display: none;
+   }
+}
+
 
 .team {
    width: 100%;

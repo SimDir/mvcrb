@@ -650,14 +650,14 @@
 @media(max-width: 500px) {
    .container-page {
       top: 60px;
-      padding: 25px 30px;
+      padding: 25px 0 25px 40px;
    }
    .container-page__back-btn {
-      width: 23px;
-      height: 18px;
+      width: 30px;
+      height: 20px;
    }
    .container-page__back-btn img {
-      width: 14px;
+      width: 20px;
    }
    .container-page__header,
    .container-page__task-and-description {
