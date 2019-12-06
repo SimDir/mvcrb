@@ -173,6 +173,11 @@
       line-height: 22px;
       margin-bottom: 25px;
    }
+   .products-tariff__right-cross {
+      top: 15px;
+      right: 15px;
+      width: 20px;
+   }
 }
 @media(max-width: 1000px) {
    .products-tariff {
@@ -218,5 +223,102 @@
       font-size: 12px;
       line-height: 16px;
       margin-bottom: 10px;
+   }
+   .products-tariff__right-cross {
+      top: 10px;
+      right: 10px;
+   }
+}
+@media(max-width: 600px) {
+   .products-tariff {
+      width: 90%;
+   }
+   .products-tariff__left {
+      flex-basis: 30%;
+   }
+   .products-tariff__left-container-img {
+      margin-bottom: 5px;
+   } 
+   .products-tariff__left-title {
+      font-size: 13px;
+      line-height: 13px;
+   }
+   .products-tariff__left-form {
+      padding: 5px;
+   }
+   .products-tariff__left-form input {
+      margin-bottom: 5px;
+   } 
+   .products-tariff__left-name,
+   .products-tariff__left-tel {
+      font-size: 11px;
+   } 
+   .products-tariff__left-btn {
+      font-size: 11px;
+      line-height: 18px;
+      margin-top: 10px;
+      padding: 5px 20px;
+   }
+   .products-tariff__right {
+      flex-basis: 70%;
+      padding: 10px;
+   }
+   .products-tariff__right-title {
+      font-size: 14px;
+      line-height: 18px;
+      margin-bottom: 15px;
+      width: 95%;
+   }
+   .products-tariff__right ul {
+      width: 95%;
+   }
+   .products-tariff__right li {
+      font-size: 11px;
+      line-height: 15px;
+      margin-bottom: 7px;
+   }
+   .products-tariff__right-cross {
+      width: 15px;
+   }
+}
+@media(max-width: 450px) {
+   .products-tariff__left {
+      width: 40%;
+   }
+   .products-tariff__left-container-img {
+      margin-bottom: 0px;
+   } 
+   .products-tariff__left-title {
+      font-size: 12px;
+      line-height: 12px;
+   }
+   .products-tariff__left-name,
+   .products-tariff__left-tel {
+      font-size: 10px;
+   } 
+   .products-tariff__left-btn {
+      font-size: 8px;
+      line-height: 14px;
+      margin-top: 10px;
+      padding: 3px 8px;
+   }
+   .products-tariff__right {
+      width: 60%;
+      padding: 8px;
+   }
+   .products-tariff__right-title {
+      font-size: 12px;
+      line-height: 14px;
+      margin-bottom: 8px;
+   }
+   .products-tariff__right ul {
+      width: 100%;
+      padding: 0;
+   }
+   .products-tariff__right li {
+      font-size: 10px;
+      line-height: 12px;
+      margin-bottom: 4px;
+      list-style-type: none;
    }
 }
