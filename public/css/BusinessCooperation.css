@@ -21,6 +21,7 @@
    height: 400px;
 }
 .businessCooperation__top h2 {
+   width: 90%;
    font-weight: bold;
    font-size: 50px;
    line-height: 60px;
@@ -76,7 +77,6 @@
    .businessCooperation__top h2 {
       font-size: 33px;
       line-height: 43px;
-      margin-bottom: 30px;
    }
 }
 @media(max-width: 800px) {
@@ -113,7 +113,6 @@
    .businessCooperation__top h2 {
       font-size: 23px;
       line-height: 33px;
-      margin-bottom: 20px;
    }
 }
 @media(max-width: 400px) {
@@ -139,6 +138,21 @@
    min-height: 800px;
    border-top: 17px solid #8CB0E4;
    padding-top: 30px;
+}
+@media(max-width: 1200px) {
+   .businessCooperation__center {
+      border-top: 15px solid #8CB0E4;
+   }
+}
+@media(max-width: 800px) {
+   .businessCooperation__center {
+      border-top: 10px solid #8CB0E4;
+   }
+}
+@media(max-width: 500px) {
+   .businessCooperation__center {
+      border-top: 7px solid #8CB0E4;
+   }
 }
 .businessCooperation__center_menu {
    margin: 30px 0 30px;
