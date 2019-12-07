@@ -24,13 +24,14 @@ class PageModel extends Model {
         }
 
         if (is_array($order)) {
-            $tempbean = $this->findAll($this->TableName, 'ORDER BY ' . $order['data'] . ' ' . $order['dir'] . ' LIMIT ' . $start . ', ' . $limit);
+            $tempbean = $this->getAll('SELECT id,name,title,createdatetime,type FROM '.$this->TableName.' ORDER BY ' . $order['data'] . ' ' . $order['dir'] . ' LIMIT ' . $start . ', ' . $limit);
         } else {
-            $tempbean = $this->findAll($this->TableName, 'LIMIT ' . $start . ', ' . $limit);
+            $tempbean = $this->getAll('SELECT id,name,title,createdatetime,type FROM '.$this->TableName.' LIMIT ' . $start . ', ' . $limit);
         }
+//        dd($tempbean);
         if ($tempbean) {
 
-            $List['data'] = $this->exportAll($tempbean, TRUE);
+            $List['data'] = $tempbean;//$this->exportAll($tempbean, TRUE);
             return $List;
         }
         return FALSE;
@@ -51,4 +52,12 @@ class PageModel extends Model {
         $Table->editdatetime = date('Y-m-d H:i:s');
         return $this->store($Table);
     }
+    public function GetPage($name='') {
+        $Ret = $this->findOne($this->TableName, 'name = ?', array($name));
+        if ($Ret) {
+            return $Ret->export();
+        }
+        return FALSE;
+    }
+
 }

@@ -22,16 +22,16 @@ https://codemirror.net/doc/manual.html
     </div>
     <div v-if="state==0" class="card mb-4">
         <!--Навигатор пагинатор-->
-        <div  class="card-body d-flex flex-wrap justify-content-between">
+        <div  class="d-flex flex-wrap justify-content-between">
 
-            <div class="p-2">
+            <div>
                 <button @click="state=1" type="button" class="btn btn-primary" title="Добавить новую страницу"><i class="far fa-file"></i></button>
                 <button @click="setPage(currentPage)" type="button" class="btn btn-success" title="Обновить\Перезагрузить данные таблици"><i class="fas fa-sync"></i></button>
 
             </div>
 
             <div class="p-2">
-                <div class="input-group pt-3">
+                <div class="input-group pt-2">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">Показать</span>
                     </div>
@@ -46,7 +46,6 @@ https://codemirror.net/doc/manual.html
                         <span class="input-group-text" id="basic-addon1">строк</span>
                     </div>
                 </div>
-
             </div>
 
             <div class="p-2">
@@ -71,19 +70,27 @@ https://codemirror.net/doc/manual.html
 
         </div>
         
-        <div class="card-body d-flex justify-content-center">
+        <div class="d-flex justify-content-center">
             <div style="overflow-y: auto;">
             <table v-if="state==0" class="table table table-hover table-bordered">
                 <thead class="bg-warning">
                     <tr>
-                        <!--<th style="cursor: pointer;" v-for="(item, index) in Data[0]" @click="sort(index)"><i class="fas fa-sort"></i> {{index}}</th>-->
-                        <th scope="col" style="cursor: pointer;" @click="sort('id')"><i class="fas fa-sort"></i> ID</th>
+                        <th style="cursor: pointer;" v-for="(item, index) in Data[0]" @click="sort(index)"><i class="fas fa-sort"></i> {{index}}</th>
+                        <!--<th scope="col" style="cursor: pointer;" @click="sort('id')"><i class="fas fa-sort"></i> ID</th>-->
+                        <th>Инструменты</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="item in Data">
-                        <!--<th v-for="itemt in item" scope="row">{{itemt}}</th>-->
-                        <th>{{item.id}}</th>
+                        <th v-for="itemt in item" scope="row">{{itemt}}</th>
+                        <!--<th>{{item.id}}</th>-->
+                        <td>
+                            <div class="d-flex justify-content-between">
+                                <a title="Изменить страницу" class="text-success" @click="SetPageEdit(item.id)"><i class="far fa-edit"></i></a>
+                                <a title="Показать страницу в отдельной страницу" class="text-info" :href="'/page/'+item.name" target="_blank"><i class="far fa-eye"></i></a>
+                                <a title="Удалить страницу навсегда" class="text-danger" @click="DelUser(item.id)"><i class="far fa-trash-alt"></i></a>
+                            </div>
+                        </td>
                     </tr>
 
                 </tbody>
@@ -93,38 +100,40 @@ https://codemirror.net/doc/manual.html
     </div>
 
     <div class="card" v-if="state==1">
-        <div class="card-body d-flex justify-content-between">
-            <div class="p-2">
+        <div class="d-flex justify-content-between">
+            <div>
                 <button @click="ResetState" type="button" class="btn btn-primary" title="Вернутся"><i class="fas fa-arrow-circle-left"></i></button>
             </div>
             <form action="/admin/pageadd" @submit="AddPageForm">
 
                 <!--<p class="mb-4">добавление страници</p>-->
 
-                <div class="form-row">
-                    <div class="col">
+                <div class="d-flex justify-content-center flex-wrap">
+                    <div class="p-2">
                         <!-- First name -->
                         <input v-model="Page.name" type="text" id="Name" class="form-control" placeholder="Название" required>
                     </div>
-                    <div class="col">
+                    <div class="p-2">
                         <!-- Last name -->
                         <input v-model="Page.title" type="text" id="title" class="form-control" placeholder="Заголовок" required>
                     </div>
-                    <div class="col">
+                    <div class="p-2">
                         <input v-model="Page.metadescription" type="text" id="metadescription" class="form-control mb-4" placeholder="description">
                     </div>
-                    <div class="col">
-                        <input v-model="Page.metatag" type="text" id="metatag" class="form-control mb-4" placeholder="tag">
+                    <div class="p-2">
+                        <input v-model="Page.metakeywords" type="text" id="metatag" class="form-control mb-4" placeholder="keywords">
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="col">
+                    <div class="p-2">
+                        <input v-model="Page.metaauthor" type="text" id="metatag" class="form-control mb-4" placeholder="author">
+                    </div>
+                    <div class="p-2">
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">Тип страници</span>
+                                <span class="input-group-text" id="basic-addon1">Тип</span>
                             </div>
                             <select v-model="Page.type" class="browser-default custom-select">
-                                <option value="page" selected>Страница</option>
+                                <option value="notpublic">Не опубликованно</option>
+                                <option value="page">Страница</option>
                                 <option value="news">Новость</option>
                                 <option value="event">Событие</option>
                                 <option value="article">Статья</option>
@@ -132,16 +141,20 @@ https://codemirror.net/doc/manual.html
                             </select>
                         </div>
                     </div>
-                    <div class="col">
-                        <button class="btn btn-info btn-sm" type="submit" >Сохранить</button>
-
+                    <div class="p-2">
+                        <button class="btn btn-info btn-sm mr-3" type="submit" >Сохранить</button>
+                    </div> 
+                    <div class="p-2">
                         <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#EditorMdl" type="button" >WYSIWYG</button>
                     </div>
                 </div>
+                
+                
+                    
             </form>
             
         </div>
-        <div class="card-body">
+        <div class="d-flex justify-content-center">
             <textarea v-model="Page.content" name="editor" id="editor" class="form-control rounded-0 bg-dark text-light" rows="14"></textarea>
             <!--<div class="border border-dark" v-html="Page.content"></div>-->
 <!--            <pre class="border border-dark">
@@ -201,7 +214,7 @@ https://codemirror.net/doc/manual.html
             },
             Data: {}, Count: 0,
             errors:null,id:null,success:false,
-            Page: {content:'hello world'},
+            Page: {id:0,content:'hello world',type:'notpublic'},
             ErrData: {},
             perPage: 10, currentPage: 1,
             searchStr: '', currentSortDir: 'asc', currentSort: 'id', state: '0',EdititorMode:1
