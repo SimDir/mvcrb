@@ -1,13 +1,13 @@
 <?php
+
 namespace mvcrb;
+
 defined('ROOT') OR die('No direct script access.');
+
 /**
  * Главный класс всего приложения
  * 
  */
-
-
-
 function dd($str) {
     var_dump($str);
     die();
@@ -93,27 +93,25 @@ class mvcrb {
                     return call_user_func(array($objectCtrl, $Action));
                 }
             }
-            if(SHOW_ERROR){
+            if (SHOW_ERROR) {
                 if (!headers_sent()) {
                     header("HTTP/1.1 405 Method Not Allowed");
                     header("Status: 405 Method Not Allowed");
                 }
-                return "<h1>405 Method Not Allowed</h1>".__METHOD__."<h5> Контроллер <b style=\"color: red;\">" . $Controller . "</b> Не имеет метода <b style=\"color: red;\">$Action()</b></h5>";
-        
+                return "<h1>405 Method Not Allowed</h1>" . __METHOD__ . "<h5> Контроллер <b style=\"color: red;\">" . $Controller . "</b> Не имеет метода <b style=\"color: red;\">$Action()</b></h5>";
             } else {
                 return self::Redirect(ERROR_URL);
             }
         }
-        if(SHOW_ERROR){
+        if (SHOW_ERROR) {
             if (!headers_sent()) {
                 header("HTTP/1.1 523 Origin Is Unreachable");
                 header("Status: 523 Origin Is Unreachable");
             }
-            return "<h1>523 Origin Is Unreachable</h1>".__METHOD__."<h5> Нет исполнительного контроллера <b style=\"color: red;\">$Controller</b></h5>";
+            return "<h1>523 Origin Is Unreachable</h1>" . __METHOD__ . "<h5> Нет исполнительного контроллера <b style=\"color: red;\">$Controller</b></h5>";
         } else {
             return self::Redirect(ERROR_URL);
         }
-        
     }
 
     /**
@@ -323,8 +321,7 @@ class mvcrb {
         if (headers_sent() === false) {
             header('Location: ' . $url, true, ($permanent === true) ? 301 : 302);
         }
-        return '<script type="text/javascript">window.location = "'.$url.'"</script>';
-        
+        return '<script type="text/javascript">window.location = "' . $url . '"</script>';
     }
 
 }

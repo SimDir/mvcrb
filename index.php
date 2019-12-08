@@ -37,7 +37,7 @@ define('TEMPLATE_DIR', SITE_DIR . 'Front' . DS); // путь до файлов �
 
 define('CONFIG_DIR', SITE_DIR . 'Config' . DS); // папка с конфигами
 
-define ('SHOW_ERROR', FALSE); // вести логирование работы или нет
+define ('SHOW_ERROR', true); // вести логирование работы или нет
 define ('ERROR_URL', '/error/404');
 define ('COMPOSER', SITE_DIR.'vendor'.DS.'autoload.php');
 

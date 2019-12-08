@@ -1,8 +1,9 @@
 <?php
+
 namespace mvcrb;
 
 defined('ROOT') OR die('No direct script access.');
-/* 
+/*
  * клас для работы с сессиями
  * он настолько простой что нечего тут даже и пояснять.
  * 
@@ -10,19 +11,21 @@ defined('ROOT') OR die('No direct script access.');
 
 define('SESSION_PREFIX', 'IPCamPanel_');
 define("SECURE", FALSE);    // FOR DEVELOPMENT ONLY!!!!
-class Session
-{
+
+class Session {
+
     /**
      * Determine if session has started.
      *
      * @var boolean
      */
     private static $sessionStarted = false;
+
     /**
      * if session has not started, start sessions
      */
     private static function SecSessionStart() {
-        $session_name = SESSION_PREFIX;//'sec_session_id';   // Set a custom session name
+        $session_name = SESSION_PREFIX; //'sec_session_id';   // Set a custom session name
         $secure = SECURE;
         // This stops JavaScript being able to access the session id.
         $httponly = FALSE;
@@ -41,8 +44,7 @@ class Session
         session_regenerate_id();    // regenerated the session, delete the old one. 
     }
 
-    public static function init()
-    {
+    public static function init() {
         if (self::$sessionStarted == false) {
 //            session_start();
             self::SecSessionStart();
@@ -50,14 +52,14 @@ class Session
         }
         return self::$sessionStarted;
     }
+
     /**
      * Add value to a session.
      *
      * @param string $key name the data to save
      * @param string|bool $value the data to save
      */
-    public static function set($key, $value = false)
-    {
+    public static function set($key, $value = false) {
         /**
          * Check whether session is set in array or not
          * If array then set all session key-values in foreach loop
@@ -70,14 +72,14 @@ class Session
             $_SESSION[SESSION_PREFIX . $key] = $value;
         }
     }
+
     /**
      * Extract item from session then delete from the session, finally return the item.
      *
      * @param  string $key item to extract
      * @return mixed|null
      */
-    public static function pull($key)
-    {
+    public static function pull($key) {
         if (isset($_SESSION[SESSION_PREFIX . $key])) {
             $value = $_SESSION[SESSION_PREFIX . $key];
             unset($_SESSION[SESSION_PREFIX . $key]);
@@ -85,6 +87,7 @@ class Session
         }
         return null;
     }
+
     /**
      * Get item from session
      *
@@ -92,8 +95,7 @@ class Session
      * @param  boolean $secondkey if used then use as a second key
      * @return mixed|null
      */
-    public static function get($key, $secondkey = false)
-    {
+    public static function get($key, $secondkey = false) {
         if ($secondkey == true) {
             if (isset($_SESSION[SESSION_PREFIX . $key][$secondkey])) {
                 return $_SESSION[SESSION_PREFIX . $key][$secondkey];
@@ -105,42 +107,42 @@ class Session
         }
         return null;
     }
+
     /**
      * id
      *
      * @return string with the session id.
      */
-    public static function id()
-    {
+    public static function id() {
         return session_id();
     }
+
     /**
      * Regenerate session_id.
      *
      * @return string session_id
      */
-    public static function regenerate()
-    {
+    public static function regenerate() {
         session_regenerate_id(true);
         return session_id();
     }
+
     /**
      * Return the session array.
      *
      * @return array of session indexes
      */
-    public static function display()
-    {
+    public static function display() {
         return $_SESSION;
     }
+
     /**
      * Empties and destroys the session.
      *
      * @param  string $key - session name to destroy
      * @param  boolean $prefix - if set to true clear all sessions for current SESSION_PREFIX
      */
-    public static function destroy($key = '', $prefix = false)
-    {
+    public static function destroy($key = '', $prefix = false) {
         /** only run if session has started */
         if (self::$sessionStarted == true) {
             // get session parameters 
@@ -165,7 +167,8 @@ class Session
             }
         }
     }
-        public static function DestroyAll() {
+
+    public static function DestroyAll() {
         if (self::$sessionStarted == TRUE) {
 //            session_unset();
 //            session_destroy();
@@ -186,8 +189,7 @@ class Session
      * @param  string $sessionName default session name
      * @return string
      */
-    public static function message($sessionName = 'success')
-    {
+    public static function message($sessionName = 'success') {
         $msg = Session::pull($sessionName);
         if (!empty($msg)) {
             return "<div class='alert alert-success alert-dismissable'>
@@ -198,4 +200,5 @@ class Session
             return null;
         }
     }
+
 }

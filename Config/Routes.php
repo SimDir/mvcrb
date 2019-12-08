@@ -22,7 +22,7 @@ return array(
 //    'category/([0-9]+)' => 'main/category/$1',
 //    'category/([0-9]+)/product/([0-9]+)' => 'main/product/$1/$2',
 //    
-    'im' => 'user/index/',
+//    'im' => 'user/index/',
 //    'cart/addAjax/([0-9]+)' => 'main/addAjax/$1',
 //    'cart/delete/([0-9]+)' => 'main/delete/$1',
 //    'cart/checkout' => 'main/checkout',
