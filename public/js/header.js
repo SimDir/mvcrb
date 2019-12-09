@@ -26,18 +26,27 @@ $( document ).ready(function() {
         }
         ImgCild.toggleClass('MnuActiv');
     });
+    
 
 
-        
-        $(window).scroll(function() {
-            var top = $(this).scrollTop();
-            if ( top >= 100 ) {
-                $("header").css({'background':'#333'});
-                $(".header_bottom").css({'background':'rgba(255,255,255,1)'});
-            } 
-            else {
-                $("header").css({'background': 'transparent'});
-                $(".header_bottom").css({'background':'rgba(255,255,255,.7)'});
-            }
-        });
+    
+    if (window.location == 'http://mvcrb.local/page/Products.html') {
+        $("header").css({'background':'#333'});
+    }
+    
+    $(window).scroll(function() {
+        var top = $(this).scrollTop();
+        if ( top >= 100 ) {
+            $("header").css({'background':'#333'});
+            $(".header_bottom").css({'background':'rgba(255,255,255,1)'});
+            console.log(window.location);
+        } 
+        else if (window.location == 'http://mvcrb.local/page/Products.html') {
+            false;
+        }
+        else {
+            $("header").css({'background': 'transparent'});
+            $(".header_bottom").css({'background':'rgba(255,255,255,.7)'});
+        }
+    });
 });
