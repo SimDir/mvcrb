@@ -33,6 +33,9 @@ $( document ).ready(function() {
     if (window.location == 'http://mvcrb.local/page/Products.html') {
         $("header").css({'background':'#333'});
     }
+    if (window.location == 'http://mvcrb.local/page/Colutions.html') {
+        $("header").css({'background':'#333'});
+    }
     
     $(window).scroll(function() {
         var top = $(this).scrollTop();
@@ -42,6 +45,9 @@ $( document ).ready(function() {
             console.log(window.location);
         } 
         else if (window.location == 'http://mvcrb.local/page/Products.html') {
+            false;
+        }
+        else if (window.location == 'http://mvcrb.local/page/Colutions.html') {
             false;
         }
         else {
