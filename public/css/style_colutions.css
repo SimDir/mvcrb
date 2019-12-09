@@ -19,14 +19,14 @@
    align-items: center;
    width: 100%;
    margin: 0 auto;
-   height: 400px;
+   height: 500px;
 }
 .colutions__top h2 {
    font-weight: bold;
    font-size: 50px;
    line-height: 60px;
    letter-spacing: 0.05em;
-   margin-bottom: 40px;
+   margin-top: 50px;
    width: 90%;
    color: #fff;
    text-align: center;
@@ -34,7 +34,7 @@
 }
 @media(max-width: 1400px) {
    .colutions__top {
-      height: 350px;
+      height: 450px;
    }
    .colutionsbgc {
       height: 450px;
@@ -46,7 +46,7 @@
 }
 @media(max-width: 1200px) {
    .colutions__top {
-      height: 300px;
+      height: 400px;
    }
    .colutionsbgc {
       height: 400px;
@@ -58,7 +58,7 @@
 }
 @media(max-width: 1000px) {
    .colutions__top {
-      height: 250px;
+      height: 350px;
    }
    .colutionsbgc {
       height: 350px;
@@ -70,7 +70,7 @@
 }
 @media(max-width: 900px) {
    .colutions__top {
-      height: 230px;
+      height: 330px;
    }
    .colutionsbgc {
       height: 330px;
@@ -78,12 +78,12 @@
    .colutions__top h2 {
       font-size: 33px;
       line-height: 43px;
-      margin-bottom: 30px;
+      margin-top: 40px;
    }
 }
 @media(max-width: 800px) {
    .colutions__top {
-      height: 200px;
+      height: 300px;
    }
    .colutionsbgc {
       height: 300px;
@@ -95,7 +95,7 @@
 }
 @media(max-width: 600px) {
    .colutions__top {
-      height: 150px;
+      height: 250px;
    }
    .colutionsbgc {
       height: 250px;
@@ -107,7 +107,7 @@
 }
 @media(max-width: 500px) {
    .colutions__top {
-      height: 130px;
+      height: 230px;
    }
    .colutionsbgc {
       height: 230px;
@@ -115,12 +115,12 @@
    .colutions__top h2 {
       font-size: 23px;
       line-height: 33px;
-      margin-bottom: 20px;
+      margin-top: 30px;
    }
 }
 @media(max-width: 400px) {
    .colutions__top {
-      height: 120px;
+      height: 220px;
    }
    .colutionsbgc {
       height: 220px;
