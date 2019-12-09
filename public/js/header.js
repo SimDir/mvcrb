@@ -26,4 +26,18 @@ $( document ).ready(function() {
         }
         ImgCild.toggleClass('MnuActiv');
     });
+
+
+        
+        $(window).scroll(function() {
+            var top = $(this).scrollTop();
+            if ( top >= 100 ) {
+                $("header").css({'background':'#333'});
+                $(".header_bottom").css({'background':'rgba(255,255,255,1)'});
+            } 
+            else {
+                $("header").css({'background': 'transparent'});
+                $(".header_bottom").css({'background':'rgba(255,255,255,.7)'});
+            }
+        });
 });

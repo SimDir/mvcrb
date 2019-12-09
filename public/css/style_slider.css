@@ -1,0 +1,479 @@
+/* SLIDER */
+.slider_block {
+   position: absolute;
+   top: 0; left: 0;
+   width: 100vw;
+   height: 100vh;
+   z-index: -1;
+   overflow: hidden;
+}
+.sll, .slr {
+   width: 5%;
+}
+.video {
+   width: 100vw;
+   height: 100vh;
+   background: #000;
+}
+.slide-2 {
+   background-color: #06093C;
+   height: 100vh;
+   width: 100vw;
+}
+.slide-2_flex {
+   height: 100%;
+   width: 85%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.slide-2__content {
+  width: 500px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+  flex-direction: column;
+}
+
+.slide-2__content_top {
+   align-self: center;
+   height: 450px;
+   width: 100%;
+}
+.circle {
+  height: 100%;
+  transition: transform 1s ease;
+}
+.slide-2__content_top:hover .circle {
+   transform: scale(1.1);
+}
+.circle_text1, .circle_text2, .circle_text3 {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   height: 100%;
+}
+.circle_text1:after,
+.circle_text2:after,
+.circle_text3:after {
+   position: absolute;
+   color: #fff;
+   width: 50%;
+   text-transform: uppercase;
+   font-size: 25px;
+   line-height: 30px;
+   font-weight: bold;
+}
+.circle_text1:after{
+   content: "Креативная цифровая разработка";
+}
+.circle_text2:after{
+   content: "Комплексное продвижение и сопровождение";
+}
+.circle_text3:after{
+   content: "Автоматизация вашего бизнеса";
+}
+.slide-2__content_bottom {
+   display: flex;
+   flex-wrap: nowrap;
+   justify-content: center;
+   height: 160px;
+   width: 100%;
+}
+.icons_block {
+   text-align: center;
+   width: 80px;
+   margin: 0 5px;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   position: relative;
+   z-index: 1;
+}
+.icons_block p {
+   display: none;
+   color: #fff;
+   margin-top: 10px;
+   font-size: 18px;
+   line-height: 18px;
+}
+.icons_block:hover p{
+    display:block;
+    position: relative;
+}
+.icons {
+   border-radius: 10px;
+   width: 70px;
+   height: 70px;
+   margin: 0 auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: transform .5s, box-shadow .5s;
+}
+.icons-circle-1 {
+   border: 1px solid #47A04B;
+}
+.icons-circle-1:hover {
+   box-shadow: 2px 2px 5px #47A04B;
+   transform: scale(1.1);
+}
+.icons-circle-2 {
+   border: 1px solid #7F12E3;
+}
+.icons-circle-2:hover {
+   box-shadow: 2px 2px 5px #7F12E3;
+   transform: scale(1.1);
+}
+.icons-circle-3 {
+   border: 1px solid #2D6EAB;
+}
+.icons-circle-3:hover {
+   box-shadow: 2px 2px 5px #2D6EAB;
+   transform: scale(1.1);
+}
+.icons img {
+   width: 40px;
+   height: 40px;
+}
+
+.slide-3 {
+   height: 100vh;
+   width: 100vw;
+   overflow: hidden;
+   background: url(../img/slider/slide-3-bgc.jpg) no-repeat center;
+   background-size: 100%;
+   background-color: #12265B;
+}
+
+.slide-4 {
+   height: 100vh;
+   width: 100vw;
+   overflow: hidden;
+   background: url(../img/slider/slide-4-bgc.jpg) no-repeat center;
+   background-size: 100%;
+   background-color: #180D2E;
+}
+
+.slide-5 {
+   height: 100vh;
+   width: 100vw;
+   overflow: hidden;
+   background: url(../img/slider/slide-5-bgc.jpg) no-repeat center;
+   background-size: 100%;
+   background-color: #12265B;
+}
+
+.slide-6 {
+   height: 100vh;
+   width: 100vw;
+   overflow: hidden;
+   background: url(../img/slider/slide-6-bgc.jpg) no-repeat center;
+   background-size: 100%;
+   background-color: #12265B;
+}
+
+
+@media(max-width: 1700px) {
+   .circle_text1:after,
+   .circle_text2:after,
+   .circle_text3:after {
+      font-size: 23px;
+      line-height: 28px;
+   }
+}
+@media(max-width: 1600px) {
+   .slide-2__content {
+      width: 400px;
+      height: 500px;
+    }
+    .circle_text1:after,
+   .circle_text2:after,
+   .circle_text3:after {
+      font-size: 20px;
+      line-height: 25px;
+   }
+    .icons_block {
+      width: 70px;
+      margin: 0 5px;
+   }
+   .icons {
+      width: 60px;
+      height: 60px;
+   }
+   .icons img {
+      width: 35px;
+      height: 35px;
+   }
+}
+@media(max-width: 1400px) {
+   .slide-2_flex {
+      width: 90%;
+   }
+   .slide-2__content {
+      width: 360px;
+      height: 460px;
+    }
+   .circle_text1:after,
+   .circle_text2:after,
+   .circle_text3:after {
+      font-size: 19px;
+      line-height: 24px;
+   }
+    .icons_block {
+      width: 65px;
+   }
+   .icons {
+      width: 55px;
+      height: 55px;
+   }
+   .icons img {
+      width: 30px;
+      height: 30px;
+   }
+   .icons_block p {
+      font-size: 16px;
+      line-height: 16px;
+   }
+}
+@media(max-width: 1200px) {
+   .slide-2__content {
+      width: 310px;
+      height: 410px;
+    }
+   .circle_text1:after,
+   .circle_text2:after,
+   .circle_text3:after {
+      font-size: 16px;
+      line-height: 21px;
+   }
+   .icons_block {
+      width: 55px;
+   }
+   .icons {
+      width: 50px;
+      height: 50px;
+   }
+   .icons img {
+      width: 30px;
+      height: 30px;
+   }
+   .icons_block p {
+      margin-top: 5px;
+      font-size: 14px;
+      line-height: 14px;
+   }
+}
+@media(max-width: 1000px) {
+   .slide-2__content {
+      width: 280px;
+      height: 380px;
+    }
+   .circle_text1:after,
+   .circle_text2:after,
+   .circle_text3:after {
+      font-size: 14px;
+      line-height: 18px;
+   }
+    .icons_block {
+      width: 50px;
+   }
+   .icons {
+      width: 40px;
+      height: 40px;
+   }
+   .icons img {
+      width: 20px;
+      height: 20px;
+   }
+   .icons_block p {
+      font-size: 12px;
+      line-height: 12px;
+   }
+}
+.mobile-slider {
+   display: none;
+}
+
+@media(max-width: 900px) {
+   .slider_block {
+      display: none;
+   }
+   .mobile-slider {
+      background-color: #06093C;
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+   }
+   .mobile-slider__top {
+      width: 80%;
+      height: 500px;
+      margin: 0;
+      padding-top: 100px;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+   }
+   .mobile-slider__circle_text1,
+   .mobile-slider__circle_text2,
+   .mobile-slider__circle_text3 {
+      width: 250px;
+      height: 200px;
+      margin: 0;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+   }
+   .mobile-slider_circle {
+      width: 100%;
+      animation: rotateCircle 10s linear 0s infinite;
+   }
+   .mobile-slider__circle_text1::after {
+      content: "Креативная цифровая разработка";
+   }
+   .mobile-slider__circle_text2::after {
+      content: "Комплексное продвижение и сопровождение";
+   }
+   .mobile-slider__circle_text3::after {
+      content: "Автоматизация вашего бизнеса";
+   }
+   .mobile-slider__circle_text1::after,
+   .mobile-slider__circle_text2::after,
+   .mobile-slider__circle_text3::after {
+      position: absolute;
+      color: #fff;
+      width: 60%;
+      text-transform: uppercase;
+      font-size: 14px;
+      line-height: 14px;
+      font-weight: bold;
+   }
+   
+   .mobile-slider__bottom {
+      display: none;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      width: 80%;
+      margin: 0 auto;
+   }
+
+   .mobile-slider__icons_container {
+      text-align: center;
+      margin: 10px 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      z-index: 1;
+      cursor: pointer;
+      height: initial;
+      width: 100%;
+   }
+   .mobile-slider__icons_container p {
+      color: #fff; 
+      font-size: 14px;
+      line-height: 14px;
+      text-align: left;
+   }
+   .mobile-slider__icons {
+      border-radius: 10px;
+      width: 55px;
+      height: 55px;
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+   .mobile-slider__icons img{
+      width: 25px;
+      height: 25px;
+   }
+}
+@media(max-width: 650px) {
+   .mobile-slider__top {
+      width: 100%;
+   }
+}
+@media(max-width: 500px) {
+   .mobile-slider__top {
+      height: 400px;
+   }
+   .mobile-slider__circle_text1,
+   .mobile-slider__circle_text2,
+   .mobile-slider__circle_text3 {
+      width: 200px;
+      height: 150px;
+   }
+   .mobile-slider__circle_text1::after,
+   .mobile-slider__circle_text2::after,
+   .mobile-slider__circle_text3::after {
+      width: 60%;
+      font-size: 12px;
+      line-height: 12px;
+   }
+   .mobile-slider__bottom {
+      width: 90%;
+   }
+   .mobile-slider__icons_container p {
+      font-size: 12px;
+      line-height: 12px;
+   }
+   .mobile-slider__icons {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+   }
+   .mobile-slider__icons img{
+      width: 20px;
+      height: 20px;
+   }
+}
+@media(max-width: 400px) {
+   .mobile-slider__top {
+      height: 700px;
+   }
+   .mobile-slider__circle_text1,
+   .mobile-slider__circle_text2,
+   .mobile-slider__circle_text3 {
+      width: 200px;
+      height: 200px;
+   }
+   .mobile-slider__circle_text1::after,
+   .mobile-slider__circle_text2::after,
+   .mobile-slider__circle_text3::after {
+      width: 60%;
+      font-size: 12px;
+      line-height: 12px;
+   }
+   
+   .mobile-slider__bottom {
+      width: 90%;
+   }
+   .mobile-slider__icons_container p {
+      font-size: 12px;
+      line-height: 12px;
+   }
+   .mobile-slider__icons {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+   }
+   .mobile-slider__icons img{
+      width: 20px;
+      height: 20px;
+   }
+}

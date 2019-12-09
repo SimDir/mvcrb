@@ -1,3 +1,45 @@
+.products-main-container {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+}
+
+.products-main {
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+}
+.products-main__item {
+   flex-basis: 50%;
+   display: flex;
+   align-items: center;
+}
+.products-main__item:nth-child(1) {
+   background-image: url(../img/products/Группа\ 8.png);
+   background-size: cover;
+}
+.products-main__item-text {
+   width: 60%;
+   margin-left: 5%;
+   background: rgba(255, 255, 255, 0.5);
+   padding: 30px;
+}
+
+.products-main__item-text p {
+   color: #fff;
+   font-size: 30px;
+   line-height: 30px;
+   text-transform: uppercase;
+   font-weight: 100;
+}
+
+
+
+
+
+
 /* PRODUCTS */
 .products {
    overflow-x: hidden; 
