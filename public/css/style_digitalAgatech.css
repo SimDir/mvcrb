@@ -712,6 +712,10 @@
 
 
 
+
+
+
+
 /* КОМАНДА */
 .digitalAgatechBGC-other {
    position: absolute;
@@ -728,14 +732,14 @@
    align-items: center;
    width: 100%;
    margin: 0 auto;
-   height: 400px;
+   height: 500px;
 }
 .digital-agatech__content_top h2 {
    font-weight: bold;
    font-size: 50px;
    line-height: 60px;
    letter-spacing: 0.07em;
-   margin-bottom: 40px;
+   margin-top: 50px;
    color: #fff;
    text-align: center;
    text-transform: uppercase;
@@ -743,7 +747,7 @@
 
 @media(max-width: 1400px) {
    .digital-agatech__content_top {
-      height: 350px;
+      height: 450px;
    }
    .digitalAgatechBGC-other {
       height: 750px;
@@ -755,7 +759,7 @@
 }
 @media(max-width: 1200px) {
    .digital-agatech__content_top {
-      height: 300px;
+      height: 400px;
    }
    .digitalAgatechBGC-other {
       height: 700px;
@@ -767,7 +771,7 @@
 }
 @media(max-width: 1000px) {
    .digital-agatech__content_top {
-      height: 250px;
+      height: 350px;
    }
    .digitalAgatechBGC-other {
       height: 650px;
@@ -779,7 +783,7 @@
 }
 @media(max-width: 900px) {
    .digital-agatech__content_top {
-      height: 230px;
+      height: 330px;
    }
    .digitalAgatechBGC-other {
       height: 630px;
@@ -787,12 +791,12 @@
    .digital-agatech__content_top h2 {
       font-size: 33px;
       line-height: 43px;
-      margin-bottom: 30px;
+      margin-top: 40px;
    }
 }
 @media(max-width: 800px) {
    .digital-agatech__content_top {
-      height: 200px;
+      height: 300px;
    }
    .digitalAgatechBGC-other {
       height: 600px;
@@ -804,7 +808,7 @@
 }
 @media(max-width: 600px) {
    .digital-agatech__content_top {
-      height: 150px;
+      height: 250px;
    }
    .digitalAgatechBGC-other {
       height: 550px;
@@ -816,7 +820,7 @@
 }
 @media(max-width: 500px) {
    .digital-agatech__content_top {
-      height: 130px;
+      height: 230px;
    }
    .digitalAgatechBGC-other {
       height: 530px;
@@ -824,12 +828,12 @@
    .digital-agatech__content_top h2 {
       font-size: 23px;
       line-height: 33px;
-      margin-bottom: 20px;
+      margin-top: 30px;
    }
 }
 @media(max-width: 400px) {
    .digital-agatech__content_top {
-      height: 120px;
+      height: 220px;
    }
    .digitalAgatechBGC-other {
       height: 520px;

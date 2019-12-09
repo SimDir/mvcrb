@@ -1,6 +1,6 @@
 .products-tariff {
    position: fixed;
-   top: 0;
+   top: 100px;
    right: 0;
    width: 900px;
    z-index: 1;
@@ -12,6 +12,16 @@
    background-color: #F5F7FD;
    transform: scale(0);
    transition: transform 1s;
+}
+@media(max-width: 900px) { 
+   .products-tariff {
+      top: 80px;
+   }
+}
+@media(max-width: 500px) { 
+   .products-tariff {
+      top: 60px;
+   }
 }
 .products-tariff__left {
    flex-basis: 300px;
