@@ -30,24 +30,23 @@ $( document ).ready(function() {
 
 
     
-    if (window.location == 'http://mvcrb.local/page/Products.html') {
+    if (window.location.pathname == '/page/Products.html') {
         $("header").css({'background':'#333'});
     }
-    if (window.location == 'http://mvcrb.local/page/Colutions.html') {
+    if (window.location.pathname == '/page/Colutions.html') {
         $("header").css({'background':'#333'});
     }
     
     $(window).scroll(function() {
         var top = $(this).scrollTop();
-        if ( top >= 100 ) {
+        if ( top > 0 ) {
             $("header").css({'background':'#333'});
             $(".header_bottom").css({'background':'rgba(255,255,255,1)'});
-            console.log(window.location);
         } 
-        else if (window.location == 'http://mvcrb.local/page/Products.html') {
+        else if (window.location.pathname == '/page/Products.html') {
             false;
         }
-        else if (window.location == 'http://mvcrb.local/page/Colutions.html') {
+        else if (window.location.pathname == '/page/Colutions.html') {
             false;
         }
         else {

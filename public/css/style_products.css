@@ -214,7 +214,7 @@
       height: 220px;
    }
    .products_top {
-      height: 120px;
+      height: 220px;
    }
    .products_top {
       width: 95%;
@@ -227,6 +227,9 @@
    .products_top__circle-text3:after {
       font-size: 5px;
       line-height: 9px;
+   }
+   .circle {
+      height: 80%;
    }
 }
 .products_center {

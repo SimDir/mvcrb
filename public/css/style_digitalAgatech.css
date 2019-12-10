@@ -52,7 +52,7 @@
    align-items: center;
    width: 100%;
    margin: 0 auto;
-   height: 450px;
+   height: 500px;
    padding-top: 100px;
 }
 .digital-agatech__main_top img {
@@ -67,7 +67,7 @@
 }
 @media(max-width: 1400px) {
    .digital-agatech__main_top{
-      height: 400px;
+      height: 450px;
    }
    .digital-agatech__main_top img {
       width: 550px;
@@ -79,7 +79,7 @@
 }
 @media(max-width: 1200px) {
    .digital-agatech__main_top{
-      height: 350px;
+      height: 400px;
    }
    .digital-agatech__main_top img {
       width: 500px;
@@ -91,7 +91,7 @@
 }
 @media(max-width: 1000px) {
    .digital-agatech__main_top{
-      height: 300px;
+      height: 350px;
    }
    .digital-agatech__main_top img {
       width: 450px;
@@ -109,7 +109,7 @@
 }
 @media(max-width: 700px) {
    .digital-agatech__main_top{
-      height: 250px;
+      height: 300px;
    }
    .digital-agatech__main_top img {
       width: 400px;  
@@ -120,9 +120,6 @@
    }
 }
 @media(max-width: 600px) {
-   .digital-agatech__main_top{
-      height: 200px;
-   }
    .digital-agatech__main_top img {
       width: 350px;
       margin-bottom:10px;
@@ -134,7 +131,7 @@
 }
 @media(max-width: 500px) {
    .digital-agatech__main_top{
-      height: 200px;
+      height: 250px;
       padding-top: 60px;
    }
    .digital-agatech__main_top img {
@@ -148,7 +145,7 @@
 }
 @media(max-width: 400px) {
    .digital-agatech__main_top{
-      height: 150px;
+      height: 200px;
       width: 90%;
    }
    .digital-agatech__main_top img {
