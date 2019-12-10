@@ -30,12 +30,12 @@ $( document ).ready(function() {
 
 
     
-    if (window.location.pathname == '/page/Products.html') {
-        $("header").css({'background':'#333'});
-    }
-    if (window.location.pathname == '/page/Colutions.html') {
-        $("header").css({'background':'#333'});
-    }
+    // if (window.location.pathname == '/page/Products.html') {
+    //     $("header").css({'background':'#333'});
+    // }
+    // if (window.location.pathname == '/page/Colutions.html') {
+    //     $("header").css({'background':'#333'});
+    // }
     
     $(window).scroll(function() {
         var top = $(this).scrollTop();
@@ -43,12 +43,12 @@ $( document ).ready(function() {
             $("header").css({'background':'#333'});
             $(".header_bottom").css({'background':'rgba(255,255,255,1)'});
         } 
-        else if (window.location.pathname == '/page/Products.html') {
-            false;
-        }
-        else if (window.location.pathname == '/page/Colutions.html') {
-            false;
-        }
+        // else if (window.location.pathname == '/page/Products.html') {
+        //     false;
+        // }
+        // else if (window.location.pathname == '/page/Colutions.html') {
+        //     false;
+        // }
         else {
             $("header").css({'background': 'transparent'});
             $(".header_bottom").css({'background':'rgba(255,255,255,.7)'});
