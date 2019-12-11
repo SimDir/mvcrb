@@ -117,6 +117,12 @@ $( document ).ready(function() {
    $('#comet-item').click(function(){
       $('#COMET-PAGE').css({"transform" : "scale(1)"});
       $('.colutions__center').css({"minHeight" : "2550px"});
+      if($(document).width()<1600) $('.colutions__center').css({"minHeight" : "2400px"});
+      if($(document).width()<1400) $('.colutions__center').css({"minHeight" : "2180px"});
+      if($(document).width()<1200) $('.colutions__center').css({"minHeight" : "2100px"});
+      if($(document).width()<1000) $('.colutions__center').css({"minHeight" : "1720px"});
+      if($(document).width()<800) $('.colutions__center').css({"minHeight" : "1600px"});
+      if($(document).width()<600) $('.colutions__center').css({"minHeight" : "1340px"});
       if($(document).width()<450) $('.colutions__center').css({"minHeight" : "100px"});
    });
    $('#comet-item').on('click', function(e){
@@ -132,6 +138,12 @@ $( document ).ready(function() {
    $('#bebrand-item').click(function(){
       $('#BEBRAND-PAGE').css({"transform" : "scale(1)"});
       $('.colutions__center').css({"minHeight" : "2650px"});
+      if($(document).width()<1600) $('.colutions__center').css({"minHeight" : "2500px"});
+      if($(document).width()<1400) $('.colutions__center').css({"minHeight" : "2280px"});
+      if($(document).width()<1200) $('.colutions__center').css({"minHeight" : "2150px"});
+      if($(document).width()<1000) $('.colutions__center').css({"minHeight" : "1780px"});
+      if($(document).width()<800) $('.colutions__center').css({"minHeight" : "1650px"});
+      if($(document).width()<600) $('.colutions__center').css({"minHeight" : "1370px"});
       if($(document).width()<450) $('.colutions__center').css({"minHeight" : "100px"});
    });
    $('#bebrand-item').on('click', function(e){
@@ -147,6 +159,12 @@ $( document ).ready(function() {
    $('#BSK-item').click(function(){
       $('#BSK-PAGE').css({"transform" : "scale(1)"});
       $('.colutions__center').css({"minHeight" : "2450px"});
+      if($(document).width()<1600) $('.colutions__center').css({"minHeight" : "2300px"});
+      if($(document).width()<1400) $('.colutions__center').css({"minHeight" : "2100px"});
+      if($(document).width()<1200) $('.colutions__center').css({"minHeight" : "2000px"});
+      if($(document).width()<1000) $('.colutions__center').css({"minHeight" : "1670px"});
+      if($(document).width()<800) $('.colutions__center').css({"minHeight" : "1520px"});
+      if($(document).width()<600) $('.colutions__center').css({"minHeight" : "1280px"});
       if($(document).width()<450) $('.colutions__center').css({"minHeight" : "100px"});
    });
    $('#BSK-item').on('click', function(e){
@@ -162,6 +180,12 @@ $( document ).ready(function() {
    $('#RMH-item').click(function(){
       $('#RMH-PAGE').css({"transform" : "scale(1)"});
       $('.colutions__center').css({"minHeight" : "3280px"});
+      if($(document).width()<1600) $('.colutions__center').css({"minHeight" : "3050px"});
+      if($(document).width()<1400) $('.colutions__center').css({"minHeight" : "2790px"});
+      if($(document).width()<1200) $('.colutions__center').css({"minHeight" : "2550px"});
+      if($(document).width()<1000) $('.colutions__center').css({"minHeight" : "2080px"});
+      if($(document).width()<800) $('.colutions__center').css({"minHeight" : "1970px"});
+      if($(document).width()<600) $('.colutions__center').css({"minHeight" : "1600px"});
       if($(document).width()<450) $('.colutions__center').css({"minHeight" : "100px"});
    });
    $('#RMH-item').on('click', function(e){
@@ -177,6 +201,12 @@ $( document ).ready(function() {
    $('#BUSINESS-item').click(function(){
       $('#BUSINESS-PAGE').css({"transform" : "scale(1)"});
       $('.colutions__center').css({"minHeight" : "3650px"});
+      if($(document).width()<1600) $('.colutions__center').css({"minHeight" : "3400px"});
+      if($(document).width()<1400) $('.colutions__center').css({"minHeight" : "3080px"});
+      if($(document).width()<1200) $('.colutions__center').css({"minHeight" : "2780px"});
+      if($(document).width()<1000) $('.colutions__center').css({"minHeight" : "2260px"});
+      if($(document).width()<800) $('.colutions__center').css({"minHeight" : "2180px"});
+      if($(document).width()<600) $('.colutions__center').css({"minHeight" : "1750px"});
       if($(document).width()<450) $('.colutions__center').css({"minHeight" : "100px"});
    });
    $('#BUSINESS-item').on('click', function(e){
