@@ -21,28 +21,6 @@ $( document ).ready(function() {
       $('#Liny').css({"borderBottom": "none"});
       $('#Vilnus').css({"borderBottom": "none"});
    });
-
-   // $('#Liny').click(function(){ 
-   //    $('.ULCITY').css({"display": "none"});
-   //    $('.MCITY').css({"display": "none"});
-   //    $('.LCITY').css({"display": "block"});
-   //    $('.VCITY').css({"display": "none"});
-   //    $('#Ulsk').css({"borderBottom": "none"});
-   //    $('#Moscow').css({"borderBottom": "none"});
-   //    $('#Liny').css({"borderBottom": "1px solid grey"});
-   //    $('#Vilnus').css({"borderBottom": "none"});
-   // });
-   
-   // $('#Vilnus').click(function(){ 
-   //    $('.ULCITY').css({"display": "none"});
-   //    $('.MCITY').css({"display": "none"});
-   //    $('.LCITY').css({"display": "none"});
-   //    $('.VCITY').css({"display": "block"});
-   //    $('#Ulsk').css({"borderBottom": "none"});
-   //    $('#Moscow').css({"borderBottom": "none"});
-   //    $('#Liny').css({"borderBottom": "none"});
-   //    $('#Vilnus').css({"borderBottom": "1px solid grey"});
-   // });
    
    //СЛАЙДЕР-ГРАФИК НА СТРАНИЦЕ АГАТЕЧ
    let graphic = document.querySelector('.digital-agatech__graphic');
