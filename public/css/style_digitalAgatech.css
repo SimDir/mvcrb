@@ -1542,7 +1542,6 @@
    justify-content: center;
    align-items: center;
    width: 90%;
-   margin-top: 50px;
    flex-wrap: wrap;
 }
 .contacts-header h2 {
@@ -1551,6 +1550,7 @@
    line-height: 60px;
    letter-spacing: 0.07em;
    margin-bottom: 20px;
+   margin-top: 100px;
    width: 100%;
    color: #fff;
    text-align: center;
@@ -1584,8 +1584,117 @@
    border-bottom: 2px solid #FFFFFF;
    font-weight: bold;
 }
-
-
+@media(max-width: 1400px) {
+   .contacts-header h2 {
+      font-size: 45px;
+      line-height: 55px;
+   }
+}
+@media(max-width: 1200px) {
+   .contacts-header h2 {
+      font-size: 40px;
+      line-height: 50px;
+   }
+   .contacts-header__item span {
+      font-size: 16px;
+      line-height: 26px;
+   }
+   .contacts-header__item img {
+      width: 70px;
+      height: 120px;
+   }
+}
+@media(max-width: 1000px) {
+   .contacts-header h2 {
+      font-size: 35px;
+      line-height: 45px;
+      margin-bottom: 15px;
+   }
+   .contacts-header__item span {
+      font-size: 16px;
+      line-height: 26px;
+   }
+   .contacts-header__item img {
+      width: 60px;
+      height: 100px;
+   }
+}
+@media(max-width: 900px) {
+   .contacts-header h2 {
+      font-size: 33px;
+      line-height: 43px;
+      margin-top: 80px;
+   }
+}
+@media(max-width: 800px) {
+   .contacts-header h2 {
+      font-size: 30px;
+      line-height: 40px;
+      margin-bottom: 10px;
+   }
+   .contacts-header__item {
+      margin: 0 15px;
+   }
+   .contacts-header__item span {
+      font-size: 14px;
+      line-height: 24px;
+   }
+   .contacts-header__item img {
+      width: 30px;
+      height: 70px;
+   }
+}
+@media(max-width: 600px) {
+   .contacts-header h2{
+      font-size: 25px;
+      line-height: 35px;
+      margin-bottom: 5px;
+      margin-top: 70px;
+   }
+   .contacts-header__item {
+      margin: 0 15px;
+   }
+   .contacts-header__item span {
+      font-size: 12px;
+      line-height: 22px;
+   }
+   .contacts-header__item img {
+      width: 30px;
+      height: 65px;
+   }
+}
+@media(max-width: 500px) {
+   .contacts-header h2 {
+      font-size: 20px;
+      line-height: 30px;
+      margin-top: 60px;
+   }
+   .contacts-header__item {
+      margin: 0 10px;
+   }
+   .contacts-header__item span {
+      font-size: 12px;
+      line-height: 22px;
+   }
+   .contacts-header__item img {
+      width: 27px;
+      height: 60px;
+   }
+}
+@media(max-width: 400px) {
+   .contacts-header h2 {
+      font-size: 18px;
+      line-height: 20px;
+   }
+   .contacts-header__item span {
+      font-size: 10px;
+      line-height: 14px;
+   }
+   .contacts-header__item img {
+      width: 25px;
+      height: 55px;
+   }
+}
 
 
 #contactMoscow, #contactLiny, #contactVilnus {
@@ -1634,7 +1743,6 @@
 .contacts-top__item-time  {
    justify-content: center;
 }
-
 .contacts-top__item--small-text {
    font-family: 'Helvetica Neue Cyr Roman';
    font-size: 20px;
@@ -1656,7 +1764,6 @@
    text-align: center;
    align-self: center;
 }
-
 .digital-agatech__contacts-bottom {
    width: 1100px;
    display: flex;
@@ -1685,11 +1792,6 @@
    justify-content: flex-start;
    align-items: center;
 }
-.contacts-bottom__item-phone img{
-   width: 43px;
-   height: 43px;
-   margin-right: 10px;
-}
 .contacts-bottom__item--big-text {
    font-family: 'Helvetica Neue Cyr Roman';
    font-size: 24px;
@@ -1700,12 +1802,221 @@
 .contacts_bgc iframe {
    width: 1100px;
    height: 600px;
-
 }
+@media(max-width: 1400px) {
+   .digital-agatech__contacts-top {
+      width: 330px;
+      margin-bottom: 40px;
+   }
+   .contacts-top__item-address, .contacts-top__item-phone, .contacts-top__item-time {
+      padding: 5px 0px;
+   }
+   .contacts-top__item-title {
+      font-size: 22px;
+      line-height: 22px;
+   }
+   .contacts-top__item--small-text {
+      font-size: 18px;
+      line-height: 18px;
+   }
+   .contacts-top__item--big-text {
+      font-size: 32px;
+      line-height: 32px;
+   }
+   .digital-agatech__contacts-bottom {
+      width: 900px;
+   }
+   .contacts-bottom__item {
+      flex-basis: 30%;
+      margin-bottom: 30px;
+   }
+   .contacts-bottom__item--small-text {
+      font-size: 16px;
+      line-height: 16px;
+   }
+   .contacts-bottom__item--big-text {
+      font-size: 22px;
+      line-height: 22px;
+   }
+   .contacts_bgc iframe {
+      width: 900px;
+      height: 500px;
+   }
+}
+@media(max-width: 1000px) {
+   .digital-agatech__contacts {
+      margin: 30px auto;
+   }
+   .digital-agatech__contacts-top {
+      width: 300px;
+      margin-bottom: 35px;
+   } 
+   .contacts-top__item img{
+      width: 40px;
+      height: 40px;
+      margin-right: 8px;
+   } 
+   .contacts-top__item-address, .contacts-top__item-phone, .contacts-top__item-time {
+      padding: 4px 0px;
+   }
+   .contacts-top__item-title {
+      font-size: 20px;
+      line-height: 20px;
+   }
+   .contacts-top__item--small-text {
+      font-size: 16px;
+      line-height: 16px;
+   }
+   .contacts-top__item--big-text {
+      font-size: 30px;
+      line-height: 30px;
+   }
+   .digital-agatech__contacts-bottom {
+      width: 700px;
+   }
+   .contacts-bottom__item {
+      flex-basis: 30%;
+      margin-bottom: 20px;
+   }
+   .contacts-bottom__item--small-text {
+      font-size: 14px;
+      line-height: 14px;
+      margin-bottom: 5px;
+   }
+   .contacts-bottom__item--big-text {
+      font-size: 20px;
+      line-height: 20px;
+   }
+   .contacts_bgc iframe {
+      width: 700px;
+      height: 400px;
+   }
+}
+@media(max-width: 800px) {
+   .digital-agatech__contacts {
+      margin: 30px auto 0;
+      width: 100%;
+   }
+   .digital-agatech__contacts-top {
+      width: 250px;
+      margin-bottom: 35px;
+   } 
+   .contacts-top__item img{
+      width: 35px;
+      height: 35px;
+      margin-right: 5px;
+   } 
+   .contacts-top__item-address, .contacts-top__item-phone, .contacts-top__item-time {
+      padding: 3px 0px;
+   }
+   .contacts-top__item-title {
+      font-size: 18px;
+      line-height: 18px;
+   }
+   .contacts-top__item--small-text {
+      font-size: 14px;
+      line-height: 14px;
+   }
+   .contacts-top__item--big-text {
+      font-size: 26px;
+      line-height: 26px;
+   }
+   .digital-agatech__contacts-bottom {
+      width: 90%;
+      justify-content: center;
+   }
+   .contacts-bottom__item {
+      flex-basis: 190px;
+      margin: 0px 10px 20px 10px;
+   }
+   .contacts_bgc iframe {
+      width: 100%;
+      height: 400px;
+   }
+}
+@media(max-width: 600px) {
+   .digital-agatech__contacts-top {
+      width: 210px;
+      margin-bottom: 30px;
+   }  
+   .contacts-top__item img{
+      width: 30px;
+      height: 30px;
+      margin-right: 3px;
+   } 
+   .contacts-top__item-address, .contacts-top__item-phone, .contacts-top__item-time {
+      padding: 2px 0px;
+   }
+   .contacts-top__item-title {
+      font-size: 16px;
+      line-height: 16px;
+   }
+   .contacts-top__item--small-text {
+      font-size: 12px;
+      line-height: 12px;
+   }
+   .contacts-top__item--big-text {
+      font-size: 22px;
+      line-height: 22px;
+   }
+   .digital-agatech__contacts-bottom {
+      width: 100%;
+   }
+   .contacts-bottom__item {
+      flex-basis: 190px;
+   }
+    .contacts-bottom__item--small-text {
+      font-size: 12px;
+      line-height: 12px;
+      margin-bottom: 4px;
+   }
+   .contacts-bottom__item--big-text {
+      font-size: 18px;
+      line-height: 18px;
+   } 
+   .contacts_bgc iframe {
+      height: 350px;
+   }
+}
+@media(max-width: 400px) {
+   .digital-agatech__contacts-top {
+      width: 190px;
+      margin-bottom: 30px;
+   }  
+   .contacts-top__item img{
+      width: 25px;
+      height: 25px;
+      margin-right: 2px;
+   } 
+   .contacts-top__item-address, .contacts-top__item-phone, .contacts-top__item-time {
+      padding: 1px 0px;
+   }
+   .contacts-top__item-title {
+      font-size: 15px;
+      line-height: 15px;
+   }
+   .contacts-top__item--small-text {
+      font-size: 11px;
+      line-height: 11px;
+   }
+   .contacts-top__item--big-text {
+      font-size: 18px;
+      line-height: 18px;
+   }
 
-
-
-
+    .contacts-bottom__item--small-text {
+      font-size: 12px;
+      line-height: 12px;
+      margin-bottom: 2px;
+   }
+   .contacts-bottom__item--big-text {
+      font-size: 16px;
+      line-height: 16px;
+   } 
+   .contacts_bgc iframe {
+      height: 300px;
+   }
+}
 
 
 /* FILES */
