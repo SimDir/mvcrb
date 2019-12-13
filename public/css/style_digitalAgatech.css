@@ -1107,7 +1107,6 @@
    left: 0;
    width: 100%;
    z-index: -1;
-   height: 600px;
 }
 .digital-agatech__content_top {
    display: flex;
@@ -1133,9 +1132,6 @@
    .digital-agatech__content_top {
       height: 450px;
    }
-   .digitalAgatechBGC-team {
-      height: 550px;
-   }
    .digital-agatech__content_top h2 {
       font-size: 45px;
       line-height: 55px;
@@ -1144,9 +1140,6 @@
 @media(max-width: 1200px) {
    .digital-agatech__content_top {
       height: 400px;
-   }
-   .digitalAgatechBGC-team {
-      height: 500px;
    }
    .digital-agatech__content_top h2 {
       font-size: 40px;
@@ -1157,9 +1150,6 @@
    .digital-agatech__content_top {
       height: 350px;
    }
-   .digitalAgatechBGC-team {
-      height: 450px;
-   }
    .digital-agatech__content_top h2 {
       font-size: 35px;
       line-height: 45px;
@@ -1168,9 +1158,6 @@
 @media(max-width: 900px) {
    .digital-agatech__content_top {
       height: 330px;
-   }
-   .digitalAgatechBGC-team {
-      height: 430px;
    }
    .digital-agatech__content_top h2 {
       font-size: 33px;
@@ -1182,9 +1169,6 @@
    .digital-agatech__content_top {
       height: 300px;
    }
-   .digitalAgatechBGC-team {
-      height: 400px;
-   }
    .digital-agatech__content_top h2 {
       font-size: 30px;
       line-height: 40px;
@@ -1193,9 +1177,6 @@
 @media(max-width: 600px) {
    .digital-agatech__content_top {
       height: 250px;
-   }
-   .digitalAgatechBGC-team {
-      height: 350px;
    }
    .digital-agatech__content_top h2 {
       font-size: 25px;
@@ -1207,7 +1188,7 @@
       height: 230px;
    }
    .digitalAgatechBGC-team {
-      height: 330px;
+      height: 260px; 
    }
    .digital-agatech__content_top h2 {
       font-size: 23px;
@@ -1220,7 +1201,7 @@
       height: 220px;
    }
    .digitalAgatechBGC-team {
-      height: 260px;
+      height: 220px;
    }
    .digital-agatech__content_top h2 {
       font-size: 20px;
@@ -1257,8 +1238,6 @@
   background-position: center;
   background-size: cover;
 }
-
-
 .digital-agatech__content_top_menu_digAg  {
    margin: 30px 0 30px;
    display: flex;
@@ -1400,6 +1379,235 @@
 }
 #lenaIcons, #guzelIcons {
    display: none;
+}
+@media(max-width: 1600px) {
+    .team {
+      margin-bottom: 70px;
+   } 
+    .team__top-item {
+      width: 192px;
+      height: 310px;
+      margin-bottom: 15px;
+   }
+   .team__top-item img {
+      width: 180px;
+      height: 230px;
+      border: 6px solid #BFA082;
+   } 
+   .cart__text {
+      margin-top: 10px;
+   }
+   .surname {
+      font-size: 28px;
+      line-height: 30px;
+   }
+   .name {
+      font-size: 18px;
+      line-height: 20px;
+   }
+   .post {
+      font-size: 14px;
+      line-height: 16px;
+   }
+   .team__center-item {
+      flex-basis: 200px;
+   }
+   .team__center-item img {
+      height: 250px;
+   }
+   .team__bottom-item {
+      width: 145px;
+      height: 115px;
+      margin: 0px 10px; 
+   }
+   .team__bottom-item img{
+      width: 70px;
+      height: 70px;
+   }
+   .team__bottom-item span{
+      font-size: 14px;
+      line-height: 14px;
+      margin-top: 8px;
+   }
+}
+@media(max-width: 1200px) {
+   .team {
+     margin-bottom: 60px;
+  } 
+   .team__top-item {
+      width: 170px;
+      height: 275px;
+      margin-bottom: 10px;
+   }
+   .team__top-item img {
+      width: 160px;
+      height: 200px;
+      border: 5px solid #BFA082;
+   } 
+  .cart__text {
+     margin-top: 5px;
+  }
+  .surname {
+     font-size: 24px;
+     line-height: 26px;
+  }
+  .name {
+     font-size: 15px;
+     line-height: 16px;
+  }
+  .post {
+     font-size: 12px;
+     line-height: 14px;
+  }
+  .team__center {
+     width: 95%;
+  }
+  .team__center-item {
+     flex-basis: 170px;
+  }
+  .team__center-item img {
+     height: 200px;
+  }
+  .team__bottom {
+     width: 95%;
+     margin: 40px auto;
+  }
+  .team__bottom-item {
+     width: 125px;
+     height: 100px;
+     margin: 0px 5px; 
+  }
+  .team__bottom-item img{
+     width: 60px;
+     height: 60px;
+  }
+  .team__bottom-item span{
+     font-size: 12px;
+     line-height: 12px;
+     margin-top: 5px;
+  }
+}
+@media(max-width: 1000px) {
+   .team__top-item {
+      width: 148px;
+      height: 250px;
+      margin-bottom: 5px;
+   }
+   .team__top-item img {
+      width: 140px;
+      height: 180px;
+      border: 4px solid #BFA082;
+   } 
+  .cart__text {
+     margin-top: 5px;
+  }
+  .surname {
+     font-size: 22px;
+     line-height: 24px;
+  }
+  .name {
+     font-size: 14px;
+     line-height: 16px;
+  }
+  .post {
+     font-size: 11px;
+     line-height: 13px;
+  }
+  .team__center-item {
+     flex-basis: 130px;
+  }
+  .team__center-item img {
+     height: 160px;
+  }
+  .team__bottom {
+     margin: 30px auto;
+  }
+  .team__bottom-item {
+     width: 110px;
+     height: 80px;
+     margin: 0px 5px; 
+  }
+  .team__bottom-item img{
+     width: 50px;
+     height: 50px;
+  }
+  .team__bottom-item span{
+     font-size: 11px;
+     line-height: 11px;
+     margin-top: 5px;
+  }
+}
+@media(max-width: 900px) {
+   .team {
+      margin: 40px 0px;
+   } 
+}
+@media(max-width: 800px) {
+   .team {
+      margin: 30px 0px;
+   } 
+   .team__center {
+      flex-wrap: wrap;
+   }
+   .team__center-item {
+      margin: 10px;
+   }
+}
+@media(max-width: 600px) {
+   .team {
+      margin: 20px 0px;
+   } 
+   .team__top-item {
+      width: 126px;
+      height: 210px;
+      margin-bottom: 5px;
+   }
+   .team__top-item img {
+      width: 120px;
+      height: 150px;
+      border: 3px solid #BFA082;
+   } 
+   .cart__text {
+      margin-top: 0px;
+   }
+   .surname {
+      font-size: 20px;
+      line-height: 22px;
+   }
+   .name {
+      font-size: 12px;
+      line-height: 14px;
+   }
+   .post {
+      font-size: 10px;
+      line-height: 12px;
+   }
+
+   .team__center-item {
+      flex-basis: 130px;
+      margin: 10px;
+   }
+   .team__center-item img {
+      height: 160px;
+   }
+   .team__bottom {
+      margin: 20px auto;
+      flex-wrap: wrap;
+   }
+   .team__bottom-item {
+      width: 100px;
+      height: 70px;
+      margin: 0px 5px; 
+   }
+   .team__bottom-item img{
+      width: 40px;
+      height: 40px;
+   }
+   .team__bottom-item span{
+      font-size: 10px;
+      line-height: 10px;
+      margin-top: 5px;
+   }
 }
 
 
