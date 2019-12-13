@@ -102,7 +102,7 @@
    color: #fff;
    border-radius: 40px;
    border: none;
-   padding: 10px 30px;
+   padding: 20px 30px;
    font-weight: bold;
    font-size: 20px;
    line-height: 20px;
@@ -219,6 +219,7 @@
    .products_center__block-container-form__btn {
       font-size: 16px;
       line-height: 16px;
+      padding: 15px 25px;
    }
    .products_center__promotionANDsupport {
       margin-bottom: 60px;
@@ -287,6 +288,7 @@
    .products_center__block-container-form__btn {
       font-size: 12px;
       line-height: 12px;
+      padding: 10px 20px;
    }
    .products_center__promotionANDsupport {
       margin-bottom: 40px;
@@ -309,7 +311,6 @@
    .products_center__block-container-form__btn {
       font-size: 10px;
       line-height: 10px;
-      padding: 5px 20px;
    }
 }
 

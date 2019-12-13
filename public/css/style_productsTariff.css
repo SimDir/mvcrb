@@ -76,17 +76,19 @@
    color: #fff;
    border-radius: 40px;
    border: none;
-   padding: 10px 30px;
+   padding: 15px 30px;
    font-size: 16px;
    line-height: 16px;
    cursor: pointer;
-   transition: box-shadow 1s, color 1s;
+   transition: box-shadow 1s, color 1s, border 1s;
    outline: none;
    margin-top: 20px;
+   border: 1px solid transparent;
 }
 .products-tariff__left-btn:hover {
    transition: box-shadow 1s, color 1s;
-   box-shadow: inset 300px 0 0 #fff;
+   background-color: #ffffff;
+   border: 1px solid #BFA082;
    color: #BFA082;
 }
 
@@ -199,7 +201,6 @@
    .products-tariff__left-container-img {
       margin-bottom: 10px;
    }
-
    .products-tariff__left-title {
       font-size: 14px;
       line-height: 14px;
@@ -218,7 +219,7 @@
       font-size: 12px;
       line-height: 12px;
       margin-top: 15px;
-      padding: 5px 20px;
+      padding: 10px 20px;
    }
    .products-tariff__right {
       flex-basis: 400px;
@@ -267,7 +268,6 @@
       font-size: 11px;
       line-height: 11px;
       margin-top: 10px;
-      padding: 5px 20px;
    }
    .products-tariff__right {
       flex-basis: 70%;
@@ -310,7 +310,7 @@
       font-size: 9px;
       line-height: 9px;
       margin-top: 10px;
-      padding: 5px 10px;
+      padding: 7px 15px;
    }
    .products-tariff__right {
       width: 60%;
