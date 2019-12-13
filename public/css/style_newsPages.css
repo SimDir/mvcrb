@@ -12,19 +12,23 @@
    line-height: 36px;
    color: #626779;
    margin-bottom: 50px;
+   font-family: 'Helvetica Neue Cyr Roman';
 }
 .news-page_block-text {
    width: 100%;
 }
 .news-page_block-text p {
-   font-size: 14px;
-   line-height: 21px;
+   font-size: 15px;
+   line-height: 22px;
    color: #83969C;
-   margin-bottom: 30px;
+   margin-bottom: 15px;
+   font-family: 'Helvetica Neue Cyr Roman';
 }
-.news-page_container-img {
-   width: 100%;
+.news-page_block-text p::first-letter {
+   padding-left: 25px;
 }
+
 .news-page_container-img img {
    width: 100%;
+   margin-top: 50px;
 }
