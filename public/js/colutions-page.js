@@ -3,17 +3,9 @@ $( document ).ready(function() {
    
    // toyota
    $('#toyota-item').click(function(){
+      let heightBlock = $('#TOYOTA-PAGE').height();
       $('#TOYOTA-PAGE').css({"transform" : "scale(1)"});
-      $('.colutions__center').css({"minHeight" : "3350px"});
-      if($(document).width()<1600) $('.colutions__center').css({"minHeight" : "3150px"});
-      if($(document).width()<1400) $('.colutions__center').css({"minHeight" : "2850px"});
-      if($(document).width()<1200) $('.colutions__center').css({"minHeight" : "2650px"});
-      if($(document).width()<1000) $('.colutions__center').css({"minHeight" : "2120px"});
-      if($(document).width()<900) $('.colutions__center').css({"minHeight" : "2150px"});
-      if($(document).width()<800) $('.colutions__center').css({"minHeight" : "2050px"});
-      if($(document).width()<700) $('.colutions__center').css({"minHeight" : "1850px"});
-      if($(document).width()<550) $('.colutions__center').css({"minHeight" : "1580px"});
-      if($(document).width()<450) $('.colutions__center').css({"minHeight" : "100px"});
+      $('.colutions__center').css({"minHeight" : heightBlock});
    });
    $('#toyota-item').on('click', function(e){
       $('html,body').stop().animate({ scrollTop: $('#colutions').offset().top }, 1000);
@@ -26,16 +18,9 @@ $( document ).ready(function() {
    
    // canon
    $('#canon-item').click(function(){
+      let heightBlock = $('#CANON-PAGE').height();
       $('#CANON-PAGE').css({"transform" : "scale(1)"});
-      $('.colutions__center').css({"minHeight" : "4320px"});
-      if($(document).width()<1600) $('.colutions__center').css({"minHeight" : "4000px"});
-      if($(document).width()<1400) $('.colutions__center').css({"minHeight" : "3620px"});
-      if($(document).width()<1200) $('.colutions__center').css({"minHeight" : "3200px"});
-      if($(document).width()<1000) $('.colutions__center').css({"minHeight" : "2600px"});
-      if($(document).width()<900) $('.colutions__center').css({"minHeight" : "2630px"});
-      if($(document).width()<700) $('.colutions__center').css({"minHeight" : "2300px"});
-      if($(document).width()<600) $('.colutions__center').css({"minHeight" : "2020px"});
-      if($(document).width()<450) $('.colutions__center').css({"minHeight" : "100px"});
+      $('.colutions__center').css({"minHeight" : heightBlock});
    });
    $('#canon-item').on('click', function(e){
       $('html,body').stop().animate({ scrollTop: $('#colutions').offset().top }, 1000);
@@ -48,16 +33,9 @@ $( document ).ready(function() {
 
    // forma
    $('#forma-item').click(function(){
+      let heightBlock = $('#FORMA-PAGE').height();
       $('#FORMA-PAGE').css({"transform" : "scale(1)"});
-      $('.colutions__center').css({"minHeight" : "2450px"});
-      if($(document).width()<1600) $('.colutions__center').css({"minHeight" : "2300px"});
-      if($(document).width()<1400) $('.colutions__center').css({"minHeight" : "2100px"});
-      if($(document).width()<1200) $('.colutions__center').css({"minHeight" : "2020px"});
-      if($(document).width()<1000) $('.colutions__center').css({"minHeight" : "1680px"});
-      if($(document).width()<900) $('.colutions__center').css({"minHeight" : "1710px"});
-      if($(document).width()<800) $('.colutions__center').css({"minHeight" : "1540px"});
-      if($(document).width()<550) $('.colutions__center').css({"minHeight" : "1500px"});
-      if($(document).width()<600) $('.colutions__center').css({"minHeight" : "800"});
+      $('.colutions__center').css({"minHeight" : heightBlock});
    });
    $('#forma-item').on('click', function(e){
       $('html,body').stop().animate({ scrollTop: $('#colutions').offset().top }, 1000);
@@ -70,17 +48,9 @@ $( document ).ready(function() {
 
    // cronos
    $('#cronos-item').click(function(){
+      let heightBlock = $('#CRONOS-PAGE').height();
       $('#CRONOS-PAGE').css({"transform" : "scale(1)"});
-      $('.colutions__center').css({"minHeight" : "4150px"});
-      if($(document).width()<1600) $('.colutions__center').css({"minHeight" : "3850px"});
-      if($(document).width()<1400) $('.colutions__center').css({"minHeight" : "3480px"});
-      if($(document).width()<1200) $('.colutions__center').css({"minHeight" : "3050px"});
-      if($(document).width()<1000) $('.colutions__center').css({"minHeight" : "2500px"});
-      if($(document).width()<900) $('.colutions__center').css({"minHeight" : "2530px"});
-      if($(document).width()<800) $('.colutions__center').css({"minHeight" : "2420px"});
-      if($(document).width()<700) $('.colutions__center').css({"minHeight" : "2200px"});
-      if($(document).width()<550) $('.colutions__center').css({"minHeight" : "1810px"});
-      if($(document).width()<450) $('.colutions__center').css({"minHeight" : "100px"});
+      $('.colutions__center').css({"minHeight" : heightBlock});
    });
    $('#cronos-item').on('click', function(e){
       $('html,body').stop().animate({ scrollTop: $('#colutions').offset().top }, 1000);
@@ -93,16 +63,9 @@ $( document ).ready(function() {
 
    // arb
    $('#ARB-item').click(function(){
+      let heightBlock = $('#ARB-PAGE').height();
       $('#ARB-PAGE').css({"transform" : "scale(1)"});
-      $('.colutions__center').css({"minHeight" : "3380px"});
-      if($(document).width()<1600) $('.colutions__center').css({"minHeight" : "3130px"});
-      if($(document).width()<1400) $('.colutions__center').css({"minHeight" : "2850px"});
-      if($(document).width()<1200) $('.colutions__center').css({"minHeight" : "2600px"});
-      if($(document).width()<1000) $('.colutions__center').css({"minHeight" : "2150px"});
-      if($(document).width()<800) $('.colutions__center').css({"minHeight" : "2420px"});
-      if($(document).width()<700) $('.colutions__center').css({"minHeight" : "1850px"});
-      if($(document).width()<550) $('.colutions__center').css({"minHeight" : "1600px"});
-      if($(document).width()<450) $('.colutions__center').css({"minHeight" : "100px"});
+      $('.colutions__center').css({"minHeight" : heightBlock});
    });
    $('#ARB-item').on('click', function(e){
       $('html,body').stop().animate({ scrollTop: $('#colutions').offset().top }, 1000);
@@ -115,15 +78,9 @@ $( document ).ready(function() {
 
    // comet
    $('#comet-item').click(function(){
+      let heightBlock = $('#COMET-PAGE').height();
       $('#COMET-PAGE').css({"transform" : "scale(1)"});
-      $('.colutions__center').css({"minHeight" : "2550px"});
-      if($(document).width()<1600) $('.colutions__center').css({"minHeight" : "2400px"});
-      if($(document).width()<1400) $('.colutions__center').css({"minHeight" : "2180px"});
-      if($(document).width()<1200) $('.colutions__center').css({"minHeight" : "2100px"});
-      if($(document).width()<1000) $('.colutions__center').css({"minHeight" : "1720px"});
-      if($(document).width()<800) $('.colutions__center').css({"minHeight" : "1600px"});
-      if($(document).width()<600) $('.colutions__center').css({"minHeight" : "1340px"});
-      if($(document).width()<450) $('.colutions__center').css({"minHeight" : "100px"});
+      $('.colutions__center').css({"minHeight" : heightBlock});
    });
    $('#comet-item').on('click', function(e){
       $('html,body').stop().animate({ scrollTop: $('#colutions').offset().top }, 1000);
@@ -136,15 +93,9 @@ $( document ).ready(function() {
 
    // bebrand
    $('#bebrand-item').click(function(){
+      let heightBlock = $('#BEBRAND-PAGE').height();
       $('#BEBRAND-PAGE').css({"transform" : "scale(1)"});
-      $('.colutions__center').css({"minHeight" : "2650px"});
-      if($(document).width()<1600) $('.colutions__center').css({"minHeight" : "2500px"});
-      if($(document).width()<1400) $('.colutions__center').css({"minHeight" : "2280px"});
-      if($(document).width()<1200) $('.colutions__center').css({"minHeight" : "2150px"});
-      if($(document).width()<1000) $('.colutions__center').css({"minHeight" : "1780px"});
-      if($(document).width()<800) $('.colutions__center').css({"minHeight" : "1650px"});
-      if($(document).width()<600) $('.colutions__center').css({"minHeight" : "1370px"});
-      if($(document).width()<450) $('.colutions__center').css({"minHeight" : "100px"});
+      $('.colutions__center').css({"minHeight" : heightBlock});
    });
    $('#bebrand-item').on('click', function(e){
       $('html,body').stop().animate({ scrollTop: $('#colutions').offset().top }, 1000);
@@ -157,15 +108,9 @@ $( document ).ready(function() {
 
    // bsk
    $('#BSK-item').click(function(){
+      let heightBlock = $('#BSK-PAGE').height();
       $('#BSK-PAGE').css({"transform" : "scale(1)"});
-      $('.colutions__center').css({"minHeight" : "2450px"});
-      if($(document).width()<1600) $('.colutions__center').css({"minHeight" : "2300px"});
-      if($(document).width()<1400) $('.colutions__center').css({"minHeight" : "2100px"});
-      if($(document).width()<1200) $('.colutions__center').css({"minHeight" : "2000px"});
-      if($(document).width()<1000) $('.colutions__center').css({"minHeight" : "1670px"});
-      if($(document).width()<800) $('.colutions__center').css({"minHeight" : "1520px"});
-      if($(document).width()<600) $('.colutions__center').css({"minHeight" : "1280px"});
-      if($(document).width()<450) $('.colutions__center').css({"minHeight" : "100px"});
+      $('.colutions__center').css({"minHeight" : heightBlock});
    });
    $('#BSK-item').on('click', function(e){
       $('html,body').stop().animate({ scrollTop: $('#colutions').offset().top }, 1000);
@@ -178,15 +123,9 @@ $( document ).ready(function() {
 
    // rmh
    $('#RMH-item').click(function(){
+      let heightBlock = $('#RMH-PAGE').height();
       $('#RMH-PAGE').css({"transform" : "scale(1)"});
-      $('.colutions__center').css({"minHeight" : "3280px"});
-      if($(document).width()<1600) $('.colutions__center').css({"minHeight" : "3050px"});
-      if($(document).width()<1400) $('.colutions__center').css({"minHeight" : "2790px"});
-      if($(document).width()<1200) $('.colutions__center').css({"minHeight" : "2550px"});
-      if($(document).width()<1000) $('.colutions__center').css({"minHeight" : "2080px"});
-      if($(document).width()<800) $('.colutions__center').css({"minHeight" : "1970px"});
-      if($(document).width()<600) $('.colutions__center').css({"minHeight" : "1600px"});
-      if($(document).width()<450) $('.colutions__center').css({"minHeight" : "100px"});
+      $('.colutions__center').css({"minHeight" : heightBlock});
    });
    $('#RMH-item').on('click', function(e){
       $('html,body').stop().animate({ scrollTop: $('#colutions').offset().top }, 1000);
@@ -199,15 +138,9 @@ $( document ).ready(function() {
 
    // business
    $('#BUSINESS-item').click(function(){
+      let heightBlock = $('#BUSINESS-PAGE').height();
       $('#BUSINESS-PAGE').css({"transform" : "scale(1)"});
-      $('.colutions__center').css({"minHeight" : "3650px"});
-      if($(document).width()<1600) $('.colutions__center').css({"minHeight" : "3400px"});
-      if($(document).width()<1400) $('.colutions__center').css({"minHeight" : "3080px"});
-      if($(document).width()<1200) $('.colutions__center').css({"minHeight" : "2780px"});
-      if($(document).width()<1000) $('.colutions__center').css({"minHeight" : "2260px"});
-      if($(document).width()<800) $('.colutions__center').css({"minHeight" : "2180px"});
-      if($(document).width()<600) $('.colutions__center').css({"minHeight" : "1750px"});
-      if($(document).width()<450) $('.colutions__center').css({"minHeight" : "100px"});
+      $('.colutions__center').css({"minHeight" : heightBlock});
    });
    $('#BUSINESS-item').on('click', function(e){
       $('html,body').stop().animate({ scrollTop: $('#colutions').offset().top }, 1000);
@@ -220,9 +153,9 @@ $( document ).ready(function() {
 
    // circus
    $('#circus-item').click(function(){
+      let heightBlock = $('#CIRCUS-PAGE').height();
       $('#CIRCUS-PAGE').css({"transform" : "scale(1)"});
-      $('.colutions__center').css({"minHeight" : "2500px"});
-      if($(document).width()<450) $('.colutions__center').css({"minHeight" : "100px"});
+      $('.colutions__center').css({"minHeight" : heightBlock});
    });
    $('#circus-item').on('click', function(e){
       $('html,body').stop().animate({ scrollTop: $('#colutions').offset().top }, 1000);
@@ -235,9 +168,9 @@ $( document ).ready(function() {
 
    // evita
    $('#evita-item').click(function(){
+      let heightBlock = $('#EVITA-PAGE').height();
       $('#EVITA-PAGE').css({"transform" : "scale(1)"});
-      $('.colutions__center').css({"minHeight" : "4300px"});
-      if($(document).width()<450) $('.colutions__center').css({"minHeight" : "100px"});
+      $('.colutions__center').css({"minHeight" : heightBlock});
    });
    $('#evita-item').on('click', function(e){
       $('html,body').stop().animate({ scrollTop: $('#colutions').offset().top }, 1000);
