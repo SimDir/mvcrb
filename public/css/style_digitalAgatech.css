@@ -1612,7 +1612,6 @@
 
 
 
-
 /* ACHIEVEMENTS */
 .digitalAgatechBGC-other {
    position: absolute;
@@ -1952,7 +1951,6 @@
    }
 }
 
-
 #contactMoscow, #contactLiny, #contactVilnus {
    display: none;
    width: 100%;
@@ -2275,6 +2273,7 @@
 }
 
 
+
 /* FILES */
 .files_bgc {
    background-color: #E5E5E5;
@@ -2296,7 +2295,7 @@
    justify-content: flex-start;
    align-items: center;
    background-color: #F4F4F4;
-   box-shadow: 10px 10px 10px #444;
+   box-shadow: 10px 10px 10px #888;
    padding: 50px;
    height: 1000px;
    position: relative;
@@ -2317,14 +2316,11 @@
    font-size: 18px;
    line-height: 18px;
    text-transform: uppercase;
+   font-family: 'Helvetica Neue Cyr Roman';
 }
 .files__agatech-menu li:hover {
    text-decoration: underline;
 }
-
-
-
-
 .files__agatech_content {
    width: 90%;
    margin: 0 auto;
@@ -2349,6 +2345,7 @@
    line-height: 30px;
    color: #626779;
    margin-bottom: 60px;
+   font-family: 'Helvetica Neue Cyr Roman';
 }
 .files_row {
    width: 100%;
@@ -2359,25 +2356,32 @@
 }
 .files_row-document {
    flex-basis: 10%;
-   height: 100px;
-}
-.files_row-document img {
-   height: 100px;
-   width: 90px;
-}
-.files_row-document-logo {
-   flex-basis: 10%;
-   height: 100px;
+   height: 90px;
    display: flex;
    justify-content: center;
    align-items: center;
-   background-color: #CACACA;
+   border-radius: 40%;
+   overflow: hidden;
+   border: 3px solid #BFA082;;
+}
+.files_row-document img {
+   height: 100%;
+   width: 100%;
+}
+.files_row-document-logo {
+   flex-basis: 10%;
+   height: 90px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 40%;
+   overflow: hidden;
+   border: 3px solid #BFA082;
+   background-color: rgba(191,160,130, .8);
 }
 .files_row-document-logo img {
-   width: 90px;
+   width: 100%;
 }
-
-
 .line_border {
    flex-basis: 77%;
    border-bottom: 1px solid #CCD0DF;
@@ -2391,9 +2395,8 @@
    color: #626779;
    margin: 0;
    overflow: hidden;
+   font-family: 'Helvetica Neue Cyr Roman';
 }
-
-
 .files_row-download {
    text-decoration: none;
    cursor: pointer;
@@ -2405,4 +2408,231 @@
 .files_row-download  img {
    width: 30px;
    height: 30px;
+}
+
+@media(max-width: 1400px) {
+    .files {
+      margin: 40px auto 130px;
+   }
+   .files__agatech {
+      width: 800px;
+      box-shadow: 8px 8px 8px #888;
+      padding: 40px;
+      height: 800px;
+   } 
+   .files__agatech-menu {
+      margin-top: 15px;
+      margin-bottom: 15px;
+   }
+   .files__agatech-menu li {
+      padding: 25px;
+      font-size: 16px;
+      line-height: 16px;
+   }
+   .files__agatech_content {
+      margin-bottom: 25px;
+      top: 160px;
+   }
+   .files__agatech_content h6 {
+      font-size: 28px;
+      line-height: 28px;
+      margin-bottom: 50px;
+   }
+   .files_row {
+      margin-bottom: 25px;
+   }
+   .files_row-document {
+      height: 75px;
+      border: 2px solid #BFA082;
+   }
+   .files_row-document-logo {
+      height: 75px;
+      border: 2px solid #BFA082;
+   }
+   .line_border p {
+      font-size: 16px;
+      line-height: 18px;
+   }
+   .files_row-download  img {
+      width: 25px;
+      height: 25px;
+   }
+}
+@media(max-width: 1000px) {
+   .files {
+     margin: 30px auto 110px;
+  }
+  .files__agatech {
+     width: 650px;
+     box-shadow: 6px 6px 6px #888;
+     padding: 30px;
+     height: 650px;
+  } 
+  .files__agatech-menu {
+     margin-top: 10px;
+     margin-bottom: 10px;
+  }
+  .files__agatech-menu li {
+     padding: 15px;
+     font-size: 14px;
+     line-height: 14px;
+  }
+  .files__agatech_content {
+     margin-bottom: 20px;
+     top: 120px;
+  }
+  .files__agatech_content h6 {
+     font-size: 24px;
+     line-height: 24px;
+     margin-bottom: 40px;
+  }
+  .files_row {
+     margin-bottom: 20px;
+  }
+  .files_row-document {
+     height: 60px;
+     border: 2px solid #BFA082;
+  }
+  .files_row-document-logo {
+     height: 60px;
+     border: 2px solid #BFA082;
+  }
+  .line_border p {
+     font-size: 14px;
+     line-height: 16px;
+  }
+  .files_row-download  img {
+     width: 20px;
+     height: 20px;
+  }
+}
+@media(max-width: 800px) {
+   .files {
+     margin: 30px auto 90px;
+  }
+  .files__agatech {
+     width: 90%;
+     box-shadow: 5px 5px 5px #888;
+     padding: 20px;
+     height: 550px; 
+  } 
+  .files__agatech-menu {
+     margin-top: 5px;
+     margin-bottom: 5px;
+  }
+  .files__agatech-menu li {
+     padding: 10px;
+     font-size: 12px;
+     line-height: 12px;
+  }
+  .files__agatech_content {
+     margin-bottom: 15px;
+     top: 80px;
+  }
+  .files__agatech_content h6 {
+     font-size: 22px;
+     line-height: 22px;
+     margin-bottom: 30px;
+  }
+  .files_row {
+     margin-bottom: 15px;
+  }
+  .files_row-document {
+     flex-basis: 60px;
+     height: 60px;
+     border: 2px solid #BFA082;
+  }
+  .files_row-document-logo {
+     flex-basis: 60px;
+     height: 60px;
+     border: 2px solid #BFA082;
+  }
+  .line_border p {
+     font-size: 12px;
+     line-height: 14px;
+  }
+}
+@media(max-width: 600px) {
+   .files {
+     margin: 30px auto 90px;
+  }
+  .files__agatech {
+     padding: 15px;
+     height: 450px; 
+  } 
+  .files__agatech-menu li {
+     padding: 5px;
+     font-size: 10px;
+     line-height: 12px;
+  }
+  .files__agatech_content {
+     margin-bottom: 10px;
+     top: 65px;
+  }
+  .files__agatech_content h6 {
+     font-size: 20px;
+     line-height: 20px;
+     margin-bottom: 20px;
+  }
+  .files_row-document {
+     flex-basis: 50px;
+     height: 50px;
+     border: 1px solid #BFA082;
+  }
+  .files_row-document-logo {
+     flex-basis: 50px;
+     height: 50px;
+     border: 1px solid #BFA082;
+  }
+  .line_border p {
+     font-size: 10px;
+     line-height: 12px;
+  }
+   .files_row-download  img {
+     width: 17px;
+     height: 17px;
+  } 
+}
+@media(max-width: 400px) {
+   .files {
+     margin: 25px auto 70px;
+  }
+  .files__agatech {
+     box-shadow: 4px 4px 4px #888;
+     padding: 10px;
+     height: 400px; 
+  } 
+  .files__agatech-menu  {
+      flex-wrap: wrap;
+   }  
+  .files__agatech-menu li {
+     padding: 5px;
+     font-size: 9px;
+     line-height: 11px;
+  }
+  .files__agatech_content {
+     margin-bottom: 10px;
+     top: 65px;
+  }
+  .files__agatech_content h6 {
+     font-size: 18px;
+     line-height: 18px;
+     margin-bottom: 15px;
+  }
+  .files_row-document {
+     flex-basis: 40px;
+     height: 40px;
+  }
+  .files_row-document-logo {
+     flex-basis: 40px;
+     height: 40px;
+  }
+  .line_border p {
+     font-size: 9px;
+     line-height: 11px;
+  }
+   .files_row-download  img {
+     width: 15px;
+     height: 15px;
+  } 
 }
