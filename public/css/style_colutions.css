@@ -218,7 +218,6 @@
    width: 1250px;
    margin: 50px auto 100px;
    display: flex;
-
    flex-direction: row;
    flex-wrap: wrap;
    justify-content: flex-start;

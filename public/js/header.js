@@ -28,14 +28,6 @@ $( document ).ready(function() {
     });
     
 
-
-    
-    // if (window.location.pathname == '/page/Products.html') {
-    //     $("header").css({'background':'#333'});
-    // }
-    // if (window.location.pathname == '/page/Colutions.html') {
-    //     $("header").css({'background':'#333'});
-    // }
     
     $(window).scroll(function() {
         var top = $(this).scrollTop();

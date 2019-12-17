@@ -1,0 +1,230 @@
+
+.colutions-promotion__center_block_item {
+   width: 280px;
+   height: 210px;
+   margin: 16px;
+   position: relative;
+   transition: transform .7s, filter .7s;
+   filter: grayscale(100%);
+   background-size: cover;
+   background-position: center;
+   z-index: 1;
+   cursor: pointer;
+}
+.colutions-promotion__center_block_item:nth-child(1) {
+   background-image: url(../img/colutions/promoion/specauto.png);
+}
+.colutions-promotion__center_block_item:nth-child(2) {
+   background-image: url(../img/colutions/promoion/dantist.png);
+}
+.colutions-promotion__center_block_item:nth-child(3) {
+   background-image: url(../img/colutions/promoion/dilav.png);
+}
+.colutions-promotion__center_block_item:nth-child(4) {
+   background-image: url(../img/colutions/promoion/fullservice.png);
+}
+.colutions-promotion__center_block_item:nth-child(5) {
+   background-image: url(../img/colutions/promoion/fkm.png);
+}
+.colutions-promotion__center_block_item:nth-child(6) {
+   background-image: url(../img/colutions/promoion/goal.png);
+}
+.colutions-promotion__center_block_item:nth-child(7) {
+   background-image: url(../img/colutions/promoion/vizcenter.png);
+}
+.colutions-promotion__center_block_item:hover {
+   filter: grayscale(0%);
+}
+.colutions-promotion__center_block_item:hover .colutions_circle {
+   transform: scale(1);
+}
+.colutions-promotion__center_block_item:hover .colutions_border {
+   transform: scale(1);
+}
+.colutions-promotion__center_block_item:hover .colutions_arrow  {
+   transform: translateY(0px);
+   visibility: visible;
+}
+
+
+.container-promotion-page {
+   position: absolute;
+   top: 100px;
+   right: 0;
+   width: 1200px;
+   background-color: #ffffff;
+   z-index: 1;
+   box-shadow: -2px -2px 20px #81736c;
+   padding: 50px 100px;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   transform: scale(1);
+   transition: transform 1s;
+}
+.container-page__back-btn {
+   position: absolute;
+   background-color: #8CB0E4;
+   width: 70px;
+   height: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   left: 0;
+   cursor: pointer;
+}
+.container-page__back-btn img {
+   transform: rotate(180deg);
+   width: 40px;
+}
+.container-promotion-page__title {
+   color: #56698f;
+   font-size: 41px;
+   line-height: 41px;
+   font-weight: bold;
+   margin-bottom: 30px
+}
+.container-promotion-page__header {
+   width: 100%;
+}
+.container-promotion-page__header img {
+   width: 100%;
+}
+.container-promotion-page__content-top {
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
+}
+.container-promotion-page__content-top--left {
+   flex-basis: 65%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: flex-start;
+   padding: 20px 0;
+}
+.container-promotion-page__content-top--left p{
+   font-family: 'Helvetica Neue Cyr Roman';
+   font-size: 18px;
+   line-height: 28px;
+   color: #626779;
+   margin-bottom: 25px;
+}
+.container-promotion-page__content-top--left a {
+   font-family: 'Helvetica Neue Cyr Roman';
+   color: #56698f;
+   font-size: 14px;
+   line-height: 14px;
+}
+.container-promotion-page__content-top--right {
+   flex-basis: 25%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: flex-start;
+   padding: 20px 0;
+}
+.container-promotion-page__content-top--right p {
+   font-family: 'Helvetica Neue Cyr Roman';
+   font-size: 18px;
+   line-height: 18px;
+   margin-bottom: 10px;
+   color: #626779;
+}
+.container-promotion-page__content-top--right span {
+   font-family: 'Helvetica Neue Cyr Roman';
+   font-size: 36px;
+   line-height: 28px;
+   color: #626779;
+}
+
+.container-promotion-page__content-center {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 40px;
+}
+.container-promotion-page__content-center--left {
+   flex-basis: 39%;
+   padding: 20px 0;
+}
+.container-promotion-page__content-center--right {
+   flex-basis: 59%;
+   padding: 20px 0;
+}
+.container-promotion-page__content-center--title {
+   font-family: 'Helvetica Neue Cyr Roman';
+   font-weight: bold;
+   font-size: 18px;
+   line-height: 18px;
+   color: #626779;
+   margin-bottom: 10px;
+}
+.container-promotion-page__content-center--text {
+   font-family: 'Helvetica Neue Cyr Roman';
+   font-size: 14px;
+   line-height: 28px;
+   color: #626779;
+}
+.container-promotion-page__content-center--undertitle {
+   font-family: 'Helvetica Neue Cyr Roman';
+   font-size: 14px;
+   line-height: 14px;
+   color: #626779;
+   margin-bottom: 30px;
+}
+
+.container-promotion-page__content-bottom {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 40px;
+}
+.container-promotion-page__content-bottom--left {
+   flex-basis: 39%;
+   padding: 20px 0;
+   display: flex;
+}
+.container-promotion-page__content-bottom--item {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 0px 30px 0px 0px;
+}
+.item-left__number {
+   font-size: 96px;
+   line-height: 96px;
+   color: #4A79BD;
+   font-family: 'Helvetica Neue Cyr Roman';
+}
+.item-left__text {
+   font-size: 18px;
+   line-height: 18px;
+   color: #4A79BD;
+   font-family: 'Helvetica Neue Cyr Roman';
+}
+.container-promotion-page__content-bottom--right {
+   flex-basis: 59%;
+   padding: 20px 0;
+   display: flex;
+}
+.item-right__number {
+   font-size: 48px;
+   line-height: 48px;
+   color: #4A79BD;
+   font-family: 'Helvetica Neue Cyr Roman';
+}
+.item-right__text {
+   font-size: 18px;
+   line-height: 20px;
+   color: #4A79BD;
+   font-family: 'Helvetica Neue Cyr Roman';
+}
+
+.container-promotion-page__footer-text {
+   font-size: 14px;
+   line-height: 14px;
+   color: #4A79BD;
+   font-family: 'Helvetica Neue Cyr Roman';
+}
+

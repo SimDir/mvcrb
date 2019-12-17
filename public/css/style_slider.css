@@ -362,7 +362,6 @@
       line-height: 14px;
       font-weight: bold;
    }
-   
    .mobile-slider__bottom {
       display: none;
       flex-direction: column;
@@ -370,6 +369,7 @@
       align-items: flex-start;
       width: 80%;
       margin: 0 auto;
+
    }
 
    .mobile-slider__icons_container {
