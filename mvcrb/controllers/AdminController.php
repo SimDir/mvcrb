@@ -96,9 +96,13 @@ class AdminController extends Controller {
         $page = new PageModel();
         return ['success' => true, 'id' => $page->Add($PostData)];
     }
+    public function EditpageAction($id) {
+        $PostData = json_decode($this->REQUEST, true);
+        $page = new PageModel();
+        return ['success' => true, 'id' => $page->Edit($PostData,$id)];
+    }
 
     public function PagesAction() {
-//        $this->View->AddJs('https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js');
 
         $this->View->admincontent = $this->View->execute('pages.html');
         $this->View->content = $this->View->execute('AdminWraper.html');
