@@ -460,13 +460,13 @@
    .mobile-slider__circle_text1,
    .mobile-slider__circle_text2,
    .mobile-slider__circle_text3 {
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
    }
    .mobile-slider__circle_text1::after,
    .mobile-slider__circle_text2::after,
    .mobile-slider__circle_text3::after {
-      width: 65%;
+      width: 63%;
       font-size: 10px;
       line-height: 10px;
    }
