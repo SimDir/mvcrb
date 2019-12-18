@@ -1,406 +1,371 @@
-<div id="configurator">
-
+<{ Addcss(/public/css/style_configurator.css) }>
+<div class="configurator" id="configurator">
+    
     <!--<button @click="CreateOrder" type="button" class="btn btn-green" >test</button>-->
-    <div v-if="step==1">
-        <div class="text-center">
-            <h2>Тип сайта</h2>
-            <p>В первую очередь Вы должны определится, с какой целью Вам нужен сайт и выбрать соответствующий тип сайта.В зависимости от Вашего выбора, будут подобраны соответствующие модули.</p>
+        <div v-if="step==1" class="configurator-wrap">
+            <div class="configurator-wrap__header">
+                <a href="#">
+                    <img src="/public/img/configurator/logo.svg" alt="logo" class="configurator-wrap__header-img">
+                </a>
+                <div class="configurator-wrap__header-title">
+                    <h2>Выберите тип сайта</h2>
+                    <img src="/public/img/configurator/enter.svg" alt="enter">
+                </div>
+                
+                <div class="configurator-wrap__header-numpage">
+                    <p>Шаг {{step}} из {{MaxStep}}</p>
+                </div>
+            </div>
+            <!-- configurator-wrap__header -->
+
+            <div class="configurator-wrap__content">
+                <div v-for="(option, index) in SiteTypArray" v-on:click="SetSiteTyp(option)" class="configurator-wrap__content-item">
+                    <img v-bind:src="option.img">
+                    <p>{{option.text}}</p>
+                </div>
+            </div>
+            <!-- configurator-wrap__content -->
+
+            <div v-if="step>=1 && step<MaxStep" class="configurator-wrap__bottom">
+                <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
+                    Назад
+                    
+                </button>
+                <span v-if="totalprice>0">Цена {{totalprice}} Руб.</span>
+                <button v-if="step<MaxStep-1" @click="next" type="button" class="btn btn-green" >Далее</button>
+                <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="btn btn-green" >Далее</button>
+            </div>
+            <!-- configurator-wrap__bottom -->
+
         </div>
-        <div class="d-flex flex-wrap bd-highlight mb-3 justify-content-center">
-            <div style="width: 400px;cursor:pointer;" class="bd-highlight mx-2 mt-3 hoverable" v-for="(option, index) in SiteTypArray" v-on:click="SetSiteTyp(option)">
-                <div style="height:300px;cursor:pointer;" class="view overlay">
-                    <img class="img-fluid" v-bind:src="option.img">
-                    <div class="mask rgba-black-strong">
-                        <div class="d-flex align-items-center bd-highlight mb-3">
-                            <div class="p-2 bd-highlight">
-                                <div class="align-items-center white-text">{{ option.desk }}</div>
+        <!-- configurator-wrap -->
+
+        <div v-if="step==2">
+            <div class="text-center">
+                <h2>Выбор движка</h2>
+                <p>CMS (в народе называют движком) – система управления контентом сайта. Это костяк, на котором все строится. От движка зависит удобство наполнения сайта, его «дружелюбность» для поискового продвижения, возможность подключения дополнительных сервисов.</p>
+            </div>
+            <div class="d-flex flex-wrap bd-highlight mb-3 justify-content-center">
+                <div style="width: 400px;cursor:pointer;" class="bd-highlight mx-2 mt-3 hoverable" v-for="option in EnginePriceArray" v-on:click="SetEngineTyp(option)">
+                    <div style="height:300px;cursor:pointer;" class="view overlay">
+                        <img class="img-fluid" v-bind:src="option.img">
+                        <div class="mask rgba-black-strong">
+                            <div class="d-flex align-items-center bd-highlight mb-3">
+                                <div class="p-2 bd-highlight">
+                                    <div class="align-items-center white-text">{{ option.desk }}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card-body text-center">
-                    
-                        
-                    <span>{{option.text}}</span>
-                    
-                    <h5>за {{option.sum}} рублей</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div v-if="step==2">
-        <div class="text-center">
-            <h2>Выбор движка</h2>
-            <p>CMS (в народе называют движком) – система управления контентом сайта. Это костяк, на котором все строится. От движка зависит удобство наполнения сайта, его «дружелюбность» для поискового продвижения, возможность подключения дополнительных сервисов.</p>
-        </div>
-         <div class="d-flex flex-wrap bd-highlight mb-3 justify-content-center">
-            <div style="width: 400px;cursor:pointer;" class="bd-highlight mx-2 mt-3 hoverable" v-for="option in EnginePriceArray" v-on:click="SetEngineTyp(option)">
-                <div style="height:300px;cursor:pointer;" class="view overlay">
-                    <img class="img-fluid" v-bind:src="option.img">
-                    <div class="mask rgba-black-strong">
-                        <div class="d-flex align-items-center bd-highlight mb-3">
-                            <div class="p-2 bd-highlight">
-                                <div class="align-items-center white-text">{{ option.desk }}</div>
-                            </div>
-                        </div>
+                    <div class="card-body text-center">
+                        <span>{{option.text}}</span>
+                        <h5>за {{option.sum}} рублей</h5>
                     </div>
                 </div>
-                <div class="card-body text-center">
-                    <span>{{option.text}}</span>
-                    <h5>за {{option.sum}} рублей</h5>
+            </div>
+
+        </div>
+
+        <div v-if="step==3">
+            <div class="text-center">
+                <h2>Перечень страниц для выбора</h2>
+                <p>Дополнительные страницы позволяют расширять функционал Вашего сайта. В зависимости от типа сайта подбираются соответствующие страницы. Но даже на корпоративный сайт никто не мешает установить блог или каталог товаров.</p>
+            </div>
+            <div class="d-flex d-flex justify-content-around bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                    <p class="text-success">Базовые страницы (входят в стимость)</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="basehederMenu" v-model="bStep3" value="basehederMenu">
+                                <label class="custom-control-label" for="basehederMenu">Шапка(меню,контент,сайдбар)</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="baseNewsSalers" v-model="bStep3" value="baseNewsSalers">
+                                <label class="custom-control-label" for="baseNewsSalers">Новости, Акции</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="baseProdukt" v-model="bStep3" value="baseProdukt">
+                                <label class="custom-control-label" for="baseProdukt">О товаре, Услугах</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="baseKompany" v-model="bStep3" value="baseKompany">
+                                <label class="custom-control-label" for="baseKompany">О компании</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="baseKoments" v-model="bStep3" value="baseKoments">
+                                <label class="custom-control-label" for="baseKoments">Отзывы</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="baseKatalog" v-model="bStep3" value="baseKatalog">
+                                <label class="custom-control-label" for="baseKatalog">Каталог (до 10) товаров</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="p-2 mt-5 bd-highlight">
+                    <div class="d-flex align-items-center mt-5 text-muted">Шаг {{ step }} из {{MaxStep}}</div>
+                    
+                </div>
+                <div class="p-2 bd-highlight">
+                    <p class="text-success">Дополнительные страницы</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopWorkers" v-model.number="Step3" value="1000">
+                                <label class="custom-control-label" for="DopWorkers">Комманда, сотрудники</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopFilials" v-model.number="Step3" value="1050">
+                                <label class="custom-control-label" for="DopFilials">Филиалы</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopWorksHH" v-model.number="Step3" value="2500">
+                                <label class="custom-control-label" for="DopWorksHH">Вакансии (API c HH)</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopWorksEXEL" v-model.number="Step3" value="1550">
+                                <label class="custom-control-label" for="DopWorksEXEL">Вакансии (с управлением exel-файл)</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopKatalog" v-model.number="Step3" value="3500">
+                                <label class="custom-control-label" for="DopKatalog">Каталог (до 100) товаров</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopUnikPage" v-model.number="Step3" value="5000">
+                                <label class="custom-control-label" for="DopUnikPage">Уникальная страница</label>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-    </div>
+        <div v-if="step==4">
+            <div class="text-center">
+                <h2>Дизайн</h2>
+                <p>Каждый из дизайн-проектов компании AGATECH - уникальны! Мы работаем с адаптивной версткой. Стоимость разработки макета может отличаться в зависимости от сложности проекта. Количество правок к согласованному макету предложенных заказчиком в процессе создания, увеличивает его стоимость.</p>
+            </div>
+            <div class="d-flex justify-content-around bd-highlight mb-3">
+                <div class="p-2 bd-highlight col-example">
+                    <p class="text-success">Базовые услуги (входят в стимость)</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="baseServicPrototyp" v-model="bStep4" value="baseServicPrototyp">
+                                <label class="custom-control-label" for="baseServicPrototyp">Разработка прототипов страниц проекта</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="baseServicStyles" v-model="bStep4" value="baseServicStyles">
+                                <label class="custom-control-label" for="baseServicStyles">Создание карточки стилей пректа</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="baseServicDesine" v-model="bStep4" value="baseServicDesine">
+                                <label class="custom-control-label" for="baseServicDesine">Создание дизайн концепции проекта</label>
+                            </div>
+                        </li>
 
-    <div v-if="step==3">
-        <div class="text-center">
-            <h2>Перечень страниц для выбора</h2>
-            <p>Дополнительные страницы позволяют расширять функционал Вашего сайта. В зависимости от типа сайта подбираются соответствующие страницы. Но даже на корпоративный сайт никто не мешает установить блог или каталог товаров.</p>
-        </div>
-        <div class="d-flex d-flex justify-content-around bd-highlight mb-3">
-            <div class="p-2 bd-highlight">
-                <p class="text-success">Базовые страницы (входят в стимость)</p>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="basehederMenu" v-model="bStep3" value="basehederMenu">
-                            <label class="custom-control-label" for="basehederMenu">Шапка(меню,контент,сайдбар)</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="baseNewsSalers" v-model="bStep3" value="baseNewsSalers">
-                            <label class="custom-control-label" for="baseNewsSalers">Новости, Акции</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="baseProdukt" v-model="bStep3" value="baseProdukt">
-                            <label class="custom-control-label" for="baseProdukt">О товаре, Услугах</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="baseKompany" v-model="bStep3" value="baseKompany">
-                            <label class="custom-control-label" for="baseKompany">О компании</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="baseKoments" v-model="bStep3" value="baseKoments">
-                            <label class="custom-control-label" for="baseKoments">Отзывы</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="baseKatalog" v-model="bStep3" value="baseKatalog">
-                            <label class="custom-control-label" for="baseKatalog">Каталог (до 10) товаров</label>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="p-2 mt-5 bd-highlight">
-                <div class="d-flex align-items-center mt-5 text-muted">Шаг {{ step }} из {{MaxStep}}</div>
-                
-            </div>
-            <div class="p-2 bd-highlight">
-                <p class="text-success">Дополнительные страницы</p>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="DopWorkers" v-model.number="Step3" value="1000">
-                            <label class="custom-control-label" for="DopWorkers">Комманда, сотрудники</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="DopFilials" v-model.number="Step3" value="1050">
-                            <label class="custom-control-label" for="DopFilials">Филиалы</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="DopWorksHH" v-model.number="Step3" value="2500">
-                            <label class="custom-control-label" for="DopWorksHH">Вакансии (API c HH)</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="DopWorksEXEL" v-model.number="Step3" value="1550">
-                            <label class="custom-control-label" for="DopWorksEXEL">Вакансии (с управлением exel-файл)</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="DopKatalog" v-model.number="Step3" value="3500">
-                            <label class="custom-control-label" for="DopKatalog">Каталог (до 100) товаров</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="DopUnikPage" v-model.number="Step3" value="5000">
-                            <label class="custom-control-label" for="DopUnikPage">Уникальная страница</label>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div v-if="step==4">
-        <div class="text-center">
-            <h2>Дизайн</h2>
-            <p>Каждый из дизайн-проектов компании AGATECH - уникальны! Мы работаем с адаптивной версткой. Стоимость разработки макета может отличаться в зависимости от сложности проекта. Количество правок к согласованному макету предложенных заказчиком в процессе создания, увеличивает его стоимость.</p>
-        </div>
-        <div class="d-flex justify-content-around bd-highlight mb-3">
-            <div class="p-2 bd-highlight col-example">
-                <p class="text-success">Базовые услуги (входят в стимость)</p>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="baseServicPrototyp" v-model="bStep4" value="baseServicPrototyp">
-                            <label class="custom-control-label" for="baseServicPrototyp">Разработка прототипов страниц проекта</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="baseServicStyles" v-model="bStep4" value="baseServicStyles">
-                            <label class="custom-control-label" for="baseServicStyles">Создание карточки стилей пректа</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="baseServicDesine" v-model="bStep4" value="baseServicDesine">
-                            <label class="custom-control-label" for="baseServicDesine">Создание дизайн концепции проекта</label>
-                        </div>
-                    </li>
-
-                </ul>
-            </div>
-            <div class="p-2 mt-5 bd-highlight">
-                <div class="d-flex align-items-center mt-5 text-muted">Шаг {{ step }} из {{MaxStep}}</div>
-                
-            </div>
-            <div class="p-2 bd-highlight col-example">
-                <p class="text-success">Дополнительные услуги</p>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="DopServecLogoKompany" v-model.number="Step4" value="7500">
-                            <label class="custom-control-label" for="DopServecLogoKompany">Разработка логотипа и фирменного стиля</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="DopServecSliders" v-model.number="DopServecSliders" value="1500">
-                            <label class="custom-control-label" for="DopServecSliders">Разработка слайдов акции</label>
-                        </div>
-                        <div v-if="DopServecSliders" class="input-group mb-3 pt-2">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon3">Количество</span>
+                    </ul>
+                </div>
+                <div class="p-2 mt-5 bd-highlight">
+                    <div class="d-flex align-items-center mt-5 text-muted">Шаг {{ step }} из {{MaxStep}}</div>
+                    
+                </div>
+                <div class="p-2 bd-highlight col-example">
+                    <p class="text-success">Дополнительные услуги</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopServecLogoKompany" v-model.number="Step4" value="7500">
+                                <label class="custom-control-label" for="DopServecLogoKompany">Разработка логотипа и фирменного стиля</label>
                             </div>
-                            <input type="number" min="1" max="99" class="form-control" v-model.number="DopServecSlidersCount">
-                            <div class="input-group-append">
-                                <span class="input-group-text">штук</span>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopServecSliders" v-model.number="DopServecSliders" value="1500">
+                                <label class="custom-control-label" for="DopServecSliders">Разработка слайдов акции</label>
                             </div>
-                        </div>
-                        
-                        
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="DopServecBtnCreate" v-model.number="Step4" value="1300">
-                            <label class="custom-control-label" for="DopServecBtnCreate">Разработка набора кнопок</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="DopServecPictureDev" v-model.number="DopServecPictureDev" value="1600">
-                            <label class="custom-control-label" for="DopServecPictureDev">Обработка изображений</label>
-                        </div>
-                        <div v-if="DopServecPictureDev" class="input-group mb-3 pt-2">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon3">Количество</span>
+                            <div v-if="DopServecSliders" class="input-group mb-3 pt-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon3">Количество</span>
+                                </div>
+                                <input type="number" min="1" max="99" class="form-control" v-model.number="DopServecSlidersCount">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">штук</span>
+                                </div>
                             </div>
-                            <input id="DopServecPictureDevCount" type="number" min="1" max="99" class="form-control" v-model.number="DopServecPictureDevCount">
-                            <div class="input-group-append">
-                                <span class="input-group-text">штук</span>
-                            </div>
-                        </div>
-                           
                             
-                        
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="DopServecPresent" v-model.number="Step4" value="50000">
-                            <label class="custom-control-label" for="DopServecPresent">Разработка презентации</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="DopServecBrandBook" v-model.number="Step4" value="60000">
-                            <label class="custom-control-label" for="DopServecBrandBook">Разработка брендбука</label>
-                        </div>
-                    </li>
-                </ul>
+                            
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopServecBtnCreate" v-model.number="Step4" value="1300">
+                                <label class="custom-control-label" for="DopServecBtnCreate">Разработка набора кнопок</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopServecPictureDev" v-model.number="DopServecPictureDev" value="1600">
+                                <label class="custom-control-label" for="DopServecPictureDev">Обработка изображений</label>
+                            </div>
+                            <div v-if="DopServecPictureDev" class="input-group mb-3 pt-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon3">Количество</span>
+                                </div>
+                                <input id="DopServecPictureDevCount" type="number" min="1" max="99" class="form-control" v-model.number="DopServecPictureDevCount">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">штук</span>
+                                </div>
+                            </div>
+                            
+                                
+                            
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopServecPresent" v-model.number="Step4" value="50000">
+                                <label class="custom-control-label" for="DopServecPresent">Разработка презентации</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopServecBrandBook" v-model.number="Step4" value="60000">
+                                <label class="custom-control-label" for="DopServecBrandBook">Разработка брендбука</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div v-if="step==5">
-        <div class="text-center">
-            <h2>Наполнение</h2>
-            <p>Создание сайта - это только начало. Его следует наполнить. Это можно делать самостоятельно или доверить работу профессионалам. Если Вам необходима помощь в подготовке наполнения для проекта, выберите необходимые услуги ниже.</p>
-        </div>
-        <div class="d-flex justify-content-around bd-highlight mb-3">
-            <div class="p-2 bd-highlight col-example">
-
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="WriteText" v-model.number="Step5" value="1000">
-                            <label class="custom-control-label" for="WriteText">Написание текстов (500 знаков)</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="SalePictures" v-model.number="Step4" value="2000">
-                            <label class="custom-control-label" for="SalePictures">Подбор и покупка изображений</label>
-                        </div>
-                    </li>
-
-                </ul>
+        <div v-if="step==5">
+            <div class="text-center">
+                <h2>Наполнение</h2>
+                <p>Создание сайта - это только начало. Его следует наполнить. Это можно делать самостоятельно или доверить работу профессионалам. Если Вам необходима помощь в подготовке наполнения для проекта, выберите необходимые услуги ниже.</p>
             </div>
-            <div class="p-2 mt-5 bd-highlight">
-                <div class="d-flex align-items-center text-muted">Шаг {{ step }} из {{MaxStep}}</div>
+            <div class="d-flex justify-content-around bd-highlight mb-3">
+                <div class="p-2 bd-highlight col-example">
+
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="WriteText" v-model.number="Step5" value="1000">
+                                <label class="custom-control-label" for="WriteText">Написание текстов (500 знаков)</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="SalePictures" v-model.number="Step4" value="2000">
+                                <label class="custom-control-label" for="SalePictures">Подбор и покупка изображений</label>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="p-2 mt-5 bd-highlight">
+                    <div class="d-flex align-items-center text-muted">Шаг {{ step }} из {{MaxStep}}</div>
+                    
+                </div>
+                <div class="p-2 bd-highlight col-example">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopMoveCreate" v-model.number="Step5" value="1500">
+                                <label class="custom-control-label" for="DopMoveCreate">Создание видиоролика</label>
+                            </div>
+
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopPhotograph" v-model.number="Step5" value="500">
+                                <label class="custom-control-label" for="DopPhotograph">Работа фотографа (2 часа 50 фотографий)</label>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div v-if="step==6">
+            <div class="text-center">
+                <h2>Домен, хостинг, SSL сертификат</h2>
+                <p>Домен - это адрес вашего сайта. Хостинг - это место где ваш сайт располагается. SSL сертификат - позволяет вашему сайту работать по защищенному каналу связи. многие современные сервысы отказывают в обслуживании сайта если он не имеет сертификата безопастности.</p>
+            </div>
+            <div class="d-flex justify-content-center bd-highlight mb-3">
+                <div class="p-2 bd-highlight col-example">
+
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="WriteText" v-model.number="Step6" value="1600">
+                                <label class="custom-control-label" for="WriteText">Доменное имя</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="SalePictures" v-model.number="Step6" value="7000">
+                                <label class="custom-control-label" for="SalePictures">Хостинг</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="DopMoveCreate" v-model.number="Step6" value="3000">
+                                <label class="custom-control-label" for="DopMoveCreate">SSL сертификат</label>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
                 
             </div>
-            <div class="p-2 bd-highlight col-example">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="DopMoveCreate" v-model.number="Step5" value="1500">
-                            <label class="custom-control-label" for="DopMoveCreate">Создание видиоролика</label>
-                        </div>
-
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="DopPhotograph" v-model.number="Step5" value="500">
-                            <label class="custom-control-label" for="DopPhotograph">Работа фотографа (2 часа 50 фотографий)</label>
-                        </div>
-                    </li>
-
-                </ul>
-            </div>
         </div>
-    </div>
 
-    <div v-if="step==6">
-        <div class="text-center">
-            <h2>Домен, хостинг, SSL сертификат</h2>
-            <p>Домен - это адрес вашего сайта. Хостинг - это место где ваш сайт располагается. SSL сертификат - позволяет вашему сайту работать по защищенному каналу связи. многие современные сервысы отказывают в обслуживании сайта если он не имеет сертификата безопастности.</p>
-        </div>
-        <div class="d-flex justify-content-center bd-highlight mb-3">
-            <div class="p-2 bd-highlight col-example">
-
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="WriteText" v-model.number="Step6" value="1600">
-                            <label class="custom-control-label" for="WriteText">Доменное имя</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="SalePictures" v-model.number="Step6" value="7000">
-                            <label class="custom-control-label" for="SalePictures">Хостинг</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="DopMoveCreate" v-model.number="Step6" value="3000">
-                            <label class="custom-control-label" for="DopMoveCreate">SSL сертификат</label>
-                        </div>
-
-                    </li>
-                </ul>
-            </div>
-            
-        </div>
-    </div>
- 
-    <div v-if="step==7">
-        <div class="text-center">
-            <p class="mt-5 mb-5">Для проверки что вы не робот а реальный человек, необходимо отправить в коментарии уникальный код заказа который сгенерирован системой конфигурации заказа</p>
-            <button v-if="!ShowUniKod" @click="ShowUniKod=true" type="button" class="btn btn-warning mt-5 mb-5">Получить код</button>
-            <div v-if="ShowUniKod" class="border bg-light mt-5 mb-5">
-                <h3>Ваш уникальный код заказа</h3>
-                <h2 class="text-success">{{ UniKod }}</h2>
-            </div>
-        </div>
-<!--        <iframe width="100%" height="1100px" src="https://calk.bitrix24.site/" frameborder="0"></iframe>-->
-        <iframe width="100%" height="852px" src="https://agatech73.bitrix24.ru/pub/form.php?form_id=32&sec=242r7k" frameborder="0"></iframe>
-        
-        
-    </div>
-
-    <div v-if="step==8">
-        <div class="d-flex justify-content-center bd-highlight mb-3">
-            
-            <!-- Default form register -->
-            <div class="text-center border border-light p-5">
-
-                <p class="h4 mb-4">Оформить заказ</p>
-
-                <div class="form-row mb-4">
-                    <div class="col">
-                        <!-- First name -->
-                        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Имя">
-                    </div>
-                    <div class="col">
-                        <!-- Last name -->
-                        <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Фамилия">
-                    </div>
+        <div v-if="step==7">
+            <div class="text-center">
+                <p class="mt-5 mb-5">Для проверки что вы не робот а реальный человек, необходимо отправить в коментарии уникальный код заказа который сгенерирован системой конфигурации заказа</p>
+                <button v-if="!ShowUniKod" @click="ShowUniKod=true" type="button" class="btn btn-warning mt-5 mb-5">Получить код</button>
+                <div v-if="ShowUniKod" class="border bg-light mt-5 mb-5">
+                    <h3>Ваш уникальный код заказа</h3>
+                    <h2 class="text-success">{{ UniKod }}</h2>
                 </div>
-
-                <!-- E-mail -->
-                <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
-
-                <!-- Phone number -->
-                <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Номер телефона" aria-describedby="defaultRegisterFormPhoneHelpBlock">
-                <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-                    Ваш контактный телефон
-                </small>
-
-
-                <!-- Sign up button -->
-                <button class="btn btn-info my-4 btn-block" type="submit">Заказать сайт</button>
             </div>
-            <!-- Default form register -->
+        <!--        <iframe width="100%" height="1100px" src="https://calk.bitrix24.site/" frameborder="0"></iframe>-->
+            <iframe width="100%" height="852px" src="https://agatech73.bitrix24.ru/pub/form.php?form_id=32&sec=242r7k" frameborder="0"></iframe>
+            
+            
         </div>
-    </div>
-    
-    <div v-if="step>=2 && step<MaxStep" class="d-flex justify-content-between bd-highlight mb-3">
-        <div class="p-2 bd-highlight">
-            <button v-if="step>1" @click="prew" type="button" class="btn btn-default" >назад</button>
-        </div>
-        <div class="p-2 bd-highlight"><span v-if="totalprice>0">Цена {{totalprice}} Руб.</span></div>
-        <div class="p-2 bd-highlight">
-            <button v-if="step<MaxStep-1" @click="next" type="button" class="btn btn-green" >далее</button>
-            <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="btn btn-green" >далее</button>
-        </div>
-    </div>
-       
-    
+
+        
     
 </div>
+<!-- configurator -->
 
 
 
@@ -411,13 +376,13 @@ var configurator = new Vue({
     message: 'Конфигуратор сайтов',
     step:1,MaxStep:7, 
     SiteTyp:{},SiteTypSum:0, SiteTypArray: [
-      { name:'Liding',text: 'Одностраничный сайт', sum:25000,img:'https://agatech.ru/img/services-item-01.png',
+      { name:'Liding',text: 'Одностраничный сайт', sum:25000,img:'/public/img/configurator/single-page-website.svg',
           desk:'Очень популярный в настоящее время формат сайтов, который не предполагает разветвленной структуры. Все содержание такого сайта умещается на одной-единственной странице и просматривается вверх и вниз при помощи прокрутки.' },
-      { name:'market',text: 'Интернет магазин', sum:45000,img:'https://agatech.ru/img/services-item-02.png',
+      { name:'market',text: 'Интернет магазин', sum:45000,img:'/public/img/configurator/online-store.svg',
           desk:'Сайт, торгующий товарами посредством сети Интернет. Позволяет пользователям онлайн, в своём браузере или через мобильное приложение, сформировать заказ на покупку, выбрать способ оплаты и доставки заказа, оплатить заказ. При этом продажа товаров осуществляется дистанционным способом' },
-      { name:'korporarion',text: 'Корпоративный сайт', sum:35000,img:'https://agatech.ru/img/services-item-03.png',
+      { name:'korporarion',text: 'Корпоративный сайт', sum:35000,img:'/public/img/configurator/corporate-website.svg',
           desk:'В общем случае, веб-интерфейс для доступа сотрудника к корпоративным данным и приложениям.' },
-      { name:'singl',text: 'Сайт визитка', sum:15000,img:'https://agatech.ru/img/services-item-04.png',
+      { name:'singl',text: 'Сайт визитка', sum:15000,img:'/public/img/configurator/website-cutaway.svg',
           desk:'сайт-визитку используют компании, которые не хотят нести большие затраты на создание отдельного сайта. Очень часто при покупке доменного имени для почты устанавливается сайт-заглушка или сайт-визитка.' },
       
     ],
