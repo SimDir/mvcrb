@@ -5,65 +5,69 @@
         <div v-if="step==1" class="configurator-wrap">
             <div class="configurator-wrap__header">
                 <a href="#">
-                    <img src="/public/img/configurator/logo.svg" alt="logo" class="configurator-wrap__header-img">
+                    <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
                 </a>
                 <div class="configurator-wrap__header-title">
                     <h2>Выберите тип сайта</h2>
                     <img src="/public/img/configurator/enter.svg" alt="enter">
                 </div>
-                
                 <div class="configurator-wrap__header-numpage">
                     <p>Шаг {{step}} из {{MaxStep}}</p>
                 </div>
             </div>
             <!-- configurator-wrap__header -->
-
             <div class="configurator-wrap__content">
                 <div v-for="(option, index) in SiteTypArray" v-on:click="SetSiteTyp(option)" class="configurator-wrap__content-item">
-                    <img v-bind:src="option.img">
+                    <img v-bind:src="option.img" class="configurator-wrap__content-item--img">
                     <p>{{option.text}}</p>
+                    <img src="/public/img/configurator/enter.svg" alt="enter"  class="configurator-wrap__content-item--enter-img">
                 </div>
             </div>
             <!-- configurator-wrap__content -->
-
             <div v-if="step>=1 && step<MaxStep" class="configurator-wrap__bottom">
                 <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
                     Назад
-                    
                 </button>
                 <span v-if="totalprice>0">Цена {{totalprice}} Руб.</span>
-                <button v-if="step<MaxStep-1" @click="next" type="button" class="btn btn-green" >Далее</button>
-                <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="btn btn-green" >Далее</button>
+                <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
+                <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next" >Далее</button>
             </div>
             <!-- configurator-wrap__bottom -->
-
         </div>
         <!-- configurator-wrap -->
 
-        <div v-if="step==2">
-            <div class="text-center">
-                <h2>Выбор движка</h2>
-                <p>CMS (в народе называют движком) – система управления контентом сайта. Это костяк, на котором все строится. От движка зависит удобство наполнения сайта, его «дружелюбность» для поискового продвижения, возможность подключения дополнительных сервисов.</p>
-            </div>
-            <div class="d-flex flex-wrap bd-highlight mb-3 justify-content-center">
-                <div style="width: 400px;cursor:pointer;" class="bd-highlight mx-2 mt-3 hoverable" v-for="option in EnginePriceArray" v-on:click="SetEngineTyp(option)">
-                    <div style="height:300px;cursor:pointer;" class="view overlay">
-                        <img class="img-fluid" v-bind:src="option.img">
-                        <div class="mask rgba-black-strong">
-                            <div class="d-flex align-items-center bd-highlight mb-3">
-                                <div class="p-2 bd-highlight">
-                                    <div class="align-items-center white-text">{{ option.desk }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body text-center">
-                        <span>{{option.text}}</span>
-                        <h5>за {{option.sum}} рублей</h5>
-                    </div>
+
+        <div v-if="step==2" class="configurator-wrap">
+            <div class="configurator-wrap__header">
+                <a href="#">
+                    <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
+                </a>
+                <div class="configurator-wrap__header-title">
+                    <h2>Выберите тип сайта</h2>
+                    <img src="/public/img/configurator/enter.svg" alt="enter">
+                </div>
+                <div class="configurator-wrap__header-numpage">
+                    <p>Шаг {{step}} из {{MaxStep}}</p>
                 </div>
             </div>
-
+             <!-- configurator-wrap__header -->
+            <div class="configurator-wrap__content">
+                <div v-for="option in EnginePriceArray" v-on:click="SetEngineTyp(option)" class="configurator-wrap__content-item">
+                    <img v-bind:src="option.img" class="configurator-wrap__content-item--img">
+                    <p>{{option.text}}</p>
+                    <img src="/public/img/configurator/enter.svg" alt="enter"  class="configurator-wrap__content-item--enter-img">
+                </div>
+            </div>
+            <!-- configurator-wrap__content -->
+            <div v-if="step>=1 && step<MaxStep" class="configurator-wrap__bottom">
+                <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
+                    Назад
+                </button>
+                <span v-if="totalprice>0">Цена {{totalprice}} Руб.</span>
+                <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
+                <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next" >Далее</button>
+            </div>
+            <!-- configurator-wrap__bottom -->
         </div>
 
         <div v-if="step==3">
@@ -387,13 +391,13 @@ var configurator = new Vue({
       
     ],
     EngineTyp:{},EngineTypSum:0,EnginePriceArray: [
-      { name:'bitrix24',text: 'Bitrix24', sum:0, img:'https://www.intervolga.ru/upload/medialibrary/8d0/8d09701103cc66ffedba00feb577b543.jpg',
+      { name:'bitrix24',text: 'Bitrix24 за 0 рублей', sum:0, img:'/public/img/configurator/bitrix24.svg',
         desk:'1С-Битрикс: Управление сайтом — система управления содержимым от российской компании 1С-Битрикс. Имеет несколько «редакций» — лицензионных версий: Старт, Стандарт, Малый бизнес, Бизнес, которые отличаются включаемыми модулями системы'},
-      { name:'tilda',text: 'Tilda', sum: 10000, img:'https://d2xzmw6cctk25h.cloudfront.net/post/1738/og_cover_image/970fe5a36401ee376059ec3370a08279',
+      { name:'tilda',text: 'Tilda за 10000 рублей', sum: 10000, img:'/public/img/configurator/bitrix24.svg',
         desk:'Tilda Publishing — блочный конструктор сайтов, не требующий навыков программирования. Позволяет создавать сайты, интернет-магазины, посадочные страницы, блоги и email-рассылки. Cайты на платформе собираются из готовых блоков, которые автоматически адаптируются под мобильные устройства и выделены в смысловые категории.'},
-      { name:'opencart',text: 'Opencart', sum: 15000, img:'https://www.opencart.com/application/view/image/home/hero-image.png',
+      { name:'opencart',text: 'Opencart за 15000 рублей', sum: 15000, img:'/public/img/configurator/bitrix24.svg',
         desk:'OpenCart ориентированная на создание интернет-магазинов. Является свободным программным обеспечением, распространяемым по лицензии GNU General Public License v3. Системой «OpenCart» поддерживаются дополнения. «OpenCart» создан и поддерживается Дениэлем Керром в репозитории GitHub.'},
-      { name:'php',text: 'Чистый код', sum:25000, img:'https://wpgutenberg.top/wp-content/uploads/2019/01/PHP7.3-1024x512.png',
+      { name:'php',text: 'Чистый код за 25000 рублей', sum:25000, img:'/public/img/configurator/bitrix24.svg',
         desk:'PHP — скриптовый язык общего назначения, интенсивно применяемый для разработки веб-приложений. В настоящее время поддерживается подавляющим большинством хостинг-провайдеров и является одним из лидеров среди языков, применяющихся для создания динамических веб-сайтов.' }
     ],
     Step3:[],bStep3:["basehederMenu", "baseNewsSalers", "baseProdukt", "baseKompany", "baseKoments", "baseKatalog"],bStep3Val:true,
