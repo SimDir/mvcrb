@@ -29,7 +29,7 @@ class UserController extends Controller{
         $this->View->VarSetArray($UserVars);
        
         $email = $UserVars['email'];
-        $default = "http://rusodality.ru/img/gerbrr.png";
+        $default = "/public/img/rblogom.png";
         $size = 256;
         $this->View->GravUrl = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
         $this->View->content = $this->View->execute('usercard.html');

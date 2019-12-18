@@ -25,11 +25,8 @@ class Session {
      * if session has not started, start sessions
      */
     private static function SecSessionStart() {
-        $session_name = SESSION_PREFIX; //'sec_session_id';   // Set a custom session name
         $secure = SECURE;
-        // This stops JavaScript being able to access the session id.
-        $httponly = FALSE;
-        session_save_path(SITE_DIR.'usersession');
+        session_save_path(SITE_DIR . 'usersession');
         // Forces sessions to only use cookies.
         if (ini_set('session.use_only_cookies', 1) === FALSE) {
             //header("Location: ../error.php?err=Could not initiate a safe session (ini_set)");
@@ -37,11 +34,11 @@ class Session {
         }
         // Gets current cookies params.
         $cookieParams = session_get_cookie_params();
-        session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], $secure, $httponly);
+        session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], $secure);
         // Sets the session name to the one set above.
-        session_name($session_name);
+        session_name(SESSION_PREFIX);
         session_start();            // Start the PHP session 
-        session_regenerate_id();    // regenerated the session, delete the old one. 
+        //session_regenerate_id();    // regenerated the session, delete the old one. 
     }
 
     public static function init() {

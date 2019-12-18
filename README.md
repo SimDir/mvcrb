@@ -12,3 +12,6 @@ https://github.com/gabordemooij/redbean
 ореинтация телефона. https://toster.ru/q/413611 для верстки инфа
 
 https://designpatternsphp.readthedocs.io/ru/latest/Creational/StaticFactory/README.html
+
+
+https://swiftmailer.symfony.com/
