@@ -32,6 +32,12 @@
 .colutions-promotion__center_block_item:nth-child(7) {
    background-image: url(../img/colutions/promoion/vizcenter.png);
 }
+.colutions-promotion__center_block_item:nth-child(8) {
+   background-image: url(../img/colutions/promoion/wedding-gown.png);
+}
+.colutions-promotion__center_block_item:nth-child(9) {
+   background-image: url(../img/colutions/promoion/green-street.png);
+}
 .colutions-promotion__center_block_item:hover {
    filter: grayscale(0%);
 }
@@ -59,7 +65,7 @@
    display: flex;
    align-items: center;
    flex-direction: column;
-   transform: scale(1);
+   transform: scale(0);
    transition: transform 1s;
 }
 .container-page__back-btn {
@@ -142,15 +148,25 @@
    width: 100%;
    display: flex;
    justify-content: space-between;
+   flex-wrap: wrap;
    margin-bottom: 40px;
 }
 .container-promotion-page__content-center--left {
-   flex-basis: 39%;
+   flex-basis: 38%;
    padding: 20px 0;
 }
 .container-promotion-page__content-center--right {
-   flex-basis: 59%;
+   flex-basis: 58%;
    padding: 20px 0;
+}
+.container-promotion-page__content-center--full {
+   flex-basis: 100%;
+   padding: 20px 0;
+}
+.container-promotion-page__content-center--left ul,
+.container-promotion-page__content-center--right ul,
+.container-promotion-page__content-center--full ul {
+   margin-bottom: 20px;
 }
 .container-promotion-page__content-center--title {
    font-family: 'Helvetica Neue Cyr Roman';
@@ -159,6 +175,7 @@
    line-height: 18px;
    color: #626779;
    margin-bottom: 10px;
+   align-self: flex-start;
 }
 .container-promotion-page__content-center--text {
    font-family: 'Helvetica Neue Cyr Roman';
@@ -174,53 +191,58 @@
    margin-bottom: 30px;
 }
 
+
 .container-promotion-page__content-bottom {
    width: 100%;
    display: flex;
    justify-content: space-between;
+   flex-wrap: wrap;
    margin-bottom: 40px;
 }
 .container-promotion-page__content-bottom--left {
    flex-basis: 39%;
-   padding: 20px 0;
+   padding: 10px 0;
+   display: flex;
+}
+.container-promotion-page__content-bottom--right {
+   flex-basis: 59%;
+   padding: 10px 0;
    display: flex;
 }
 .container-promotion-page__content-bottom--item {
    display: flex;
    flex-direction: column;
    align-items: center;
-   margin: 0px 30px 0px 0px;
+   margin: 0px 20px 0px 0px;
+   justify-content: center;
+   text-align: center;
 }
-.item-left__number {
-   font-size: 96px;
-   line-height: 96px;
+.item-big__number {
+   font-size: 85px;
+   line-height: 85px;
    color: #4A79BD;
+   font-weight: bold;
    font-family: 'Helvetica Neue Cyr Roman';
 }
-.item-left__text {
+.item-small__number {
+   font-size: 40px;
+   line-height: 40px;
+   color: #4A79BD;
+   font-weight: bold;
+   font-family: 'Helvetica Neue Cyr Roman';
+}
+.item-text {
    font-size: 18px;
    line-height: 18px;
    color: #4A79BD;
    font-family: 'Helvetica Neue Cyr Roman';
 }
-.container-promotion-page__content-bottom--right {
-   flex-basis: 59%;
-   padding: 20px 0;
-   display: flex;
-}
-.item-right__number {
-   font-size: 48px;
-   line-height: 48px;
+.item-small__text {
+   font-size: 16px;
+   line-height: 16px;
    color: #4A79BD;
    font-family: 'Helvetica Neue Cyr Roman';
 }
-.item-right__text {
-   font-size: 18px;
-   line-height: 20px;
-   color: #4A79BD;
-   font-family: 'Helvetica Neue Cyr Roman';
-}
-
 .container-promotion-page__footer-text {
    font-size: 14px;
    line-height: 14px;
@@ -228,3 +250,63 @@
    font-family: 'Helvetica Neue Cyr Roman';
 }
 
+
+
+.container-promotion-page__graphic {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-bottom: 40px;
+}
+.container-promotion-page__graphic img {
+   width: 80%;
+   margin-bottom: 30px;
+}
+.container-promotion-page__graphic img[alt="vizcenter-graphic-1"] {
+   width: 100%;
+   margin-bottom: 0px;
+}
+.container-promotion-page__graphic img[alt="vizcenter-graphic-2"] {
+   width: 100%;
+   margin-bottom: 0px;
+}
+.container-promotion-page__graphic img[alt="vizcenter-graphic-3"] {
+   width: 100%;
+   margin-bottom: 0px;
+}
+.container-promotion-page__graphic img[alt="wedding-gown-graphic-1"] {
+   width: 100%;
+   margin-bottom: 0px;
+}
+.container-promotion-page__graphic img[alt="wedding-gown-graphic-2"] {
+   width: 100%;
+   margin-bottom: 0px;
+}
+.container-promotion-page__graphic img[alt="wedding-gown-graphic-3"] {
+   width: 70%;
+   margin-bottom: 0px;
+}
+.container-promotion-page__graphic img[alt="green-street-graphic-1"] {
+   width: 100%;
+   margin-bottom: 0px;
+}
+.container-promotion-page__graphic img[alt="green-street-graphic-2"] {
+   width: 100%;
+   margin-bottom: 0px;
+}
+.container-promotion-page__graphic--text-top {
+   font-family: 'Helvetica Neue Cyr Roman';
+   font-size: 14px;
+   line-height: 14px;
+   color: #626779;
+   margin-bottom: 40px;
+   align-self: flex-start;
+}
+.container-promotion-page__graphic--text-bottom {
+   font-family: 'Helvetica Neue Cyr Roman';
+   font-size: 14px;
+   line-height: 14px;
+   color: #626779;
+   align-self: flex-start;
+}
