@@ -1,52 +1,48 @@
 'use strict';
 $( document ).ready(function() {  
-  $('#item-1')
+
+   $('#item-1').click(function(){
+      $('#tariff-1').css({"transform" : "scale(1)"});
+   });
+   $('#cross-tariff-1').click(function(){
+      $('#tariff-1').css({"transform" : "scale(0)"});
+   });
+
+   $('#item-2').click(function(){
+      $('#tariff-2').css({"transform" : "scale(1)"});
+   });
+   $('#cross-tariff-2').click(function(){
+      $('#tariff-2').css({"transform" : "scale(0)"});
+   });
+
+   $('#item-3').click(function(){
+      $('#tariff-3').css({"transform" : "scale(1)"});
+   });
+   $('#cross-tariff-3').click(function(){
+      $('#tariff-3').css({"transform" : "scale(0)"});
+   });
+
+   $('#item-4').click(function(){
+      $('#tariff-4').css({"transform" : "scale(1)"});
+   });
+   $('#cross-tariff-4').click(function(){
+      $('#tariff-4').css({"transform" : "scale(0)"});
+   });
+   
+   $(document).click(function (e) {
+      if (($(e.target).closest("#tariff-1").length) ||  
+      ($(e.target).closest("#tariff-2").length) || 
+      ($(e.target).closest("#tariff-3").length) ||  
+      ($(e.target).closest("#tariff-4").length) ||
+      ($(e.target).closest("#item-1").length) ||
+      ($(e.target).closest("#item-2").length) ||
+      ($(e.target).closest("#item-3").length) ||
+      ($(e.target).closest("#item-4").length))
+          return; 
+         $('#tariff-1').css({"transform" : "scale(0)"});
+         $('#tariff-2').css({"transform" : "scale(0)"});
+         $('#tariff-3').css({"transform" : "scale(0)"});
+         $('#tariff-4').css({"transform" : "scale(0)"});
+  });
 });
 
-
-
-
-   //tariff-1
-   let item_1 = document.querySelector('#item-1');
-   let tarrif_1 = document.querySelector('#tariff-1');
-   let cross_1 = document.querySelector('#cross-tariff-1');
-   item_1.onclick = function() {
-      tarrif_1.style.transform = "scale(1)";
-     
-   }
-   cross_1.onclick= function() {
-      tarrif_1.style.transform = "scale(0)";
-   }
-
-   //tariff-2
-   let item_2 = document.querySelector('#item-2');
-   let tarrif_2 = document.querySelector('#tariff-2');
-   let cross_2 = document.querySelector('#cross-tariff-2');
-   item_2.onclick = function() {
-      tarrif_2.style.transform = "scale(1)";
-   }
-   cross_2.onclick= function() {
-      tarrif_2.style.transform = "scale(0)";
-   }
-
-   //tariff-3
-   let item_3 = document.querySelector('#item-3');
-   let tarrif_3 = document.querySelector('#tariff-3');
-   let cross_3 = document.querySelector('#cross-tariff-3');
-   item_3.onclick = function() {
-      tarrif_3.style.transform = "scale(1)";
-   }
-   cross_3.onclick= function() {
-      tarrif_3.style.transform = "scale(0)";
-   }
-
-   //tariff-4
-   let item_4 = document.querySelector('#item-4');
-   let tarrif_4 = document.querySelector('#tariff-4');
-   let cross_4 = document.querySelector('#cross-tariff-4');
-   item_4.onclick = function() {
-      tarrif_4.style.transform = "scale(1)";
-   }
-   cross_4.onclick= function() {
-      tarrif_4.style.transform = "scale(0)";
-   }

@@ -1,65 +1,29 @@
 'use strict';
 $( document ).ready(function() {  
-   $('#Moscow_contacts').click(function(){
-      $('.ULCITY_contacts').css({"display": "none"});
-      $('.MCITY_contacts').css({"display": "block"});
-      $('.LCITY_contacts').css({"display": "none"});
-      $('.VCITY_contacts').css({"display": "none"});
+   $('#headerMoscow').click(function(){
+      $('#contactsUlsk').fadeOut();
+      $('#contactMoscow').fadeIn(1000);
+      $('#contactLiny').fadeOut();
+      $('#contactVilnus').fadeOut();
 
-      $('#Ulsk_contacts').css({"borderBottom": "none"});
-      $('#Moscow_contacts').css({"borderBottom": "1px solid grey"});
-      $('#Liny_contacts').css({"borderBottom": "none"});
-      $('#Vilnus_contacts').css({"borderBottom": "none"});
+      $('#headerUlsk').css({"borderBottom": "2px solid transparent", "fontWeight" : "normal"});
+      $('#headerMoscow').css({"borderBottom": "2px solid #fff", "fontWeight" : "bold"});
+      $('#headerLiny').css({"borderBottom": "2px solid transparent", "fontWeight" : "normal"});
+      $('#headerVilnus').css({"borderBottom": "2px solid transparent", "fontWeight" : "normal"});
 
-      $('.UlMap').css({"display": "none"});
-      $('.MoscowMap').css({"display": "block"});
    });
 
-   $('#Ulsk_contacts').click(function(){
-      $('.ULCITY_contacts').css({"display": "block"});
-      $('.MCITY_contacts').css({"display": "none"});
-      $('.LCITY_contacts').css({"display": "none"});
-      $('.VCITY_contacts').css({"display": "none"});
+   $('#headerUlsk').click(function(){
+      $('#contactsUlsk').fadeIn(1000);
+      $('#contactMoscow').fadeOut();
+      $('#contactLiny').fadeOut();
+      $('#contactVilnus').fadeOut();
 
-      $('#Ulsk_contacts').css({"borderBottom": "1px solid grey"});
-      $('#Moscow_contacts').css({"borderBottom": "none"});
-      $('#Liny_contacts').css({"borderBottom": "none"});
-      $('#Vilnus_contacts').css({"borderBottom": "none"});
-
-      $('.UlMap').css({"display": "block"});
-      $('.MoscowMap').css({"display": "none"});
+      $('#headerUlsk').css({"borderBottom": "2px solid #fff", "fontWeight" : "bold"});
+      $('#headerMoscow').css({"borderBottom": "2px solid transparent", "fontWeight" : "normal"});
+      $('#headerLiny').css({"borderBottom": "2px solid transparent", "fontWeight" : "normal"});
+      $('#headerVilnus').css({"borderBottom": "2px solid transparent", "fontWeight" : "normal"});
    });
-
-   // $('#Liny_contacts').click(function(){
-   //    $('.ULCITY_contacts').css({"display": "none"});
-   //    $('.MCITY_contacts').css({"display": "none"});
-   //    $('.LCITY_contacts').css({"display": "block"});
-   //    $('.VCITY_contacts').css({"display": "none"});
-
-   //    $('#Ulsk_contacts').css({"borderBottom": "none"});
-   //    $('#Moscow_contacts').css({"borderBottom": "none"});
-   //    $('#Liny_contacts').css({"borderBottom": "1px solid grey"});
-   //    $('#Vilnus_contacts').css({"borderBottom": "none"});
-
-   //    $('.UlMap').css({"display": "none"});
-   //    $('.MoscowMap').css({"display": "none"});
-   // });
-
-   // $('#Vilnus_contacts').click(function(){
-   //    $('.ULCITY_contacts').css({"display": "none"});
-   //    $('.MCITY_contacts').css({"display": "none"});
-   //    $('.LCITY_contacts').css({"display": "none"});
-   //    $('.VCITY_contacts').css({"display": "block"});
-
-   //    $('#Ulsk_contacts').css({"borderBottom": "none"});
-   //    $('#Moscow_contacts').css({"borderBottom": "none"});
-   //    $('#Liny_contacts').css({"borderBottom": "none"});
-   //    $('#Vilnus_contacts').css({"borderBottom": "1px solid grey"});
-
-   //    $('.UlMap').css({"display": "none"});
-   //    $('.MoscowMap').css({"display": "none"});
-   // });
-   
 });
 
 

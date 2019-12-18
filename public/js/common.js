@@ -1,7 +1,4 @@
-window.onerror = function(msg, url, lineNo, columnNo, error) {
-  alert(msg);
-  return false;
-};
+
 var mvcrbstore = new Vuex.Store({
     state: {
         content: '',

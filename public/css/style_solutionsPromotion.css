@@ -1,0 +1,55 @@
+
+.colutions-promotion__center_block_item {
+   width: 280px;
+   height: 210px;
+   margin: 16px;
+   position: relative;
+   transition: transform .7s, filter .7s;
+   filter: grayscale(100%);
+   background-size: cover;
+   background-position: center;
+   z-index: 1;
+   cursor: pointer;
+}
+.colutions-promotion__center_block_item:nth-child(1) {
+   background-image: url(../img/colutions/promoion/specauto.png);
+}
+.colutions-promotion__center_block_item:nth-child(2) {
+   background-image: url(../img/colutions/promoion/dantist.png);
+}
+.colutions-promotion__center_block_item:nth-child(3) {
+   background-image: url(../img/colutions/promoion/dilav.png);
+}
+.colutions-promotion__center_block_item:nth-child(4) {
+   background-image: url(../img/colutions/promoion/fullservice.png);
+}
+.colutions-promotion__center_block_item:nth-child(5) {
+   background-image: url(../img/colutions/promoion/fkm.png);
+}
+.colutions-promotion__center_block_item:nth-child(6) {
+   background-image: url(../img/colutions/promoion/goal.png);
+}
+.colutions-promotion__center_block_item:nth-child(7) {
+   background-image: url(../img/colutions/promoion/vizcenter.png);
+}
+.colutions-promotion__center_block_item:nth-child(8) {
+   background-image: url(../img/colutions/promoion/wedding-gown.png);
+}
+.colutions-promotion__center_block_item:nth-child(9) {
+   background-image: url(../img/colutions/promoion/green-street.png);
+}
+.colutions-promotion__center_block_item:hover {
+   filter: grayscale(0%);
+}
+.colutions-promotion__center_block_item:hover .colutions_circle {
+   transform: scale(1);
+}
+.colutions-promotion__center_block_item:hover .colutions_border {
+   transform: scale(1);
+}
+.colutions-promotion__center_block_item:hover .colutions_arrow  {
+   transform: translateY(0px);
+   visibility: visible;
+}
+
+
