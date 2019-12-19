@@ -243,9 +243,9 @@
       width: 160px;
       font-size: 16px;
    }
-   .configurator-wrap__bottom {
-      bottom: 40px;
-   }
+    .configurator-wrap__bottom {
+      bottom: 15vh;
+   } 
    .configurator-wrap__bottom button {
       font-size: 16px;
       line-height: 16px;
@@ -262,7 +262,7 @@
   .configurator-wrap__header-img {
      width: 100px;
      height: 30px;
-     margin-left: 0px;
+     margin-left: 5px;
   }
   .configurator-wrap__header-title h2 {
      font-size: 18px;
@@ -301,9 +301,6 @@
      width: 10px;
      height: 9px;
   }  
-  .configurator-wrap__bottom {
-     bottom: 30px;
-  }
   .configurator-wrap__bottom button {
      font-size: 14px;
      line-height: 14px;
@@ -346,32 +343,32 @@
 @media(max-width: 400px) {
    .configurator-wrap__header {
      height: 70px;
-  }
-  .configurator-wrap__header-img {
-     width: 60px;
-     height: 25px;
-  }
-  .configurator-wrap__header-title h2 {
-     font-size: 14px;
-     line-height: 14px;
-  }
-  .configurator-wrap__header-title img {
-     margin-left: 3px;
-     width: 8px;
-     height: 7px;
-  }  
-  .configurator-wrap__header-numpage {
-     width: 60px;
-     height: 25px;
-  }
-  .configurator-wrap__header-numpage p {
-     font-size: 11px;
-     line-height: 11px;
-  }
-  .configurator-wrap__content {
-   width: 90%;
-   height: 300px;
-} 
+   }
+   .configurator-wrap__header-img {
+      width: 60px;
+      height: 25px;
+   }
+   .configurator-wrap__header-title h2 {
+      font-size: 14px;
+      line-height: 14px;
+   }
+   .configurator-wrap__header-title img {
+      margin-left: 3px;
+      width: 8px;
+      height: 7px;
+   }  
+   .configurator-wrap__header-numpage {
+      width: 60px;
+      height: 25px;
+   }
+   .configurator-wrap__header-numpage p {
+      font-size: 11px;
+      line-height: 11px;
+   }
+   .configurator-wrap__content {
+      width: 90%;
+      height: 300px;
+   } 
    .configurator-wrap__content-item--img {
       width: 120px;
       height: 120px;
@@ -385,9 +382,6 @@
       width: 8px;
       height: 7px;
    }  
-   .configurator-wrap__bottom {
-      bottom: 20px;
-   }
    .configurator-wrap__bottom button {
       font-size: 10px;
       line-height: 10px;
@@ -396,8 +390,6 @@
       padding: 10px 40px 10px 20px;
    }
    .configurator-wrap__bottom--back::after {
-      left: 72%;
-      top: 1px;
       width: 28px;
       height: 28px;
       background-size: 8px;
@@ -406,8 +398,6 @@
       padding: 10px 20px 10px 40px;
    }
    .configurator-wrap__bottom--next::after {
-      right: 74%;
-      top: 1px;
       width: 28px;
       height: 28px;
       background-size: 8px;
