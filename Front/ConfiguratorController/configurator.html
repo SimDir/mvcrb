@@ -28,7 +28,7 @@
                 <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
                     Назад
                 </button>
-                <span v-if="totalprice>0">Цена {{totalprice}} Руб.</span>
+                <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
                 <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
                 <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next" >Далее</button>
             </div>
@@ -63,7 +63,7 @@
                 <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
                     Назад
                 </button>
-                <span v-if="totalprice>0">Цена {{totalprice}} Руб.</span>
+                <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
                 <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
                 <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next" >Далее</button>
             </div>
@@ -479,7 +479,7 @@
              <!-- configurator-wrap__header -->
 
             <div class="step7-wrap">
-                <iframe width="50%" height="90%" src="https://calk.bitrix24.site/" frameborder="0"></iframe> 
+                <iframe width="50%" height="100%" src="https://calk.bitrix24.site/" frameborder="0"></iframe> 
             </div>
             <!-- step7-wrap -->
             
