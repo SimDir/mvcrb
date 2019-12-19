@@ -244,7 +244,7 @@
       font-size: 16px;
    }
     .configurator-wrap__bottom {
-      bottom: 15vh;
+      bottom: 9vh;
    } 
    .configurator-wrap__bottom button {
       font-size: 16px;
@@ -490,6 +490,131 @@
    background-position: center;
    background-color: #00EFD0;
 }
+@media(max-width: 1000px) {
+   .form-left,
+   .form-right {
+      width: 300px;
+   }
+   .form-title {
+      height: 35px;
+   }
+   .form-title p{
+      font-size: 18px;
+      line-height: 18px;
+   }
+   .form-title span {
+      font-size: 16px;
+      line-height: 16px;
+   }
+   .form-left li,
+   .form-right li {
+     height: 35px;
+     margin: 5px 0;
+   }
+   .form-left label,
+   .form-right label {
+      width: 250px;
+      font-size: 13px;
+      line-height: 13px;
+      padding-left: 10px;
+   }
+   .checkbox-visible {
+      width: 35px;
+      background-size: 18px;
+   }
+}
+@media(max-width: 800px) {
+   .configurator-wrap__content-form {
+      padding: 0px;
+   } 
+   .form-left,
+   .form-right {
+      width: 250px;
+       margin: 10px; 
+   }
+   .form-title {
+      margin-bottom: 10px; 
+      height: 35px;
+   }
+   .form-title p{
+      font-size: 16px;
+      line-height: 16px;
+   }
+   .form-title span {
+      font-size: 14px;
+      line-height: 14px;
+   }
+   .form-left li,
+   .form-right li {
+     height: 30px;
+     margin: 5px 0;
+   }
+   .form-left label,
+   .form-right label {
+      width: 210px;
+      font-size: 12px;
+      line-height: 12px;
+   }
+   .checkbox-visible {
+      width: 30px;
+      background-size: 16px;
+   }
+}
+@media(max-width: 600px) {
+   .configurator-wrap__content-form {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+   } 
+   .form-title {
+      margin-bottom: 5px; 
+      height: 30px;
+   }
+   .form-title p{
+      font-size: 14px;
+      line-height: 7px;
+   }
+   .form-title span {
+      font-size: 12px;
+      line-height: 6px;
+   }
+}
+@media(max-width: 400px) {
+   .form-title {
+      margin-bottom: 0px; 
+      height: 25px;
+   }
+   .form-title p{
+      font-size: 12px;
+      line-height: 6px;
+      letter-spacing: 0px;
+   }
+   .form-title span {
+      font-size: 10px;
+      line-height: 5px;
+   }
+   .form-left,
+   .form-right {
+      width: 235px;
+      margin: 0 0 30px 0; 
+   }
+   .form-left li,
+   .form-right li {
+     height: 25px;
+     margin: 5px 0;
+   }
+   .form-left label,
+   .form-right label {
+      width: 200px;
+      font-size: 10px;
+      line-height: 10px;
+   }
+   .checkbox-visible {
+      width: 25px;
+      background-size: 12px;
+   }
+}
+
 
 /* step-4 */
 .step4-additional {
@@ -515,6 +640,49 @@
    line-height: 15px;
    font-family: 'Helvetica Neue Cyr Roman';
 }
+@media(max-width: 1000px) {
+   .step4-additional {
+      width: 250px;
+      padding-left: 10px;
+   }
+   .step4-additional span{
+      font-size: 13px;
+      line-height: 13px;
+   } 
+   .step4-additional input[type="number"] {
+      font-size: 13px;
+      line-height: 13px;
+   }
+}
+@media(max-width: 800px) {
+   .step4-additional {
+      width: 210px;
+   }
+   .step4-additional span{
+      font-size: 12px;
+      line-height: 12px;
+   } 
+   .step4-additional input[type="number"] {
+      font-size: 12px;
+      line-height: 12px;
+   }
+}
+@media(max-width: 400px) {
+   .step4-additional {
+      width: 200px;
+      /* padding-left: 10px; */
+   }
+   .step4-additional span{
+      font-size: 10px;
+      line-height: 10px;
+   } 
+   .step4-additional input[type="number"] {
+      margin: 0 3px;
+      font-size: 10px;
+      line-height: 10px;
+   }
+}
+
 
 /* step-7 */
 .configurator-wrap__header-title button {
@@ -543,6 +711,7 @@
    justify-content: center;
    align-items: center;
    position: relative;
+   padding-top: 30px;
 }
 .unique-order {
    text-align: center;
@@ -566,6 +735,91 @@
 .step7-wrap iframe {
    overflow: hidden;
    background: transparent;
+   width: 50%;
+   height: 100%;
+}
+@media(max-width: 1000px) {
+   .configurator-wrap__header-title button {
+      font-size: 16px;
+      line-height: 16px;
+   }
+   .unique-order h2{
+      font-size: 18px;
+      line-height: 28px;
+   }
+   .unique-order h3{
+      font-size: 18px;
+      line-height: 28px;
+   }
+   .step7-wrap iframe {
+      width: 450px;
+      height: 100%;
+   }
+}
+@media(max-width: 800px) {
+   .unique-order h2{
+      font-size: 14px;
+      line-height: 24px;
+   }
+   .unique-order h3{
+      font-size: 12px;
+      line-height: 22px;
+   }
+}
+@media(max-width: 600px) {
+   .step7-wrap {
+      padding-top: 20px;
+   }
+   .configurator-wrap__header-title button {
+      font-size: 14px;
+      line-height: 14px;
+      letter-spacing: 0px;
+      padding: 10px 15px; 
+   }
+   .unique-order h2{
+      font-size: 14px;
+      line-height: 24px;
+   }
+   .unique-order h3{
+      font-size: 12px;
+      line-height: 22px;
+   }
+   .step7-wrap iframe {
+      width: 100%;
+      height: 100%;
+   }
+}
+@media(max-width: 500px) {
+   .unique-order h2{
+      font-size: 12px;
+      line-height: 22px;
+   }
+   .unique-order h3{
+      font-size: 10px;
+      line-height: 20px;
+   }
+}
+@media(max-width: 400px) {
+   .step7-wrap {
+      padding-top: 10px;
+   }
+   .configurator-wrap__header-title button {
+      font-size: 12px;
+      line-height: 12px;
+      padding: 10px 15px; 
+   }
+   .step7-wrap iframe {
+      width: 100%;
+      height: 100%;
+   }
+   .unique-order h2{
+      font-size: 10px;
+      line-height: 12px;
+   }
+   .unique-order h3{
+      font-size: 9px;
+      line-height: 11px;
+   }
 }
 
 
