@@ -22,7 +22,6 @@
    align-items: center;
    position: relative;
 }
-
 /* step-1,2 */
 .configurator-wrap__header {
    width: 100%;
@@ -193,7 +192,7 @@
    font-weight: bold;
    font-family: 'Helvetica Neue Cyr Roman';
 }
-@media(max-width: 1000px) {
+@media(max-height: 800px) and (max-width: 1200px) {
    .configurator-wrap {
       width: 100%;
       height: 100%;
@@ -206,6 +205,19 @@
       right: 0px;
    }
 }
+/* @media(max-width: 1000px) {
+   .configurator-wrap {
+      width: 100%;
+      height: 100%;
+      padding: 0px;
+      background: rgba(31,74,91,.73);
+   }
+   .configurator-wrap__bottom {
+      bottom: 60px;
+      left: 0px;
+      right: 0px;
+   }
+} */
 @media(max-width: 800px) {
     .configurator-wrap__header {
       height: 80px;
