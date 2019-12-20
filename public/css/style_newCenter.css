@@ -19,12 +19,14 @@
    overflow: hidden;
 }
 .new_center-slide-1,
-.new_center-slide-2 {
+.new_center-slide-2,
+.new_center-slide-3{
    width: 100%;
    height: 100%;
 }
 .new_center-slide-1 img,
-.new_center-slide-2 img {
+.new_center-slide-2 img,
+.new_center-slide-3 img  {
    width: 100%;
    height: 500px;
 }
@@ -75,7 +77,8 @@
       height: 450px;
    }
    .new_center-slide-1 img,
-   .new_center-slide-2 img {
+   .new_center-slide-2 img,
+   .new_center-slide-3 img {
       height: 450px;
    }
    .new_center-slide-1--title {
@@ -105,7 +108,8 @@
       height: 400px;
    }
    .new_center-slide-1 img,
-   .new_center-slide-2 img {
+   .new_center-slide-2 img,
+   .new_center-slide-3 img {
       height: 400px;
    }
    .new_center-slide-1--title {
@@ -135,7 +139,8 @@
       height: 350px;
    }
    .new_center-slide-1 img,
-   .new_center-slide-2 img {
+   .new_center-slide-2 img,
+   .new_center-slide-3 img {
       height: 350px;
    }
    .new_center-slide-1--title {
@@ -155,7 +160,8 @@
       height: 310px;
    }
    .new_center-slide-1 img,
-   .new_center-slide-2 img {
+   .new_center-slide-2 img,
+   .new_center-slide-3 img {
       height: 310px;
    }
    .new_center-slide-1--title {
@@ -171,7 +177,8 @@
       height: 280px;
    }
    .new_center-slide-1 img,
-   .new_center-slide-2 img {
+   .new_center-slide-2 img,
+   .new_center-slide-3 img {
       height: 280px;
    }
    .new_center-slide-1--title {
@@ -191,7 +198,8 @@
       height: 230px;
    }
    .new_center-slide-1 img,
-   .new_center-slide-2 img {
+   .new_center-slide-2 img,
+   .new_center-slide-3 img {
       height: 230px;
    }
    .new_center-slide-1--title {
@@ -211,7 +219,8 @@
       height: 190px;
    }
    .new_center-slide-1 img,
-   .new_center-slide-2 img {
+   .new_center-slide-2 img,
+   .new_center-slide-3 img {
       height: 190px;
    }
    .new_center-slide-1--title {
@@ -232,7 +241,8 @@
       height: 180px;
    }
    .new_center-slide-1 img,
-   .new_center-slide-2 img {
+   .new_center-slide-2 img,
+   .new_center-slide-3 img {
       height: 180px;
    }
    .new_center-slide-1--title {

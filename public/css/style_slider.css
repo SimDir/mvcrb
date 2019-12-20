@@ -192,6 +192,9 @@
       width: 400px;
       height: 500px;
     }
+    .slide-2__content_top {
+      height: 400px;
+   }
     .circle_text1:after,
    .circle_text2:after,
    .circle_text3:after {
@@ -219,6 +222,9 @@
       width: 360px;
       height: 460px;
     }
+    .slide-2__content_top {
+      height: 350px;
+   }
    .circle_text1:after,
    .circle_text2:after,
    .circle_text3:after {
@@ -246,6 +252,9 @@
       width: 310px;
       height: 410px;
     }
+    .slide-2__content_top {
+      height: 300px;
+   }
    .circle_text1:after,
    .circle_text2:after,
    .circle_text3:after {
@@ -274,6 +283,9 @@
       width: 280px;
       height: 380px;
     }
+    .slide-2__content_top {
+      height: 250px;
+   }
    .circle_text1:after,
    .circle_text2:after,
    .circle_text3:after {
@@ -369,7 +381,6 @@
       align-items: flex-start;
       width: 80%;
       margin: 0 auto;
-
    }
 
    .mobile-slider__icons_container {
@@ -410,7 +421,8 @@
 }
 @media(max-width: 500px) {
    .mobile-slider__top {
-      height: 400px;
+      height: 500px;
+      padding-top: 200px;
    }
    .mobile-slider__circle_text1,
    .mobile-slider__circle_text2,
@@ -444,22 +456,21 @@
 }
 @media(max-width: 400px) {
    .mobile-slider__top {
-      height: 700px;
+      height: 500px;
    }
    .mobile-slider__circle_text1,
    .mobile-slider__circle_text2,
    .mobile-slider__circle_text3 {
-      width: 200px;
-      height: 200px;
+      width: 160px;
+      height: 160px;
    }
    .mobile-slider__circle_text1::after,
    .mobile-slider__circle_text2::after,
    .mobile-slider__circle_text3::after {
-      width: 60%;
-      font-size: 12px;
-      line-height: 12px;
+      width: 63%;
+      font-size: 9px;
+      line-height: 9px;
    }
-   
    .mobile-slider__bottom {
       width: 90%;
    }
@@ -468,12 +479,12 @@
       line-height: 12px;
    }
    .mobile-slider__icons {
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       margin-right: 10px;
    }
    .mobile-slider__icons img{
-      width: 20px;
-      height: 20px;
+      width: 15px;
+      height: 15px;
    }
 }

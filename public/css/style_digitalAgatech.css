@@ -1094,12 +1094,6 @@
 
 
 
-
-
-
-
-
-
 /* КОМАНДА */
 .digitalAgatechBGC-team{
    position: absolute;
@@ -1613,52 +1607,52 @@
 
 
 /* ACHIEVEMENTS */
-.digitalAgatechBGC-other {
+.digitalAgatechBGC-achievments {
    position: absolute;
    top: 0; 
    left: 0;
    width: 100%;
    z-index: -1;
-   height: 650px;
+   height: 500px;
 }
 @media(max-width: 1400px) {
-   .digitalAgatechBGC-other {
-      height: 600px;
-   }
-}
-@media(max-width: 1200px) {
-   .digitalAgatechBGC-other {
-      height: 550px;
-   }
-}
-@media(max-width: 1000px) {
-   .digitalAgatechBGC-other {
-      height: 500px;
-   }
-}
-@media(max-width: 900px) {
-   .digitalAgatechBGC-other {
-      height: 480px;
-   }
-}
-@media(max-width: 800px) {
-   .digitalAgatechBGC-other {
+   .digitalAgatechBGC-achievments {
       height: 450px;
    }
 }
-@media(max-width: 600px) {
-   .digitalAgatechBGC-other {
+@media(max-width: 1200px) {
+   .digitalAgatechBGC-achievments {
       height: 400px;
    }
 }
+@media(max-width: 1000px) {
+   .digitalAgatechBGC-achievments {
+      height: 350px;
+   }
+}
+@media(max-width: 900px) {
+   .digitalAgatechBGC-achievments {
+      height: 330px;
+   }
+}
+@media(max-width: 800px) {
+   .digitalAgatechBGC-achievments {
+      height: 300px;
+   }
+}
+@media(max-width: 600px) {
+   .digitalAgatechBGC-achievments {
+      height: 250px;
+   }
+}
 @media(max-width: 500px) {
-   .digitalAgatechBGC-other {
-      height: 370px;
+   .digitalAgatechBGC-achievments {
+      height: 230px;
    }
 }
 @media(max-width: 400px) {
-   .digitalAgatechBGC-other {
-      height: 300px;
+   .digitalAgatechBGC-achievments {
+      height: 220px;
    }
 }
 .achievements_bgc {
@@ -2275,6 +2269,55 @@
 
 
 /* FILES */
+.digitalAgatechBGC-files {
+   position: absolute;
+   top: 0; 
+   left: 0;
+   width: 100%;
+   z-index: -1;
+   height: 500px;
+}
+@media(max-width: 1400px) {
+   .digitalAgatechBGC-files {
+      height: 450px;
+   }
+}
+@media(max-width: 1200px) {
+   .digitalAgatechBGC-files {
+      height: 400px;
+   }
+}
+@media(max-width: 1000px) {
+   .digitalAgatechBGC-files {
+      height: 350px;
+   }
+}
+@media(max-width: 900px) {
+   .digitalAgatechBGC-files {
+      height: 330px;
+   }
+}
+@media(max-width: 800px) {
+   .digitalAgatechBGC-files {
+      height: 300px;
+   }
+}
+@media(max-width: 600px) {
+   .digitalAgatechBGC-files {
+      height: 250px;
+   }
+}
+@media(max-width: 500px) {
+   .digitalAgatechBGC-files {
+      height: 230px;
+   }
+}
+@media(max-width: 400px) {
+   .digitalAgatechBGC-files {
+      height: 220px;
+   }
+}
+
 .files_bgc {
    background-color: #E5E5E5;
    min-height: 100px;
