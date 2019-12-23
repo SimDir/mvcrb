@@ -43,6 +43,7 @@ class AdminController extends Controller {
     }
 
     public function IndexAction() {
+        
         $this->View->admincontent = $this->View->execute('main.html');
         $this->View->content = $this->View->execute('AdminWraper.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);

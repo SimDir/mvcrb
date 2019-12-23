@@ -160,10 +160,14 @@ class UserModel extends Model {
                 //если пароль совпадает, то нужно авторизовать пользователя
 
                 $user->lastlogin = date('Y-m-d H:i:s');
+                $user->browser = $_SERVER['HTTP_USER_AGENT'];
+                $user->browserip = $_SERVER['REMOTE_ADDR'];
                 $this->store($user);
                 $VarUser = $user->export();
                 unset($VarUser['password']); // убираем хеш пароля.
                 Session::set('LoggedUser', $VarUser);
+                $browser = md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
+                Session::set('BrowserHesh', $browser);
                 return TRUE;
             }
         }
