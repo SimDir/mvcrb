@@ -455,6 +455,33 @@
       height: 110px;
    }
 }
+@media(max-height: 600px) {
+   .slide-4-bitrix24 {
+      width: 250px;
+   }
+   .slide-4-content__price {
+      margin-top: 30px;
+   }
+   .slide-4-content__price-item--top {
+      font-size: 24px;
+      line-height: 24px;
+   }
+   .slide-4-content__price-item--number {
+      font-size: 120px;
+      line-height: 70px;
+   }
+   .slide-4-content__price-item--procent {
+      font-size: 45px;
+      line-height: 45px;
+   }
+   .slide-4-content__price-item--bottom {
+      font-size: 18px;
+      line-height: 18px;
+   }
+   .slide-4-mountains {
+      height: 100px;
+   }
+}
 
 .mobile-slider {
    display: none;
