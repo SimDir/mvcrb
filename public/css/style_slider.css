@@ -545,8 +545,8 @@
 }
 @media(max-width: 500px) {
    .mobile-slider__top {
-      height: 500px;
-      padding-top: 200px;
+      height: 400px;
+      padding-top: 100px;
    }
    .mobile-slider__circle_text1,
    .mobile-slider__circle_text2,
@@ -579,9 +579,6 @@
    }
 }
 @media(max-width: 400px) {
-   .mobile-slider__top {
-      height: 500px;
-   }
    .mobile-slider__circle_text1,
    .mobile-slider__circle_text2,
    .mobile-slider__circle_text3 {
