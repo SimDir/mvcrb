@@ -450,8 +450,8 @@
                 Назад
             </button>
             <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
-            <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
-            <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next">Далее</button>
+            <button v-if="step<=MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
+            <!--<button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next">Далее</button>-->
         </div>
         <!-- configurator-wrap__bottom -->
     </div>
@@ -476,11 +476,11 @@
 
                 <p class="text-white">Оформить заказ</p>
 
-                <p class="p-2">тут текст который о чем то говорит. заказали на сумму {{ totalprice }}</p>
+                <p class="p-2 text-white">Заказали на сумму {{ totalprice }}</p>
 
-                <input v-model="UserData.name" type="text" class="form-control mb-4" placeholder="Имя" required>
-                <input v-model="UserData.email" type="email" class="form-control mb-4" placeholder="E-mail" required>
-                <input v-model="UserData.tel" type="tel" class="form-control mb-4" placeholder="Номер телефона">
+                <input v-model="UserData.name" type="text" class="form-control mb-4" placeholder="Имя" value="<{firstname}> <{lastname}>" required>
+                <input v-model="UserData.email" type="email" class="form-control mb-4" placeholder="E-mail" value="<{email}>" required>
+                <input v-model="UserData.tel" type="tel" class="form-control mb-4" placeholder="Номер телефона" value="<{phone}>">
                 <!-- Sign in button -->
                 <button v-if="ShowUniKod" class="btn btn-info btn-block" type="submit">Заказать</button>
 
@@ -499,7 +499,7 @@
         </div>
     </div>
     <div v-if="step>=8" class="step7-wrap">
-        ваш заказ принят в обработку
+        <h1 class="text-white">ваш заказ принят в обработку</h1>
     </div>
     <!-- configurator-wrap -->
 </div>
@@ -530,7 +530,7 @@
             DopServecPictureDevCount: 1, DopServecPictureDev: 0,
             Step4: [], bStep4: ["baseServicPrototyp", "baseServicStyles", "baseServicDesine"],
             Step5: [], Step6: [],
-            UniKod: '', ShowUniKod: true, UserData: {email: '', name: '', tel: ''}
+            UniKod: '', ShowUniKod: true, UserData: {email: '<{email}>', name: '<{firstname}> <{lastname}>', tel: '<{phone}>'}
         },
         created() {
 
@@ -573,7 +573,7 @@
                     UserData: this.UserData
                 };
 
-                fetch('/configurator/Webhook/?AJAX=1', {
+                fetch('/configurator/webhook/?AJAX=1', {
                     mode: 'cors',
                     method: 'POST',
                     body: JSON.stringify(OrderData)

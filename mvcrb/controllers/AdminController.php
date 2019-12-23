@@ -25,7 +25,7 @@ class AdminController extends Controller {
                 }
                 die('Forbidden: Asses denide');
             } else {
-                Session::set('UrerRedirect', mvcrb::$URI);
+                Session::set('UserRedirect', mvcrb::$URI);
                 return mvcrb::Redirect('/user');
             }
         }

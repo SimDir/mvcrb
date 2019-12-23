@@ -13,8 +13,11 @@ class ConfiguratorController extends Controller {
 
     public function IndexAction() {
         $this->View->title = 'Конфигуратор заказа';
+        $User = new UserModel();
+        $this->View->VarSetArray($User->GetCurrentUser());
         $this->View->content = $this->View->execute('configurator.html');
-        $this->View->content = $this->View->execute('wrapper.html');
+//        $this->View->content = $this->View->execute('wrapper.html');
+        
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
 
@@ -22,7 +25,7 @@ class ConfiguratorController extends Controller {
         $User = new UserModel();
         if ($User->GetCurrentUser()['role'] < 200) {
 //            die('Asses denide');
-            Session::set('UrerRedirect', mvcrb::$URI);
+            Session::set('UserRedirect', mvcrb::$URI);
             return mvcrb::Redirect('/user');
         }
         $this->View->content = $this->View->execute('admin.html');
@@ -76,7 +79,14 @@ class ConfiguratorController extends Controller {
         $result = curl_exec($curl);
         curl_close($curl);
         
-        return $result;
+        $Data['uid'] = $PostData["UID"];
+        $Data['ordersum'] = $PostData["OrderSum"];
+        $Data['sitetyp'] = $PostData["SiteTyp"];
+        $Data['enginetyp'] = $PostData["EngineTyp"];
+        $Data['orderparam'] = json_encode($PostData["OrderParam"]);
+        $model = new ConfiguratorModel();
+        $retParam = $model->Add($Data);
+        return ["WH_RET"=>$result,"MDL_Ret"=>$retParam];
     }
 
 }
