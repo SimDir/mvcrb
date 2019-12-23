@@ -478,9 +478,9 @@
 
                 <p class="p-2 text-white">Заказали на сумму {{ totalprice }}</p>
 
-                <input v-model="UserData.name" type="text" class="form-control mb-4" placeholder="Имя" value="<{firstname}> <{lastname}>" required>
-                <input v-model="UserData.email" type="email" class="form-control mb-4" placeholder="E-mail" value="<{email}>" required>
-                <input v-model="UserData.tel" type="tel" class="form-control mb-4" placeholder="Номер телефона" value="<{phone}>">
+                <input v-model="UserData.name" type="text" class="form-control mb-4" placeholder="Имя" required>
+                <input v-model="UserData.email" type="email" class="form-control mb-4" placeholder="E-mail" required>
+                <input v-model="UserData.tel" type="tel" class="form-control mb-4" placeholder="Номер телефона">
                 <!-- Sign in button -->
                 <button v-if="ShowUniKod" class="btn btn-info btn-block" type="submit">Заказать</button>
 
@@ -530,10 +530,17 @@
             DopServecPictureDevCount: 1, DopServecPictureDev: 0,
             Step4: [], bStep4: ["baseServicPrototyp", "baseServicStyles", "baseServicDesine"],
             Step5: [], Step6: [],
-            UniKod: '', ShowUniKod: true, UserData: {email: '<{email}>', name: '<{firstname}> <{lastname}>', tel: '<{phone}>'}
+            UniKod: '', ShowUniKod: true, UserData: {email: '<{email}>', name: '<{firstname}>', tel: '<{phone}>'}
         },
         created() {
-
+            let self = this;
+            window.onpopstate = function(event) {
+                if(event.state!=null){
+                    self.step = event.state;
+                }
+//                console.log(self.step);
+            };
+            this.SetState(self.step);
         },
         computed: {
             totalprice() {
@@ -598,12 +605,14 @@
                 this.SiteTyp = Typ;
                 this.SiteTypSum = Typ.sum;
                 this.step = 2;
+                this.SetState(this.step);
             },
             SetEngineTyp(Typ) {
 //        console.log(Typ);
                 this.EngineTyp = Typ;
                 this.EngineTypSum = Typ.sum;
                 this.step = 3;
+                this.SetState(this.step);
             },
             arraySum(arr) {
                 let sum = 0;
@@ -621,12 +630,17 @@
                 if (this.step > this.MaxStep) {
                     this.step = this.MaxStep;
                 }
+                 this.SetState(this.step);
             },
             prew() {
                 this.step--;
                 if (this.step < 1) {
                     this.step = 1;
                 }
+                this.SetState(this.step);
+            },
+            SetState(st){
+                window.history.pushState(st, "Title", "/configurator/step/"+st);
             }
 
         }

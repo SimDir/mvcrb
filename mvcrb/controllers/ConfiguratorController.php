@@ -20,6 +20,9 @@ class ConfiguratorController extends Controller {
         
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
+    public function StepAction($step = 1) {
+        return $this->IndexAction();
+    }
 
     public function AdminAction() {
         $User = new UserModel();
