@@ -18,7 +18,54 @@ class UserModel extends Model {
         Session::init();
         $this->TableName = 'user';
     }
-
+    public function GetExel() {
+        $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        
+        $tempbean = $this->findAll($this->TableName);
+        $tempdata = $this->exportAll($tempbean, TRUE);
+        $sheet->setCellValue('A1', 'id');
+        $sheet->setCellValue('B1', 'firstname');
+        $sheet->setCellValue('C1', 'lastname');
+        $sheet->setCellValue('D1', 'login');
+        $sheet->setCellValue('E1', 'email');
+        $sheet->setCellValue('F1', 'phone');
+        $sheet->setCellValue('G1', 'password');
+        $sheet->setCellValue('H1', 'role');
+        $sheet->setCellValue('I1', 'registredatetime');
+        $sheet->setCellValue('J1', 'lastlogin');
+        $sheet->setCellValue('K1', 'browser');
+        $sheet->setCellValue('L1', 'browserip');
+        $Rows=1;
+        foreach ($tempdata as $value) {
+//            dd($value);
+            $Rows++;
+            $sheet->setCellValueByColumnAndRow(1, $Rows, $value["id"]);
+            $sheet->setCellValueByColumnAndRow(2, $Rows, $value["firstname"]);
+            $sheet->setCellValueByColumnAndRow(3, $Rows, $value["lastname"]);
+            $sheet->setCellValueByColumnAndRow(4, $Rows, $value["login"]);
+            $sheet->setCellValueByColumnAndRow(5, $Rows, $value["email"]);
+            $sheet->setCellValueByColumnAndRow(6, $Rows, $value["phone"]);
+            $sheet->setCellValueByColumnAndRow(7, $Rows, $value["password"]);
+            $sheet->setCellValueByColumnAndRow(8, $Rows, $value["role"]);
+            $sheet->setCellValueByColumnAndRow(9, $Rows, $value["registredatetime"]);
+            $sheet->setCellValueByColumnAndRow(10, $Rows, $value["lastlogin"]);
+            $sheet->setCellValueByColumnAndRow(11, $Rows, $value["browser"]);
+            $sheet->setCellValueByColumnAndRow(12, $Rows, $value["browserip"]);
+        }
+        
+        
+        $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+        header("Expires: Mon, 1 Apr 1974 05:00:00 GMT");
+        header("Last-Modified: " . gmdate("D,d M YH:i:s") . " GMT");
+        header("Cache-Control: no-cache, must-revalidate");
+        header("Pragma: no-cache");
+        header("Content-type: application/vnd.ms-excel");
+        header("Content-Disposition: attachment; filename=users.xls");
+        $writer->save('php://output');
+//        return $writer->save(SITE_DIR.'hello_world.xlsx');
+        die();
+    }
     public function GetCountUser() {
         return $this->count($this->TableName);
     }
