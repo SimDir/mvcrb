@@ -298,6 +298,7 @@
    flex-direction: column;
    justify-content: flex-start;
    align-items: center;
+   text-decoration: none;
 }
 .slide-4-bitrix24 {
    width: 400px;
@@ -429,6 +430,7 @@
       height: 110px;
    }
 }
+
 
 .mobile-slider {
    display: none;
