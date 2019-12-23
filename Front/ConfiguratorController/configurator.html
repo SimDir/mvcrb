@@ -1,616 +1,649 @@
 <{ Addcss(/public/css/style_configurator.css) }>
 <div class="configurator" id="configurator">
-    
+
     <!--<button @click="CreateOrder" type="button" class="btn btn-green" >test</button>-->
-        <div v-if="step==1" class="configurator-wrap">
-            <div class="configurator-wrap__header">
-                <a href="#">
-                    <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
-                </a>
-                <div class="configurator-wrap__header-title">
-                    <h2>Выберите тип сайта</h2>
-                    <img src="/public/img/configurator/enter.svg" alt="enter">
-                </div>
-                <div class="configurator-wrap__header-numpage">
-                    <p>Шаг {{step}} из {{MaxStep}}</p>
-                </div>
+    <div v-if="step==1" class="configurator-wrap">
+        <div class="configurator-wrap__header">
+            <a href="#">
+                <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
+            </a>
+            <div class="configurator-wrap__header-title">
+                <h2>Выберите тип сайта</h2>
+                <img src="/public/img/configurator/enter.svg" alt="enter">
             </div>
-            <!-- configurator-wrap__header -->
-            <div class="configurator-wrap__content">
-                <div v-for="(option, index) in SiteTypArray" v-on:click="SetSiteTyp(option)" class="configurator-wrap__content-item">
-                    <img v-bind:src="option.img" class="configurator-wrap__content-item--img">
-                    <p>{{option.text}}</p>
-                    <img src="/public/img/configurator/enter.svg" alt="enter"  class="configurator-wrap__content-item--enter-img">
-                </div>
+            <div class="configurator-wrap__header-numpage">
+                <p>Шаг {{step}} из {{MaxStep}}</p>
             </div>
-            <!-- configurator-wrap__content -->
-            <div v-if="step>=1 && step<MaxStep" class="configurator-wrap__bottom">
-                <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
-                    Назад
-                </button>
-                <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
-                <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
-                <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next" >Далее</button>
-            </div>
-            <!-- configurator-wrap__bottom -->
         </div>
-        <!-- configurator-wrap -->
-
-
-        <div v-if="step==2" class="configurator-wrap">
-            <div class="configurator-wrap__header">
-                <a href="#">
-                    <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
-                </a>
-                <div class="configurator-wrap__header-title">
-                    <h2>Выберите тип движка</h2>
-                    <img src="/public/img/configurator/enter.svg" alt="enter">
-                </div>
-                <div class="configurator-wrap__header-numpage">
-                    <p>Шаг {{step}} из {{MaxStep}}</p>
-                </div>
+        <!-- configurator-wrap__header -->
+        <div class="configurator-wrap__content">
+            <div v-for="(option, index) in SiteTypArray" v-on:click="SetSiteTyp(option)" class="configurator-wrap__content-item">
+                <img v-bind:src="option.img" class="configurator-wrap__content-item--img">
+                <p>{{option.text}}</p>
+                <img src="/public/img/configurator/enter.svg" alt="enter"  class="configurator-wrap__content-item--enter-img">
             </div>
-             <!-- configurator-wrap__header -->
-            <div class="configurator-wrap__content">
-                <div v-for="option in EnginePriceArray" v-on:click="SetEngineTyp(option)" class="configurator-wrap__content-item">
-                    <img v-bind:src="option.img" class="configurator-wrap__content-item--img">
-                    <p>{{option.text}}</p>
-                    <img src="/public/img/configurator/enter.svg" alt="enter"  class="configurator-wrap__content-item--enter-img">
-                </div>
-            </div>
-            <!-- configurator-wrap__content -->
-            <div v-if="step>=1 && step<MaxStep" class="configurator-wrap__bottom">
-                <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
-                    Назад
-                </button>
-                <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
-                <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
-                <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next" >Далее</button>
-            </div>
-            <!-- configurator-wrap__bottom -->
         </div>
+        <!-- configurator-wrap__content -->
+        <div v-if="step>=2 && step<MaxStep" class="configurator-wrap__bottom">
+            <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
+                Назад
+            </button>
+            <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
+            <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
+            <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next" >Далее</button>
+        </div>
+        <!-- configurator-wrap__bottom -->
+    </div>
+    <!-- configurator-wrap -->
 
 
-        <div v-if="step==3" class="configurator-wrap">
-            <div class="configurator-wrap__header">
-                <a href="#">
-                    <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
-                </a>
-                <div class="configurator-wrap__header-title">
-                    <h2>Выбор страниц сайта</h2>
-                    <img src="/public/img/configurator/enter.svg" alt="enter">
-                </div>
-                <div class="configurator-wrap__header-numpage">
-                    <p>Шаг {{step}} из {{MaxStep}}</p>
-                </div>
+    <div v-if="step==2" class="configurator-wrap">
+        <div class="configurator-wrap__header">
+            <a href="#">
+                <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
+            </a>
+            <div class="configurator-wrap__header-title">
+                <h2>Выберите тип движка</h2>
+                <img src="/public/img/configurator/enter.svg" alt="enter">
             </div>
-             <!-- configurator-wrap__header -->
+            <div class="configurator-wrap__header-numpage">
+                <p>Шаг {{step}} из {{MaxStep}}</p>
+            </div>
+        </div>
+        <!-- configurator-wrap__header -->
+        <div class="configurator-wrap__content">
+            <div v-for="option in EnginePriceArray" v-on:click="SetEngineTyp(option)" class="configurator-wrap__content-item">
+                <img v-bind:src="option.img" class="configurator-wrap__content-item--img">
+                <p>{{option.text}}</p>
+                <img src="/public/img/configurator/enter.svg" alt="enter"  class="configurator-wrap__content-item--enter-img">
+            </div>
+        </div>
+        <!-- configurator-wrap__content -->
+        <div v-if="step>=1 && step<MaxStep" class="configurator-wrap__bottom">
+            <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
+                Назад
+            </button>
+            <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
+            <!--                <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
+                            <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next" >Далее</button>-->
+        </div>
+        <!-- configurator-wrap__bottom -->
+    </div>
 
-            <div class="configurator-wrap__content-form">
-                <div class="form-left">
-                    <div class="form-title">
-                        <p>БАЗОВЫЕ СТРАНИЦЫ</p>
-                        <span>(входят в стимость)</span>
-                    </div>
-                    <ul>
-                        <li>
-                            <label for="basehederMenu">
-                                Шапка(меню,контент,сайдбар)
-                                <input type="checkbox" id="basehederMenu" v-model="bStep3" value="basehederMenu">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="baseNewsSalers">
-                                Новости, Акции
-                                <input type="checkbox" id="baseNewsSalers" v-model="bStep3" value="baseNewsSalers">
+
+    <div v-if="step==3" class="configurator-wrap">
+        <div class="configurator-wrap__header">
+            <a href="#">
+                <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
+            </a>
+            <div class="configurator-wrap__header-title">
+                <h2>Выбор страниц сайта</h2>
+                <img src="/public/img/configurator/enter.svg" alt="enter">
+            </div>
+            <div class="configurator-wrap__header-numpage">
+                <p>Шаг {{step}} из {{MaxStep}}</p>
+            </div>
+        </div>
+        <!-- configurator-wrap__header -->
+
+        <div class="configurator-wrap__content-form">
+            <div class="form-left">
+                <div class="form-title">
+                    <p>БАЗОВЫЕ СТРАНИЦЫ</p>
+                    <span>(входят в стимость)</span>
+                </div>
+                <ul>
+                    <li>
+                        <label for="basehederMenu">
+                            Шапка(меню,контент,сайдбар)
+                            <input type="checkbox" id="basehederMenu" v-model="bStep3" value="basehederMenu">
                             <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="baseProdukt">
-                                О товаре, Услугах
-                                <input type="checkbox" id="baseProdukt" v-model="bStep3" value="baseProdukt">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="baseKompany">
-                                О компании
-                                <input type="checkbox" id="baseKompany" v-model="bStep3" value="baseKompany">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="baseKoments">
-                                Отзывы
-                                <input type="checkbox" id="baseKoments" v-model="bStep3" value="baseKoments">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="baseKatalog">
-                                Каталог (до 10) товаров
-                                <input type="checkbox" id="baseKatalog" v-model="bStep3" value="baseKatalog">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-                <!-- step3-left -->
-                
-                <div class="form-right">
-                    <div class="form-title">
-                        <p>ДОПОЛНИТЕЛЬНЫЕ СТРАНИЦЫ</p>
-                    </div>
-                    <ul>
-                        <li>
-                            <label for="DopWorkers">
-                                Комманда, сотрудники
-                                <input type="checkbox" id="DopWorkers" v-model.number="Step3" value="1000">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li>  
-                            <label for="DopFilials">
-                                Филиалы
-                                <input type="checkbox" id="DopFilials" v-model.number="Step3" value="1050">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li>      
-                            <label for="DopWorksHH">
-                                Вакансии (API c HH)
-                                <input type="checkbox" id="DopWorksHH" v-model.number="Step3" value="2500">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="DopWorksEXEL">
-                                Вакансии (с управлением exel-файл)
-                                <input type="checkbox" id="DopWorksEXEL" v-model.number="Step3" value="1550">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li>  
-                            <label for="DopKatalog">
-                                Каталог (до 100) товаров
-                                <input type="checkbox" id="DopKatalog" v-model.number="Step3" value="3500">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="DopUnikPage">
-                                Уникальная страница
-                                <input type="checkbox" id="DopUnikPage" v-model.number="Step3" value="5000">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-                <!-- step3-right" -->
+                        </label>
+                    </li>
+                    <li>
+                        <label for="baseNewsSalers">
+                            Новости, Акции
+                            <input type="checkbox" id="baseNewsSalers" v-model="bStep3" value="baseNewsSalers">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="baseProdukt">
+                            О товаре, Услугах
+                            <input type="checkbox" id="baseProdukt" v-model="bStep3" value="baseProdukt">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="baseKompany">
+                            О компании
+                            <input type="checkbox" id="baseKompany" v-model="bStep3" value="baseKompany">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="baseKoments">
+                            Отзывы
+                            <input type="checkbox" id="baseKoments" v-model="bStep3" value="baseKoments">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="baseKatalog">
+                            Каталог (до 10) товаров
+                            <input type="checkbox" id="baseKatalog" v-model="bStep3" value="baseKatalog">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                </ul>
             </div>
-            <!-- configurator-wrap__content-form -->
-            <div v-if="step>=1 && step<MaxStep" class="configurator-wrap__bottom">
-                <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
-                    Назад
-                </button>
-                <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
-                <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
-                <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next">Далее</button>
+            <!-- step3-left -->
+
+            <div class="form-right">
+                <div class="form-title">
+                    <p>ДОПОЛНИТЕЛЬНЫЕ СТРАНИЦЫ</p>
+                </div>
+                <ul>
+                    <li>
+                        <label for="DopWorkers">
+                            Комманда, сотрудники
+                            <input type="checkbox" id="DopWorkers" v-model.number="Step3" value="1000">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                    <li>  
+                        <label for="DopFilials">
+                            Филиалы
+                            <input type="checkbox" id="DopFilials" v-model.number="Step3" value="1050">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                    <li>      
+                        <label for="DopWorksHH">
+                            Вакансии (API c HH)
+                            <input type="checkbox" id="DopWorksHH" v-model.number="Step3" value="2500">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="DopWorksEXEL">
+                            Вакансии (с управлением exel-файл)
+                            <input type="checkbox" id="DopWorksEXEL" v-model.number="Step3" value="1550">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                    <li>  
+                        <label for="DopKatalog">
+                            Каталог (до 100) товаров
+                            <input type="checkbox" id="DopKatalog" v-model.number="Step3" value="3500">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="DopUnikPage">
+                            Уникальная страница
+                            <input type="checkbox" id="DopUnikPage" v-model.number="Step3" value="5000">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                </ul>
             </div>
-            <!-- configurator-wrap__bottom -->
+            <!-- step3-right" -->
         </div>
-        <!-- configurator-wrap -->
-
-
-        <div v-if="step==4" class="configurator-wrap">
-             <div class="configurator-wrap__header">
-                <a href="#">
-                    <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
-                </a>
-                <div class="configurator-wrap__header-title">
-                    <h2>Дизайн</h2>
-                    <img src="/public/img/configurator/enter.svg" alt="enter">
-                </div>
-                <div class="configurator-wrap__header-numpage">
-                    <p>Шаг {{step}} из {{MaxStep}}</p>
-                </div>
-            </div>
-             <!-- configurator-wrap__header -->
-
-            <div class="configurator-wrap__content-form">
-                <div class="form-left">
-                    <div class="form-title">
-                        <p>БАЗОВЫЕ СТРАНИЦЫ</p>
-                        <span>(входят в стимость)</span>
-                    </div>
-                    <ul>
-                        <li>
-                            <label for="baseServicPrototyp">
-                                Разработка прототипов страниц проекта
-                                <input type="checkbox" id="baseServicPrototyp" v-model="bStep4" value="baseServicPrototyp">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="baseServicStyles">
-                                Создание карточки стилей пректа
-                                <input type="checkbox" id="baseServicStyles" v-model="bStep4" value="baseServicStyles">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="baseServicDesine">
-                                Создание дизайн концепции проекта
-                                <input type="checkbox" id="baseServicDesine" v-model="bStep4" value="baseServicDesine">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-                <!-- form-left -->
- 
-                <div class="form-right">
-                    <div class="form-title">
-                        <p>ДОПОЛНИТЕЛЬНЫЕ СТРАНИЦЫ</p>
-                    </div>
-                    <ul>
-                        <li>
-                            <label for="DopServecLogoKompany">
-                                Разработка логотипа и фирменного стиля
-                                <input type="checkbox" id="DopServecLogoKompany" v-model.number="Step4" value="7500">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="DopServecSliders">
-                                Разработка слайдов акции
-                                <input type="checkbox" id="DopServecSliders" v-model.number="DopServecSliders" value="1500">
-                                <span class="checkbox-visible"></span>
-                            </label>
-
-                            <div v-if="DopServecSliders" class="step4-additional">
-                                <span id="basic-addon3">Количество</span>
-                                <input type="number" min="1" max="99" v-model.number="DopServecSlidersCount">
-                                <span>штук</span>
-                            </div>
-                        </li>
-                        <li>
-                            <label for="DopServecBtnCreate">
-                                Разработка набора кнопок
-                                <input type="checkbox" id="DopServecBtnCreate" v-model.number="Step4" value="1300">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li> 
-                            <label for="DopServecPictureDev">
-                                Обработка изображений
-                                <input type="checkbox" id="DopServecPictureDev" v-model.number="DopServecPictureDev" value="1600">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                            <div v-if="DopServecPictureDev" class="step4-additional">
-                                <span id="basic-addon3">Количество</span>
-                                <input id="DopServecPictureDevCount" type="number" min="1" max="99" v-model.number="DopServecPictureDevCount">
-                                <span>штук</span>
-                            </div>
-                        </li>
-                        <li>
-                            <label for="DopServecPresent">
-                                Разработка презентации
-                                <input type="checkbox" id="DopServecPresent" v-model.number="Step4" value="50000">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="DopServecBrandBook">
-                                Разработка брендбука
-                                <input type="checkbox" id="DopServecBrandBook" v-model.number="Step4" value="60000">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-                <!-- form-right -->
-            </div>
-            <!-- configurator-wrap__content-form -->
-
-            <div v-if="step>=1 && step<MaxStep" class="configurator-wrap__bottom">
-                <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
-                    Назад
-                </button>
-                <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
-                <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
-                <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next">Далее</button>
-            </div>
-            <!-- configurator-wrap__bottom -->
+        <!-- configurator-wrap__content-form -->
+        <div v-if="step>=1 && step<MaxStep" class="configurator-wrap__bottom">
+            <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
+                Назад
+            </button>
+            <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
+            <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
+            <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next">Далее</button>
         </div>
-        <!-- configurator-wrap -->
+        <!-- configurator-wrap__bottom -->
+    </div>
+    <!-- configurator-wrap -->
 
 
-        <div v-if="step==5"  class="configurator-wrap">
-            <div class="configurator-wrap__header">
-                <a href="#">
-                    <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
-                </a>
-                <div class="configurator-wrap__header-title">
-                    <h2>Наполнение</h2>
-                    <img src="/public/img/configurator/enter.svg" alt="enter">
-                </div>
-                <div class="configurator-wrap__header-numpage">
-                    <p>Шаг {{step}} из {{MaxStep}}</p>
-                </div>
+    <div v-if="step==4" class="configurator-wrap">
+        <div class="configurator-wrap__header">
+            <a href="#">
+                <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
+            </a>
+            <div class="configurator-wrap__header-title">
+                <h2>Дизайн</h2>
+                <img src="/public/img/configurator/enter.svg" alt="enter">
             </div>
-             <!-- configurator-wrap__header -->
-
-            <div class="configurator-wrap__content-form">
-                <div class="form-left">
-                    <ul>
-                        <li>
-                            <label for="WriteText">
-                                Написание текстов (500 знаков)
-                                <input type="checkbox" id="WriteText" v-model.number="Step5" value="1000">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="SalePictures">
-                                Подбор и покупка изображений
-                                <input type="checkbox" id="SalePictures" v-model.number="Step4" value="2000">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-                <!-- form-left -->
-                
-                <div class="form-right">
-                    <ul>
-                        <li>     
-                            <label for="DopMoveCreate">
-                                Создание видиоролика
-                                <input type="checkbox" id="DopMoveCreate" v-model.number="Step5" value="1500">
-                                <span class="checkbox-visible"></span>
-                            </label>
-
-                        </li>
-                        <li>
-                            <label for="DopPhotograph">
-                                Работа фотографа (2 часа 50 фотографий)
-                                <input type="checkbox" id="DopPhotograph" v-model.number="Step5" value="500">
-                                <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-                <!-- form-right -->
+            <div class="configurator-wrap__header-numpage">
+                <p>Шаг {{step}} из {{MaxStep}}</p>
             </div>
-            <!-- configurator-wrap__content-form -->
-
-            <div v-if="step>=1 && step<MaxStep" class="configurator-wrap__bottom">
-                <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
-                    Назад
-                </button>
-                <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
-                <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
-                <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next">Далее</button>
-            </div>
-            <!-- configurator-wrap__bottom -->
         </div>
-        <!-- class="configurator-wrap" -->
+        <!-- configurator-wrap__header -->
 
-
-        <div v-if="step==6" class="configurator-wrap">
-            <div class="configurator-wrap__header">
-                <a href="#">
-                    <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
-                </a>
-                <div class="configurator-wrap__header-title">
-                    <h2>Домен, хостинг,<br> SSL сертификат</h2>
-                    <img src="/public/img/configurator/enter.svg" alt="enter">
+        <div class="configurator-wrap__content-form">
+            <div class="form-left">
+                <div class="form-title">
+                    <p>БАЗОВЫЕ СТРАНИЦЫ</p>
+                    <span>(входят в стимость)</span>
                 </div>
-                <div class="configurator-wrap__header-numpage">
-                    <p>Шаг {{step}} из {{MaxStep}}</p>
-                </div>
+                <ul>
+                    <li>
+                        <label for="baseServicPrototyp">
+                            Разработка прототипов страниц проекта
+                            <input type="checkbox" id="baseServicPrototyp" v-model="bStep4" value="baseServicPrototyp">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="baseServicStyles">
+                            Создание карточки стилей пректа
+                            <input type="checkbox" id="baseServicStyles" v-model="bStep4" value="baseServicStyles">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="baseServicDesine">
+                            Создание дизайн концепции проекта
+                            <input type="checkbox" id="baseServicDesine" v-model="bStep4" value="baseServicDesine">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                </ul>
             </div>
-             <!-- configurator-wrap__header -->
-             
-            <div class="configurator-wrap__content-form">
-                <div class="form-right">
-                    <ul>
-                        <li>
-                            <label for="WriteText">
-                                Доменное имя
-                                <input type="checkbox" id="WriteText" v-model.number="Step6" value="1600">
-                                 <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="SalePictures">
-                                Хостинг
-                                <input type="checkbox" id="SalePictures" v-model.number="Step6" value="7000">
-                                 <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="DopMoveCreate">
-                                SSL сертификат
-                                <input type="checkbox" id="DopMoveCreate" v-model.number="Step6" value="3000">
-                                 <span class="checkbox-visible"></span>
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-                <!-- form-right -->
-            </div>    
-            <!-- configurator-wrap__content-form -->
+            <!-- form-left -->
 
-            <div v-if="step>=1 && step<MaxStep" class="configurator-wrap__bottom">
-                <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
-                    Назад
-                </button>
-                <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
-                <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
-                <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next">Далее</button>
+            <div class="form-right">
+                <div class="form-title">
+                    <p>ДОПОЛНИТЕЛЬНЫЕ СТРАНИЦЫ</p>
+                </div>
+                <ul>
+                    <li>
+                        <label for="DopServecLogoKompany">
+                            Разработка логотипа и фирменного стиля
+                            <input type="checkbox" id="DopServecLogoKompany" v-model.number="Step4" value="7500">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="DopServecSliders">
+                            Разработка слайдов акции
+                            <input type="checkbox" id="DopServecSliders" v-model.number="DopServecSliders" value="1500">
+                            <span class="checkbox-visible"></span>
+                        </label>
+
+                        <div v-if="DopServecSliders" class="step4-additional">
+                            <span id="basic-addon3">Количество</span>
+                            <input type="number" min="1" max="99" v-model.number="DopServecSlidersCount">
+                            <span>штук</span>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="DopServecBtnCreate">
+                            Разработка набора кнопок
+                            <input type="checkbox" id="DopServecBtnCreate" v-model.number="Step4" value="1300">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                    <li> 
+                        <label for="DopServecPictureDev">
+                            Обработка изображений
+                            <input type="checkbox" id="DopServecPictureDev" v-model.number="DopServecPictureDev" value="1600">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                        <div v-if="DopServecPictureDev" class="step4-additional">
+                            <span id="basic-addon3">Количество</span>
+                            <input id="DopServecPictureDevCount" type="number" min="1" max="99" v-model.number="DopServecPictureDevCount">
+                            <span>штук</span>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="DopServecPresent">
+                            Разработка презентации
+                            <input type="checkbox" id="DopServecPresent" v-model.number="Step4" value="50000">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="DopServecBrandBook">
+                            Разработка брендбука
+                            <input type="checkbox" id="DopServecBrandBook" v-model.number="Step4" value="60000">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                </ul>
             </div>
-            <!-- configurator-wrap__bottom -->
+            <!-- form-right -->
         </div>
-         <!-- class="configurator-wrap" -->
+        <!-- configurator-wrap__content-form -->
 
-
-        <div v-if="step==7" class="configurator-wrap">
-            <div class="configurator-wrap__header">
-                <a href="#">
-                    <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
-                </a>
-                <div class="configurator-wrap__header-title">
-                    <button v-if="!ShowUniKod" @click="ShowUniKod=true" type="button">Получить код</button>
-                    <div v-if="ShowUniKod" class="unique-order">
-                        <h2>Ваш уникальный код заказа</h2>
-                        <h3>{{ UniKod }}</h3>
-                    </div>
-                    
-                    <img src="/public/img/configurator/enter.svg" alt="enter">
-                </div>
-                <div class="configurator-wrap__header-numpage">
-                    <p>Шаг {{step}} из {{MaxStep}}</p>
-                </div>
-            </div>
-             <!-- configurator-wrap__header -->
-
-            <div class="step7-wrap">
-                <iframe src="https://calk.bitrix24.site/" frameborder="0"></iframe> 
-            </div>
-            <!-- step7-wrap -->
-            
+        <div v-if="step>=1 && step<MaxStep" class="configurator-wrap__bottom">
+            <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
+                Назад
+            </button>
+            <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
+            <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
+            <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next">Далее</button>
         </div>
-        <!-- configurator-wrap -->
+        <!-- configurator-wrap__bottom -->
+    </div>
+    <!-- configurator-wrap -->
+
+
+    <div v-if="step==5"  class="configurator-wrap">
+        <div class="configurator-wrap__header">
+            <a href="#">
+                <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
+            </a>
+            <div class="configurator-wrap__header-title">
+                <h2>Наполнение</h2>
+                <img src="/public/img/configurator/enter.svg" alt="enter">
+            </div>
+            <div class="configurator-wrap__header-numpage">
+                <p>Шаг {{step}} из {{MaxStep}}</p>
+            </div>
+        </div>
+        <!-- configurator-wrap__header -->
+
+        <div class="configurator-wrap__content-form">
+            <div class="form-left">
+                <ul>
+                    <li>
+                        <label for="WriteText">
+                            Написание текстов (500 знаков)
+                            <input type="checkbox" id="WriteText" v-model.number="Step5" value="1000">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="SalePictures">
+                            Подбор и покупка изображений
+                            <input type="checkbox" id="SalePictures" v-model.number="Step4" value="2000">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <!-- form-left -->
+
+            <div class="form-right">
+                <ul>
+                    <li>     
+                        <label for="DopMoveCreate">
+                            Создание видиоролика
+                            <input type="checkbox" id="DopMoveCreate" v-model.number="Step5" value="1500">
+                            <span class="checkbox-visible"></span>
+                        </label>
+
+                    </li>
+                    <li>
+                        <label for="DopPhotograph">
+                            Работа фотографа (2 часа 50 фотографий)
+                            <input type="checkbox" id="DopPhotograph" v-model.number="Step5" value="500">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <!-- form-right -->
+        </div>
+        <!-- configurator-wrap__content-form -->
+
+        <div v-if="step>=1 && step<MaxStep" class="configurator-wrap__bottom">
+            <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
+                Назад
+            </button>
+            <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
+            <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
+            <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next">Далее</button>
+        </div>
+        <!-- configurator-wrap__bottom -->
+    </div>
+    <!-- class="configurator-wrap" -->
+
+
+    <div v-if="step==6" class="configurator-wrap">
+        <div class="configurator-wrap__header">
+            <a href="#">
+                <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
+            </a>
+            <div class="configurator-wrap__header-title">
+                <h2>Домен, хостинг,<br> SSL сертификат</h2>
+                <img src="/public/img/configurator/enter.svg" alt="enter">
+            </div>
+            <div class="configurator-wrap__header-numpage">
+                <p>Шаг {{step}} из {{MaxStep}}</p>
+            </div>
+        </div>
+        <!-- configurator-wrap__header -->
+
+        <div class="configurator-wrap__content-form">
+            <div class="form-right">
+                <ul>
+                    <li>
+                        <label for="WriteText">
+                            Доменное имя
+                            <input type="checkbox" id="WriteText" v-model.number="Step6" value="1600">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="SalePictures">
+                            Хостинг
+                            <input type="checkbox" id="SalePictures" v-model.number="Step6" value="7000">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="DopMoveCreate">
+                            SSL сертификат
+                            <input type="checkbox" id="DopMoveCreate" v-model.number="Step6" value="3000">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <!-- form-right -->
+        </div>    
+        <!-- configurator-wrap__content-form -->
+
+        <div v-if="step>=1 && step<MaxStep" class="configurator-wrap__bottom">
+            <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
+                Назад
+            </button>
+            <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
+            <button v-if="step<=MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
+            <!--<button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next">Далее</button>-->
+        </div>
+        <!-- configurator-wrap__bottom -->
+    </div>
+    <!-- class="configurator-wrap" -->
+
+
+    <div v-if="step==7" class="configurator-wrap">
+        <div class="configurator-wrap__header">
+            <a href="#">
+                <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
+            </a>
+            <div class="configurator-wrap__header-numpage">
+                <p>Шаг {{step}} из {{MaxStep}}</p>
+            </div>
+        </div>
+        <!-- configurator-wrap__header -->
+
+        <div class="step7-wrap">
+            <!--<iframe src="https://calk.bitrix24.site/" frameborder="0"></iframe>--> 
+            <!-- Default form subscription -->
+            <form style="width: 450px;" class="text-center" @submit="CreateOrder">
+
+                <p class="text-white">Оформить заказ</p>
+
+                <p class="p-2 text-white">Заказали на сумму {{ totalprice }}</p>
+
+                <input v-model="UserData.name" type="text" class="form-control mb-4" placeholder="Имя" required>
+                <input v-model="UserData.email" type="email" class="form-control mb-4" placeholder="E-mail" required>
+                <input v-model="UserData.tel" type="tel" class="form-control mb-4" placeholder="Номер телефона">
+                <!-- Sign in button -->
+                <button v-if="ShowUniKod" class="btn btn-info btn-block" type="submit">Заказать</button>
+
+
+            </form>
+            <!-- Default form subscription -->
+        </div>
+        <!-- step7-wrap -->
+        <div v-if="step>=7" class="configurator-wrap__bottom">
+            <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
+                Назад
+            </button>
+            <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
+            <!--                <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
+                            <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next" >Далее</button>-->
+        </div>
+    </div>
+    <div v-if="step>=8" class="step7-wrap">
+        <h1 class="text-white">ваш заказ принят в обработку</h1>
+    </div>
+    <!-- configurator-wrap -->
 </div>
 <!-- configurator -->
 
 
 
 <script>
-var configurator = new Vue({
-  el: '#configurator',
-  data: {
-    message: 'Конфигуратор сайтов',
-    step:1,MaxStep:7, 
-    SiteTyp:{},SiteTypSum:0, SiteTypArray: [
-      { name:'Liding',text: 'Одностраничный сайт', sum:25000,img:'/public/img/configurator/single-page-website.svg'},
-      { name:'market',text: 'Интернет магазин', sum:45000,img:'/public/img/configurator/online-store.svg'},
-      { name:'korporarion',text: 'Корпоративный сайт', sum:35000,img:'/public/img/configurator/corporate-website.svg'},
-      { name:'singl',text: 'Сайт визитка', sum:15000,img:'/public/img/configurator/website-cutaway.svg'},
-      
-    ],
-    EngineTyp:{},EngineTypSum:0,EnginePriceArray: [
-      { name:'bitrix24',text: 'Bitrix24 за 0 рублей', sum:0, img:'/public/img/configurator/bitrix24.svg'},
-      { name:'tilda',text: 'Tilda за 10000 рублей', sum: 10000, img:'/public/img/configurator/tilda.svg'},
-      { name:'opencart',text: 'Opencart за 15000 рублей', sum: 15000, img:'/public/img/configurator/opencart.svg'},
-      { name:'php',text: 'Чистый код за 25000 рублей', sum:25000, img:'/public/img/configurator/clean-code.svg'}
-    ],
-    Step3:[],bStep3:["basehederMenu", "baseNewsSalers", "baseProdukt", "baseKompany", "baseKoments", "baseKatalog"],bStep3Val:true,
-    DopServecSlidersCount:1,DopServecSliders:0,
-    DopServecPictureDevCount:1,DopServecPictureDev:0, 
-    Step4:[],bStep4:["baseServicPrototyp", "baseServicStyles", "baseServicDesine"],
-    Step5:[],Step6:[],
-    UniKod:'',ShowUniKod:false
-  },
-  created() {
-    
-  },
-  computed: {
-    totalprice() {
-        //let UnikPage = this.sidebarUnikPage*5000;
-        let step3 = this.arraySum(this.Step3);
-        let step4 = this.arraySum(this.Step4);
-        let step5 = this.arraySum(this.Step5);
-        let step6 = this.arraySum(this.Step6);
-        if(this.DopServecSliders){
-            step4=step4+(1500*this.DopServecSlidersCount);
-        }
-        if(this.DopServecPictureDev){
-            step4=step4+(1600*this.DopServecPictureDevCount);
-        }
-        return this.SiteTypSum+this.EngineTypSum+step3+step4+step5+step6;
-    },
-    GetUID(){
-        const uuid = ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15 >> c/4).toString(16));
-        return uuid;
-    }
-  },
-  methods: {
-    CreateOrder(){
-//        
-        this.UniKod = this.GetUID;
-        var OrderSum = this.totalprice;
-        
-        var OrderParam = {ParamStep3:{BaseParam:this.bStep3,DopParam:this.Step3},
-            ParamStep4:{BaseParam:this.bStep4,DopParam:this.Step4},
-            ParamStep5:{BaseParam:this.Step5},ParamStep6:{BaseParam:this.Step6}};
-        
-        var OrderData = {UID:this.UniKod,OrderSum:OrderSum,
-            OrderParam:OrderParam,
-            SiteTyp:this.SiteTyp.name,
-            EngineTyp:this.EngineTyp.name
-        };
-        
-            fetch( '/configurator/add/?AJAX=1',{
-            mode: 'cors',
-            method: 'POST',
-            body: JSON.stringify(OrderData)
-            })
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
+    var configurator = new Vue({
+        el: '#configurator',
+        data: {
+            message: 'Конфигуратор сайтов',
+            step: 1, MaxStep: 7,
+            SiteTyp: {}, SiteTypSum: 0, SiteTypArray: [
+                {name: 'Liding', text: 'Одностраничный сайт', sum: 25000, img: '/public/img/configurator/single-page-website.svg'},
+                {name: 'market', text: 'Интернет магазин', sum: 45000, img: '/public/img/configurator/online-store.svg'},
+                {name: 'korporarion', text: 'Корпоративный сайт', sum: 35000, img: '/public/img/configurator/corporate-website.svg'},
+                {name: 'singl', text: 'Сайт визитка', sum: 15000, img: '/public/img/configurator/website-cutaway.svg'},
+            ],
+            EngineTyp: {}, EngineTypSum: 0, EnginePriceArray: [
+                {name: 'bitrix24', text: 'Bitrix24 за 0 рублей', sum: 0, img: '/public/img/configurator/bitrix24.svg'},
+                {name: 'tilda', text: 'Tilda за 10000 рублей', sum: 10000, img: '/public/img/configurator/tilda.svg'},
+                {name: 'opencart', text: 'Opencart за 15000 рублей', sum: 15000, img: '/public/img/configurator/opencart.svg'},
+                {name: 'php', text: 'Чистый код за 25000 рублей', sum: 25000, img: '/public/img/configurator/clean-code.svg'}
+            ],
+            Step3: [], bStep3: ["basehederMenu", "baseNewsSalers", "baseProdukt", "baseKompany", "baseKoments", "baseKatalog"], bStep3Val: true,
+            DopServecSlidersCount: 1, DopServecSliders: 0,
+            DopServecPictureDevCount: 1, DopServecPictureDev: 0,
+            Step4: [], bStep4: ["baseServicPrototyp", "baseServicStyles", "baseServicDesine"],
+            Step5: [], Step6: [],
+            UniKod: '', ShowUniKod: true, UserData: {email: '<{email}>', name: '<{firstname}>', tel: '<{phone}>'}
+        },
+        created() {
+            let self = this;
+            window.onpopstate = function(event) {
+                if(event.state!=null){
+                    self.step = event.state;
                 }
-                throw new Error('Network response was not ok');
-            })
-            .then((json) => {
-                console.log(json);  
-                this.step++;
-            })
-            .catch((error) => {
-                console.log('Ошибка отправки данных конфигуратора ',error);
-            });
-        
-    },
-    SetSiteTyp(Typ){
-          this.SiteTyp = Typ;
-          this.SiteTypSum = Typ.sum;
-          this.step =2;
-    },
-    SetEngineTyp(Typ){
+//                console.log(self.step);
+            };
+            this.SetState(self.step);
+        },
+        computed: {
+            totalprice() {
+                //let UnikPage = this.sidebarUnikPage*5000;
+                let step3 = this.arraySum(this.Step3);
+                let step4 = this.arraySum(this.Step4);
+                let step5 = this.arraySum(this.Step5);
+                let step6 = this.arraySum(this.Step6);
+                if (this.DopServecSliders) {
+                    step4 = step4 + (1500 * this.DopServecSlidersCount);
+                }
+                if (this.DopServecPictureDev) {
+                    step4 = step4 + (1600 * this.DopServecPictureDevCount);
+                }
+                return this.SiteTypSum + this.EngineTypSum + step3 + step4 + step5 + step6;
+            },
+            GetUID() {
+                const uuid = ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));
+                return uuid;
+            }
+        },
+        methods: {
+            CreateOrder(e) {
+                e.preventDefault();
+                this.ShowUniKod = false;
+                this.UniKod = this.GetUID;
+                var OrderSum = this.totalprice;
+
+                var OrderParam = {ParamStep3: {BaseParam: this.bStep3, DopParam: this.Step3},
+                    ParamStep4: {BaseParam: this.bStep4, DopParam: this.Step4},
+                    ParamStep5: {BaseParam: this.Step5}, ParamStep6: {BaseParam: this.Step6}};
+
+                var OrderData = {UID: this.UniKod, OrderSum: OrderSum,
+                    OrderParam: OrderParam,
+                    SiteTyp: this.SiteTyp.name,
+                    EngineTyp: this.EngineTyp.name,
+                    UserData: this.UserData
+                };
+
+                fetch('/configurator/webhook/?AJAX=1', {
+                    mode: 'cors',
+                    method: 'POST',
+                    body: JSON.stringify(OrderData)
+                })
+                        .then((response) => {
+                            if (response.ok) {
+                                return response.json();
+                            }
+                            throw new Error('Network response was not ok');
+                        })
+                        .then((json) => {
+                            console.log(json);
+                            this.step++;
+                            this.ShowUniKod = true;
+                        })
+                        .catch((error) => {
+                            console.log('Ошибка отправки данных конфигуратора ', error);
+                        });
+
+            },
+            SetSiteTyp(Typ) {
+                this.SiteTyp = Typ;
+                this.SiteTypSum = Typ.sum;
+                this.step = 2;
+                this.SetState(this.step);
+            },
+            SetEngineTyp(Typ) {
 //        console.log(Typ);
-          this.EngineTyp = Typ;
-          this.EngineTypSum = Typ.sum;
-          this.step =3;
-    },
-    arraySum(arr) {
-        let sum = 0;
-        if (arr.length) {
-            sum = arr.reduce((a, b) => {
-                return (parseFloat(a) || 0) + (parseFloat(b) || 0);
-            });
-        } else {
-            sum = 0;
+                this.EngineTyp = Typ;
+                this.EngineTypSum = Typ.sum;
+                this.step = 3;
+                this.SetState(this.step);
+            },
+            arraySum(arr) {
+                let sum = 0;
+                if (arr.length) {
+                    sum = arr.reduce((a, b) => {
+                        return (parseFloat(a) || 0) + (parseFloat(b) || 0);
+                    });
+                } else {
+                    sum = 0;
+                }
+                return sum;
+            },
+            next() {
+                this.step++;
+                if (this.step > this.MaxStep) {
+                    this.step = this.MaxStep;
+                }
+                 this.SetState(this.step);
+            },
+            prew() {
+                this.step--;
+                if (this.step < 1) {
+                    this.step = 1;
+                }
+                this.SetState(this.step);
+            },
+            SetState(st){
+                window.history.pushState(st, "Title", "/configurator/step/"+st);
+            }
+
         }
-        return sum;
-    },
-    next() {
-      this.step++;
-      if(this.step>this.MaxStep){
-          this.step = this.MaxStep;
-      }
-    },
-    prew() {
-      this.step--;
-      if(this.step<1){
-          this.step=1;
-      }
-    }
-    
-  }
-})
+    })
 
 </script>

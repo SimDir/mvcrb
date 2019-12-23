@@ -22,12 +22,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 */
-define('TIME_START', microtime(true));// для подсчета времени работы скрипта
-define('USE_MEM', memory_get_usage()); // тоже самое только для используемой памяти сервера
+//define('TIME_START', microtime(true));// для подсчета времени работы скрипта
+//define('USE_MEM', memory_get_usage()); // тоже самое только для используемой памяти сервера
 if (version_compare(phpversion(), '7.1.0', '<') == true) {
     die('на сервере версия PHP меньше 7.1 продолжить невозможно. обновите версию PHP');
 }
-
+define('SESSION_PREFIX', 'Agatech_session_');
 define('DS', DIRECTORY_SEPARATOR); // разделитель для путей к файлам
 define('ROOT', dirname(__FILE__)); // защита всех файлов приложения от прямого доступа к ним
 define('SITE_DIR', realpath(dirname(__FILE__)) . DS); // путь к корневой папке сайта getcwd()
@@ -37,7 +37,7 @@ define('TEMPLATE_DIR', SITE_DIR . 'Front' . DS);
 
 define('CONFIG_DIR', SITE_DIR . 'Config' . DS); // папка с конфигами
 
-define ('SHOW_ERROR', FALSE); // Показывать ошибки контроллеров или перенаправлять на 404 страницу?
+define ('SHOW_ERROR', true); // Показывать ошибки контроллеров или перенаправлять на 404 страницу?
 define ('ERROR_URL', '/error/404');
 define ('COMPOSER', SITE_DIR.'vendor'.DS.'autoload.php');
 

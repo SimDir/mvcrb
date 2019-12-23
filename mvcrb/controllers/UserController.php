@@ -21,15 +21,15 @@ class UserController extends Controller{
         if($UserVars['role']==0){
             return mvcrb::Redirect('/user/login');
         }
-        $redir = Session::get('UrerRedirect');
+        $redir = Session::get('UserRedirect');
         if($redir){
-            Session::set('UrerRedirect', null);
+            Session::set('UserRedirect', null);
             return mvcrb::Redirect($redir);
         }
         $this->View->VarSetArray($UserVars);
        
         $email = $UserVars['email'];
-        $default = "http://rusodality.ru/img/gerbrr.png";
+        $default = "http://agatech.agatech.ru/public/img/rblogom.png";
         $size = 256;
         $this->View->GravUrl = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
         $this->View->content = $this->View->execute('usercard.html');
@@ -46,7 +46,7 @@ class UserController extends Controller{
         $this->View->title ='Вход пользователя';
         if ($this->POST) {
             $user= json_decode($this->REQUEST);
-            return $this->User->login($user->email, $user->password);;
+            return $this->User->login($user->email, $user->password);
         } 
         $this->View->content =  $this->View->execute('FormLogin.html');
         return $this->View->execute('index.html',TEMPLATE_DIR);
