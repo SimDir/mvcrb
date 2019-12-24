@@ -43,12 +43,20 @@
    font-size: 16px;
    line-height: 22px;
    color: #626779;
-   margin-bottom: 10px;
+   margin-bottom: 15px;
 }
 .products-controlSystems__row-text--link {
    font-family: 'Helvetica Neue Cyr Roman';
    font-size: 16px;
    line-height: 16px;
+   color: #06093C;
+   border: 2px solid #06093C;
+   padding: 5px 10px;
+   transition: all .5s;
+}
+.products-controlSystems__row-text--link:hover {
+   color: #fff;
+   box-shadow: inset 150px 0 0 #06093C;;
 }
 
 @media(max-width: 1200px) {
@@ -70,7 +78,7 @@
    .products-controlSystems__row-text--description {
       font-size: 14px;
       line-height: 20px;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
    }
    .products-controlSystems__row-text--link {
       font-size: 14px;
