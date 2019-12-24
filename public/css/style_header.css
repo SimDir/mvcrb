@@ -104,7 +104,7 @@ header {
    top: 0;
    left: 0;
    opacity: 0;
-   transition: transform .7s ease, opacity .5s ease, background .2s;
+   transition: all .7s;
 }
 .header_bottom__content {
    width: 90%;
