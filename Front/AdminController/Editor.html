@@ -15,14 +15,14 @@
 <script>
     tinymce.init({
         selector: '#mytextarea',
-//  height: 700,
+        height: 700,
         language: 'ru',
         language_url: '/public/js/ru.js',
         menubar: true,
-        plugins: [
-            'advlist autoresize autolink lists link image charmap print preview anchor save',
-            'searchreplace visualblocks code fullscreen',
-            'insertdatetime media table paste code help wordcount'
+        plugins: ['save code fullscreen image media'
+//            'advlist autolink lists link image charmap print preview anchor save',
+//            'searchreplace visualblocks code fullscreen',
+//            'insertdatetime media table paste code help wordcount'
         ],
 //  menu : { // this is the complete default configuration
 //    file   : {title : 'File'  , items : 'save | newdocument | print'},
@@ -38,13 +38,25 @@
                 ' alignright alignjustify | bullist numlist outdent indent |' +
                 ' removeformat | help',
         content_css: [
-            '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+            
             '/public/css/style.css'
         ],
         save_enablewhendirty: true,
         save_onsavecallback() {
             var content = this.getContent();
-            console.log(content);
+            fetch('/editorsave/<{id}>?AJAX=1', {
+                mode: 'cors',
+                method: 'POST',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                body: JSON.stringify({PageId:'<{id}>',PageContent:content})
+                })
+                .then(res => res.json())
+                .then(res => {
+
+                    console.log(res);
+                });
+            
         },
         setup(editor) {
 //      console.log(editor); 

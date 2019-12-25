@@ -14,12 +14,11 @@ class LanguageController {
         Session::init();
     }
     public function EnAction() {
-        
         Session::set('language', 'en');
-        return mvcrb::Redirect('/');
+        return mvcrb::Redirect($_SERVER["HTTP_REFERER"]);
     }
     public function RuAction() {
         Session::set('language', null);
-        return mvcrb::Redirect('/');
+        return mvcrb::Redirect($_SERVER["HTTP_REFERER"]);
     }
 }

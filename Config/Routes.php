@@ -19,9 +19,10 @@ return array(
 //    '\binclude\b/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+).html' => 'index/pagef/$1/$2',
     'error/([0-9]+)' => 'index/eror/$1',
 //    'index.php' => 'main/redirect',
-    '\bpage\b' => 'index/page/',
+//    '\bpage\b' => 'index/page/',
 //    '\bpage\b/([0-9]+)' => 'index/page/$1',
-//    '\bpage\b/([-_a-zA-Z0-9]+).html' => 'index/page/$1',
+    '\beditor\b/([-_a-zA-Z0-9]+)' => 'page/edit/$1',
+    '\beditorsave\b/([-_a-zA-Z0-9]+)' => 'page/save/$1',
     '\bpage\b/([-_a-zA-Z0-9]+)' => 'index/page/$1',
 //    '^id' => 'main/index/$1',
 

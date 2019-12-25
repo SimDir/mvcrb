@@ -23,7 +23,7 @@ class IndexController extends Controller {
         if(is_null($lng)){
             $lng='';
         }
-        return $this->View->execute('inc' . DS . $lng. 'header.html');
+        return $this->View->execute('inc' . DS . $lng . 'header.html');
     }
 
     public function SliderAction() {
@@ -31,19 +31,34 @@ class IndexController extends Controller {
     }
 
     public function FooterAction() {
-        return $this->View->execute('inc' . DS . 'footer.html');
+        Session::init();
+        $lng = Session::get('language');
+        
+        if(is_null($lng)){
+            $lng='';
+        }
+        return $this->View->execute('inc' . DS . $lng . 'footer.html');
     }
 
     public function PageAction($page) {
+        
         $Pages = new PageModel();
         $PRet = $Pages->GetPage($page);
-//        if($PRet){
-////            dd($PRet);
-//            $this->View->content = $this->View->Code($PRet['content']);
-//            $this->View->title = $PRet['title'];
-//            $this->View->content = $this->View->execute('pages.html');
-//            return $this->View->execute('index.html', TEMPLATE_DIR);
-//        }
+        $User = new UserModel();
+        $curUser = $User->GetCurrentUser();
+        if ($curUser['role'] >= 300) {
+            $this->View->VarSetArray($curUser);
+            $this->View->pageid = $PRet['id'];
+            $this->View->adminpanel = $this->View->execute('adminpanel.html');
+        }
+        if($PRet["type"]!=='notpublic'){
+
+//            dd($PRet);
+            $this->View->content = $this->View->Code($PRet['content']);
+            $this->View->title = $PRet['title'];
+            $this->View->content = $this->View->execute('pages.html');
+            return $this->View->execute('index.html', TEMPLATE_DIR);
+        }
 
         $FinDir = TEMPLATE_DIR . 'IndexController' . DS . 'staticpage';
         $testFile = mvcrb::SearchFile($page, $FinDir);
@@ -52,22 +67,36 @@ class IndexController extends Controller {
             $testFile = str_ireplace(TEMPLATE_DIR . 'IndexController' . DS, '', $testFile);
         } else {
 //            dd($testFile);
-            return mvcrb::Redirect(ERROR_URL);
+            return $this->ErorAction(404);
         }
         $this->View->content = $this->View->execute($testFile);
+        if (file_exists($tempFile)) {
+            $date1=$PRet["editdatetime"];
+            $date2=date('Y-m-d H:i:s', filectime($tempFile));
+            $result=(strtotime($date1)< strtotime($date2));
+            if($result){
+                $Data['name'] = $page;
+                $Data['type'] = 'notpublic';
+                $Data['author'] = 'mvcrb framework auto edit script';
+                $Data['title'] = $this->View->title;
+                $Data['content'] = file_get_contents($tempFile);
+                $Pages->Edit($Data,$PRet['id']);
+//                dd($result);
+            }
 
+        }
         if (!$PRet) {
 
             $Data['name'] = $page;
             $Data['type'] = 'notpublic';
-            $Data['author'] = 'Agatech auto script';
+            $Data['author'] = 'mvcrb framework auto add script';
             $Data['title'] = $this->View->title;
             $Data['content'] = file_get_contents($tempFile);
 
             $Pages->Add($Data);
         }
 
-
+        
         $this->View->content = $this->View->execute('pages.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
