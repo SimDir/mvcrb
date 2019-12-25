@@ -15,7 +15,7 @@
  * 
  */
 return array(
-    
+    '\bpage\b/([-_a-zA-Z0-9]+)' => 'page/index/$1',
     
 //    '([0-9]+)' => 'main/index/$1',
 //    'product/([0-9]+)' => 'main/product/0/$1',
@@ -29,11 +29,11 @@ return array(
 //    'sitemap' => 'main/sitemap',
 //    '404' => 'main/eror404',
 //    'index.php' => 'main/redirect',
-    '\bpage\b/([0-9]+)' => 'page/page/$1',
-    '\bpage\b/([-_a-z0-9]+).html' => 'page/page/$1',
+//    '\bpage\b/([0-9]+)' => 'page/index/$1',
+//    '\bpage\b/([-_a-z0-9]+).html' => 'page/index/$1',
 //    '\bpage\b/([-_a-z0-9]+)' => 'site/sefurl/$1',
 //    '^id' => 'main/index/$1',
-    'forums' => 'index/forums/'
+//    'forums' => 'index/forums/'
 //    '\bmoney\b/' => 'site/money/',
 //    'logout' => 'user/logout'
 );

@@ -30,9 +30,9 @@ class PageModel extends Model {
         }
 
         if (is_array($order)) {
-            $tempbean = $this->getAll('SELECT id,name,title,createdatetime,type FROM ' . $this->TableName . ' ORDER BY ' . $order['data'] . ' ' . $order['dir'] . ' LIMIT ' . $start . ', ' . $limit);
+            $tempbean = $this->getAll('SELECT id,name,title,editdatetime,type FROM ' . $this->TableName . ' ORDER BY ' . $order['data'] . ' ' . $order['dir'] . ' LIMIT ' . $start . ', ' . $limit);
         } else {
-            $tempbean = $this->getAll('SELECT id,name,title,createdatetime,type FROM ' . $this->TableName . ' LIMIT ' . $start . ', ' . $limit);
+            $tempbean = $this->getAll('SELECT id,name,title,editdatetime,type FROM ' . $this->TableName . ' LIMIT ' . $start . ', ' . $limit);
         }
 //        dd($tempbean);
         if ($tempbean) {
@@ -49,6 +49,7 @@ class PageModel extends Model {
         $Table = $this->Dispense($this->TableName);
         $Table->import($Data);
         $Table->createdatetime = date('Y-m-d H:i:s');
+        $Table->editdatetime = date('Y-m-d H:i:s');
         return $this->store($Table);
     }
 
@@ -63,9 +64,9 @@ class PageModel extends Model {
     }
 
     public function GetPage($name = '') {
-        $Ret = $this->findOne($this->TableName, '(name = :rating) OR (id = :rating)', [':rating' => $name]);
+        $Ret = $this->findOne($this->TableName, '(name = :idname) OR (id = :idname)', [':idname' => $name]);
         if ($Ret) {
-            return $Ret; //->export();
+            return $Ret->export();
         }
         return FALSE;
     }

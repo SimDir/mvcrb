@@ -29,8 +29,8 @@ class IndexController extends Controller {
     }
 
     public function MenuAction() {
-        $user = new User();
-        $faker = Faker\Factory::create();
+//        $user = new User();
+//        $faker = Faker\Factory::create();
 
 //        $user->CreateUser( $faker->email, $faker->password,$faker->lastName);
 
