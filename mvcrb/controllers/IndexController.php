@@ -12,18 +12,18 @@ defined('ROOT') OR die('No direct script access.');
 class IndexController extends Controller {
 
     public function IndexAction() {
-//        $x1 = 100;
-//        $x2 = 12;
-//        $x3 = $x2/$x1*100;
-//        $x4= 100-$x3;
-//        dd($x4);
-//        $this->View->title = 'Главная';
         $this->View->content = $this->View->execute('main.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
 
     public function headerAction() {
-        return $this->View->execute('inc' . DS . 'header.html');
+        Session::init();
+        $lng = Session::get('language');
+        
+        if(is_null($lng)){
+            $lng='';
+        }
+        return $this->View->execute('inc' . DS . $lng. 'header.html');
     }
 
     public function SliderAction() {
