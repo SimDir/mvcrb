@@ -85,7 +85,7 @@ class AdminController extends Controller {
                 case 'list':
                     return $this->User->GetList(json_decode($this->REQUEST));
                     break;
-                case 'exel':
+                case 'getexel':
                     return $this->User->GetExel();
                     break;
                 case 'export':
@@ -94,32 +94,13 @@ class AdminController extends Controller {
                     if(in_array($_FILES["file"]["type"], $allowedFileType)){
 
                         $targetPath = SITE_DIR.'public'.DS. 'uploads'.DS.$_FILES['file']['name'];
-                        $fileExelOk = move_uploaded_file($_FILES['file']['tmp_name'], $targetPath);
-                        if($fileExelOk){
-                            $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Xlsx');
-                            $reader->setReadDataOnly(TRUE);
-                            $spreadsheet = $reader->load($targetPath);
-                            $worksheet = $spreadsheet->getActiveSheet();
-                           $RW = $worksheet->getRowIterator();
-//                            echo '<table>' . PHP_EOL;
-//                            https://phpspreadsheet.readthedocs.io/en/latest/topics/accessing-cells/#setting-a-cell-value-by-column-and-row
-//                            foreach ($worksheet->getRowIterator() as $row) {
-//                                echo '<tr>' . PHP_EOL;
-//                                $cellIterator = $row->getCellIterator();
-//                                $cellIterator->setIterateOnlyExistingCells(FALSE); 
-//                                foreach ($cellIterator as $cell) {
-//                                    echo '<td>' .
-//                                    $cell->getValue() .
-//                                    '</td>' . PHP_EOL;
-//                                }
-//                                echo '</tr>' . PHP_EOL;
-//                            }
-//                            echo '</table>' . PHP_EOL;
+                        
+                        if(move_uploaded_file($_FILES['file']['tmp_name'], $targetPath)){
+                            return $this->User->SetExel($targetPath);
                         }
                     }
-//                    die();
-                    return $RW;
-//                    return $this->User->SetExel();
+
+                    
                     break;
                 default:
                     return [$CollCom];

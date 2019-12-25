@@ -18,6 +18,26 @@ class UserModel extends Model {
         Session::init();
         $this->TableName = 'user';
     }
+    public function SetExel($ExelFileToRiad) {
+        $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Xlsx');
+        $reader->setReadDataOnly(TRUE);
+        $spreadsheet = $reader->load($ExelFileToRiad);
+        $worksheet = $spreadsheet->getActiveSheet();
+        $highestRow = $worksheet->getHighestRow();
+        $highestColumn = $worksheet->getHighestColumn(); 
+        $highestColumnIndex = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($highestColumn);
+        $html = '';
+        for ($row = 2; $row <= $highestRow; ++$row) {
+            $value = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+            $html .= '<p>' . $value . '</p>' . PHP_EOL;
+        }
+//        for ($col = 1; $col <= $highestColumnIndex; ++$col) {
+//            $value = $worksheet->getCellByColumnAndRow($col, 2)->getValue();
+//            $html .= '<p>' . $value . '</p>' . PHP_EOL;
+//        }
+
+        return $html;
+    }
     public function GetExel() {
         $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
@@ -25,17 +45,17 @@ class UserModel extends Model {
         $tempbean = $this->findAll($this->TableName);
         $tempdata = $this->exportAll($tempbean, TRUE);
         $sheet->setCellValue('A1', 'id');
-        $sheet->setCellValue('B1', 'firstname');
-        $sheet->setCellValue('C1', 'lastname');
-        $sheet->setCellValue('D1', 'login');
-        $sheet->setCellValue('E1', 'email');
-        $sheet->setCellValue('F1', 'phone');
-        $sheet->setCellValue('G1', 'password');
-        $sheet->setCellValue('H1', 'role');
-        $sheet->setCellValue('I1', 'registredatetime');
-        $sheet->setCellValue('J1', 'lastlogin');
-        $sheet->setCellValue('K1', 'browser');
-        $sheet->setCellValue('L1', 'browserip');
+        $sheet->setCellValue('B1', 'Имя');
+        $sheet->setCellValue('C1', 'Фамилия');
+        $sheet->setCellValue('D1', 'Логин');
+        $sheet->setCellValue('E1', 'E-mail');
+        $sheet->setCellValue('F1', 'Номер телефона');
+        $sheet->setCellValue('G1', 'Пароль');
+        $sheet->setCellValue('H1', 'Назначенный уровень доступа');
+        $sheet->setCellValue('I1', 'Дата и время добавления на сайт');
+        $sheet->setCellValue('J1', 'Последний раз входил на сайт');
+        $sheet->setCellValue('K1', 'Данные о используемом последний раз браузере');
+        $sheet->setCellValue('L1', 'Последний IP с которого заходил пользователь');
         $Rows=1;
         foreach ($tempdata as $value) {
 //            dd($value);
@@ -45,16 +65,30 @@ class UserModel extends Model {
             $sheet->setCellValueByColumnAndRow(3, $Rows, $value["lastname"]);
             $sheet->setCellValueByColumnAndRow(4, $Rows, $value["login"]);
             $sheet->setCellValueByColumnAndRow(5, $Rows, $value["email"]);
-            $sheet->setCellValueByColumnAndRow(6, $Rows, $value["phone"]);
+            
+//            $sheet->setCellValueByColumnAndRow(6, $Rows, $value["phone"]);
+            $CellByColumnAndRow = $sheet->getCellByColumnAndRow(6, $Rows);
+            $CellByColumnAndRow->setDataType(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_TEXT)->setValue(str_replace('+7','8',$value["phone"]));
+            
             $sheet->setCellValueByColumnAndRow(7, $Rows, $value["password"]);
             $sheet->setCellValueByColumnAndRow(8, $Rows, $value["role"]);
             $sheet->setCellValueByColumnAndRow(9, $Rows, $value["registredatetime"]);
+            
+            
             $sheet->setCellValueByColumnAndRow(10, $Rows, $value["lastlogin"]);
             $sheet->setCellValueByColumnAndRow(11, $Rows, $value["browser"]);
             $sheet->setCellValueByColumnAndRow(12, $Rows, $value["browserip"]);
         }
-        
-        
+        $sheet->getColumnDimension('A')->setAutoSize(true);
+        $sheet->getColumnDimension('B')->setAutoSize(true);
+        $sheet->getColumnDimension('C')->setAutoSize(true);
+        $sheet->getColumnDimension('D')->setAutoSize(true);
+        $sheet->getColumnDimension('E')->setAutoSize(true);
+        $sheet->getColumnDimension('F')->setAutoSize(true);
+        $sheet->getColumnDimension('H')->setAutoSize(true);
+        $sheet->getColumnDimension('I')->setAutoSize(true);
+        $sheet->getColumnDimension('J')->setAutoSize(true);
+        $sheet->getColumnDimension('L')->setAutoSize(true);
         $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
         header("Expires: Mon, 1 Apr 1974 05:00:00 GMT");
         header("Last-Modified: " . gmdate("D,d M YH:i:s") . " GMT");

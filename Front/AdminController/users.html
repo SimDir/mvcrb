@@ -251,21 +251,21 @@
                 <button @click="state=0" type="button" class="btn btn-primary" title="Вернутся"><i class="fas fa-arrow-left"></i></button>
 <!--            </div>
             <div class="p-2">-->
-                <a href="/admin/user/exel/" class="btn btn-primary" title="Скачать"><i class="far fa-arrow-alt-circle-down"></i></a>
+                <a href="/admin/user/getexel" class="btn btn-primary" title="Скачать"><i class="far fa-arrow-alt-circle-down"></i></a>
             </div>
         </div>
         <div class="card-body d-flex flex-wrap justify-content-between">
-            <h3>Import Excel File into MySQL Database using PHP</h3>
+            <h3 class="p-2">Експорт файла Excel в базу данных MySQL </h3>
 
-            <div class="outer-container">
+            <div class="p-2">
                 <form action="/admin/user/export" method="post"
                       name="frmExcelImport" id="frmExcelImport" enctype="multipart/form-data">
                     <div>
-                        <label>Choose Excel File</label> 
+                        <label>Выбрать Excel фаил</label> 
                         <input type="file" name="file"
                                             id="file" accept=".xls,.xlsx">
                         <button type="submit" id="submit" name="import"
-                                class="btn-submit">Import</button>
+                                class="btn-submit">Выгрузить</button>
 
                     </div>
 
