@@ -4,7 +4,7 @@ header {
    position: fixed;
    top: 0;
    z-index: 99;
-   transition: background .2s;
+   transition: background .5s;
 }
 .header {
    height: 100px;
@@ -16,22 +16,11 @@ header {
    justify-content: space-between;
 }
 
+
 .header__logo {
    flex-basis: 10%;
    align-self: center;
 }
-.header__menu {
-   flex-basis: 75%;
-   height: 100%;
-   text-align: center;
-}
-.header__lang {
-   flex-basis: 5%;
-   display: flex;
-   justify-content: center;
-}
-
-
 .header__logo img{
    width: 100%;
    height: 100%;
@@ -42,7 +31,11 @@ header {
 }
 
 
-
+.header__menu {
+   flex-basis: 75%;
+   height: 100%;
+   text-align: center;
+}
 .header__menu nav {
    height: 100%;
    display: flex;
@@ -82,14 +75,7 @@ header {
 .MnuActiv {
    transform: rotate(180deg);
 }
-.header__lang a {
-   align-self: center;
-   text-decoration: none;
-   font-style: normal;
-   font-size: 16px;
-   line-height: 16px;
-   color: #5F9FC7;
-}
+
 
 .header_bottom {
    visibility: hidden;
@@ -156,6 +142,32 @@ header {
    color: #444;
 }
 
+
+.header__right--wrap {
+   /* flex-basis: 5%; */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.header__right-calc {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 5px;
+}
+.header__right-calc img{
+   width: 40px;
+   height: 40px;
+}
+.header__right-lang {
+   align-self: center;
+   text-decoration: none;
+   font-style: normal;
+   font-size: 16px;
+   line-height: 16px;
+   color: #5F9FC7;
+   padding: 5px;
+}
 .burger{
    display: none;
 }
@@ -167,8 +179,7 @@ header {
    .header__logo {
       flex-basis: 130px;
    }
-   .header__menu_link_btn,
-   .header__lang a {
+   .header__menu_link_btn{
       font-size: 14px;
       line-height: 14px;
    }
@@ -184,25 +195,44 @@ header {
    }
    .header_bottom__content_menu_link ul>li>a{
       font-size: 11px;
+   }s
+   .header__right-calc {
+      padding: 3px;
+   }
+   .header__right-calc img{
+      width: 35px;
+      height: 35px;
+   }
+   .header__right-lang {
+      font-size: 14px;
+      line-height: 14px;
+      padding: 3px;
    }
 }
 @media(max-width: 1200px) {
+   .header {
+      width: 95%;
+   }
+   .header__logo {
+      flex-basis: 115px;
+   }
    .header_bottom__content {
       width: 100%;
    }
    .header_bottom__content_menu_link {
       padding: 15px 20px 15px 0;
    }
+   .header__right-calc img{
+      width: 30px;
+      height: 30px;
+   }
 }
 @media(max-width: 1000px) {
-   .header__logo {
-      flex-basis: 130px;
-   }
+    .header__logo {
+      flex-basis: 110px;
+   } 
    .header__menu {
       flex-basis: 75%;
-   }
-   .header__lang {
-      flex-basis: 5%;
    }
    .header__menu_link {
       margin-right: 25px;
@@ -219,12 +249,17 @@ header {
    .header_bottom__content_menu_link ul {
       margin-top: 15px;
    }
+   .header__right-calc img{
+      width: 25px;
+      height: 25px;
+   }
 }
 
 
 @media(max-width: 900px) {
    .header {
       height: 80px;
+      width: 90%;
    }
    .header__menu {
       position: absolute;
@@ -269,7 +304,6 @@ header {
       transition: transform .5s;
    }
    .header__menu_link_btn {
-      /*width: 100%;*/
       height: initial;
       color: #717171;
       padding: 15px 20px;
@@ -332,28 +366,21 @@ header {
    .header_bottom__content_menu_link ul>li>a{
       font-size: 11px;
    }
-   .header__lang {
-      flex-basis: 80px;
-      justify-content: space-between;
-   }
    .burger {
-      position: absolute;
-      top: 25px;
-      right: 35px;
       display: flex;
       align-items: center;
       justify-content: center;
       visibility: visible;
       transition: transform .5s;
+      padding: 5px 20px;
    }  
    .burger img{
-      width: 30px;
-      height: 30px;
+      width: 25px;
+      height: 25px;
    }
    .cross_menu {
       position: absolute;
-      top: 20px;
-      right: 30px;
+      right: calc(5% + 20px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -361,29 +388,38 @@ header {
       transition: transform .5s;
    }
    .cross_menu img {
-      width: 40px;
-      height: 40px;
+      width: 35px;
+      height: 35px;
    }
 }
 @media(max-width: 500px) {
    .header {
       height: 60px;
-      width: 95%;
+       width: 95%; 
    }
    .header__logo {
       flex-basis: 100px;
    }
    .burger {
-      top: 18px;
-      right: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: visible;
+      transition: transform .5s;
+      padding: 5px 20px;
    }  
    .burger img{
       width: 25px;
       height: 25px;
    }
    .cross_menu {
-      top: 13px;
-      right: 20px;
+      position: absolute;
+      right: calc(2.5% + 20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      transition: transform .5s;
    }
    .cross_menu img {
       width: 35px;
