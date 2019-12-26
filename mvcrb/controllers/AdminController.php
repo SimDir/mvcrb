@@ -29,7 +29,7 @@ class AdminController extends Controller {
                 return mvcrb::Redirect('/user');
             }
         }
-        $this->View->AddCss('/public/css/adminstyle.css');
+        $this->View->AddCss('/css/adminstyle.css');
         $this->View->title = 'Админка';
     }
 

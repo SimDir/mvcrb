@@ -49,7 +49,7 @@ class IndexController extends Controller {
         if ($curUser['role'] >= 300) {
             $this->View->VarSetArray($curUser);
             $this->View->pageid = $PRet['id'];
-            $this->View->adminpanel = $this->View->execute('adminpanel.html');
+            $this->View->adminpanel = $this->View->execute('AdminBar.html',TEMPLATE_DIR.'AdminController'.DS);
         }
         if($PRet["type"]!=='notpublic'){
 

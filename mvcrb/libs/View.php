@@ -157,6 +157,7 @@ final class View {
      * @param string $TplDir каталог в котором будет искатся сам шаблон. по умелчанию каталог для поиска TEMPLATE_DIR
      */
     public function execute(string $template, $TplDir = false): string {
+        $OldTpl=$this->TplDir;
         if ($TplDir) {
             $this->TplDir = $TplDir;
         }
@@ -172,6 +173,9 @@ final class View {
         $code = $this->Code($code);
         $code = $this->compress($code);
 //        echo $code;
+        if ($TplDir) {
+            $this->TplDir = $OldTpl;
+        }
         return $code;
     }
 
