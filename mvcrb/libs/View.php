@@ -186,6 +186,7 @@ final class View {
      * @param string $code HTML текст который подлежит обработке
      */
     public function Code(&$code): string {
+       
         preg_match_all('/<{(.*?)}>/', $code, $varibles, PREG_SET_ORDER);
 
         foreach ($varibles as $value) {
@@ -216,7 +217,9 @@ final class View {
                 $code = preg_replace("/<{($value[1])}>/", $tplVar, $code);
             }
         }
-
+        
+        
+  
         return $code;
     }
 

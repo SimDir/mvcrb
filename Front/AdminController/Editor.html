@@ -44,7 +44,7 @@
         save_enablewhendirty: true,
         save_onsavecallback() {
             var content = this.getContent();
-            fetch('/editorsave/<{id}>?AJAX=1', {
+            fetch('/page/save/<{id}>', {
                 mode: 'cors',
                 method: 'POST',
                 cache: 'no-cache',

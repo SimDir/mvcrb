@@ -1,13 +1,13 @@
 <?php
+
 namespace mvcrb;
+
 defined('ROOT') OR die('No direct script access.');
+
 /**
  * Главный класс всего приложения
  * 
  */
-
-
-
 function dd($str) {
     var_dump($str);
     die();
@@ -29,10 +29,6 @@ class mvcrb {
 
     public static function ErrorMessage() {
         return self::$ErrorMessage;
-    }
-
-    public static function Config() {
-        return self::$globalConfig;
     }
 
     private static function initWhoops() {
@@ -93,27 +89,25 @@ class mvcrb {
                     return call_user_func(array($objectCtrl, $Action));
                 }
             }
-            if(SHOW_ERROR){
+            if (SHOW_ERROR) {
                 if (!headers_sent()) {
                     header("HTTP/1.1 405 Method Not Allowed");
                     header("Status: 405 Method Not Allowed");
                 }
-                return "<h1>405 Method Not Allowed</h1>".__METHOD__."<h5> Контроллер <b style=\"color: red;\">" . $Controller . "</b> Не имеет метода <b style=\"color: red;\">$Action()</b></h5>";
-        
+                return "<h1>405 Method Not Allowed</h1>" . __METHOD__ . "<h5> Контроллер <b style=\"color: red;\">" . $Controller . "</b> Не имеет метода <b style=\"color: red;\">$Action()</b></h5>";
             } else {
                 return self::Redirect(ERROR_URL);
             }
         }
-        if(SHOW_ERROR){
+        if (SHOW_ERROR) {
             if (!headers_sent()) {
                 header("HTTP/1.1 523 Origin Is Unreachable");
                 header("Status: 523 Origin Is Unreachable");
             }
-            return "<h1>523 Origin Is Unreachable</h1>".__METHOD__."<h5> Нет исполнительного контроллера <b style=\"color: red;\">$Controller</b></h5>";
+            return "<h1>523 Origin Is Unreachable</h1>" . __METHOD__ . "<h5> Нет исполнительного контроллера <b style=\"color: red;\">$Controller</b></h5>";
         } else {
             return self::Redirect(ERROR_URL);
         }
-        
     }
 
     /**
@@ -128,7 +122,7 @@ class mvcrb {
             $requestURI = filter_input(INPUT_SERVER, 'REQUEST_URI');
             if (strpos($requestURI, '?')) {
                 $requestURI = substr($requestURI, 0, strpos($requestURI, '?'));
-            }elseif(strpos($requestURI, '&')){
+            } elseif (strpos($requestURI, '&')) {
                 $requestURI = substr($requestURI, 0, strpos($requestURI, '&'));
             }
             $path = trim($requestURI);
@@ -217,20 +211,21 @@ class mvcrb {
         return FALSE;
     }
 
+    public static function Config() {
+        return self::$globalConfig;
+    }
+
     /**
      * настраиваем основную конфигурацию ядра системы
      */
     private static function SetupConfig() {
-        self::$globalConfig['App_Name'] = 'mvcrb';
+        self::$globalConfig['App_Name'] = __NAMESPACE__;
         self::$globalConfig['App_Dir'] = APP;
         self::$globalConfig['App_lib_Dir'] = self::$globalConfig['App_Dir'] . 'libs' . DIRECTORY_SEPARATOR;
         self::$globalConfig['App_Config_Dir'] = CONFIG_DIR;
         self::$globalConfig['App_Controllers_Dir'] = self::$globalConfig['App_Dir'] . 'controllers' . DIRECTORY_SEPARATOR;
         self::$globalConfig['App_Models_Dir'] = self::$globalConfig['App_Dir'] . 'models' . DIRECTORY_SEPARATOR;
-
-//        $accept_languages = filter_input(INPUT_SERVER, "HTTP_ACCEPT_LANGUAGE", FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
-//        $locale = locale_accept_from_http($accept_languages);
-//        echo $locale;
+        self::$globalConfig['App_User_locale'] = filter_input(INPUT_SERVER, "HTTP_ACCEPT_LANGUAGE", FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
         self::$globalConfig['App_Templates_Dir'] = TEMPLATE_DIR; // . 'default' . DIRECTORY_SEPARATOR;
 
         if (!file_exists(self::$globalConfig['App_Config_Dir'] . 'AutoLoader.php')) {
@@ -317,8 +312,7 @@ class mvcrb {
         if (headers_sent() === false) {
             header('Location: ' . $url, true, ($permanent === true) ? 301 : 302);
         }
-        return '<script type="text/javascript">window.location = "'.$url.'"</script>';
-        
+        return '<script type="text/javascript">window.location = "' . $url . '"</script>';
     }
 
 }
