@@ -28,19 +28,19 @@ $( document ).ready(function() {
     });
     
 
-    
+    if (window.location.pathname.search('news--')>-1) {
+        $("header").css({'background':'#333'});
+        $(".header_bottom").css({'background':'rgba(255,255,255,1)'});
+    }
     $(window).scroll(function() {
         var top = $(this).scrollTop();
         if ( top > 0 ) {
             $("header").css({'background':'#333'});
             $(".header_bottom").css({'background':'rgba(255,255,255,1)'});
         } 
-        // else if (window.location.pathname == '/page/Products.html') {
-        //     false;
-        // }
-        // else if (window.location.pathname == '/page/Colutions.html') {
-        //     false;
-        // }
+        else if (window.location.pathname.search('news--')!==-1){
+            return;
+        }
         else {
             $("header").css({'background': 'transparent'});
             $(".header_bottom").css({'background':'rgba(255,255,255,.7)'});
