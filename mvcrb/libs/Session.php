@@ -26,7 +26,7 @@ class Session {
      */
     private static function SecSessionStart() {
         $secure = SECURE;
-        // session_save_path(SITE_DIR . 'usersession');
+//        session_save_path(SITE_DIR . 'usersession');
         // Forces sessions to only use cookies.
         if (ini_set('session.use_only_cookies', 1) === FALSE) {
             //header("Location: ../error.php?err=Could not initiate a safe session (ini_set)");
@@ -39,6 +39,15 @@ class Session {
         session_name(SESSION_PREFIX);
         session_start();            // Start the PHP session 
         //session_regenerate_id();    // regenerated the session, delete the old one. 
+        
+        $BrowserHesh = self::get('BrowserHesh');
+        if($BrowserHesh){
+            $browser = md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
+            if($browser!==$BrowserHesh){
+    //            dd($browser.' '.$BrowserHesh);
+                self::DestroyAll();
+            }
+        }
     }
 
     public static function init() {
