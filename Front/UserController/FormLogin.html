@@ -20,8 +20,51 @@
 
 <div id="User" class="vw-100 vh-100 d-flex justify-content-center align-items-center bg-dark">
 
-        <transition name="bounce">
-            <form class="card p-3" v-show="state==2" @submit="UserRegistre" id="formreg" method="post" name="formreg" action="/user/registre" style="width: 600px;">
+        <transition name="bounce" appear>
+            
+            <form class="card p-3" v-if="state==1" @submit="UserLogin" id="formlogin"  role="form" method="POST" action="/user/login" style="width: 600px;">
+                <!--Header-->
+                <div class="form-header d-flex justify-content-center">
+                    <h3><i class="fa fa-lock"></i> Вход пользователя:</h3>
+                </div>
+
+                <!--Body-->
+                <div class="md-form">
+                    <i class="fa fa-envelope prefix grey-text"></i>
+                    <input v-model="CurrentUser.email" value="<{email}>" name="email" type="text" id="defaultForm-email" class="form-control" required>
+                    <label for="defaultForm-email" class="">Адрес электронной почты или логин</label>
+                </div>
+
+                <div class="md-form">
+                    <i class="fa fa-lock prefix grey-text"></i>
+                    <input v-model="CurrentUser.password" name="password" id="defaultForm-pass" type="password" class="form-control" required>
+                    <label for="defaultForm-pass" class="">Ваш пароль</label>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-default waves-effect waves-light">Войти</button>
+                </div>
+                <div v-if="Forgot" class="modal-footer mt-4">
+                    <div class="options">
+
+                        <p>У вас нет учетной записи?
+                            <a @click.prevent="state=2" href="/user/registre">Зарегистрируйтесь</a>
+                        </p>
+                        <!--<p>Забыли свой <a href="/user/forgot">пароль</a>?</p>-->
+                    </div>
+
+                </div>
+                
+                <div v-if="errors" class="alert alert-danger mt-4" role="alert">
+                    {{errors}}
+                </div>
+                
+            </form>
+
+        </transition>
+        
+        <transition name="bounce" appear>
+            <form class="card p-3" v-if="state==2" @submit="UserRegistre" id="formreg" method="post" name="formreg" action="/user/registre" style="width: 600px;">
                 
 
                     <!--Header-->
@@ -75,52 +118,6 @@
             </form>
         </transition>
     
-        <transition name="bounce" appear>
-            
-            <form class="card p-3" v-show="state==1" @submit="UserLogin" id="formlogin"  role="form" method="POST" action="/user/login" style="width: 600px;">
-                <!--Header-->
-                <div class="form-header d-flex justify-content-center">
-                    <h3><i class="fa fa-lock"></i> Вход пользователя:</h3>
-                </div>
-
-                <!--Body-->
-                <div class="md-form">
-                    <i class="fa fa-envelope prefix grey-text"></i>
-                    <input v-model="CurrentUser.email" value="<{email}>" name="email" type="text" id="defaultForm-email" class="form-control" required>
-                    <label for="defaultForm-email" class="">Адрес электронной почты или логин</label>
-                </div>
-
-                <div class="md-form">
-                    <i class="fa fa-lock prefix grey-text"></i>
-                    <input v-model="CurrentUser.password" name="password" id="defaultForm-pass" type="password" class="form-control" required>
-                    <label for="defaultForm-pass" class="">Ваш пароль</label>
-                </div>
-
-                <div class="text-center">
-                    <button type="submit" class="btn btn-default waves-effect waves-light">Войти</button>
-                </div>
-                <div v-if="Forgot" class="modal-footer mt-4">
-                    <div class="options">
-
-                        <p>У вас нет учетной записи?
-                            <a @click.prevent="state=2" href="/user/registre">Зарегистрируйтесь</a>
-                        </p>
-                        <!--<p>Забыли свой <a href="/user/forgot">пароль</a>?</p>-->
-                    </div>
-
-                </div>
-                
-                <div v-if="errors" class="alert alert-danger mt-4" role="alert">
-                    {{errors}}
-                </div>
-                
-            </form>
-
-        </transition>
-        
-        
-    
-
 </div>
 
 <script type="text/javascript">
@@ -129,11 +126,11 @@ var User = new Vue({
   data: {
       errors:'',regerrors:'',Forgot:1,
       CurrentUser: {login:"",email:"",password:"",fpassword:""},
-      state:1,msg:''
+      state:0,msg:''
   },
   created(){
     let st = '<{state}>';
-    //this.state =Number(st);
+    this.state =Number(st);
   },
   methods: {
     UserRegistre(e){
