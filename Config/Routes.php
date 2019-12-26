@@ -3,7 +3,10 @@
 return array(
     
     
-//    '([0-9]+)' => 'main/index/$1',
+    '\b([-_a-zA-Z0-9]+).css\b' => 'lessons/style/$1',
+    '([-_a-zA-Z0-9]+).js' => 'lessons/script/$1',
+    '\bimages\b/([-_a-zA-Z0-9]+).png' => 'lessons/images/$1',
+    '\blessons\b/([-_a-zA-Z0-9]+).htm' => 'lessons/page/$1',
 //    'product/([0-9]+)' => 'main/product/0/$1',
 //    'category/([0-9]+)' => 'main/category/$1',
 //    'category/([0-9]+)/product/([0-9]+)' => 'main/product/$1/$2',
@@ -12,13 +15,14 @@ return array(
 //    'cart/addAjax/([0-9]+)' => 'main/addAjax/$1',
 //    'cart/delete/([0-9]+)' => 'main/delete/$1',
 //    'cart/checkout' => 'main/checkout',
-    '\binclude\b/([-_a-zA-Z0-9]+).html' => 'index/pagef/$1',
-    '\binclude\b/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+).html' => 'index/pagef/$1/$2',
+
+//    '\binclude\b/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+).html' => 'index/pagef/$1/$2',
     'error/([0-9]+)' => 'index/eror/$1',
 //    'index.php' => 'main/redirect',
-    '\bpage\b' => 'index/page/',
+//    '\bpage\b' => 'index/page/',
 //    '\bpage\b/([0-9]+)' => 'index/page/$1',
-//    '\bpage\b/([-_a-zA-Z0-9]+).html' => 'index/page/$1',
+    '\beditor\b/([-_a-zA-Z0-9]+)' => 'page/edit/$1',
+    '\beditorsave\b/([-_a-zA-Z0-9]+)' => 'page/save/$1',
     '\bpage\b/([-_a-zA-Z0-9]+)' => 'index/page/$1',
 //    '^id' => 'main/index/$1',
 
