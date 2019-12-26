@@ -64,7 +64,7 @@ class PageModel extends Model {
     }
 
     public function GetPage($name = '') {
-        $Ret = $this->findOne($this->TableName, '(name = :idname) OR (id = :idname)', [':idname' => $name]);
+        $Ret = $this->findOne($this->TableName, '(name = :idname)', [':idname' => $name]);
         if ($Ret) {
             return $Ret->export();
         }

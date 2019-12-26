@@ -9,7 +9,7 @@ defined('ROOT') OR die('No direct script access.');
  *
  * @author ivan kolotilkin
  */
-class IndexController extends Controller {
+final class IndexController extends Controller {
 
     public function IndexAction() {
         $this->View->content = $this->View->execute('main.html');
@@ -41,17 +41,17 @@ class IndexController extends Controller {
     }
 
     public function PageAction($page) {
-        
-        $Pages = new PageModel();
+        $Pages = $this->GetModel('Page');
+
         $PRet = $Pages->GetPage($page);
-        $User = new UserModel();
+        $User = $this->GetModel('User');
         $curUser = $User->GetCurrentUser();
         if ($curUser['role'] >= 300) {
-            $this->View->VarSetArray($curUser);
+            $this->view->VarSetArray($curUser);
             $this->View->pageid = $PRet['id'];
             $this->View->adminpanel = $this->View->execute('AdminBar.html',TEMPLATE_DIR.'AdminController'.DS);
         }
-        if($PRet["type"]!=='notpublic'){
+        if($PRet["type"]!=='notpublic'and $PRet){
 
 //            dd($PRet);
             $this->View->content = $this->View->Code($PRet['content']);
@@ -70,7 +70,7 @@ class IndexController extends Controller {
             return $this->ErorAction(404);
         }
         $this->View->content = $this->View->execute($testFile);
-        if (file_exists($tempFile)) {
+        if (file_exists($tempFile)and $PRet) {
             $date1=$PRet["editdatetime"];
             $date2=date('Y-m-d H:i:s', filectime($tempFile));
             $result=(strtotime($date1)< strtotime($date2));

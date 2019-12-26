@@ -9,6 +9,7 @@
    height: 500px;
    z-index: -1;
    background-color: #06093C;
+   /* background: rgba(5, 47, 109, .6); */
 }
 .products_top {
    height: 500px;
