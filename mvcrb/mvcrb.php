@@ -31,10 +31,6 @@ class mvcrb {
         return self::$ErrorMessage;
     }
 
-    public static function Config() {
-        return self::$globalConfig;
-    }
-
     private static function initWhoops() {
         $whoops = new \Whoops\Run;
         $whoops_pretty_page_handler = new \Whoops\Handler\PrettyPageHandler();
@@ -119,28 +115,22 @@ class mvcrb {
      * @return String
      */
     private static function GetURI() {
-//        $ee=2/0;
         $pathInfo = filter_input(INPUT_SERVER, 'PATH_INFO');
         if ($pathInfo) {
             $path = $pathInfo;
         } else {
             $requestURI = filter_input(INPUT_SERVER, 'REQUEST_URI');
-            //            var_dump($requestURI);
-            if (strpos($requestURI, '?') !== false) {
+            if (strpos($requestURI, '?')) {
                 $requestURI = substr($requestURI, 0, strpos($requestURI, '?'));
+            } elseif (strpos($requestURI, '&')) {
+                $requestURI = substr($requestURI, 0, strpos($requestURI, '&'));
             }
-            $base = filter_input(INPUT_SERVER, 'BASE');
-            if ($base) {
-                $path = substr($requestURI, strlen($base));
-            } else {
-                $path = $requestURI;
-            }
+            $path = trim($requestURI);
         }
-        $path = trim($path);
+//        dd($path);
         if (!$path) {
             $path = '/';
         }
-//        var_dump($requestURI);
         $path = parse_url($path);
         self::$URI = trim($path['path'], '/');
         return self::$URI;
@@ -221,20 +211,21 @@ class mvcrb {
         return FALSE;
     }
 
+    public static function Config() {
+        return self::$globalConfig;
+    }
+
     /**
      * настраиваем основную конфигурацию ядра системы
      */
     private static function SetupConfig() {
-        self::$globalConfig['App_Name'] = 'mvcrb';
+        self::$globalConfig['App_Name'] = __NAMESPACE__;
         self::$globalConfig['App_Dir'] = APP;
         self::$globalConfig['App_lib_Dir'] = self::$globalConfig['App_Dir'] . 'libs' . DIRECTORY_SEPARATOR;
         self::$globalConfig['App_Config_Dir'] = CONFIG_DIR;
         self::$globalConfig['App_Controllers_Dir'] = self::$globalConfig['App_Dir'] . 'controllers' . DIRECTORY_SEPARATOR;
         self::$globalConfig['App_Models_Dir'] = self::$globalConfig['App_Dir'] . 'models' . DIRECTORY_SEPARATOR;
-
-//        $accept_languages = filter_input(INPUT_SERVER, "HTTP_ACCEPT_LANGUAGE", FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
-//        $locale = locale_accept_from_http($accept_languages);
-//        echo $locale;
+        self::$globalConfig['App_User_locale'] = filter_input(INPUT_SERVER, "HTTP_ACCEPT_LANGUAGE", FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
         self::$globalConfig['App_Templates_Dir'] = TEMPLATE_DIR; // . 'default' . DIRECTORY_SEPARATOR;
 
         if (!file_exists(self::$globalConfig['App_Config_Dir'] . 'AutoLoader.php')) {

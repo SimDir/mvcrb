@@ -2,13 +2,9 @@
 <html lang="ru-RU">
     <head>
         <meta charset="utf-8">
-        <meta name="author" content="<{ metaauthor }>">
-        <meta name="description" content="<{ metadescription }>">
-        <meta name="keywords" content="<{ metakeywords }>">
-        
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title><{ title }></title>
+        <title>Вы кто такие...</title>
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
         <!-- JQuery -->
@@ -18,21 +14,11 @@
         <!-- Material Design Bootstrap -->
         <link href="/public/css/mdb.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
-        <!--<link href="/css/style.css" rel="stylesheet">-->
-        <!--<link href="/css/animations-extended.css" rel="stylesheet">-->
-        <script src="/public/js/vue.min.js"></script>
-        <script src="/public/js/vuex.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js" integrity="sha256-VeNaFBVDhoX3H+gJ37DpT/nTuZTdjYro9yBruHjVmoQ=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js" integrity="sha256-u6BamZiW5tCemje2nrteKC2KoLIKX9lKPSpvCkOhamw=" crossorigin="anonymous"></script>
 
-        <script type="text/javascript" src="/public/js/common.js"></script>
-        <{ headcssjs }>
     </head>
 
     <body>
-<{ content }>
-        <!-- SCRIPTS -->
-        <{ bodycssjs }>
+        <img src="/public/img/hqdefault.jpg" alt="Винни-Пух" width="100%">
 
         <!-- Bootstrap tooltips -->
         <script type="text/javascript" src="/public/js/popper.min.js"></script>
