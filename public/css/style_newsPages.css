@@ -82,7 +82,64 @@
 .news-page_container-img img {
    width: 100%;
 }
+.news-page_container-img hr {
+   margin-bottom: 0;
+   margin-top: 5px;
+}
+.news-page_container-img p {
+   font-style: italic;
+   font-size: 14px;
+   line-height: 20px;
+   color: #555;
+}
 
+.news-page_interview {
+   width: 95%;
+   margin: 20px auto;
+}
+.question {
+   font-size: 16px;
+   line-height: 22px;
+   background-color: #444;
+   font-family: 'Helvetica Neue Cyr Roman';
+   clip-path: polygon(0 0 , 100% 0, 100% 100%, 20px 100%, 20px 16px);
+   padding: 5px 35px 5px 35px;
+   color: #ffffff;
+   margin-bottom: 10px;
+}
+.answer {
+   font-size: 16px;
+   line-height: 22px;
+   color: #555;
+   font-family: 'Helvetica Neue Cyr Roman';
+   margin-bottom: 0;
+   padding: 5px 35px 5px 35px;
+   background-color: #CDCDCD;
+   clip-path: polygon(0 0 , 100% 0, 100% 100%, 20px 100%, 20px 16px);
+}
+br + br {
+   display: block;
+   margin-bottom: 7px;
+   content: '';
+}
+
+.news-page_block-other {
+   width: 100%;
+   margin-top: 50px;
+   display: flex;
+}
+.news-page_block-other p {
+   font-size: 14px;
+   line-height: 20px;
+   color: #555;
+   font-family: 'Helvetica Neue Cyr Roman';
+}
+.news-page_block-other a {
+   font-family: 'Helvetica Neue Cyr Roman'; 
+   color: #007bff;
+   font-size: 14px;
+   line-height: 20px;
+}
 @media(max-width: 900px) { 
    .news-page-top {
       height: 80px;
@@ -135,6 +192,33 @@
    .news-page_container-img img {
       margin: 5px 0;
    }
+   .news-page_container-img p {
+      font-size: 12px;
+      line-height: 18px;
+   }
+   .news-page_interview {
+      width: 95%;
+      margin: 15px auto;
+   }
+   .question {
+      font-size: 14px;
+      line-height: 20px;
+   }
+   .answer {
+      font-size: 14px;
+      line-height: 20px;
+   }
+   .news-page_block-other {
+      margin-top: 40px;
+   }
+   .news-page_block-other p {
+      font-size: 12px;
+      line-height: 18px;
+   }
+   .news-page_block-other a {
+      font-size: 12px;
+      line-height: 18px;
+   }
 }
 @media(max-width: 600px) { 
    .news-page {
@@ -176,6 +260,34 @@
    }
    .news-page_container-img img {
       margin: 4px 0;
+   }
+   .news-page_container-img p {
+      font-size: 11px;
+      line-height: 17px;
+   }
+   .news-page_interview {
+      width: 100%;
+      margin: 10px auto;
+   }
+   .question {
+      font-size: 12px;
+      line-height: 18px;
+   }
+   .answer {
+      font-size: 12px;
+      line-height: 18px;
+   }
+
+   .news-page_block-other {
+      margin-top: 30px;
+   }
+   .news-page_block-other p {
+      font-size: 11px;
+      line-height: 17px;
+   }
+   .news-page_block-other a {
+      font-size: 11px;
+      line-height: 17px;
    }
 }
 @media(max-width: 500px) { 
