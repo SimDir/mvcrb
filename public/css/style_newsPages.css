@@ -84,7 +84,7 @@
 }
 .news-page_container-img hr {
    margin-bottom: 0;
-   margin-top: 5px;
+   margin-top: 0px;
 }
 .news-page_container-img p {
    font-style: italic;
@@ -92,7 +92,13 @@
    line-height: 20px;
    color: #555;
 }
-
+.news-page_container-img-2 {
+   display: flex;
+   width: 100%;
+}
+.news-page_container-img-2 img{
+   width: 50%;
+}
 .news-page_interview {
    width: 95%;
    margin: 20px auto;
