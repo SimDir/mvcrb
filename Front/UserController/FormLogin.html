@@ -1,104 +1,39 @@
-<style>
-    .bounce-enter-active {
-        animation: bounce-in .9s;
-    }
-    .bounce-leave-active {
-        animation: bounce-in .5s reverse;
-        position: fixed;
-    }
-    @keyframes bounce-in {
-        0% {
-
-            transform: scale(0);
-        }
-        100% {
-
-            transform: scale(1);
-        }
-    }
-</style>
-
-<div id="User" class="vw-100 vh-100 d-flex justify-content-center align-items-center bg-dark">
-
-        <transition name="bounce" appear>
-            
-            <form class="card p-3" v-if="state==1" @submit="UserLogin" id="formlogin"  role="form" method="POST" action="/user/login" style="width: 600px;">
-                <!--Header-->
-                <div class="form-header d-flex justify-content-center">
-                    <h3><i class="fa fa-lock"></i> Вход пользователя:</h3>
-                </div>
-
-                <!--Body-->
-                <div class="md-form">
-                    <i class="fa fa-envelope prefix grey-text"></i>
-                    <input v-model="CurrentUser.email" value="<{email}>" name="email" type="text" id="defaultForm-email" class="form-control" required>
-                    <label for="defaultForm-email" class="">Адрес электронной почты или логин</label>
-                </div>
-
-                <div class="md-form">
-                    <i class="fa fa-lock prefix grey-text"></i>
-                    <input v-model="CurrentUser.password" name="password" id="defaultForm-pass" type="password" class="form-control" required>
-                    <label for="defaultForm-pass" class="">Ваш пароль</label>
-                </div>
-
-                <div class="text-center">
-                    <button type="submit" class="btn btn-default waves-effect waves-light">Войти</button>
-                </div>
-                <div v-if="Forgot" class="modal-footer mt-4">
-                    <div class="options">
-
-                        <p>У вас нет учетной записи?
-                            <a @click.prevent="state=2" href="/user/registre">Зарегистрируйтесь</a>
-                        </p>
-                        <!--<p>Забыли свой <a href="/user/forgot">пароль</a>?</p>-->
-                    </div>
-
-                </div>
-                
-                <div v-if="errors" class="alert alert-danger mt-4" role="alert">
-                    {{errors}}
-                </div>
-                
-            </form>
-
-        </transition>
-        
-        <transition name="bounce" appear>
-            <form class="card p-3" v-if="state==2" @submit="UserRegistre" id="formreg" method="post" name="formreg" action="/user/registre" style="width: 600px;">
-                
+<div id="User" class="modal-dialog" role="document">
+    
+        <transition name="slide-fade">
+            <form class="modal-content" v-if="state==1" id="formreg" method="post" name="formreg" action="/im/registre/">
+                <div class="card-body">
 
                     <!--Header-->
-                    <div class="form-header d-flex justify-content-center">
+                    <div class="form-header">
                         <h3><i class="fa fa-user"></i> Регистрация:</h3>
                     </div>
-                    <div v-if="regerrors" class="alert alert-danger mt-4" role="alert">
-                        {{regerrors}}
-                    </div>
+
                     <!--Body-->
                     <div class="md-form">
                         <i class="fa fa-user prefix grey-text"></i>
                         <!--<input type="text" id="orangeForm-name" class="form-control">-->
-                        <input v-model="CurrentUser.login" value="<{login}>" id="orangeForm-name" name="login" type="text" class="form-control" required>
+                        <input value="<{login}>" id="orangeForm-name" name="login" type="text" class="form-control" required>
                         <label for="orangeForm-name">Ваш логин</label>
                     </div>
                     <div class="md-form">
                         <i class="fa fa-envelope prefix grey-text"></i>
                         <!--<input type="text" id="orangeForm-email" class="form-control">-->
-                        <input v-model="CurrentUser.email" value="<{email}>" name="email" id="orangeForm-email" type="email" class="form-control" required>
+                        <input value="<{email}>" name="email" id="orangeForm-email" type="email" class="form-control" required>
                         <label for="orangeForm-email">Адрес электронной почты</label>
                     </div>
 
                     <div class="md-form">
                         <i class="fa fa-lock prefix grey-text"></i>
                         <!--<input type="password" id="orangeForm-pass" class="form-control">-->
-                        <input v-model="CurrentUser.password" value="<{password}>" name="password" id="orangeForm-pass" type="password" class="form-control" required>
+                        <input value="<{password}>" name="password" id="orangeForm-pass" type="password" class="form-control" required>
                         <label for="orangeForm-pass">Ваш пароль</label>
                     </div>
 
                     <div class="md-form">
                         <i class="fa fa-lock prefix grey-text"></i>
 
-                        <input v-model="CurrentUser.fpassword" value="<{password}>" name="passwordonf" id="orangeForm-passwordonf" type="password" class="form-control" required>
+                        <input value="<{password}>" name="passwordonf" id="orangeForm-passwordonf" type="password" class="form-control" required>
                         <label for="orangeForm-passwordonf">Ваш пароль еще раз</label>
                     </div>
                     <div class="text-center">
@@ -106,78 +41,84 @@
 
                     </div>
                     <div class="modal-footer">
+                        <div id="ErrorMsg"><{ErrorMsg}></div>
                         <div class="options">
 
                             <p>У вас есть учетная запись?
-                                <a @click.prevent="state=1" href="/user/registre">вход</a>
+                                <a @click.prevent="state=0" href="/im/registre">вход</a>
                             </p>
-                            <!--<p>Забыли свой <a href="/user/forgot">пароль</a>?</p>-->
+                            <p>Forgot
+                                <a href="/im/forgot">Password?</a>
+                            </p>
                         </div>
                     </div>
-                
+                </div>
             </form>
         </transition>
+        <transition name="bounce" appear>
+            <form class="modal-content card-body" v-if="state==0" @submit="UserLogin" id="formlogin"  role="form" method="POST" action="/im/login/">
+        
+
+            <!--Header-->
+            <div class="form-header">
+                <h3><i class="fa fa-lock"></i> Вход пользователя:</h3>
+            </div>
+            
+            <div v-if="errors" class="alert alert-danger" role="alert">
+                {{errors}}
+            </div>
+                
+            <!--Body-->
+            <div class="md-form">
+                <i class="fa fa-envelope prefix grey-text"></i>
+                <input v-model="CurrentUser.email" value="<{email}>" name="email" type="text" id="defaultForm-email" class="form-control" required>
+                <label for="defaultForm-email" class="">Адрес электронной почты или логин</label>
+            </div>
+
+            <div class="md-form">
+                <i class="fa fa-lock prefix grey-text"></i>
+                <input v-model="CurrentUser.password" name="password" id="defaultForm-pass" type="password" class="form-control" required>
+                <label for="defaultForm-pass" class="">Ваш пароль</label>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-default waves-effect waves-light">Войти</button>
+            </div>
+<!--            <div class="modal-footer">
+                <div class="options">
+                    
+                    <p>У вас нет учетной записи?
+                        <a @click.prevent="state=1" href="/im/registre">Зарегистрируйтесь</a>
+                    </p>
+                    <p>Forgot
+                        <a href="/im/forgot">Password?</a>
+                    </p>
+                </div>
+                
+            </div>-->
+        
+        </form>
+        </transition>
+        
+        
     
+
 </div>
 
 <script type="text/javascript">
 var User = new Vue({
   el: '#User',
+  mvcrbstore,
   data: {
-      errors:'',regerrors:'',Forgot:1,
-      CurrentUser: {login:"",email:"",password:"",fpassword:""},
-      state:0,msg:''
-  },
-  created(){
-    let st = '<{state}>';
-    this.state =Number(st);
+      errors:'',
+      CurrentUser: {email:"",password:""},
+      state:0
   },
   methods: {
-    UserRegistre(e){
-        e.preventDefault();
-        if(this.CurrentUser.password!==this.CurrentUser.fpassword){
-            this.regerrors = "В веденные пароли не совпадают";
-            return false;
-        }
-        fetch( '/user/registre',{
-            mode: 'cors',
-            method: 'POST',
-            body: JSON.stringify(this.CurrentUser)
-            })
-            .then((response) => {
-                
-                if(response.redirected){
-                    window.location.href=response.url;
-                    return false;
-                }
-                if (response.ok) {
-                    return response.json();
-                }
-                throw new Error('Network response was not ok');
-            })
-            .then((json) => {
-                if(json){
-//                    window.location.href='/user';
-                }else{
-                    this.regerrors = 'Ошибка регистрации';
-//                    this.state=0;
-                }
-   
-                console.log(json);
-                
-            })
-            .catch((error) => {
-                this.regerrors = error;
-                console.log('FormLogin',error);
-            });
-        console.log(this.CurrentUser);
-    },
     UserLogin(e) {
         e.preventDefault();
-        this.errors=false;
-//        this.state=3;
         var SendUser = {email:this.CurrentUser.email,password:this.CurrentUser.password};
-        fetch( '/user/login',{
+        fetch( '/user/login/?AJAX=1',{
             mode: 'cors',
             method: 'POST',
             body: JSON.stringify(SendUser)
@@ -197,18 +138,13 @@ var User = new Vue({
                 if(json){
                     window.location.href='/user';
                 }else{
-                    this.CurrentUser.email='';
-                    this.CurrentUser.password='';
-                    this.Forgot=true;
                     this.errors = 'Неверное имя пользователя или пароль';
-//                    this.state=0;
                 }
    
                 console.log(json);
                 
             })
             .catch((error) => {
-                this.errors =error;
                 console.log('FormLogin',error);
             });
         } 

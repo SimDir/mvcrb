@@ -16,7 +16,7 @@ class UserController extends Controller{
         $this->View->SetWivePath(TEMPLATE_DIR.'UserController'.DS);
     }
     
-    public function IndexAction() {
+    public function IndexAction($id=null) {
         $UserVars = $this->User->GetCurrentUser();
         if($UserVars['role']==0){
             return mvcrb::Redirect('/user/login');
@@ -29,7 +29,7 @@ class UserController extends Controller{
         $this->View->VarSetArray($UserVars);
        
         $email = $UserVars['email'];
-        $default = "http://agatech.agatech.ru/public/img/rblogom.png";
+        $default = "http://agatech.ru/public/img/rblogom.png";
         $size = 256;
         $this->View->GravUrl = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
         $this->View->content = $this->View->execute('Usercard.html');

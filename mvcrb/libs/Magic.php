@@ -37,10 +37,10 @@ abstract class Magic {
             case 'VIEW':
             case 'View':
             case 'view':
-//                if (isset(self::$ClassArray['view'])) {
-//                    return self::$ClassArray['view'];
-//                }
-                return View::getInstance(end(explode('\\', get_class($this))));
+                if (isset(self::$ClassArray['view'])) {
+                    return self::$ClassArray['view'];
+                }
+                return self::$ClassArray['view'] = View::getInstance(end(explode('\\', get_class($this))));
 //                break;
             case 'REQUEST': 
             case 'Request':
