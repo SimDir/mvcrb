@@ -415,6 +415,10 @@
    .graphic-top-item-2, .graphic-top-item-4, .graphic-top-item-6, .graphic-top-item-8, .graphic-top-item-10 {
       width: 213px;
    }
+   .digital-agatech__graphic button {
+      font-size: 14px;
+      line-height: 14px;
+   }
 }
 @media(max-width: 1100px) {
    .arrow_graphic-right {
@@ -479,6 +483,11 @@
    .graphic-top-item-10 {
       padding: 0px 5px 0px 5px;
    }
+   .digital-agatech__graphic button {
+      font-size: 12px;
+      line-height: 12px;
+      margin-top: 3px;
+   }
 }
 @media(max-width: 800px) {
    .digital-agatech__container-arrow {
@@ -532,22 +541,24 @@
    .digital-agatech__graphic-item--description {
       font-size: 14px;
       line-height: 14px;
-      height: 112px;
+      
       overflow: hidden;  
    }
    .graphic-top-item-1, .graphic-top-item-3, .graphic-top-item-5, .graphic-top-item-7, .graphic-top-item-9, .graphic-top-item-11 {
       width: 100%;
+      height: 112px;
       padding: 0px;
       opacity: 1;
       margin-bottom: 20px;
    }
    .graphic-top-item-2, .graphic-top-item-4, .graphic-top-item-6, .graphic-top-item-8, .graphic-top-item-10 {
       width: 100%;
+      height: 112px;
       padding: 0px;
       opacity: 1;
       margin-bottom: 20px;
    }
-   .graphic-top-item-11 .digital-agatech__graphic-item--description {
+   .graphic-top-item-11{
       font-size: 14px;
       line-height: 14px;
       height: 42px;
@@ -569,15 +580,16 @@
    .digital-agatech__graphic-item--description {
       font-size: 12px;
       line-height: 12px;
-      height: 96px;
    }
    .graphic-top-item-1, .graphic-top-item-3, .graphic-top-item-5, .graphic-top-item-7, .graphic-top-item-9, .graphic-top-item-11 {
       margin-bottom: 15px;
+      height: 96px;
    }
    .graphic-top-item-2, .graphic-top-item-4, .graphic-top-item-6, .graphic-top-item-8, .graphic-top-item-10 {
       margin-bottom: 15px;
+      height: 96px;
    }
-   .graphic-top-item-11 .digital-agatech__graphic-item--description {
+   .graphic-top-item-11 {
       font-size: 12px;
       line-height: 12px;
       height: 36px; 
@@ -597,16 +609,17 @@
    }
    .digital-agatech__graphic-item--description {
       font-size: 11px;
-      line-height: 11px;
-      height: 88px;
+      line-height: 11px; 
    }
    .graphic-top-item-1, .graphic-top-item-3, .graphic-top-item-5, .graphic-top-item-7, .graphic-top-item-9, .graphic-top-item-11 {
       margin-bottom: 10px;
+      height: 88px;
    }
    .graphic-top-item-2, .graphic-top-item-4, .graphic-top-item-6, .graphic-top-item-8, .graphic-top-item-10 {
       margin-bottom: 10px;
+      height: 88px;
    }
-   .graphic-top-item-11 .digital-agatech__graphic-item--description {
+   .graphic-top-item-11 {
       font-size: 11px;
       line-height: 11px;
       height: 33px; 
@@ -686,8 +699,6 @@
    line-height: 14px;
    padding: 3px 0;
 }
-
-
 .digital-agatech__first-customers {
    width: 1000px;
    margin: 0 auto 80px;
@@ -711,8 +722,6 @@
    width: 80px;
    height: 60px;
 } 
-
-
 .digital-agatech__public-activity {
    width: 1000px;
    margin: 0 auto 80px;
@@ -727,6 +736,163 @@
    font-size: 16px;
    line-height: 22px;
    text-align: left;
+}
+@media(max-width: 1400px) {
+   .digital-agatech__slider-bottom {
+      width: 800px;
+       height: 200px;
+      margin-top: -50px;
+      margin-bottom: 110px; 
+   }
+   .pagination-item {
+      width: 8px;
+      height: 8px;
+      margin: 0 4px;
+   }
+   .digital-agatech__slider-bottom--title, .first-customers__title, .public-activity__title {
+      font-size: 26px;
+      line-height: 26px;
+      margin-bottom: 15px;
+   }
+   .digital-agatech__slider-bottom--description p{
+      font-size: 14px;
+      line-height: 20px;
+   }
+   .digital-agatech__slider-bottom--description p::first-letter {
+      padding-left: 20px;
+   }
+   .digital-agatech__slider-bottom--list ul {
+      min-width: 30%;
+      padding: 8px 15px 0 15px;
+   }
+   .digital-agatech__slider-bottom--list li {
+      font-size: 12px;
+      line-height: 12px;
+      padding: 2px 0;
+   }
+   .digital-agatech__first-customers {
+      width: 800px;
+      margin: 0 auto 60px;
+   }
+   .first-customers__content img {
+      min-width: 90px;
+      height: 90px; 
+      margin: 8px;
+   }
+   .first-customers__content img:nth-child(9) {
+      width: 70px;
+      height: 50px;
+   } 
+   .digital-agatech__public-activity {
+      width: 800px;
+      margin: 0 auto 60px;
+   }
+   .public-activit__description {
+      font-size: 14px;
+      line-height: 20px;
+   }
+}
+@media(max-width: 900px) {
+   .digital-agatech__slider-bottom {
+      width: 90%;
+       height: 200px;
+      margin-top: -40px;
+      margin-bottom: 90px; 
+   }
+   .digital-agatech__slider-bottom--title, .first-customers__title, .public-activity__title {
+      font-size: 22px;
+      line-height: 22px;
+   }
+   .digital-agatech__slider-bottom--description p{
+      font-size: 12px;
+      line-height: 18px;
+   }
+   .digital-agatech__slider-bottom--description p::first-letter {
+      padding-left: 15px;
+   }
+   .digital-agatech__slider-bottom--list ul {
+      padding: 6px 10px 0 10px;
+   }
+   .digital-agatech__slider-bottom--list li {
+      font-size: 11px;
+      line-height: 11px;
+      padding: 2px 0;
+   }
+   .digital-agatech__first-customers {
+      width: 90%;
+      margin: 0 auto 40px;
+   }
+   .first-customers__content img {
+      min-width: 17%;
+      height: 80px; 
+      margin: 8px;
+   }
+   .first-customers__content img:nth-child(9) {
+      min-width: 12%;
+      height: 40px;
+   } 
+   .digital-agatech__public-activity {
+      width: 90%;
+      margin: 0 auto 40px;
+   }
+   .public-activit__description {
+      font-size: 12px;
+      line-height: 18px;
+   }
+}
+@media(max-width: 800px) {
+   .digital-agatech__slider-bottom {
+      width: 90%;
+      height: 200px;
+      margin-top: 0px;
+      margin-bottom: 70px; 
+   }
+}
+@media(max-width: 600px) {
+   .digital-agatech__slider-bottom {
+      height: 250px;
+      margin-bottom: 50px; 
+   }
+   .pagination {
+      top: 105%;
+   }
+   .pagination-item {
+      width: 6px;
+      height: 6px;
+      margin: 0 3px;
+   } 
+   .digital-agatech__slider-bottom--title, .first-customers__title, .public-activity__title {
+      font-size: 20px;
+      line-height: 20px;
+       margin-bottom: 10px; 
+   }
+   .digital-agatech__first-customers {
+      margin: 0 auto 30px;
+   }
+   .digital-agatech__public-activity {
+      margin: 0 auto 30px;
+   }
+}
+@media(max-width: 400px) {
+   .digital-agatech__slider-bottom {
+      height: 280px;
+      margin-bottom: 40px; 
+   }
+   .digital-agatech__slider-bottom--title, .first-customers__title, .public-activity__title {
+      font-size: 18px;
+      line-height: 18px;
+       margin-bottom: 8px; 
+   }
+   .digital-agatech__first-customers {
+      margin: 0 auto 20px;
+   }
+   .digital-agatech__public-activity {
+      margin: 0 auto 20px;
+   }
+   .first-customers__content img {
+      width: 40%;
+      height: initial; 
+   }
 }
 
 .digital-agatech__content_center_block3 {
