@@ -3,6 +3,21 @@
    height: 100px;
    background-color: #333;
 }
+.news-pag__breadcrumbs {
+   width: 90%;
+   margin: 30px auto 0;
+}
+.news-pag__breadcrumbs a {
+   font-family: 'Helvetica Neue Cyr Roman';
+   color: #777;
+   font-size: 15px;
+   line-height: 15px;
+   transition: color .3s;
+}
+.news-pag__breadcrumbs a:hover {
+   color: #444;
+}
+
 .news-page {
    width: 800px;
    margin: 0 auto 100px;
@@ -29,6 +44,8 @@
    color: #999999;
    font-family: 'Helvetica Neue Cyr Roman';
 }
+
+
 .news-page--wrap {
    width: 100%;
    margin-bottom: 20px;
@@ -150,6 +167,13 @@ br + br {
    .news-page-top {
       height: 80px;
    }
+   .news-pag__breadcrumbs {
+      margin: 25px auto 0;
+   }
+   .news-pag__breadcrumbs a {
+      font-size: 14px;
+      line-height: 14px;
+   }
    .news-page {
       width: 90%;
       margin: 0 auto 80px;
@@ -230,6 +254,13 @@ br + br {
    .news-page {
       margin: 0 auto 60px;
    }
+   .news-pag__breadcrumbs {
+      margin: 20px auto 0;
+   }
+   .news-pag__breadcrumbs a {
+      font-size: 13px;
+      line-height: 13px;
+   }
    .news-page h6 {
       font-size: 22px;
       line-height: 22px;
@@ -302,6 +333,13 @@ br + br {
    }
 }
 @media(max-width: 400px) { 
+   .news-pag__breadcrumbs {
+      margin: 15px auto 0;
+   }
+   .news-pag__breadcrumbs a {
+      font-size: 12px;
+      line-height: 12px;
+   }
    .news-page h6 {
       font-size: 20px;
       line-height: 20px;
