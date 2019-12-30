@@ -209,7 +209,6 @@
    }
 }
 
-
 .digital-agatech__content_center{
    width: 90%;
    margin: 0 auto;
@@ -221,55 +220,6 @@
 @media(max-width: 900px) {
    .digital-agatech__content_center{
       width: 100%;
-   }
-}
-.digital-agatech__content_center_block1 {
-   width: 600px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   margin: 10px 0px 50px;
-}
-.digital-agatech__content_center_block1 h6 {
-   font-size: 30px;
-   line-height: 30px;
-   color: #FFFFFF;
-   margin-bottom: 30px;
-   text-align: center;
-}
-.digital-agatech__content_center_block1 p {
-   font-size: 16px;
-   line-height: 28px;
-   text-align: left;
-   color: #FFFFFF;
-   text-align: justify;
-}
-@media(max-width: 1400px) {
-   .digital-agatech__content_center_block1 h6 {
-      font-size: 25px;
-      line-height: 25px;
-      margin-bottom: 25px;
-   }
-   .digital-agatech__content_center_block1 p {
-      font-size: 14px;
-      line-height: 26px;
-   }
-}
-@media(max-width: 800px) {
-   .digital-agatech__content_center_block1 h6 {
-      font-size: 20px;
-      line-height: 20px;
-      margin-bottom: 20px;
-   }
-   .digital-agatech__content_center_block1 p {
-      font-size: 12px;
-      line-height: 22px;
-   }
-}
-@media(max-width: 700px) {
-   .digital-agatech__content_center_block1 {
-      width: 90%;
-      margin: 10px 0px 40px;
    }
 }
 
@@ -289,6 +239,7 @@
    right: 0px;
    cursor: pointer;
    z-index: 1;
+   display: none;
 }
 .arrow_graphic-left {
    position: absolute;
@@ -298,6 +249,7 @@
    left: 0px;
    cursor: pointer;
    z-index: 1;
+   display: none;
 }
 .digital-agatech__container-arrow h6 {
    align-self: flex-start;
@@ -350,7 +302,17 @@
    line-height: 16px;
    font-family: 'Helvetica Neue Cyr Roman';
 }
-
+.digital-agatech__graphic button {
+   font-family: 'Helvetica Neue Cyr Roman';
+   color: #98BAED;
+   font-size: 16px;
+   line-height: 16px;
+   background: transparent;
+   border: none;
+   text-decoration: underline;
+   margin-top: 5px;
+   outline: none;
+}
 .digital-agatech__graphic-top {
    width: 100%;
    height: 50%;
@@ -368,40 +330,40 @@
    align-items: flex-start;
    padding-left: 176px;
 }
-.g2009, .g2011, .g2013, .g2015, .g2017 {
+.graphic-top-item-1, .graphic-top-item-3, .graphic-top-item-5, .graphic-top-item-7, .graphic-top-item-9 {
    width: 285px;
    padding: 5px 10px 0px 10px;
    transition: opacity 1s;
 }
-.g2017 {
+.graphic-top-item-9 {
    padding: 5px 30px 0px 10px;
    opacity: 0;
 }
-.g2019 {
+.graphic-top-item-11 {
    width: 220px;
    padding: 65px 10px 0px 10px;
    opacity: 0;
    transition: opacity 1s;
 }
 
-.g2010, .g2012, .g2014, .g2016, .g2018 {
+.graphic-top-item-2, .graphic-top-item-4, .graphic-top-item-6, .graphic-top-item-8, .graphic-top-item-10 {
    width: 285px;
    transition: opacity 1s;
 }
-.g2010 {
+.graphic-top-item-2 {
    padding: 30px 10px 0px 10px;
 }
-.g2012 {
+.graphic-top-item-4 {
    padding: 25px 10px 0px 10px;
 }
-.g2014 {
+.graphic-top-item-6 {
    padding: 20px 10px 0px 10px;
 }
-.g2016 {
+.graphic-top-item-8 {
    padding: 10px 10px 0px 10px;
    opacity: 0;
 }
-.g2018 {
+.graphic-top-item-10 {
    padding: 0px 10px 0px 10px;
    opacity: 0;
 }
@@ -438,19 +400,19 @@
       padding-left: 132px;
    }
 
-   .g2009, .g2011, .g2013, .g2015, .g2017 {
+   .graphic-top-item-1, .graphic-top-item-3, .graphic-top-item-5, .graphic-top-item-7, .graphic-top-item-9 {
       width: 235px;
       padding: 5px 10px 0px 10px;
    }
-   .g2017 {
+   .graphic-top-item-9 {
       padding: 5px 30px 0px 10px;
    }
-   .g2019 {
+   .graphic-top-item-11 {
       width: 198px;
       padding: 60px 10px 0px 10px;
    }
 
-   .g2010, .g2012, .g2014, .g2016, .g2018 {
+   .graphic-top-item-2, .graphic-top-item-4, .graphic-top-item-6, .graphic-top-item-8, .graphic-top-item-10 {
       width: 213px;
    }
 }
@@ -487,34 +449,34 @@
    .digital-agatech__graphic-bottom {
       padding-left: 107px;
    }
-   .g2009, .g2011, .g2013, .g2015, .g2017 {
+   .graphic-top-item-1, .graphic-top-item-3, .graphic-top-item-5, .graphic-top-item-7, .graphic-top-item-9 {
       width: 172px;
       padding: 0px 5px 0px 5px;
    }
-   .g2017 {
+   .graphic-top-item-9 {
       padding: 0px 55px 0px 5px;
    }
-   .g2019 {
+   .graphic-top-item-11 {
       width: 140px;
       padding: 45px 5px 0px 5px;
    }
 
-   .g2010, .g2012, .g2014, .g2016, .g2018 {
+   .graphic-top-item-2, .graphic-top-item-4, .graphic-top-item-6, .graphic-top-item-8, .graphic-top-item-10 {
       width: 173px;
    }
-   .g2010 {
+   .graphic-top-item-2 {
       padding: 30px 5px 0px 5px;
    }
-   .g2012 {
+   .graphic-top-item-4 {
       padding: 25px 5px 0px 5px;
    }
-   .g2014 {
+   .graphic-top-item-6 {
       padding: 20px 5px 0px 5px;
    }
-   .g2016 {
+   .graphic-top-item-8 {
       padding: 10px 5px 0px 5px;
    }
-   .g2018 {
+   .graphic-top-item-10 {
       padding: 0px 5px 0px 5px;
    }
 }
@@ -573,19 +535,19 @@
       height: 112px;
       overflow: hidden;  
    }
-   .g2009, .g2011, .g2013, .g2015, .g2017, .g2019 {
+   .graphic-top-item-1, .graphic-top-item-3, .graphic-top-item-5, .graphic-top-item-7, .graphic-top-item-9, .graphic-top-item-11 {
       width: 100%;
       padding: 0px;
       opacity: 1;
       margin-bottom: 20px;
    }
-   .g2010, .g2012, .g2014, .g2016, .g2018 {
+   .graphic-top-item-2, .graphic-top-item-4, .graphic-top-item-6, .graphic-top-item-8, .graphic-top-item-10 {
       width: 100%;
       padding: 0px;
       opacity: 1;
       margin-bottom: 20px;
    }
-   .g2019 .digital-agatech__graphic-item--description {
+   .graphic-top-item-11 .digital-agatech__graphic-item--description {
       font-size: 14px;
       line-height: 14px;
       height: 42px;
@@ -609,13 +571,13 @@
       line-height: 12px;
       height: 96px;
    }
-   .g2009, .g2011, .g2013, .g2015, .g2017, .g2019 {
+   .graphic-top-item-1, .graphic-top-item-3, .graphic-top-item-5, .graphic-top-item-7, .graphic-top-item-9, .graphic-top-item-11 {
       margin-bottom: 15px;
    }
-   .g2010, .g2012, .g2014, .g2016, .g2018 {
+   .graphic-top-item-2, .graphic-top-item-4, .graphic-top-item-6, .graphic-top-item-8, .graphic-top-item-10 {
       margin-bottom: 15px;
    }
-   .g2019 .digital-agatech__graphic-item--description {
+   .graphic-top-item-11 .digital-agatech__graphic-item--description {
       font-size: 12px;
       line-height: 12px;
       height: 36px; 
@@ -638,19 +600,134 @@
       line-height: 11px;
       height: 88px;
    }
-   .g2009, .g2011, .g2013, .g2015, .g2017, .g2019 {
+   .graphic-top-item-1, .graphic-top-item-3, .graphic-top-item-5, .graphic-top-item-7, .graphic-top-item-9, .graphic-top-item-11 {
       margin-bottom: 10px;
    }
-   .g2010, .g2012, .g2014, .g2016, .g2018 {
+   .graphic-top-item-2, .graphic-top-item-4, .graphic-top-item-6, .graphic-top-item-8, .graphic-top-item-10 {
       margin-bottom: 10px;
    }
-   .g2019 .digital-agatech__graphic-item--description {
+   .graphic-top-item-11 .digital-agatech__graphic-item--description {
       font-size: 11px;
       line-height: 11px;
       height: 33px; 
    }
 }
 
+.digital-agatech__slider-bottom {
+   width: 1000px;
+   height: 320px;
+   margin-top: -100px;
+   margin-bottom: 150px;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: flex-end;
+}
+.pagination {
+   position: absolute;
+   top: 110%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.pagination-item {
+   width: 10px;
+   height: 10px;
+   background-color: #fff;
+   margin: 0 5px;
+   clip-path: circle();
+   opacity: .5;
+   cursor: pointer;
+   transition: .4s;
+}
+#pagination-item-1 {
+   opacity: 1;
+}
+.digital-agatech__slider-bottom--title, .first-customers__title, .public-activity__title {
+   color: #fff;
+   font-family: 'Helvetica Neue Cyr Roman';
+   font-size: 30px;
+   line-height: 30px;
+   margin-bottom: 20px;
+   text-align: center;
+   width: 90%;
+}
+.digital-agatech__slider-bottom--description {
+   display: none;
+}
+#slide-bottom-1 {
+   display: block;
+}
+.digital-agatech__slider-bottom--description p{
+   color: #fff;
+   font-family: 'Helvetica Neue Cyr Roman';
+   font-size: 16px;
+   line-height: 22px;
+}
+.digital-agatech__slider-bottom--description p::first-letter {
+   padding-left: 25px;
+}
+.digital-agatech__slider-bottom--list {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: flex-start;
+}
+.digital-agatech__slider-bottom--list ul {
+   list-style-type: none;
+   min-width: 30%;
+   padding: 10px 20px 0 20px;
+}
+.digital-agatech__slider-bottom--list li {
+   color: #fff;
+   font-family: 'Helvetica Neue Cyr Roman';
+   font-size: 14px;
+   line-height: 14px;
+   padding: 3px 0;
+}
+
+
+.digital-agatech__first-customers {
+   width: 1000px;
+   margin: 0 auto 80px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.first-customers__content {
+   width: 90%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+}
+.first-customers__content img {
+   min-width: 100px;
+   height: 100px; 
+   margin: 10px;
+}
+.first-customers__content img:nth-child(9) {
+   width: 80px;
+   height: 60px;
+} 
+
+
+.digital-agatech__public-activity {
+   width: 1000px;
+   margin: 0 auto 80px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+}
+.public-activit__description {
+   color: #fff;
+   font-family: 'Helvetica Neue Cyr Roman';
+   font-size: 16px;
+   line-height: 22px;
+   text-align: left;
+}
 
 .digital-agatech__content_center_block3 {
    position: relative;
@@ -1995,19 +2072,19 @@
    font-family: 'Helvetica Neue Cyr Roman';
    font-size: 20px;
    line-height: 20px;
-   color: #8D92A5;
+   color: #626779;
 }
 .contacts-top__item--big-text {
    font-family: 'Helvetica Neue Cyr Roman';
    font-size: 35px;
    line-height: 35px;
-   color: #8D92A5;
+   color: #626779;
 }
 .contacts-top__item-title {
    font-family: 'Helvetica Neue Cyr Roman';
    font-size: 25px;
    line-height: 25px;
-   color: #8D92A5;
+   color: #626779;
    display: block;
    text-align: center;
    align-self: center;
@@ -2031,7 +2108,7 @@
    font-family: 'Helvetica Neue Cyr Roman';
    font-size: 18px;
    line-height: 18px;
-   color: #8D92A5;
+   color: #626779;
    margin-bottom: 5px;
 }
 .contacts-bottom__item-phone {
@@ -2044,7 +2121,7 @@
    font-family: 'Helvetica Neue Cyr Roman';
    font-size: 24px;
    line-height: 24px;
-   color: #8D92A5;
+   color: #626779;
    font-weight: bold;
 }
 .contacts_bgc iframe {
