@@ -35,7 +35,7 @@ class UserController extends Controller {
         $default = "http://agatech.agatech.ru/public/img/favicon.png";
         $size = 256;
         $this->View->GravUrl = "https://www.gravatar.com/avatar/" . md5(strtolower(trim($email))) . "?d=" . urlencode($default) . "&s=" . $size;
-        $this->View->content = $this->View->execute('UserCard.html');
+        $this->View->content = $this->View->execute('UserHome.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
 
@@ -50,7 +50,6 @@ class UserController extends Controller {
         }
         $this->View->title = 'Вход пользователя';
         if ($this->POST) {
-            sleep(3);
             $user = json_decode($this->REQUEST);
             return $this->User->login($user->email, $user->password);
         }
@@ -60,6 +59,21 @@ class UserController extends Controller {
     }
 
     public function RegistreAction() {
+        if ($this->User->GetCurrentUser()['role'] > 0) {
+            return mvcrb::Redirect('/user');
+        }
+        if ($this->POST) {
+            $PostUserData = json_decode($this->REQUEST,true);
+            if($this->User->ChekUserLogin($PostUserData['login'])){
+                return ['Error'=>'Логин уже занят'];
+            }
+            if($this->User->ChekMail($PostUserData['email'])){
+                return ['Error'=>'email уже занят'];
+            }
+            $success=$this->User->CreateUser($PostUserData['email'], $PostUserData['password'], $PostUserData['login']);
+            
+            return ['Success'=>$success];
+        }
         $this->View->title = 'Регистрация пользователя';
         $this->View->state = 'Registre';
         $this->View->content = $this->View->execute('UserForms.html');

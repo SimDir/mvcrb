@@ -72,9 +72,6 @@ header {
 .header__menu_link img{
    display: none;
 }
-.MnuActiv {
-   transform: rotate(180deg);
-}
 
 
 .header_bottom {
@@ -144,7 +141,6 @@ header {
 
 
 .header__right--wrap {
-   /* flex-basis: 5%; */
    display: flex;
    justify-content: center;
    align-items: center;
@@ -158,6 +154,10 @@ header {
 .header__right-calc img{
    width: 40px;
    height: 40px;
+   transition: transform .5s;
+}
+.header__right-calc:hover img{
+   transform: scale(1.03);
 }
 .header__right-lang {
    align-self: center;
@@ -167,12 +167,19 @@ header {
    line-height: 16px;
    color: #5F9FC7;
    padding: 5px;
+   transition: color .5s;
+}
+.header__right-lang:hover {
+   color: #327DAC;
 }
 .burger{
    display: none;
 }
 .cross_menu {
    display: none;
+}
+.MnuActiv {
+   transform: rotate(180deg);
 }
 
 @media(max-width: 1400px) {

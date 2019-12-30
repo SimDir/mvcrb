@@ -64,7 +64,7 @@ final class View {
         $this->vars[$name] = $value;
     }
 
-    public function __get(string $name): string {
+    public function __get(string $name) {
         if (isset($this->vars[$name])) {
 
             return $this->vars[$name];

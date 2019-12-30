@@ -52,7 +52,7 @@
                     <div class="options">
 
                         <p>У вас нет учетной записи?
-                            <a @click.prevent="state='Registre'" href="/user/registre">Зарегистрируйтесь</a>
+                            <a @click.prevent="SetState('Registre')" href="/user/registre">Зарегистрируйтесь</a>
                         </p>
                         <!--<p>Забыли свой <a href="/user/forgot">пароль</a>?</p>-->
                     </div>
@@ -104,7 +104,7 @@
                         <div class="options">
 
                             <p>У вас есть учетная запись?
-                                <a @click.prevent="state='Login'" href="/user/registre">вход</a>
+                                <a @click.prevent="SetState('Login')" href="/user/registre">вход</a>
                             </p>
                             <!--<p>Забыли свой <a href="/user/forgot">пароль</a>?</p>-->
                         </div>
@@ -135,15 +135,26 @@ var UserForms = new Vue({
   data: {
       errors:false,Forgot:1,
       CurrentUser: {login:"",email:"",password:"",fpassword:""},
-      state:'<{state}>',msg:''
+      state:'<{state}>',defstate:'<{state}>',msg:''
   },
   created(){
-      console.log(this.state);
+    let self = this;
+    window.onpopstate = function(event) {
+        if(event.state!=null){
+            self.state =event.state;
+        }
+        console.log(event.state);
+    };
   },
   methods: {
+    SetState(state){
+        this.defstate=state;
+        this.state=state;
+        window.history.pushState(state, "Title", "/user/"+state.toLowerCase());
+    },
     SetError(err){
         this.errors=err;
-        this.state='<{state}>';
+        this.state=this.defstate;
     },
     UserRegistre(e){
         e.preventDefault();
@@ -151,7 +162,7 @@ var UserForms = new Vue({
         this.state=false;
         if(this.CurrentUser.password!==this.CurrentUser.fpassword){
             this.errors = "В веденные пароли не совпадают";
-            this.state='<{state}>';
+            this.state='error';
             return false;
         }
         fetch( '/user/registre',{
@@ -171,21 +182,22 @@ var UserForms = new Vue({
                 throw new Error('Network response was not ok');
             })
             .then((json) => {
-                if(json){
-//                    window.location.href='/user';
-                }else{
-                    this.errors = 'Ошибка регистрации';
-                    this.state='<{state}>';
+                if(json.Error){
+                    this.errors = json.Error;
+                    this.state='error';
+                }else if(json.Success!==0){
+                    console.log(json);
+                    window.location.href='/user';
                 }
    
-                console.log(json);
+//                console.log(json);
                 
             })
             .catch((error) => {
                 this.errors = error;
                 console.log('FormLogin',error);
             });
-        console.log(this.CurrentUser);
+//        console.log(this.CurrentUser);
     },
     UserLogin(e) {
         e.preventDefault();
@@ -216,7 +228,7 @@ var UserForms = new Vue({
                     this.CurrentUser.password='';
                     this.Forgot=true;
                     this.errors = 'Неверное имя пользователя или пароль';
-                    this.state='<{state}>';
+                    this.state='error';
                 }
             })
             .catch((error) => {

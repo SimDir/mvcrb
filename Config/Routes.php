@@ -23,7 +23,9 @@ return array(
 //    '\bpage\b/([0-9]+)' => 'index/page/$1',
 //    '\beditor\b/([-_a-zA-Z0-9]+)' => 'page/edit/$1',
 //    '\beditorsave\b/([-_a-zA-Z0-9]+)' => 'page/save/$1',
+    '^page/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+).html' => 'page/index/$1/$2',
     '^page/([-_a-zA-Z0-9]+.html)' => 'page/page/$1',
+    
     '^id([0-9]+)' => 'user/index/$1',
 
 //    '\bmoney\b/' => 'site/money/',

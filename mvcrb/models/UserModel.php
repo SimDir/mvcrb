@@ -176,7 +176,7 @@ class UserModel extends Model {
 
     public function ChekUserLogin($login) {
         //проверка на существование одинакового логина
-        if ($this->count($this->TableName, "login = ?", array($login)) > 0) {
+        if ($this->count($this->TableName, "login = ?", [$login]) > 0) {
 //            $errors[] = 'Пользователь с таким логином уже существует!';
             return TRUE;
         }
