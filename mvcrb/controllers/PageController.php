@@ -10,23 +10,31 @@ defined('ROOT') OR die('No direct script access.');
  * @author ivan p kolotilkin
  */
 class PageController extends Controller {
-    public function IndexAction() {
-        $this->View->TplDir=TEMPLATE_DIR.'IndexController'.DS;
-        $this->View->content = $this->View->execute('pages.html');
+    public function IndexAction($category='',$page='') {
+        $this->View->title = 'Все страници';
+        $this->View->PageArr = $this->GetModel('Page')->GetAllPage($category);
+//        dd($vdl);
+        $this->View->content = $this->View->execute('PageAll.html');
+        $this->View->content = $this->View->execute('pages.html',TEMPLATE_DIR.'IndexController'.DS);
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
 
     public function TestAction($par=0) {
-        $vdl = $this->model;
-        $tmp = $vdl->Get($par);
-        dd($tmp);
+        $vdl = $this->GetModel('Page')->Get($par);
+//        $tmp = $vdl->Get($par);
+        dd($vdl);
     }
     public function PageAction($page) {
         $this->View->TplDir=TEMPLATE_DIR.'IndexController'.DS;
+        $lng = Session::get('language');
+        if (is_null($lng)) {
+            $lng = '';
+        }
         $Pages = $this->GetModel('Page');
         $PRet = $Pages->GetPage($page);
         $User = $this->GetModel('User');
         $curUser = $User->GetCurrentUser();
+        
         if ($curUser['role'] >= 300) {
             $this->view->VarSetArray($curUser);
             $this->View->pageid = $PRet['id'];
@@ -37,7 +45,7 @@ class PageController extends Controller {
 //            dd($PRet);
             $this->View->content = $this->View->Code($PRet['content']);
             $this->View->title = $PRet['title'];
-            $this->View->content = $this->View->execute('pages.html');
+            $this->View->content = $this->View->execute('pages.html',TEMPLATE_DIR.'IndexController'.DS);
             return $this->View->execute('index.html', TEMPLATE_DIR);
         }
 
@@ -50,7 +58,7 @@ class PageController extends Controller {
 //            dd($testFile);
             return "Стринааца $page не найдена ";
         }
-        $this->View->content = $this->View->execute($testFile);
+        $this->View->content = $this->View->execute($testFile,TEMPLATE_DIR.'IndexController'.DS);
         if (file_exists($tempFile)) {
             $date1=$PRet["editdatetime"];
             $date2=date('Y-m-d H:i:s', filectime($tempFile));
@@ -78,11 +86,11 @@ class PageController extends Controller {
         }
 
         
-        $this->View->content = $this->View->execute('pages.html');
+        $this->View->content = $this->View->execute('pages.html',TEMPLATE_DIR.'IndexController'.DS);
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
 
-    public function EditAction($id) {
+    public function EditAction($id=0) {
         $User = new UserModel();
         if ($User->GetCurrentUser()['role'] < 300) {
             return mvcrb::Redirect('/error/404');
@@ -92,6 +100,7 @@ class PageController extends Controller {
         $this->View->apikey = '2vf7bxyhwhgjglrd05fapr353yk2xhegpnqdxgnhdk78rsie';
         $this->View->EditorText = $p['content'];
         $this->View->id = $p['id'];
+        $this->View->name = $p['name'];
         $this->View->content = $this->View->execute('Editor.html', TEMPLATE_DIR . 'AdminController' . DS);
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
@@ -107,7 +116,7 @@ class PageController extends Controller {
         $Data['content'] = htmlspecialchars_decode($postdata['PageContent'],ENT_HTML5);
         $Pages = new PageModel();
         
-        return $Pages->Edit($Data,(int)$postdata['PageId']);;
+        return ['cnt'=>$Data['content']];//$Pages->Edit($Data,(int)$postdata['PageId']);
     }
 
 }

@@ -88,7 +88,7 @@ https://codemirror.net/doc/manual.html
                             <div class="d-flex justify-content-between">
                                 <a title="Изменить страницу" class="text-success" :href="'/admin/editor/tinymce/'+item.id"><i class="far fa-edit"></i></a>
                                 <a title="Показать страницу в отдельной страницу" class="text-info" :href="'/page/'+item.name" target="_blank"><i class="far fa-eye"></i></a>
-                                <a title="Удалить страницу навсегда" class="text-danger" @click="DelUser(item.id)"><i class="far fa-trash-alt"></i></a>
+                                <a title="Удалить страницу навсегда" class="text-danger" @click="DelPage(item.id)"><i class="far fa-trash-alt"></i></a>
                             </div>
                         </td>
                     </tr>
@@ -295,6 +295,21 @@ https://codemirror.net/doc/manual.html
                         this.id = null;
                     }
                     console.log(res);
+                });
+
+            },
+            DelPage(id){
+                fetch('/admin/delpage/?AJAX=1', {
+                    mode: 'cors',
+                    method: 'POST',
+                    cache: 'no-cache',
+                    credentials: 'same-origin',
+                    body: JSON.stringify({id:id})
+                })
+                .then(res => res.json())
+                .then(res => {
+                    this.setPage(this.currentPage);
+//                    console.log(res);
                 });
 
             },

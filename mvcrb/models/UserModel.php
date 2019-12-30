@@ -15,7 +15,11 @@ class UserModel extends Model {
 
     public function __construct() {
         parent::__construct();
-        Session::init();
+        $browser = md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
+                
+        Session::init($browser);
+        
+        Session::set('BrowserHesh', $browser);
         $this->TableName = 'user';
     }
     public function SetExel($ExelFileToRiad) {
@@ -176,7 +180,7 @@ class UserModel extends Model {
 
     public function ChekUserLogin($login) {
         //проверка на существование одинакового логина
-        if ($this->count($this->TableName, "login = ?", array($login)) > 0) {
+        if ($this->count($this->TableName, "login = ?", [$login]) > 0) {
 //            $errors[] = 'Пользователь с таким логином уже существует!';
             return TRUE;
         }
@@ -247,8 +251,6 @@ class UserModel extends Model {
                 $VarUser = $user->export();
                 unset($VarUser['password']); // убираем хеш пароля.
                 Session::set('LoggedUser', $VarUser);
-                $browser = md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
-                Session::set('BrowserHesh', $browser);
                 return TRUE;
             }
         }

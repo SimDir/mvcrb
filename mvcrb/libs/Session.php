@@ -20,7 +20,7 @@ class Session {
      * @var boolean
      */
     private static $sessionStarted = false;
-
+    public static $sessionName = SESSION_PREFIX;
     /**
      * if session has not started, start sessions
      */
@@ -36,13 +36,15 @@ class Session {
         $cookieParams = session_get_cookie_params();
         session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], $secure);
         // Sets the session name to the one set above.
-        session_name(SESSION_PREFIX);
+        session_name(self::$sessionName);
         session_start();            // Start the PHP session 
         //session_regenerate_id();    // regenerated the session, delete the old one. 
         
         $BrowserHesh = self::get('BrowserHesh');
         if($BrowserHesh){
+            
             $browser = md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
+            dd($browser.' '.$BrowserHesh);
             if($browser!==$BrowserHesh){
     //            dd($browser.' '.$BrowserHesh);
                 self::DestroyAll();
@@ -50,9 +52,10 @@ class Session {
         }
     }
 
-    public static function init() {
+    public static function init($name=SESSION_PREFIX) {
         if (self::$sessionStarted == false) {
 //            session_start();
+            self::$sessionName = $name;
             self::SecSessionStart();
             self::$sessionStarted = true;
         }
