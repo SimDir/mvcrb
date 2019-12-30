@@ -15,17 +15,27 @@ abstract class Magic {
         if(isset(self::$ClassArray[$Model])){
             return self::$ClassArray[$Model];
         }
-        $ModelClass = __NAMESPACE__. '\\'.$Model.'Model';
+        
+        if (strpos($Model, 'Model') === false) {
+            $ModelClass = __NAMESPACE__. '\\'.$Model.'Model';
+        } else {
+            $ModelClass = __NAMESPACE__. '\\'.$Model;
+        }
+        
         if(class_exists($ModelClass)){
             return self::$ClassArray[$Model] = new $ModelClass();
         }else{
-            return new Model();
+            if (isset(self::$ClassArray[$Model])) {
+                return self::$ClassArray[$Model];
+            }
+            return self::$ClassArray[$Model] = new ControllerModel($Model);
         }
         
     }
     public function __get(string $name) {
         
         switch ($name) {
+            case 'MODEL':
             case 'Model':
             case 'model':    
                 $ModelName = mb_strtolower(str_replace('Controller','',end(explode('\\', get_class($this)))));
@@ -37,10 +47,10 @@ abstract class Magic {
             case 'VIEW':
             case 'View':
             case 'view':
-                if (isset(self::$ClassArray['view'])) {
-                    return self::$ClassArray['view'];
-                }
-                return self::$ClassArray['view'] = View::getInstance(end(explode('\\', get_class($this))));
+//                if (isset(self::$ClassArray['view'])) {
+//                    return self::$ClassArray['view'];
+//                }
+                return View::getInstance(end(explode('\\', get_class($this))));
 //                break;
             case 'REQUEST': 
             case 'Request':

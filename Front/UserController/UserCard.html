@@ -1,5 +1,6 @@
-
-<div class="vh-100 d-flex flex-column justify-content-center align-items-center bg-dark">
+<{ Controller(index:header) }>
+<{ View(IndexController/navbar.html) }>
+<div class="d-flex flex-wrap justify-content-center">
     <div class="card m-3" style="max-height: 500px; max-width: 500px">
 
     <!-- Card image -->
@@ -7,7 +8,7 @@
         <img  class="img-fluid" src="<{GravUrl}>" alt="Card image cap">
     </div>
 
-    </div>
+</div>
  
   <div class="card m-3">
       <!-- Card content -->
@@ -33,3 +34,4 @@
     </div>
 </div>
 
+<{ View(IndexController/footer.html) }>
