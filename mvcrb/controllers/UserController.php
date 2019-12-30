@@ -1,67 +1,92 @@
 <?php
+
 namespace mvcrb;
+
 defined('ROOT') OR die('No direct script access.');
+
 /**
  * Description of UserController
  *  
  * @author ivan kolotilkin
  */
+class UserController extends Controller {
 
-class UserController extends Controller{
     private $User;
-    
+
     public function __construct() {
         parent::__construct();
-        $this->User = new UserModel();
-        $this->View->SetWivePath(TEMPLATE_DIR.'UserController'.DS);
+        $this->User = new UserModel();//$this->GetModel('User'); //
+//        $this->View->SetWivePath(TEMPLATE_DIR.'UserController'.DS);
     }
-    
+
     public function IndexAction() {
         $UserVars = $this->User->GetCurrentUser();
-        if($UserVars['role']==0){
+        if ($UserVars['role'] == 0) {
             return mvcrb::Redirect('/user/login');
         }
         $redir = Session::get('UserRedirect');
-        if($redir){
+        if ($redir) {
             Session::set('UserRedirect', null);
             return mvcrb::Redirect($redir);
         }
         $this->View->VarSetArray($UserVars);
-       
+
         $email = $UserVars['email'];
-        $default = "http://agatech.agatech.ru/public/img/rblogom.png";
+        $default = "http://agatech.agatech.ru/public/img/favicon.png";
         $size = 256;
-        $this->View->GravUrl = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
-        $this->View->content = $this->View->execute('Usercard.html');
-        return $this->View->execute('index.html',TEMPLATE_DIR);
+        $this->View->GravUrl = "https://www.gravatar.com/avatar/" . md5(strtolower(trim($email))) . "?d=" . urlencode($default) . "&s=" . $size;
+        $this->View->content = $this->View->execute('UserHome.html');
+        return $this->View->execute('index.html', TEMPLATE_DIR);
     }
+
     public function LogoutAction() {
         Session::destroy();
-        return mvcrb::Redirect('/user/login');
+        return mvcrb::Redirect('/');
     }
+
     public function LoginAction() {
         if ($this->User->GetCurrentUser()['role'] > 0) {
             return mvcrb::Redirect('/user');
         }
-        $this->View->title ='Вход пользователя';
+        $this->View->title = 'Вход пользователя';
         if ($this->POST) {
-            $user= json_decode($this->REQUEST);
+            $user = json_decode($this->REQUEST);
             return $this->User->login($user->email, $user->password);
-        } 
-        $this->View->content =  $this->View->execute('FormLogin.html');
-        return $this->View->execute('index.html',TEMPLATE_DIR);
+        }
+        $this->View->state = 'Login';
+        $this->View->content = $this->View->execute('UserForms.html');
+        return $this->View->execute('index.html', TEMPLATE_DIR);
     }
+
+    public function RegistreAction() {
+        if ($this->User->GetCurrentUser()['role'] > 0) {
+            return mvcrb::Redirect('/user');
+        }
+        if ($this->POST) {
+            $PostUserData = json_decode($this->REQUEST,true);
+            if($this->User->ChekUserLogin($PostUserData['login'])){
+                return ['Error'=>'Логин уже занят'];
+            }
+            if($this->User->ChekMail($PostUserData['email'])){
+                return ['Error'=>'email уже занят'];
+            }
+            $success=$this->User->CreateUser($PostUserData['email'], $PostUserData['password'], $PostUserData['login']);
+            
+            return ['Success'=>$success];
+        }
+        $this->View->title = 'Регистрация пользователя';
+        $this->View->state = 'Registre';
+        $this->View->content = $this->View->execute('UserForms.html');
+        return $this->View->execute('index.html', TEMPLATE_DIR);
+    }
+
     public function GetAction() {
         if ($this->POST)
             return $this->User->GetCurrentUser();
         return mvcrb::Redirect('/user');
     }
-    public function RegistreAction() {
-        $this->View->title ='Регистрация пользователя';
-        
-        
-    }
-    private function UserPostRegistre(){
+
+    private function UserPostRegistre() {
 //        echo '<pre>';
 //        $json = json_decode(file_get_contents('php://input'));
         $ErrorMsg = "";
@@ -74,7 +99,7 @@ class UserController extends Controller{
 //        if ($ret->success == false) {
 //            $ErrorMsg .= '<p class="error">reКапча введена не верно</p>';
 //        }
-        
+
         $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
 
         $email = filter_var($email, FILTER_VALIDATE_EMAIL);
@@ -83,11 +108,11 @@ class UserController extends Controller{
             // Not a valid email
             $ErrorMsg .= '<p class="error">Введенный адрес электронной почты не является действительным</p>';
         }
-        
-        if($this->User->ChekMail($email)){
+
+        if ($this->User->ChekMail($email)) {
             $ErrorMsg .= '<p class="error">Введенный адрес электронной почты уже используется</p>';
         }
-        
+
         $login = filter_input(INPUT_POST, "login", FILTER_SANITIZE_STRING);
         $this->View->login = $login;
         if ($this->User->ChekUserLogin($login)) {
@@ -99,33 +124,31 @@ class UserController extends Controller{
         $this->View->middlename = $middlename;
         $surname = filter_input(INPUT_POST, "surname", FILTER_SANITIZE_STRING);
         $this->View->surname = $surname;
-        
+
         $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
         $passwordonf = filter_input(INPUT_POST, "passwordonf", FILTER_SANITIZE_STRING);
         if ($passwordonf != $password) {
             $ErrorMsg .= '<p class="error">Повторный пароль введен не верно!</p>';
         }
-        
+
         if (empty($ErrorMsg)) {
             //ошибок нет, теперь регистрируем
             $this->View->uid = $this->User->CreateUser($email, $password, $login, $name, $middlename, $surname);
 
             $this->View->content = $this->View->execute('RegFinish.html');
             return $this->View->execute('index.html');
-            
         }
 //        echo $ErrorMsg;
         $this->View->ErrorMsg = $ErrorMsg;
         $this->View->content = $this->View->execute('FormRegistre.html');
         return $this->View->execute('index.html');
-        
     }
 
     public function ListAction($CamId = 0) {
         $View = $this->View;
         $User = $this->User;
-        $u=$User->GetCurrentUser();
-        if($u['role']<400){
+        $u = $User->GetCurrentUser();
+        if ($u['role'] < 400) {
             return;
 //            $View->content = $View->execute('UserList.html');
         }
@@ -136,16 +159,17 @@ class UserController extends Controller{
 
         return $this->View->execute('index.html');
     }
+
     public function ActionSave($UserNew = false) {
-        $log=new LogModel();
+        $log = new LogModel();
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $UserArr = json_decode($_POST['User'],true);
+            $UserArr = json_decode($_POST['User'], true);
             $User = $this->User;
-            if($User->GetCurrentUser()['role']<$UserArr['role']){
-                $UserArr['role']=$User->GetCurrentUser()['role'];
+            if ($User->GetCurrentUser()['role'] < $UserArr['role']) {
+                $UserArr['role'] = $User->GetCurrentUser()['role'];
             }
-            
-            if($UserNew){
+
+            if ($UserNew) {
                 if ($User->ChekUserLogin($UserArr['login'])) {
                     $uret = $UserArr['login'];
                     $res = array('RetMsg' => "Пользователь с логином $uret уже существует");
@@ -156,33 +180,33 @@ class UserController extends Controller{
                     $res = array('RetMsg' => "Пользователь с почтой $uret уже существует");
                     return json_encode($res);
                 }
-                
-                $uret=$User->CreateUser($UserArr['email'], $UserArr['password'], $UserArr['login'],$UserArr['role'],
-                        $UserArr['name'], $UserArr['middlename'], $UserArr['surname'],$UserArr['phone']);
-                $res = array('RetMsg'=>"Пользователь с id=$uret добавлен");
+
+                $uret = $User->CreateUser($UserArr['email'], $UserArr['password'], $UserArr['login'], $UserArr['role'],
+                        $UserArr['name'], $UserArr['middlename'], $UserArr['surname'], $UserArr['phone']);
+                $res = array('RetMsg' => "Пользователь с id=$uret добавлен");
                 $log->Log("Пользователь с id=$uret добавлен");
-            }else{
-                $uret=$User->SaveUser($UserArr['id'], $UserArr['email'], $UserArr['password'], 
+            } else {
+                $uret = $User->SaveUser($UserArr['id'], $UserArr['email'], $UserArr['password'],
                         $UserArr['login'], $UserArr['name'], $UserArr['middlename'], $UserArr['surname'],
-                        $UserArr['role'],$UserArr['phone']);
-                $res = array('RetMsg'=>"Пользователь с id=$uret сохранен");
+                        $UserArr['role'], $UserArr['phone']);
+                $res = array('RetMsg' => "Пользователь с id=$uret сохранен");
                 $log->Log("Пользователь с id=$uret сохранен");
             }
             return json_encode($res);
         }
-        return json_encode(['RetMsg'=>"Ошибка сохранения Пользователя"]);
+        return json_encode(['RetMsg' => "Ошибка сохранения Пользователя"]);
     }
-    
+
     public function ActionDelete($Id = 0) {
-        $log=new LogModel();
+        $log = new LogModel();
         $user = $this->User;
         $user->DellUser(intval($Id));
         $res = array('RetMsg' => "Пользователь с id = $Id безвозвратно удален из системы. поманям павшего героя сервера");
         $log->Log("Пользователь с id=$Id безвозвратно удален из системы.");
         return json_encode($res);
     }
-    
-    public function ActionApiList($start=0, $limit=100,$s=null) {
+
+    public function ActionApiList($start = 0, $limit = 100, $s = null) {
 //        return json_encode(urldecode($s));
         $User = $this->User;
         $u = $User->GetCurrentUser();
@@ -191,31 +215,31 @@ class UserController extends Controller{
 //            $View->content = $View->execute('UserList.html');
         }
         $UC = $User->GetCountUser();
-        if($s){
-            $order = array('search'=>urldecode($s));
-            $u=$User->GetListUser($start, $limit,$order);
+        if ($s) {
+            $order = array('search' => urldecode($s));
+            $u = $User->GetListUser($start, $limit, $order);
         } else {
-            $u=$User->GetListUser($start, $limit);
+            $u = $User->GetListUser($start, $limit);
         }
-        if($u){
-            $CU=count($u);
-            if($s){
-                $order = array('search'=>urldecode($s));
-                $SCU=$User->GetListUser(0, $UC,$order);
-                $SCU=count($SCU);
+        if ($u) {
+            $CU = count($u);
+            if ($s) {
+                $order = array('search' => urldecode($s));
+                $SCU = $User->GetListUser(0, $UC, $order);
+                $SCU = count($SCU);
             } else {
-                $SCU=0;
+                $SCU = 0;
             }
+        } else {
+            $CU = 0;
+            $SCU = 0;
         }
-        else{
-             $CU=0;
-             $SCU=0;
-        }
-        $ret = array('User'=>$u,
-            'UserCount'=>$UC,
-            'AllCount'=> $CU,
-            'SCount'=> $SCU
-                );
+        $ret = array('User' => $u,
+            'UserCount' => $UC,
+            'AllCount' => $CU,
+            'SCount' => $SCU
+        );
         return json_encode($ret);
     }
+
 }

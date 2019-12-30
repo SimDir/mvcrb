@@ -121,6 +121,11 @@ class AdminController extends Controller {
         $page = new PageModel();
         return ['success' => true, 'id' => $page->Add($PostData)];
     }
+    public function DelpageAction() {
+        $PostData = json_decode($this->REQUEST, true);
+        $page = new PageModel();
+        return ['success' => $page->Del($PostData['id'])];
+    }
     public function EditpageAction($id) {
         $PostData = json_decode($this->REQUEST, true);
         $page = new PageModel();

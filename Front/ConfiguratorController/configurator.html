@@ -16,7 +16,7 @@
             </div>
         </div>
         <!-- configurator-wrap__header -->
-        <div class="configurator-wrap__content">
+        <div  class="configurator-wrap__content">
             <div v-for="(option, index) in SiteTypArray" v-on:click="SetSiteTyp(option)" class="configurator-wrap__content-item">
                 <img v-bind:src="option.img" class="configurator-wrap__content-item--img">
                 <p>{{option.text}}</p>
@@ -259,7 +259,7 @@
                     <li>
                         <label for="DopServecLogoKompany">
                             Разработка логотипа и фирменного стиля
-                            <input type="checkbox" id="DopServecLogoKompany" v-model.number="Step4" value="7500">
+                            <input type="checkbox" id="DopServecLogoKompany" v-model.number="Step4" value="15000">
                             <span class="checkbox-visible"></span>
                         </label>
                     </li>
@@ -298,9 +298,14 @@
                     <li>
                         <label for="DopServecPresent">
                             Разработка презентации
-                            <input type="checkbox" id="DopServecPresent" v-model.number="Step4" value="50000">
+                            <input type="checkbox" id="DopServecPresent" v-model.number="DopServecPresent" value="5000">
                             <span class="checkbox-visible"></span>
                         </label>
+                        <div v-if="DopServecPresent" class="step4-additional">
+                            <span id="basic-addon3">Количество</span>
+                            <input id="DopServecPresentCount" type="number" min="1" max="99" v-model.number="DopServecPresentCount">
+                            <span>штук</span>
+                        </div>
                     </li>
                     <li>
                         <label for="DopServecBrandBook">
@@ -321,7 +326,7 @@
             </button>
             <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
             <button v-if="step<MaxStep-1" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
-            <button v-if="step==MaxStep-1" @click="CreateOrder" type="button" class="configurator-wrap__bottom--next">Далее</button>
+           
         </div>
         <!-- configurator-wrap__bottom -->
     </div>
@@ -349,16 +354,26 @@
                     <li>
                         <label for="WriteText">
                             Написание текстов (500 знаков)
-                            <input type="checkbox" id="WriteText" v-model.number="Step5" value="1000">
+                            <input type="checkbox" id="WriteText" v-model.number="WriteText" value="1000">
                             <span class="checkbox-visible"></span>
                         </label>
+                        <div v-if="WriteText" class="step4-additional">
+                            <span id="basic-addon3">Количество</span>
+                            <input id="DopServecPresentCount" type="number" min="1" max="99" v-model.number="WriteTextCount">
+                            <span>штук</span>
+                        </div>
                     </li>
                     <li>
                         <label for="SalePictures">
                             Подбор и покупка изображений
-                            <input type="checkbox" id="SalePictures" v-model.number="Step4" value="2000">
+                            <input type="checkbox" id="SalePictures" v-model.number="SalePictures" value="390">
                             <span class="checkbox-visible"></span>
                         </label>
+                        <div v-if="SalePictures" class="step4-additional">
+                            <span id="basic-addon3">Количество</span>
+                            <input id="SalePictures" type="number" min="1" max="99" v-model.number="SalePicturesCount">
+                            <span>штук</span>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -369,17 +384,26 @@
                     <li>     
                         <label for="DopMoveCreate">
                             Создание видиоролика
-                            <input type="checkbox" id="DopMoveCreate" v-model.number="Step5" value="1500">
+                            <input type="checkbox" id="DopMoveCreate" v-model.number="MoveCreate" value="1500">
                             <span class="checkbox-visible"></span>
                         </label>
-
+                        <div v-if="MoveCreate" class="step4-additional">
+                            <span id="basic-addon3">Количество</span>
+                            <input id="SalePictures" type="number" min="1" max="99" v-model.number="MoveCreateCount">
+                            <span>штук</span>
+                        </div>
                     </li>
                     <li>
                         <label for="DopPhotograph">
                             Работа фотографа (2 часа 50 фотографий)
-                            <input type="checkbox" id="DopPhotograph" v-model.number="Step5" value="500">
+                            <input type="checkbox" id="DopPhotograph" v-model.number="Photograph" value="500">
                             <span class="checkbox-visible"></span>
                         </label>
+                        <div v-if="Photograph" class="step4-additional">
+                            <span id="basic-addon3">Количество</span>
+                            <input id="SalePictures" type="number" min="2" max="99" v-model.number="PhotographCount">
+                            <span>штук</span>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -499,7 +523,22 @@
         </div>
     </div>
     <div v-if="step>=8" class="step7-wrap">
-        <h1 class="text-white">ваш заказ принят в обработку</h1>
+        <div class="configurator-wrap__header">
+            <a href="/">
+                <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
+            </a>
+            <div class="configurator-wrap__header-numpage">
+                <p>Шаг {{step}} из {{MaxStep}}</p>
+            </div>
+        </div>
+        <!-- configurator-wrap__header -->
+
+        <div class="step7-wrap">
+<h1 class="text-white">ваш заказ принят в обработку</h1>
+            <!-- Default form subscription -->
+        </div>
+
+        
     </div>
     <!-- configurator-wrap -->
 </div>
@@ -527,9 +566,14 @@
             ],
             Step3: [], bStep3: ["basehederMenu", "baseNewsSalers", "baseProdukt", "baseKompany", "baseKoments", "baseKatalog"], bStep3Val: true,
             DopServecSlidersCount: 1, DopServecSliders: 0,
-            DopServecPictureDevCount: 1, DopServecPictureDev: 0,
+            DopServecPresentCount:1, DopServecPresent:0,DopServecPictureDevCount:1, DopServecPictureDev:0,
             Step4: [], bStep4: ["baseServicPrototyp", "baseServicStyles", "baseServicDesine"],
-            Step5: [], Step6: [],
+            Step5: [], 
+            WriteText:0, WriteTextCount:1,
+            SalePictures:0,SalePicturesCount:1,
+            MoveCreate:0, MoveCreateCount:1,
+            Photograph:0, PhotographCount:2,
+            Step6: [],
             UniKod: '', ShowUniKod: true, UserData: {email: '<{email}>', name: '<{firstname}>', tel: '<{phone}>'}
         },
         created() {
@@ -555,6 +599,21 @@
                 if (this.DopServecPictureDev) {
                     step4 = step4 + (1600 * this.DopServecPictureDevCount);
                 }
+                if (this.DopServecPresent) {
+                    step4 = step4 + (5000 * this.DopServecPresentCount);
+                }
+                if (this.WriteText) {
+                    step5 = step5 + (1000 * this.WriteTextCount);
+                }
+                if (this.SalePictures) {
+                    step5 = step5 + (390 * this.SalePicturesCount);
+                }
+                if (this.MoveCreate) {
+                    step5 = step5 + (1500 * this.MoveCreateCount);
+                }
+                if (this.Photograph) {
+                    step5 = step5 + (1000 * this.PhotographCount);
+                }
                 return this.SiteTypSum + this.EngineTypSum + step3 + step4 + step5 + step6;
             },
             GetUID() {
@@ -571,7 +630,11 @@
 
                 var OrderParam = {ParamStep3: {BaseParam: this.bStep3, DopParam: this.Step3},
                     ParamStep4: {BaseParam: this.bStep4, DopParam: this.Step4},
-                    ParamStep5: {BaseParam: this.Step5}, ParamStep6: {BaseParam: this.Step6}};
+                    ParamStep5: {Photograph: this.Photograph,PhotographCount: this.PhotographCount,
+                        SalePictures: this.SalePictures,SalePicturesCount: this.SalePicturesCount,
+                        MoveCreate: this.MoveCreate,MoveCreateCount: this.MoveCreateCount,
+                        WriteText: this.WriteText,WriteTextCount: this.WriteTextCount}, 
+                    ParamStep6: {BaseParam: this.Step6}};
 
                 var OrderData = {UID: this.UniKod, OrderSum: OrderSum,
                     OrderParam: OrderParam,
