@@ -32,7 +32,7 @@ class UserController extends Controller{
         $default = "http://agatech.ru/public/img/rblogom.png";
         $size = 256;
         $this->View->GravUrl = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
-        $this->View->content = $this->View->execute('Usercard.html');
+        $this->View->content = $this->View->execute('UserCard.html');
         return $this->View->execute('index.html',TEMPLATE_DIR);
     }
     public function LogoutAction() {
