@@ -29,10 +29,11 @@ class Session {
         $SessionsDir = SITE_DIR . 'usersessions';
         ini_set("session.gc_probability", 30); /* Можно настроить на 100%, если у вас там нет никакого медленного кода */
         ini_set("session.gc_divisor", 100);
-        ini_set("session.gc_maxlifetime", 1800); /* Время жизни сессии в секундах (то самое, которое передается в функцию gc) */
+        ini_set("session.gc_maxlifetime", 3600); /* Время жизни сессии в секундах (то самое, которое передается в функцию gc) */
         session_save_path($SessionsDir);
 
         session_name(self::$sessionName);
+        session_id(self::$sessionName);
         // Forces sessions to only use cookies.
         if (ini_set('session.use_only_cookies', 1) === FALSE) {
             //header("Location: ../error.php?err=Could not initiate a safe session (ini_set)");
@@ -41,7 +42,7 @@ class Session {
         // Gets current cookies params.
         $cookieParams = session_get_cookie_params();
         session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], $secure);
-        // Sets the session name to the one set above.
+        
         $handler = new FileSessionHandler();
         session_set_save_handler(
                 array($handler, 'open'),
@@ -57,7 +58,7 @@ class Session {
         $BrowserHesh = self::get('BrowserHesh');
         if($BrowserHesh){
             
-            $browser = md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
+            $browser = mvcrb::BrouserHash();
 //            dd($browser.' '.$BrowserHesh);
             if($browser!==$BrowserHesh){
     //            dd($browser.' '.$BrowserHesh);
@@ -89,10 +90,10 @@ class Session {
          */
         if (is_array($key) && $value === false) {
             foreach ($key as $name => $value) {
-                $_SESSION[SESSION_PREFIX . $name] = $value;
+                $_SESSION[self::$sessionName . $name] = $value;
             }
         } else {
-            $_SESSION[SESSION_PREFIX . $key] = $value;
+            $_SESSION[self::$sessionName . $key] = $value;
         }
     }
 
@@ -103,9 +104,9 @@ class Session {
      * @return mixed|null
      */
     public static function pull($key) {
-        if (isset($_SESSION[SESSION_PREFIX . $key])) {
-            $value = $_SESSION[SESSION_PREFIX . $key];
-            unset($_SESSION[SESSION_PREFIX . $key]);
+        if (isset($_SESSION[self::$sessionName . $key])) {
+            $value = $_SESSION[self::$sessionName . $key];
+            unset($_SESSION[self::$sessionName . $key]);
             return $value;
         }
         return null;
@@ -120,12 +121,12 @@ class Session {
      */
     public static function get($key, $secondkey = false) {
         if ($secondkey == true) {
-            if (isset($_SESSION[SESSION_PREFIX . $key][$secondkey])) {
-                return $_SESSION[SESSION_PREFIX . $key][$secondkey];
+            if (isset($_SESSION[self::$sessionName . $key][$secondkey])) {
+                return $_SESSION[self::$sessionName . $key][$secondkey];
             }
         } else {
-            if (isset($_SESSION[SESSION_PREFIX . $key])) {
-                return $_SESSION[SESSION_PREFIX . $key];
+            if (isset($_SESSION[self::$sessionName . $key])) {
+                return $_SESSION[self::$sessionName . $key];
             }
         }
         return null;
@@ -180,13 +181,13 @@ class Session {
             } elseif ($prefix == true) {
                 /** clear all session for set SESSION_PREFIX */
                 foreach ($_SESSION as $key => $value) {
-                    if (strpos($key, SESSION_PREFIX) === 0) {
+                    if (strpos($key, self::$sessionName) === 0) {
                         unset($_SESSION[$key]);
                     }
                 }
             } else {
                 /** clear specified session key */
-                unset($_SESSION[SESSION_PREFIX . $key]);
+                unset($_SESSION[self::$sessionName . $key]);
             }
         }
     }

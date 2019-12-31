@@ -15,7 +15,10 @@ class UserController extends Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->User = new UserModel();//$this->GetModel('User'); //
+        $this->User = new UserModel();//$this->GetModel('User'); 
+        
+
+//        dd(apacher_request_headers());
 //        $this->View->SetWivePath(TEMPLATE_DIR.'UserController'.DS);
     }
 

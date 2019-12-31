@@ -14,11 +14,8 @@ class UserModel extends Model {
     private $TableName;
 
     public function __construct() {
-        parent::__construct();
-        $browser = md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
-                
-        Session::init($browser);
-        
+        parent::__construct();   
+        Session::init(mvcrb::BrouserHash());
         Session::set('BrowserHesh', $browser);
         $this->TableName = 'user';
     }
@@ -246,7 +243,8 @@ class UserModel extends Model {
 
                 $user->lastlogin = date('Y-m-d H:i:s');
                 $user->browser = $_SERVER['HTTP_USER_AGENT'];
-                $user->browserip = $_SERVER['REMOTE_ADDR'];
+                $user->ip = $_SERVER['REMOTE_ADDR'];
+                $user->session = mvcrb::BrouserHash();
                 $this->store($user);
                 $VarUser = $user->export();
                 unset($VarUser['password']); // убираем хеш пароля.

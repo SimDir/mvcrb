@@ -13,9 +13,9 @@ defined('ROOT') OR die('No direct script access.');
 class FileSessionHandler {
 
     private $savePath;
-
+    
     function open($savePath, $sessionName) {
-//        dd($savePath);
+//        dd($sessionName);
         $this->savePath = $savePath;
         if (!is_dir($this->savePath)) {
             mkdir($this->savePath, 0600);
@@ -29,11 +29,16 @@ class FileSessionHandler {
     }
 
     function read($id) {
-        return (string) @file_get_contents("$this->savePath/sess_$id");
+        $sesFile = "$this->savePath/sess_$id";
+        if(file_exists($sesFile)){
+            return mvcrb::StrDecrypt(file_get_contents($sesFile), mvcrb::BrouserHash());
+        }
+        return '';
     }
 
     function write($id, $data) {
-        return file_put_contents("$this->savePath/sess_$id", $data) === false ? false : true;
+        $DataCrypt = mvcrb::StrEncrypt($data, mvcrb::BrouserHash());
+        return file_put_contents("$this->savePath/sess_$id", $DataCrypt) === false ? false : true;
     }
 
     function destroy($id) {
