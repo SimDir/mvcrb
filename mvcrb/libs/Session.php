@@ -10,8 +10,6 @@ defined('ROOT') OR die('No direct script access.');
  */
 
 
-define("SECURE", true);    // FOR DEVELOPMENT ONLY!!!!
-
 class Session {
 
     /**
@@ -20,12 +18,11 @@ class Session {
      * @var boolean
      */
     private static $sessionStarted = false;
-    public static $sessionName = SESSION_PREFIX;
+    public static $sessionName = '';
     /**
      * if session has not started, start sessions
      */
     private static function SecSessionStart() {
-        $secure = SECURE;
         $SessionsDir = SITE_DIR . 'usersessions';
         ini_set("session.gc_probability", 30); /* Можно настроить на 100%, если у вас там нет никакого медленного кода */
         ini_set("session.gc_divisor", 100);
@@ -41,7 +38,7 @@ class Session {
         }
         // Gets current cookies params.
         $cookieParams = session_get_cookie_params();
-        session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], $secure);
+        session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], true);
         
         $handler = new FileSessionHandler();
         session_set_save_handler(
@@ -67,10 +64,10 @@ class Session {
         }
     }
 
-    public static function init($name=SESSION_PREFIX) {
-        if (self::$sessionStarted == false) {
+    public static function init() {
+        if (!self::$sessionStarted) {
 //            session_start();
-            self::$sessionName = $name;
+            self::$sessionName = mvcrb::BrouserHash();
             self::SecSessionStart();
             self::$sessionStarted = true;
         }

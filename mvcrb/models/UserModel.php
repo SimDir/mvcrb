@@ -15,8 +15,8 @@ class UserModel extends Model {
 
     public function __construct() {
         parent::__construct();   
-        Session::init(mvcrb::BrouserHash());
-        Session::set('BrowserHesh', $browser);
+        Session::init();
+        Session::set('BrowserHesh', mvcrb::BrouserHash());
         $this->TableName = 'user';
     }
     public function SetExel($ExelFileToRiad) {
@@ -151,7 +151,7 @@ class UserModel extends Model {
     public function GetCurrentUser() {
         $var = Session::get('LoggedUser');
         $AnonimUser = ['Name' => 'anonim', 'login' => 'anonim', 'role' => 0];
-
+//        dd($var);
         if ($var) {
             $user = $this->findOne($this->TableName, 'email = ?', array($var['email']));
 

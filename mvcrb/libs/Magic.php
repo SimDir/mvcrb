@@ -23,6 +23,9 @@ abstract class Magic {
         }
         
         if(class_exists($ModelClass)){
+            
+            self::$ClassArray[$Model] = new $ModelClass();
+//            dd(self::$ClassArray[$Model]);
             return self::$ClassArray[$Model] = new $ModelClass();
         }else{
             if (isset(self::$ClassArray[$Model])) {

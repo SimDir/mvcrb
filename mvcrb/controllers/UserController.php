@@ -209,7 +209,7 @@ class UserController extends Controller {
         return json_encode($res);
     }
 
-    public function ActionApiList($start = 0, $limit = 100, $s = null) {
+    public function ApiListAction($start = 0, $limit = 100, $s = null) {
 //        return json_encode(urldecode($s));
         $User = $this->User;
         $u = $User->GetCurrentUser();
