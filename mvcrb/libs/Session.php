@@ -24,13 +24,13 @@ class Session {
      */
     private static function SecSessionStart() {
         $SessionsDir = SITE_DIR . 'usersessions';
-        ini_set("session.gc_probability", 30); /* Можно настроить на 100%, если у вас там нет никакого медленного кода */
-        ini_set("session.gc_divisor", 100);
-        ini_set("session.gc_maxlifetime", 3600); /* Время жизни сессии в секундах (то самое, которое передается в функцию gc) */
+//        ini_set("session.gc_probability", 30); /* Можно настроить на 100%, если у вас там нет никакого медленного кода */
+//        ini_set("session.gc_divisor", 100);
+//        ini_set("session.gc_maxlifetime", 3600); /* Время жизни сессии в секундах (то самое, которое передается в функцию gc) */
         session_save_path($SessionsDir);
-
+//session_name(SESSION_PREFIX);
 //        session_name(self::$sessionName);
-        session_id(self::$sessionName);
+//        session_id(self::$sessionName);
         // Forces sessions to only use cookies.
         if (ini_set('session.use_only_cookies', 1) === FALSE) {
             //header("Location: ../error.php?err=Could not initiate a safe session (ini_set)");
@@ -38,28 +38,28 @@ class Session {
         }
         // Gets current cookies params.
         $cookieParams = session_get_cookie_params();
-        session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], true);
+        session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], false);
         
-$handler = new FileSessionHandler();
-        session_set_save_handler(
-                array($handler, 'open'),
-                array($handler, 'close'),
-                array($handler, 'read'),
-                array($handler, 'write'),
-                array($handler, 'destroy'),
-                array($handler, 'gc')
-        );
+//$handler = new FileSessionHandler();
+//        session_set_save_handler(
+//                array($handler, 'open'),
+//                array($handler, 'close'),
+//                array($handler, 'read'),
+//                array($handler, 'write'),
+//                array($handler, 'destroy'),
+//                array($handler, 'gc')
+//        );
         session_start();            // Start the PHP session 
         //session_regenerate_id();    // regenerated the session, delete the old one. 
         
-        $BrowserHesh = self::get('BrowserHesh');
+        $BrowserHesh = false;//self::get('BrowserHesh');
         if($BrowserHesh){
             
             $browser = mvcrb::BrouserHash();
 //            dd($browser.' '.$BrowserHesh);
             if($browser!==$BrowserHesh){
     //            dd($browser.' '.$BrowserHesh);
-                self::DestroyAll();
+//                self::Destroy();
             }
         }
     }
@@ -81,10 +81,7 @@ $handler = new FileSessionHandler();
      * @param string|bool $value the data to save
      */
     public static function set($key, $value = false) {
-        /**
-         * Check whether session is set in array or not
-         * If array then set all session key-values in foreach loop
-         */
+//        dd($key);
         if (is_array($key) && $value === false) {
             foreach ($key as $name => $value) {
                 $_SESSION[$name] = $value;

@@ -16,7 +16,7 @@ class UserModel extends Model {
     public function __construct() {
         parent::__construct();   
         Session::init();
-        Session::set('BrowserHesh', mvcrb::BrouserHash());
+//        Session::set('BrowserHesh', mvcrb::BrouserHash());
         $this->TableName = 'user';
     }
     public function SetExel($ExelFileToRiad) {
@@ -233,18 +233,19 @@ class UserModel extends Model {
 
     public function login($email, $password) {
         $user = $this->findOne($this->TableName, '(email = :email) OR (login = :email)', [':email' => $email]);
-
+        
         if ($user) {
             //логин существует
             if (password_verify($password, $user->password)) {
                 //если пароль совпадает, то нужно авторизовать пользователя
-
+                
                 $user->lastlogin = date('Y-m-d H:i:s');
                 $user->browser = $_SERVER['HTTP_USER_AGENT'];
                 $user->ip = $_SERVER['REMOTE_ADDR'];
                 $user->session = mvcrb::BrouserHash();
                 $this->store($user);
                 $VarUser = $user->export();
+//                dd($VarUser);
                 unset($VarUser['password']); // убираем хеш пароля.
                 Session::set('LoggedUser', $VarUser);
                 return TRUE;

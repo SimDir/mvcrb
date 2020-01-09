@@ -70,15 +70,17 @@ class mvcrb {
      * 
      */
     public static function Run() {
+        
         if (SHOW_ERROR) {
             self::initWhoops();
         } else {
+            require_once APP . 'libs'.DS.'ErrorHandler.php';
             $errorHandler = new ErrorHandler;
             $errorHandler->register();
         }
         self::SetupConfig();
-
         self::InitAutoload();
+        
         
         self::GetControllerAndAction();
         self::$ExecRetVal = self::Exec(self::$ControllerName, self::$ActionName, self::$ParametersArray);

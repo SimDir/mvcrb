@@ -26,10 +26,6 @@ class PageController extends Controller {
     }
     public function PageAction($page) {
         $this->View->TplDir=TEMPLATE_DIR.'IndexController'.DS;
-        $lng = Session::get('language');
-        if (is_null($lng)) {
-            $lng = '';
-        }
         $Pages = $this->GetModel('Page');
         $PRet = $Pages->GetPage($page);
         $User = $this->GetModel('User');
@@ -41,16 +37,17 @@ class PageController extends Controller {
             $this->View->adminpanel = $this->View->execute('AdminBar.html',TEMPLATE_DIR.'AdminController'.DS);
         }
 //        dd($PRet);
-        if($PRet['type']=='notpublic'){
+        if($PRet){
+            if($PRet['type']!='notpublic'){
 
-//            dd($PRet);
-            $this->View->content = $this->View->Code($PRet['content']);
-//            $this->View->content = $PRet['content'];
-            $this->View->title = $PRet['title'];
-            $this->View->content = $this->View->execute('pages.html',TEMPLATE_DIR.'IndexController'.DS);
-            return $this->View->execute('index.html', TEMPLATE_DIR);
+    //            dd($PRet);
+                $this->View->content = $this->View->Code($PRet['content']);
+    //            $this->View->content = $PRet['content'];
+                $this->View->title = $PRet['title'];
+                $this->View->content = $this->View->execute('pages.html',TEMPLATE_DIR.'IndexController'.DS);
+                return $this->View->execute('index.html', TEMPLATE_DIR);
+            }
         }
-
         $FinDir = TEMPLATE_DIR . 'IndexController' . DS . 'staticpage';
         $testFile = mvcrb::SearchFile($page, $FinDir);
         $tempFile = $testFile;
@@ -58,9 +55,10 @@ class PageController extends Controller {
             $testFile = str_ireplace(TEMPLATE_DIR . 'IndexController' . DS, '', $testFile);
         } else {
 //            dd($testFile);
-            return "Стринааца $page не найдена ";
+            return mvcrb::Redirect(ERROR_URL);
         }
         $this->View->content = $this->View->execute($testFile,TEMPLATE_DIR.'IndexController'.DS);
+//        dd($this->View->headcssjs);
         if (file_exists($tempFile)) {
             $date1=$PRet["editdatetime"];
             $date2=date('Y-m-d H:i:s', filectime($tempFile));
@@ -68,9 +66,10 @@ class PageController extends Controller {
             if($result and $PRet){
                 $Data['name'] = $page;
                 $Data['type'] = 'notpublic';
-                $Data['author'] = 'mvcrb framework auto edit script';
+                $Data['author'] = 'mvcrb framework auto ubdate script';
                 $Data['title'] = $this->View->title;
-                $Data['content'] = file_get_contents($tempFile);
+//                $Data['content'] = file_get_contents($tempFile);
+                $Data['content'] = $this->View->content;
                 $Pages->Edit($Data,$PRet['id']);
 //                dd($result);
             }
@@ -82,7 +81,8 @@ class PageController extends Controller {
             $Data['type'] = 'notpublic';
             $Data['author'] = 'mvcrb framework auto add script';
             $Data['title'] = $this->View->title;
-            $Data['content'] = file_get_contents($tempFile);
+//            $Data['content'] = file_get_contents($tempFile);
+            $Data['content'] = $this->View->content;
 
             $Pages->Add($Data);
         }
