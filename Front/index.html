@@ -18,31 +18,36 @@
         <!-- Material Design Bootstrap -->
         <link href="/public/css/mdb.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
+        <link href="/public/css/preloader.css" rel="stylesheet">
         <link href="/public/css/style.css" rel="stylesheet">
         
         <script src="/public/js/vue.min.js"></script>
         <script src="/public/js/vuex.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js" integrity="sha256-VeNaFBVDhoX3H+gJ37DpT/nTuZTdjYro9yBruHjVmoQ=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js" integrity="sha256-u6BamZiW5tCemje2nrteKC2KoLIKX9lKPSpvCkOhamw=" crossorigin="anonymous"></script>
-        <script src="/public/js/snowfall.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $(document).snowfall({
-            flakeCount: 60,
-            image :"/public/img/the_snow.gif", 
-            minSize: 5, 
-            maxSize:20,
-            round: true,
-            shadow: false,
-        });
-    });
-</script>
+
         <script type="text/javascript" src="/public/js/common.js"></script>
         <{ headcssjs }>
     </head>
 
     <body>
-<{ content }>
+        <div class="preloader">
+            <div class="preloader__row">
+              <div class="preloader__item"></div>
+              <div class="preloader__item"></div>
+            </div>
+        </div>
+        <script>
+            window.onload = function () {
+            document.body.classList.add('loaded_hiding');
+            window.setTimeout(function () {
+            document.body.classList.add('loaded');
+            document.body.classList.remove('loaded_hiding');
+            }, 500);
+    }
+    </script>
+
+        <{ content }>
         <!-- SCRIPTS -->
         <{ bodycssjs }>
 
