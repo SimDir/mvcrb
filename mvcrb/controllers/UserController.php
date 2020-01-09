@@ -15,11 +15,14 @@ class UserController extends Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->User = new UserModel();//$this->GetModel('User'); //
+        $this->User = new UserModel();//$this->GetModel('User'); 
+        
+
+//        dd(apacher_request_headers());
 //        $this->View->SetWivePath(TEMPLATE_DIR.'UserController'.DS);
     }
 
-    public function IndexAction() {
+    public function IndexAction($id=null) {
         $UserVars = $this->User->GetCurrentUser();
         if ($UserVars['role'] == 0) {
             return mvcrb::Redirect('/user/login');
@@ -32,7 +35,7 @@ class UserController extends Controller {
         $this->View->VarSetArray($UserVars);
 
         $email = $UserVars['email'];
-        $default = "http://agatech.agatech.ru/public/img/favicon.png";
+        $default = "http://agatech.ru/public/img/favicon.png";
         $size = 256;
         $this->View->GravUrl = "https://www.gravatar.com/avatar/" . md5(strtolower(trim($email))) . "?d=" . urlencode($default) . "&s=" . $size;
         $this->View->content = $this->View->execute('UserHome.html');
@@ -50,8 +53,8 @@ class UserController extends Controller {
         }
         $this->View->title = 'Вход пользователя';
         if ($this->POST) {
-            $user = json_decode($this->REQUEST);
-            return $this->User->login($user->email, $user->password);
+            $user = json_decode($this->REQUEST,true);
+            return $this->User->login($user['email'], $user['password']);
         }
         $this->View->state = 'Login';
         $this->View->content = $this->View->execute('UserForms.html');
@@ -206,7 +209,7 @@ class UserController extends Controller {
         return json_encode($res);
     }
 
-    public function ActionApiList($start = 0, $limit = 100, $s = null) {
+    public function ApiListAction($start = 0, $limit = 100, $s = null) {
 //        return json_encode(urldecode($s));
         $User = $this->User;
         $u = $User->GetCurrentUser();

@@ -34,12 +34,16 @@ class mvcrb {
     private static function initWhoops() {
         $whoops = new \Whoops\Run;
         $whoops_pretty_page_handler = new \Whoops\Handler\PrettyPageHandler();
-        $whoops_pretty_page_handler->setEditor('sublime');
+        $whoops_pretty_page_handler->setEditor('vscode');
         $whoops->pushHandler($whoops_pretty_page_handler);
+        
         $monolog_multiline_formatter = new \Monolog\Formatter\LineFormatter(null, null, true);
         $monolog_error_log_handler = new \Monolog\Handler\ErrorLogHandler();
         $monolog_error_log_handler->setFormatter($monolog_multiline_formatter);
         $monolog_logger_error_log = new \Monolog\Logger('whoops_logger', [$monolog_error_log_handler]);
+        $monolog_logger_error_log->pushHandler(new \Monolog\Handler\StreamHandler(SITE_DIR.'error.log'));
+        
+        
         $whoops_plain_text_handler = new \Whoops\Handler\PlainTextHandler();
         $whoops_plain_text_handler->loggerOnly(true);
         $whoops_plain_text_handler->setLogger($monolog_logger_error_log);
@@ -53,17 +57,29 @@ class mvcrb {
         $whoops->pushHandler($whoops_plain_text_handler2);
         $whoops->register();
     }
+    public static function RunCron() {
+        self::SetupConfig();
 
+        self::InitAutoload();
+        
+        $errorHandler = new ErrorHandler;
+        $errorHandler->register();
+    }
     /**
      * Основной метод запускает все приложение. так называемая точка входа
      * 
      */
     public static function Run() {
-        self::initWhoops();
-
+        if (SHOW_ERROR) {
+            self::initWhoops();
+        } else {
+            $errorHandler = new ErrorHandler;
+            $errorHandler->register();
+        }
         self::SetupConfig();
 
-        spl_autoload_register(__CLASS__ . '::AutoLoadClassFile');
+        self::InitAutoload();
+        
         self::GetControllerAndAction();
         self::$ExecRetVal = self::Exec(self::$ControllerName, self::$ActionName, self::$ParametersArray);
         if (is_string(self::$ExecRetVal)) {
@@ -73,6 +89,10 @@ class mvcrb {
                 header('Content-type: application/json');
             echo json_encode(self::$ExecRetVal);
         }
+    }
+
+    public static function InitAutoload() {
+        spl_autoload_register(__CLASS__ . '::AutoLoadClassFile');
     }
 
     public static function Exec($Controller = '', $Action = '', $Param = []) {
@@ -314,5 +334,34 @@ class mvcrb {
         }
         return '<script type="text/javascript">window.location = "' . $url . '"</script>';
     }
+// Encrypt Function
+    public static function StrEncrypt($encrypt, $key) {
+        $ivlen = openssl_cipher_iv_length($cipher = "AES-128-CBC");
+        
+        $iv = openssl_random_pseudo_bytes($ivlen);
+        
+        $ciphertext_raw = openssl_encrypt($encrypt, $cipher, $key, $options = OPENSSL_RAW_DATA, $iv);
 
+        $hmac = hash_hmac('sha256', $ciphertext_raw, $key, $as_binary = true);
+//        dd($hmac);
+        return base64_encode($iv . $hmac . $ciphertext_raw);
+    }
+
+// Decrypt Function
+    public static function StrDecrypt($decrypt, $key) {
+        $c = base64_decode($decrypt);
+        $ivlen = openssl_cipher_iv_length($cipher="AES-128-CBC");
+        $iv = substr($c, 0, $ivlen);
+        $hmac = substr($c, $ivlen, $sha2len=32);
+        $ciphertext_raw = substr($c, $ivlen+$sha2len);
+        $plaintext = openssl_decrypt($ciphertext_raw, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
+        $calcmac = hash_hmac('sha256', $ciphertext_raw, $key, $as_binary=true);
+        if (hash_equals($hmac, $calcmac))
+        {
+            return $plaintext;
+        }
+    }
+    public static function BrouserHash() {
+        return md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
+    }
 }

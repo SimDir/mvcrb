@@ -40,10 +40,12 @@ class PageController extends Controller {
             $this->View->pageid = $PRet['id'];
             $this->View->adminpanel = $this->View->execute('AdminBar.html',TEMPLATE_DIR.'AdminController'.DS);
         }
-        if($PRet["type"]!=='notpublic' and $PRet){
+//        dd($PRet);
+        if($PRet['type']=='notpublic'){
 
 //            dd($PRet);
             $this->View->content = $this->View->Code($PRet['content']);
+//            $this->View->content = $PRet['content'];
             $this->View->title = $PRet['title'];
             $this->View->content = $this->View->execute('pages.html',TEMPLATE_DIR.'IndexController'.DS);
             return $this->View->execute('index.html', TEMPLATE_DIR);
