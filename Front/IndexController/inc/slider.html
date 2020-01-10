@@ -1,7 +1,24 @@
 <{ Addcss(/public/css/style_slider.css) }>
 
-
-<div id="carouselExampleIndicators" class="slider_block carousel slide" data-ride="carousel" data-interval="10000">
+<style>
+    div.VidioBar {
+        position: fixed;
+        bottom: 5%;
+        left: 10%;
+        width: 80%;
+        height: 150px;
+        display: none;
+        /*border: 3px solid #73AD21;*/
+        overflow: hidden;
+        z-index: 9999;
+        /*transition: all 0.5s ease;*/
+        /*cursor: pointer;*/
+    }
+    div.cards{
+        width: 230px;
+    }
+</style>
+<div id="carouselExampleIndicators" class="slider_block carousel slide" data-ride="carousel" data-interval="15000">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -9,12 +26,36 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
 
     </ol>
-    
+
     <div class="carousel-inner">
         <div class="carousel-item active slide-1">
-            <video class="video" muted loop autoplay>
+            <video class="video" id="preloader" muted autoplay>
                 <source src="/public/video/2.mp4" type="video/mp4">
             </video>
+
+            <div class="VidioBar" id="VB">
+                <div class="d-flex justify-content-between">
+                    <div class="cards text-white text-left">
+                        Вернем деньги, если не будет заявок с сайта
+                    </div>
+                    <div class="cards text-white text-center">
+                        Эталон качества с 2009 года
+                    </div>
+                    <div class="cards text-white text-right">
+                        Более 10 направлений в работе, более 100 реализованных проектов
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#VB').hide();
+                    
+                    $(preloader).on("ended", function (e) {
+//                        $('#VB').show(1000);
+                        console.log("Video paused. Current time of videoplay: " + e.target.currentTime );
+                    });
+                })
+            </script>
         </div>
 
 
