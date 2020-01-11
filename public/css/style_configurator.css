@@ -506,7 +506,6 @@
    background-color: #ffffff;
    top: 0;
    left: 0;
-   
 }
 .form-left input:checked + .checkbox-visible,
 .form-right input:checked + .checkbox-visible {
