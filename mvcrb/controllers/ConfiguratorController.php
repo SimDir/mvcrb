@@ -24,15 +24,20 @@ class ConfiguratorController extends Controller {
         return $this->IndexAction();
     }
 
-    public function AdminAction() {
+    public function AdminAction($param='index') {
         $User = new UserModel();
         if ($User->GetCurrentUser()['role'] < 200) {
 //            die('Asses denide');
             Session::set('UserRedirect', mvcrb::$URI);
             return mvcrb::Redirect('/user');
         }
-        $this->View->content = $this->View->execute('admin.html');
-        $this->View->content = $this->View->execute('wrapper.html');
+        if($param=='index'){
+            $this->View->content = $this->View->execute('config.html');
+        }elseif($param=='order'){
+            $this->View->content = $this->View->execute('order.html');
+        }
+        
+//        $this->View->content = $this->View->execute('wrapper.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
 
@@ -59,6 +64,7 @@ class ConfiguratorController extends Controller {
     }
 
     public function WebhookAction($param = 0) {
+        if (!$this->POST) return ['Error'=>"Only POST"];
         $PostData = json_decode($this->REQUEST,true);
         
         $queryUrl = 'https://agatech73.bitrix24.ru/rest/250/nfygbgftk5skkez5/crm.lead.add.json';
@@ -91,5 +97,25 @@ class ConfiguratorController extends Controller {
         $retParam = $model->Add($Data);
         return ["WH_RET"=>$result,"MDL_Ret"=>$retParam];
     }
-
+    public function ApiAction($Method=null,$Dop=null) {
+        if(!$Method) return ['Error'=>"API: Parameter not specified"];
+//        if (!$this->POST) return ['Error'=>"Only POST"];
+        $MethodName = mb_strtolower($Method);
+        $Model = new ConfiguratorModel();
+        switch ($MethodName) {
+            case 'getparam': 
+                return $Model->GetParam();
+            case 'getstep': 
+                if((int)$Dop<1){
+                    return ['Error'=>"Method $Method error params step not set"];  
+                }
+                return $Model->GetParam((int)$Dop);
+            case 'addparam': 
+                $Data = json_decode($this->REQUEST,true);
+//                $Model->AddParam($Data);
+                return $Model->AddParam($Data);
+            default:
+                return ['Error'=>"Method $Method not found"];    
+        }
+    }
 }

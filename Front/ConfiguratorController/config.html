@@ -1,0 +1,145 @@
+Этот раздел только для сотрудников компании
+<div id="ConfiguratorAdmin">
+    <div class="text-center border border-light">
+        
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button @click="State=1" type="button" class="btn btn-primary mr-3">1</button>
+            <button @click="State=2" type="button" class="btn btn-primary mr-3">2</button>
+            <button @click="State=3" type="button" class="btn btn-primary mr-3">3</button>
+        </div>
+    </div>
+    
+    <div v-if="State==1" class="text-center border border-light p-5">
+
+        <div class="form-group">
+            <label for="Step">№ Шага</label>
+            <input v-model.number="Param.step" type="number" class="form-control" id="Step" placeholder="Шаг">
+        </div>
+        <div class="form-group">
+            <label for="Sum">Цена</label>
+            <input v-model.number="Param.sum" type="number" id="Sum" class="form-control" placeholder="Цена">
+        </div>
+        <div class="form-group">
+            <label for="name">Имя параметра</label>
+            <input v-model.trim="Param.name" type="text" id="name" class="form-control" placeholder="Текст">
+        </div>
+        <div class="form-group">
+            <label for="text">Текст параметра</label>
+            <input v-model.trim="Param.text" type="text" id="text" class="form-control" placeholder="Текст">
+        </div>
+        <div class="form-group">
+            <label for="Img">Ссылка на картинку</label>
+            
+            
+            <input v-model.trim="Param.img" type="text" id="Img" class="form-control" placeholder="Картинка">
+            
+            <img v-if="Param.Img!=''" :src="Param.Img" class="img-responsive">
+        </div>
+        <div class="form-group">
+            <div class="custom-control custom-checkbox">
+                <input v-model="Param.count" type="checkbox" class="custom-control-input" id="Count">
+                <label class="custom-control-label" for="Count">Имеет ли колличество</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="custom-control custom-checkbox">
+                <input v-model="Param.base" type="checkbox" class="custom-control-input" id="Base">
+                <label class="custom-control-label" for="Base">Входит в базовую стоимость</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Description">Описание</label>
+            <textarea v-model.trim="Param.description" class="form-control rounded-0" id="Description" rows="6"></textarea>
+        </div>
+        <div class="p-2">
+            <button class="btn btn-info btn-sm mr-3" @click="AddParam">Добавить</button>
+        </div> 
+    </div>
+    
+    <div v-if="State==2" class="text-center border border-light p-5">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">step</th>
+                    <th scope="col">text</th>
+                    <th scope="col">name</th>
+                    <th scope="col">sum</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item, index) in ParamList" @click="EditParam(index)">
+                    <th scope="row">{{ item.id }}</th>
+                    <td>{{ item.step }}</td>
+                    <td>{{ item.text }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.sum }}</td>
+                </tr>
+               
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<script type="text/javascript">
+var ConfiguratorAdmin = new Vue({
+    el: '#ConfiguratorAdmin',
+    data: {
+        ParamList:{},Param:{count:false,base:false,step:0,sum:0,text:'Параметр',img:'',name:'Имя'},
+        State:2
+    },
+    created(){
+        this.GetAll();
+    },
+    methods: {
+        AddParam(){
+            fetch( '/configurator/api/addparam/',{
+                mode: 'cors',
+                method: 'POST',
+                body: JSON.stringify(this.Param)
+            })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok');
+            })
+            .then((json) => {
+                //this.ParamList=json.data;
+                console.log(json);
+            })
+            .catch((error) => {
+                console.log('Ошибка отправки данных конфигуратора ',error);
+            });
+        },
+        GetAll(){
+            fetch( '/configurator/api/getparam/',{
+                mode: 'cors',
+                method: 'POST',
+                //body: JSON.stringify(this.Param)
+            })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok');
+            })
+            .then((json) => {
+                this.ParamList=json;
+//                console.log(json);
+            })
+            .catch((error) => {
+                console.log('Ошибка отправки данных конфигуратора ',error);
+            });
+        },
+        EditParam(index){
+            this.Param = this.ParamList[index];
+            this.Param.count = this.Param.count === '0' ? false :  true ;
+            this.Param.base = this.Param.base === '0' ? false : true;
+            console.log(this.Param);
+            this.State = 1;
+        }
+    }
+});
+
+</script>

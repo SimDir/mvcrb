@@ -7,7 +7,7 @@
     <!--Table head-->
     <thead>
       <tr>
-        <th>Порядковый № заказа</th>
+        <th>№ заказа</th>
 
         <th>Уникальный Код</th>
         <th>Дата</th>
@@ -41,7 +41,7 @@ var ConfiguratorAdmin = new Vue({
     created(){
         fetch( '/configurator/get/?AJAX=1',{
         mode: 'cors',
-        method: 'POST',
+        method: 'POST'
 //        body: JSON.stringify(OrderData)
         })
         .then((response) => {

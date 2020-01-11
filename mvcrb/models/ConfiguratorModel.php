@@ -51,5 +51,20 @@ class ConfiguratorModel extends Model{
         $Table->createdatetime = date('Y-m-d H:i:s');
         return $this->store($Table);
     }
-
+    public function AddParam($Data = null) {
+        if (is_null($Data))
+            return false;
+        $Table = $this->Dispense('configuratorparam');
+        $Table->import($Data);
+        $Table->createdatetime = date('Y-m-d H:i:s');
+        return $this->store($Table);
+    }
+    public function GetParam($id=0) {
+        if($id>0){
+            $tempbean = $this->findAll('configuratorparam','(step = :id)',[':id' => $id]);
+        }else{
+            $tempbean = $this->findAll('configuratorparam');
+        }
+        return $this->exportAll($tempbean, TRUE);
+    }
 }
