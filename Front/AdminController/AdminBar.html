@@ -1,10 +1,124 @@
-<{ Addcss(/css/adminstyle.css) }>
-<div class="AdminBar">
-    <img src="/public/img/favicon.png" class="BgImg img-fluid">
-    <div class="AdminBarContent">
-        <p>Админская панель!!! вы вошли как <{login}></p>
-        <a href="/page/edit/<{pageid}>">Изменить текущую страницу</a>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+<script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+<style>
+    div.AdminBar {
+        position: fixed;
+        bottom: 50%;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        border: 3px solid #73AD21;
+        background-color: #ffffff;
+        overflow: hidden;
+        z-index: 9999;
+        /*transition: all 0.5s ease;*/
+        cursor: pointer;
+    }
+    div.AdminBar:hover{
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    }
+    div.AdminBarContent{
+        position: fixed;
+        z-index: 9990;
+        left: 0;
+        bottom: 0;
+        width: 200px;
+        min-height: 80%;
+        /*border: 3px solid #73AD21;*/
+        /*background-color: #ffffff;*/
+        /*box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);*/
+    }
+    
+    /* The Modal (background) */
+    .modals {
+        /*display: none;*/ 
+        position: fixed; /* Stay in place */
+        z-index: 9999; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modals-content {
+        background-color: #fefefe;
+        margin: 5% auto; /* 15% from the top and centered */
+        padding: 10px;
+        /*border: 1px solid #888;*/
+        width: 90%; /* Could be more or less, depending on screen size */
+    }
+
+    .scroll-hidden { overflow: hidden }
+</style>
+<div id="AB">
+    <div v-if="!BarShow" @click="BarShow =!BarShow" class="AdminBar">
+        <img src="/public/img/all-seeing-eye.webp" class="img-fluid">
     </div>
-    <script>var editor = new MediumEditor('.editable');</script>
+    <div v-if="BarShow" class="AdminBarContent">
+        <div class="card">
+            <button @click="BarShow =!BarShow" class="btn btn-info btn-sm">Закрыть</button>
+            <p class="text-danger pl-2" >{{ message }}</p>
+        </div>
+        
+        <div class="card mt-3">
+            <button v-if="state==0" @click="StartEdit" class="btn btn-blue-grey btn-sm">Включить режим редактирования<i class="fas far fa-edit pl-1"></i></button>
+            <button v-if="state==1" @click="StopEdit" class="btn btn-danger btn-sm">Выключить режим редактирования<i class="fas far fa-times-circle pl-1"></i></button>
+            <a class="btn btn-elegant btn-sm" href="/page/edit/<{pageid}>" target="_blank">WISIWING редактор</a>  
+            <button @click="ShowOptions" class="btn btn-dark-green btn-sm">Настройки</button>
+        </div>
+
+    </div>
+    
+    
+
+<div v-if="Options" class="modals" @click.self="HideOptions">
+
+
+  <div class="modals-content">
+    
+    <p>Some text in the Modal..</p>
+  </div>
+
 </div>
     
+</div>
+<script>
+    //var editor = new MediumEditor('.editable');
+var app = new Vue({
+  el: '#AB',
+  data: {
+    message: 'Вы вошли как <{login}>',
+    editor:null,
+    state:0,BarShow:false,Options:false
+  },
+  methods: {
+    StartEdit() {
+        if(!this.editor){
+            this.editor = new MediumEditor('.editable');
+        }
+        this.editor.setup();
+        this.state = 1;
+    },
+    StopEdit() {
+      this.editor.destroy();
+      this.state = 0;
+    },
+    ShowOptions(){
+        this.BarShow= false;
+        this.Options = true;
+//        document.body.style.
+        document.body.classList.add("scroll-hidden");
+//        alert(document.body);
+    },
+    HideOptions(){
+        this.Options = false;
+        document.body.className ='';
+    }
+  }
+})
+</script>

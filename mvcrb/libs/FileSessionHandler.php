@@ -18,7 +18,7 @@ class FileSessionHandler {
 //        dd($sessionName);
         $this->savePath = $savePath;
         if (!is_dir($this->savePath)) {
-            mkdir($this->savePath, 0600);
+            mkdir($this->savePath, 0777);
         }
 
         return true;

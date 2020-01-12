@@ -149,7 +149,7 @@ class AdminController extends Controller {
             ['id' => '1', 'parent' => '0', 'name' => 'Главная', 'src' => '/admin', 'class' => 'fas fa-home'],
             ['id' => '2', 'parent' => '0', 'name' => 'Пользователи', 'src' => '/admin/user', 'class' => 'fas fa-users-cog'],
             ['id' => '3', 'parent' => '0', 'name' => 'Страницы', 'src' => '/admin/pages', 'class' => 'far fa-file'],
-            ['id' => '4', 'parent' => '3', 'name' => 'wisiwing', 'src' => '/admin/editor/tinymce', 'class' => 'far fa-file'],
+//            ['id' => '4', 'parent' => '3', 'name' => 'wisiwing', 'src' => '/admin/editor/tinymce', 'class' => 'far fa-file'],
             ['id' => '5', 'parent' => '0', 'name' => 'Конфигуратор','src'=>'/admin/Configurator','class'=>'fas fa-calculator']
         ];
         return $Data;

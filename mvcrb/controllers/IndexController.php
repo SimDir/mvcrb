@@ -27,7 +27,9 @@ class IndexController extends Controller {
         $this->View->text = $faker->words(18, true);
         return $this->View->execute('header.html');
     }
-
+    public function TimeAction() {
+        return ['OK'];
+    }
     public function MenuAction() {
 //        $user = new User();
 //        $faker = Faker\Factory::create();

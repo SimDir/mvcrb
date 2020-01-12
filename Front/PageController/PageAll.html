@@ -1,43 +1,36 @@
 
 <{ Addcss(/public/css/style_newCenter.css) }>
 <{ Addcss(/public/css/style_AllNewCenter.css) }>
-   <div class="new_center">
+   <div class="p-1 m-1">
  
-      <div class="new_center__center">
-
-         
-
-         <div class="new_center__center_news">
-            
-            <div class="news-block-all__row pt-5">
+     
+            <div class="d-flex flex-wrap justify-content-center">
                 <?php //var_dump($this->PageArr); 
                 foreach ($this->PageArr as &$value):
                 ?>
-               <!-- Территория продаж -->
-               <a class="new-block-all" href="/page/<?= $value['name'] ?>">
-<!--                  <div class="news-block-all__img">
-                     <img src="/public/img/new_center/news/sales_territory.jpg" alt="sales_territory">
-                  </div>-->
-                  <div class="news-block-all__container-text">
-                     <p class="news-block-all__title"><?= $value['title'] ?></p>
-                     <div class="news-block-all__other">
-                        <span class="news-block-all__other-title">Новости</span>
-                        <span class="news-block-all__other-data"><?= $value['createdatetime'] ?></span>
-                     </div>
-                     <p class="news-block-all__text">
-                        <?= $value['title'] ?>
-                     </p>
-                  </div>
-                  <img class="news-block-all__arrow" src="/public/img/new_center/arrow.png" alt="arrow">
-               </a>
+                <div class="card p-2 m-1" style="min-width:  250px;">
+               
+                
+ <!--                  <div class="news-block-all__img">
+                      <img src="/public/img/new_center/news/sales_territory.jpg" alt="sales_territory">
+                   </div>-->
+                   <div class="news-block-all__container-text">
+                      <a class="new-block-all" href="/page/<?= $value['name'] ?>"><p class="news-block-all__title"><?= $value['title'] ?></p></a>
+                      <div class="news-block-all__other">
+                         
+                         <span class="news-block-all__other-data"><?= $value['createdatetime'] ?></span>
+                      </div>
+                      <p class="news-block-all__text">
+                         <?= $value['name'] ?>
+                      </p>
+                   </div>
+                   
+                
+               </div>
                <?php endforeach; ?>
             </div>
            
 
-
-         </div>
-         <!-- new_center__center_news -->
-      </div>
       <!-- new_center__center -->
    </div>
    <!-- new_center -->

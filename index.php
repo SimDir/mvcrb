@@ -27,7 +27,7 @@
 if (version_compare(phpversion(), '7.1.0', '<') == true) {
     die('на сервере версия PHP меньше 7.1 продолжить невозможно. обновите версию PHP');
 }
-define('SESSION_PREFIX', 'Agatech_session_');
+define('SESSION_PREFIX', 'RusBeard_session_');
 define('DS', DIRECTORY_SEPARATOR); // разделитель для путей к файлам
 define('ROOT', dirname(__FILE__)); // защита всех файлов приложения от прямого доступа к ним
 define('SITE_DIR', realpath(dirname(__FILE__)) . DS); // путь к корневой папке сайта getcwd()
