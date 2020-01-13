@@ -32,7 +32,7 @@ header {
 
 
 .header__menu {
-   flex-basis: 75%;
+   flex-basis: 65%;
    height: 100%;
    text-align: center;
 }
@@ -140,10 +140,26 @@ header {
 }
 
 
+
+
 .header__right--wrap {
+   flex-basis: 15%;
    display: flex;
    justify-content: center;
    align-items: center;
+}
+.social-buttons {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.social-buttons img {
+   width: 40px;
+   height: 40px;
+   transition: transform .5s;
+}
+.social-buttons img:hover {
+   transform: scale(1.03);
 }
 .header__right-calc {
    display: flex;
@@ -202,7 +218,11 @@ header {
    }
    .header_bottom__content_menu_link ul>li>a{
       font-size: 11px;
-   }s
+   }
+   .social-buttons img {
+      width: 35px;
+      height: 35px;
+   }
    .header__right-calc {
       padding: 3px;
    }
@@ -221,28 +241,32 @@ header {
       width: 95%;
    }
    .header__logo {
-      flex-basis: 115px;
+      flex-basis: 110px;
+   }
+   .header__menu_link {
+      margin-right: 30px;
    }
    .header_bottom__content {
       width: 100%;
    }
-   .header_bottom__content_menu_link {
-      padding: 15px 20px 15px 0;
+   .social-buttons img {
+      width: 27px;
+      height: 27px;
    }
    .header__right-calc img{
-      width: 30px;
-      height: 30px;
+      width: 27px;
+      height: 27px;
+   }
+   .header__right-calc {
+      padding: 2px;
    }
 }
 @media(max-width: 1000px) {
     .header__logo {
-      flex-basis: 110px;
+      flex-basis: 100px;
    } 
-   .header__menu {
-      flex-basis: 75%;
-   }
    .header__menu_link {
-      margin-right: 25px;
+      margin-right: 20px;
    }
    .empty_block {
       flex-basis: 8%;
@@ -255,6 +279,10 @@ header {
    }
    .header_bottom__content_menu_link ul {
       margin-top: 15px;
+   }
+   .social-buttons img {
+      width: 25px;
+      height: 25px;
    }
    .header__right-calc img{
       width: 25px;
@@ -413,7 +441,7 @@ header {
       justify-content: center;
       visibility: visible;
       transition: transform .5s;
-      padding: 5px 20px;
+      padding: 5px 10px;
    }  
    .burger img{
       width: 25px;
@@ -421,7 +449,7 @@ header {
    }
    .cross_menu {
       position: absolute;
-      right: calc(2.5% + 20px);
+      right: calc(2.5% + 10px);
       display: flex;
       align-items: center;
       justify-content: center;

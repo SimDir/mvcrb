@@ -45,10 +45,7 @@
 }
 .circle {
   height: 100%;
-  transition: transform 1s ease;
-}
-.slide-2__content_top:hover .circle {
-   transform: scale(1.1);
+  animation: rotateCircle 10s linear 0s infinite;
 }
 .circle_text1, .circle_text2, .circle_text3 {
    position: relative;
@@ -94,7 +91,7 @@
    justify-content: flex-start;
    align-items: center;
    position: relative;
-   z-index: 1;
+   z-index: 3;
 }
 .icons_block p {
    display: none;
