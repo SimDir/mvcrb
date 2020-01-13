@@ -1,0 +1,251 @@
+<{ Addcss(/public/css/style_configurator.css) }>
+
+<div class="configurator" id="configurator">
+    <div class="configurator-wrap" @click.self="mesg=''">
+        <div class="configurator-wrap__header">
+            <a href="/">
+                <img src="/public/img/logo_white.svg" alt="logo_white" class="configurator-wrap__header-img">
+            </a>
+            <div class="configurator-wrap__header-title">
+                <h2>{{ message }}</h2>
+                <img src="/public/img/configurator/enter.svg" alt="enter">
+            </div>
+            <div class="configurator-wrap__header-numpage">
+                <p>Шаг {{step}} из {{MaxStep}}</p>
+            </div>
+            
+            
+        </div>
+        <div v-if="step<=2" class="configurator-wrap__content" @click.self="mesg=''">
+            <div v-for="(option, index) in Data" v-if="mesg==''" class="configurator-wrap__content-item">
+                <img v-bind:src="option.img" @click="Set(option)"   class="configurator-wrap__content-item--img">
+                <p>{{option.text}}</p>
+                <img @click="mesg = option.description" src="/public/img/configurator/enter.svg" alt="enter"  class="configurator-wrap__content-item--enter-img">
+            </div>
+            <div v-if="mesg!=''" @click="mesg=''" class="text-center text-white p-3">
+                <p>{{mesg}}</p>
+            </div>
+
+        </div>
+        <div v-if="step>=3 && step<7" class="configurator-wrap__content-form">
+            <div class="form-left">
+                <ul>
+                    <li>
+                        <label for="WriteText">
+                            Написание текстов (500 знаков)
+                            <input type="checkbox" id="WriteText" vw-model.number="WriteText" value="1000">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                        <div vw-if="WriteText" class="step4-additional">
+                            <span id="basic-addon3">Количество</span>
+                            <input id="DopServecPresentCount" type="number" min="1" max="99" vw-model.number="WriteTextCount">
+                            <span>штук</span>
+                        </div>
+                    </li>
+<!--                    <li>
+                        <label for="SalePictures">
+                            Подбор и покупка изображений
+                            <input type="checkbox" id="SalePictures" v-model.number="SalePictures" value="390">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                        <div v-if="SalePictures" class="step4-additional">
+                            <span id="basic-addon3">Количество</span>
+                            <input id="SalePictures" type="number" min="1" max="99" v-model.number="SalePicturesCount">
+                            <span>штук</span>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+            <!-- form-left -->
+
+            <div class="form-right">
+                <ul>
+<!--                    <li>     
+                        <label for="DopMoveCreate">
+                            Создание видиоролика
+                            <input type="checkbox" id="DopMoveCreate" v-model.number="MoveCreate" value="1500">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                        <div v-if="MoveCreate" class="step4-additional">
+                            <span id="basic-addon3">Количество</span>
+                            <input id="SalePictures" type="number" min="1" max="99" v-model.number="MoveCreateCount">
+                            <span>штук</span>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="DopPhotograph">
+                            Работа фотографа (2 часа 50 фотографий)
+                            <input type="checkbox" id="DopPhotograph" v-model.number="Photograph" value="500">
+                            <span class="checkbox-visible"></span>
+                        </label>
+                        <div v-if="Photograph" class="step4-additional">
+                            <span id="basic-addon3">Количество</span>
+                            <input id="SalePictures" type="number" min="2" max="99" v-model.number="PhotographCount">
+                            <span>штук</span>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+            <!-- form-right -->
+        </div>
+        <div v-if="step==7" class="step7-wrap">
+            <!--<iframe src="https://calk.bitrix24.site/" frameborder="0"></iframe>--> 
+            <!-- Default form subscription -->
+            <form style="width: 450px;" class="text-center" @submit="CreateOrder">
+
+                <p class="text-white">Оформить заказ</p>
+
+                <p class="p-2 text-white">Заказали на сумму {{ totalprice }}</p>
+
+                <input v-model="UserData.name" type="text" class="form-control mb-4" placeholder="Имя" required>
+                <input v-model="UserData.email" type="email" class="form-control mb-4" placeholder="E-mail" required>
+                <input v-model="UserData.tel" type="tel" class="form-control mb-4" placeholder="Номер телефона">
+                <!-- Sign in button -->
+                <button class="btn btn-info btn-block" type="submit">Заказать</button>
+
+
+            </form>
+            <!-- Default form subscription -->
+        </div>
+        <div v-if="step>7" class="step7-wrap">
+            <h1 class="text-white">ваш заказ принят в обработку</h1>
+            <!-- Default form subscription -->
+        </div>
+        <div v-if="step>=2 && step<MaxStep" class="configurator-wrap__bottom">
+            <button v-if="step>=1" @click="prew" type="button" class="configurator-wrap__bottom--back">
+                Назад
+            </button>
+            <span v-if="totalprice>0" class="price">Цена {{totalprice}} Руб.</span>
+            <button v-if="step<MaxStep" @click="next" type="button" class="configurator-wrap__bottom--next" >Далее</button>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    var configurator = new Vue({
+        el: '#configurator',
+        data: {
+            message: 'Выберите тип сайта',mesg: '',
+            UserData: {email: '<{email}>', name: '<{firstname}>', tel: '<{phone}>'},
+            step: 1, MaxStep: 7,Data:{},SelectData:[],
+            totalprice:0
+        },
+        created() {
+            let self = this;
+            window.onpopstate = function(event) {
+                if(event.state!=null){
+                    self.step = event.state;
+                }
+//                console.log(self.step);
+            };
+            this.SetState(self.step);
+            this.GetStep();
+        },
+        computed: {
+//            totalprice() {
+//                return this.ArraySum(this.SelectData);
+//            }
+        },
+        methods: {
+            ArraySum(arr) {
+                let sum = 0;
+        console.log(arr);
+                if (arr.length) {
+                    
+                    sum = arr.reduce((a, b) => {
+                        
+                        return (parseFloat(a) || 0) + (parseFloat(b) || 0);
+                    });
+                } else {
+                    sum = 0;
+                }
+                return sum;
+            },
+            next() {
+                this.step++;
+                if (this.step > this.MaxStep) {
+                    this.step = this.MaxStep;
+                }
+                 this.SetState(this.step);
+                 this.GetStep();
+            },
+            prew() {
+                this.step--;
+                if (this.step < 1) {
+                    this.step = 1;
+                }
+                this.SetState(this.step);
+                this.GetStep();
+            },
+            SetState(st){
+                //window.history.pushState(st, "Title", "/configurator/step/"+st);
+            },
+            Set(Param, idx=0){
+                
+                if (this.step <= 2) {
+                    this.SelectData[this.step-1] =Number(Param.sum);
+                    this.step++;
+                    this.GetStep();
+                    
+                }else{
+//                    this.SelectData.push(Param.sum);
+                    this.SelectData[this.step+idx] =Number(Param.sum);
+                }
+                this.totalprice = this.ArraySum(this.SelectData);
+//                console.log(this.SelectData);
+            },
+            GetStep(){
+                fetch( '/configurator/api/getparam/',{
+                    mode: 'cors',
+                    method: 'POST',
+                    body: JSON.stringify({id:this.step})
+                })
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Network response was not ok');
+                })
+                .then((json) => {
+                    this.Data=json;
+
+    //                console.log(json);
+                })
+                .catch((error) => {
+                    console.log('Ошибка отправки данных конфигуратора ',error);
+                });
+            },
+            CreateOrder(e) {
+                e.preventDefault();
+                
+
+                var OrderData = {};
+
+                fetch('/configurator/webhooks/?AJAX=1', {
+                    mode: 'cors',
+                    method: 'POST',
+                    body: JSON.stringify(OrderData)
+                })
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Network response was not ok');
+                })
+                .then((json) => {
+                    console.log(json);
+                    this.step++;
+//                            this.ShowUniKod = true;
+                })
+                .catch((error) => {
+                    this.step++;
+                    console.log('Ошибка отправки данных конфигуратора ', error);
+                });
+
+            }
+            
+        }
+    });
+
+</script>

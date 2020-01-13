@@ -97,14 +97,24 @@ class ConfiguratorController extends Controller {
         $retParam = $model->Add($Data);
         return ["WH_RET"=>$result,"MDL_Ret"=>$retParam];
     }
+    public function NewAction() {
+        $this->View->content = $this->View->execute('new.html');
+        return $this->View->execute('index.html', TEMPLATE_DIR);
+    }
     public function ApiAction($Method=null,$Dop=null) {
         if(!$Method) return ['Error'=>"API: Parameter not specified"];
 //        if (!$this->POST) return ['Error'=>"Only POST"];
         $MethodName = mb_strtolower($Method);
         $Model = new ConfiguratorModel();
         switch ($MethodName) {
+            case 'getparamid': 
+                $Data = json_decode($this->REQUEST,true);
+                $id = $Data['id'];
+                return $Model->GetParamId($id);
             case 'getparam': 
-                return $Model->GetParam();
+                $Data = json_decode($this->REQUEST,true);
+                $id = $Data['id'];
+                return $Model->GetParam($id);
             case 'getstep': 
                 if((int)$Dop<1){
                     return ['Error'=>"Method $Method error params step not set"];  
@@ -114,6 +124,11 @@ class ConfiguratorController extends Controller {
                 $Data = json_decode($this->REQUEST,true);
 //                $Model->AddParam($Data);
                 return $Model->AddParam($Data);
+            case 'saveparam': 
+                $Data = json_decode($this->REQUEST,true);
+                $id = $Data['id'];
+                $Dpar = $Data['params'];
+                return $Model->SaveParam($Dpar,$id);
             default:
                 return ['Error'=>"Method $Method not found"];    
         }

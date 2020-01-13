@@ -3,56 +3,91 @@
     <div class="text-center border border-light">
         
         <div class="btn-group" role="group" aria-label="Basic example">
-            <button @click="State=1" type="button" class="btn btn-primary mr-3">1</button>
-            <button @click="State=2" type="button" class="btn btn-primary mr-3">2</button>
-            <button @click="State=3" type="button" class="btn btn-primary mr-3">3</button>
+            <button @click="AddParamSet" type="button" class="btn btn-primary mr-3">Добавить</button>
+            <button @click="ShowList" type="button" class="btn btn-primary mr-3">Список</button>
+            <!--<button @click="State=3" type="button" class="btn btn-primary mr-3">3</button>-->
         </div>
     </div>
     
-    <div v-if="State==1" class="text-center border border-light p-5">
+    <div v-if="State==1 || State==3" class="text-center border border-light p-5">
+        <div v-if="State==3" class="form-group">
+            Изменить параметр по №{{ Param.id }}
+        </div>
+        <div v-if="State==1" class="form-group">
+            Добавить новый параметр
+        </div>
+        <div class="border border-danger p-3">
+            <div  class="form-group text-danger">
+                Эти данные обязательны к запонению
+            </div>
+            <div class="form-group">
+                <label for="Step">№ Шага</label>
+                <input v-model.number="Param.step" type="number" class="form-control" id="Step" placeholder="Шаг">
+            </div>
+            <div class="form-group">
+                <label for="Sum">Цена</label>
+                <input v-model.number="Param.sum" type="number" id="Sum" class="form-control" placeholder="Цена">
+            </div>
+            <div class="form-group">
+                <label for="name">Имя параметра</label>
+                <input v-model.trim="Param.name" type="text" id="name" class="form-control" placeholder="Текст">
+            </div>
+            <div class="form-group">
+                <label for="text">Текст параметра</label>
+                <input v-model.trim="Param.text" type="text" id="text" class="form-control" placeholder="Текст">
+            </div>
+        </div>
+        <div class="border border-info p-3 mt-5">
+            <div  class="form-group text-info">
+                Эти данные не обязательны к запонению но могут потребоватся 
+            </div>
+            <div class="form-group">
+                <label for="Img">Ссылка на картинку</label>
+                <input v-model.trim="Param.img" type="text" id="Img" class="form-control" placeholder="Картинка">
 
-        <div class="form-group">
-            <label for="Step">№ Шага</label>
-            <input v-model.number="Param.step" type="number" class="form-control" id="Step" placeholder="Шаг">
-        </div>
-        <div class="form-group">
-            <label for="Sum">Цена</label>
-            <input v-model.number="Param.sum" type="number" id="Sum" class="form-control" placeholder="Цена">
-        </div>
-        <div class="form-group">
-            <label for="name">Имя параметра</label>
-            <input v-model.trim="Param.name" type="text" id="name" class="form-control" placeholder="Текст">
-        </div>
-        <div class="form-group">
-            <label for="text">Текст параметра</label>
-            <input v-model.trim="Param.text" type="text" id="text" class="form-control" placeholder="Текст">
-        </div>
-        <div class="form-group">
-            <label for="Img">Ссылка на картинку</label>
-            
-            
-            <input v-model.trim="Param.img" type="text" id="Img" class="form-control" placeholder="Картинка">
-            
-            <img v-if="Param.Img!=''" :src="Param.Img" class="img-responsive">
-        </div>
-        <div class="form-group">
-            <div class="custom-control custom-checkbox">
-                <input v-model="Param.count" type="checkbox" class="custom-control-input" id="Count">
-                <label class="custom-control-label" for="Count">Имеет ли колличество</label>
+                <img v-if="Param.img!=''" :src="Param.img" class="img-responsive">
             </div>
-        </div>
-        <div class="form-group">
-            <div class="custom-control custom-checkbox">
-                <input v-model="Param.base" type="checkbox" class="custom-control-input" id="Base">
-                <label class="custom-control-label" for="Base">Входит в базовую стоимость</label>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input v-model="Param.count" type="checkbox" class="custom-control-input" id="Count">
+                    <label class="custom-control-label" for="Count">Имеет ли колличество</label>
+                </div>
+                <div v-if="Param.count" class="form-group">
+                    <label for="countval">Сколько по умолчанию</label>
+                    <input v-model.number="Param.countval" type="number" id="countval" class="form-control" placeholder="Значение">
+                    <div class="input-group mt-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Минимум и Максимум</span>
+                        </div>
+                        <input v-model.number="Param.countminval" type="number" id="countminval" class="form-control" placeholder="Минимум">
+                        <input v-model.number="Param.countmaxtval" type="number" id="countmaxtval" class="form-control" placeholder="Максимум">
+                
+                    </div>
+                    
+                    </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="Description">Описание</label>
-            <textarea v-model.trim="Param.description" class="form-control rounded-0" id="Description" rows="6"></textarea>
+
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input v-model="Param.default" type="checkbox" class="custom-control-input" id="default">
+                    <label class="custom-control-label" for="default">Выбрано по умолчанию</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input v-model="Param.base" type="checkbox" class="custom-control-input" id="Base">
+                    <label class="custom-control-label" for="Base">Входит в базовую стоимость</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Description">Описание</label>
+                <textarea v-model.trim="Param.description" class="form-control rounded-0" id="Description" rows="6"></textarea>
+            </div>
         </div>
         <div class="p-2">
-            <button class="btn btn-info btn-sm mr-3" @click="AddParam">Добавить</button>
+            <button v-if="State==1" class="btn btn-info btn-sm mr-3" @click="AddParam">Добавить</button>
+            <button v-if="State==3" class="btn btn-info btn-sm mr-3" @click="SaveParam">Сохранить</button>
         </div> 
     </div>
     
@@ -85,7 +120,9 @@
 var ConfiguratorAdmin = new Vue({
     el: '#ConfiguratorAdmin',
     data: {
-        ParamList:{},Param:{count:false,base:false,step:0,sum:0,text:'Параметр',img:'',name:'Имя'},
+        ParamList:{},
+        Param:{count:false,base:false,default:false,step:0,sum:0,text:'Параметр',img:'',name:'Имя'},
+        ParamID:0,
         State:2
     },
     created(){
@@ -113,9 +150,10 @@ var ConfiguratorAdmin = new Vue({
             });
         },
         GetAll(){
+            this.ParamList = {};
             fetch( '/configurator/api/getparam/',{
                 mode: 'cors',
-                method: 'POST',
+                method: 'POST'
                 //body: JSON.stringify(this.Param)
             })
             .then((response) => {
@@ -126,6 +164,7 @@ var ConfiguratorAdmin = new Vue({
             })
             .then((json) => {
                 this.ParamList=json;
+                this.State=2;
 //                console.log(json);
             })
             .catch((error) => {
@@ -133,11 +172,60 @@ var ConfiguratorAdmin = new Vue({
             });
         },
         EditParam(index){
-            this.Param = this.ParamList[index];
-            this.Param.count = this.Param.count === '0' ? false :  true ;
-            this.Param.base = this.Param.base === '0' ? false : true;
-            console.log(this.Param);
-            this.State = 1;
+            fetch( '/configurator/api/getparamid/',{
+                mode: 'cors',
+                method: 'POST',
+                body: JSON.stringify({id:this.ParamList[index].id})
+            })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok');
+            })
+            .then((json) => {
+                this.Param=json;
+                    //this.Param = this.ParamList[index];
+                this.Param.count = this.Param.count === '0' ? false :  true ;
+                this.Param.base = this.Param.base === '0' ? false : true;
+                this.Param.default = this.Param.default === '0' ? false : true;
+                this.ParamID = this.Param.id;
+    //            console.log(this.ParamList[index]);
+                this.State = 3;
+//                console.log(json);
+            })
+            .catch((error) => {
+                console.log('Ошибка отправки данных конфигуратора ',error);
+            });
+
+        },
+        SaveParam(){
+            fetch( '/configurator/api/saveparam/',{
+                mode: 'cors',
+                method: 'POST',
+                body: JSON.stringify({params:this.Param,id:this.ParamID})
+            })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok');
+            })
+            .then((json) => {
+                //this.ParamList=json.data;
+                console.log(json);
+            })
+            .catch((error) => {
+                console.log('Ошибка отправки данных конфигуратора ',error);
+            });
+        },
+        AddParamSet(){
+            this.State=1;
+            this.Param={count:false, countminval:1,countmaxtval:100,base:false,default:false,step:0,sum:0,text:'Параметр',img:'',name:'Имя'};
+        },
+        ShowList(){
+            this.GetAll();
+//            this.State=2;
         }
     }
 });
