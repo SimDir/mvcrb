@@ -33,7 +33,7 @@ header {
 
 
 .header__menu {
-   flex-basis: 60%;
+   flex-basis: 70%;
    height: 100%;
    text-align: center;
 }
@@ -144,58 +144,42 @@ header {
 
 
 .header__right--wrap {
-   flex-basis: 15%;
+   flex-basis: 10%;
    display: flex;
    justify-content: center;
    align-items: center;
 }
 .social-buttons {
    display: flex;
+   flex-direction: column;
    justify-content: center;
    align-items: center;
-}
-
-.social-buttons img {
-   width: 40px;
-   height: 40px;
-   transition: transform .5s;
-}
-.social-buttons img:hover {
-   transform: scale(1.03);
 }
 .social-buttons__tel {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   transition: all .5s;
-}
-.social-buttons__tel img{
-   width: 35px;
-   height: 35px;
-}
-.social-buttons__tel p {
    color: #fff;
    text-transform: uppercase;
    white-space: nowrap;
-   font-size: 18px;
-   line-height: 18px;
-   margin: 0px 10px 0 5px;
+   font-size: 16px;
+   line-height: 16px;
+   transition: all .5s;
 }
-
-.header__right-calc {
+.social-buttons__tel:hover {
+   color: #fff;
+}
+.social-buttons__icons {
    display: flex;
    justify-content: center;
    align-items: center;
-   padding: 5px;
 }
-.header__right-calc img{
-   width: 40px;
-   height: 40px;
+.social-buttons__icons img {
+   width: 35px;
+   height: 35px;
    transition: transform .5s;
 }
-.header__right-calc:hover img{
+.social-buttons__icons img:hover {
    transform: scale(1.03);
 }
+
 .header__right-lang {
    align-self: center;
    text-decoration: none;
@@ -220,9 +204,7 @@ header {
 }
 
 @media(max-width: 1400px) {
-   .header {
-      width: 95%;
-   }
+  
    .header__logo {
       flex-basis: 120px;
    }
@@ -246,31 +228,19 @@ header {
    .header_bottom__content_menu_link ul>li>a{
       font-size: 11px;
    }
-   .social-buttons img {
-      width: 35px;
-      height: 35px;
+   
+   .social-buttons__tel {
+      font-size: 14px;
+      line-height: 14px;
    }
-   .header__right-calc {
-      padding: 3px;
-   }
-   .header__right-calc img{
-      width: 35px;
-      height: 35px;
+   .social-buttons__icons img {
+      width: 30px;
+      height: 30px;
    }
    .header__right-lang {
       font-size: 14px;
       line-height: 14px;
       padding: 3px;
-   }
-
-   .social-buttons__tel img{
-      width: 30px;
-      height: 30px;
-   }
-   .social-buttons__tel p {
-      font-size: 16px;
-      line-height: 16px;
-      margin: 0px 7px 0 3px;
    }
 }
 @media(max-width: 1200px) {
@@ -284,30 +254,11 @@ header {
    .header_bottom__content {
       width: 100%;
    }
-   .social-buttons img {
-      width: 27px;
-      height: 27px;
-   }
-   .header__right-calc img{
-      width: 27px;
-      height: 27px;
-   }
-   .header__right-calc {
-      padding: 2px;
-   }
-   .social-buttons__tel img{
-      width: 23px;
-      height: 23px;
-   }
-   .social-buttons__tel p {
-      font-size: 14px;
-      line-height: 14px;
-      margin: 0px 6px 0 2px;
-   }
+   
 }
 @media(max-width: 1000px) {
    .header {
-      width: 98%;
+      width: 90%;
    }
     .header__logo {
       flex-basis: 95px;
@@ -332,22 +283,13 @@ header {
    .header_bottom__content_menu_link ul {
       margin-top: 15px;
    }
-   .social-buttons img {
+   .social-buttons__tel {
+      font-size: 12px;
+      line-height: 12px;
+   }
+   .social-buttons__icons img {
       width: 25px;
       height: 25px;
-   }
-   .header__right-calc img{
-      width: 25px;
-      height: 25px;
-   }
-   .social-buttons__tel img{
-      width: 20px;
-      height: 20px;
-   }
-   .social-buttons__tel p {
-      font-size: 14px;
-      line-height: 14px;
-      margin: 0px 5px 0 2px;
    }
 }
 
@@ -487,15 +429,7 @@ header {
       width: 35px;
       height: 35px;
    }
-   .social-buttons__tel img{
-      width: 20px;
-      height: 20px;
-   }
-   .social-buttons__tel p {
-      font-size: 14px;
-      line-height: 14px;
-      margin: 0px 10px 0 0px;
-   }
+
 }
 @media(max-width: 500px) {
    .header {
@@ -530,11 +464,12 @@ header {
       width: 35px;
       height: 35px;
    }
-   .social-buttons__tel img{
-      width: 25px;
-      height: 25px;
+   .social-buttons__tel {
+      font-size: 10px;
+      line-height: 10px;
    }
-   .social-buttons__tel p {
-      display: none;
+   .social-buttons__icons img {
+      width: 20px;
+      height: 20px;
    }
 }
