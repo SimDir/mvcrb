@@ -15,7 +15,7 @@ class PageController extends Controller {
         $this->View->PageArr = $this->GetModel('Page')->GetAllPage($category);
 //        dd($vdl);
         $this->View->content = $this->View->execute('PageAll.html');
-        $this->View->content = $this->View->execute('pages.html',TEMPLATE_DIR.'IndexController'.DS);
+        $this->View->content = $this->View->execute('page.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
 
@@ -81,7 +81,7 @@ class PageController extends Controller {
         $Data['content'] = htmlspecialchars_decode($postdata['PageContent'],ENT_HTML5);
         $Pages = new PageModel();
         
-        return ['cnt'=>$Data['content']];//$Pages->Edit($Data,(int)$postdata['PageId']);
+        return $Pages->Edit($Data,(int)$postdata['PageId']);
     }
 
 }

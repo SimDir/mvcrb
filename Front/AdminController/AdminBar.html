@@ -1,5 +1,3 @@
-
-
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
 <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
 <style>
@@ -41,18 +39,22 @@
         width: 100%; /* Full width */
         height: 100%; /* Full height */
         overflow: auto; /* Enable scroll if needed */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
     }
 
     /* Modal Content/Box */
     .modals-content {
         background-color: #fefefe;
-        margin: 5% auto; /* 15% from the top and centered */
-        padding: 10px;
+        margin: 10vw auto; 
+        /*padding: 10px;*/
         /*border: 1px solid #888;*/
-        width: 90%; /* Could be more or less, depending on screen size */
+        width: 90vw; /* Could be more or less, depending on screen size */
+        /*min-height: 75vh;*/
     }
-
+    .modals-content textarea{
+        height: auto;
+        background-color: #73AD21;
+    }
     .scroll-hidden { overflow: hidden }
 </style>
 <div id="AB">
@@ -63,26 +65,40 @@
         <div class="card">
             <button @click="BarShow =!BarShow" class="btn btn-info btn-sm">Закрыть</button>
             <p class="text-danger pl-2" >{{ message }}</p>
+            <p class="text-danger pl-2" >Страница ID {{ PageId }}</p>
         </div>
         
         <div class="card mt-3">
             <button v-if="state==0" @click="StartEdit" class="btn btn-blue-grey btn-sm">Включить режим редактирования<i class="fas far fa-edit pl-1"></i></button>
             <button v-if="state==1" @click="StopEdit" class="btn btn-danger btn-sm">Выключить режим редактирования<i class="fas far fa-times-circle pl-1"></i></button>
             <a class="btn btn-elegant btn-sm" href="/page/edit/<{pageid}>" target="_blank">WISIWING редактор</a>  
-            <button @click="ShowOptions" class="btn btn-dark-green btn-sm">Настройки</button>
+            <button v-if="editmode" @click="ShowOptions" class="btn btn-dark-green btn-sm">Дополнительно</button>
+            <button v-if="editmode" @click="SavePage" class="btn btn-dark-green btn-sm">Сохранить страницу</button>
         </div>
 
     </div>
     
     
 
-<div v-if="Options" class="modals" @click.self="HideOptions">
+<div v-if="Options" class="modals">
 
 
-  <div class="modals-content">
-    
-    <p>Some text in the Modal..</p>
-  </div>
+    <div class="modals-content">
+        <div class="border border-bottom-0 border-primary bg-primary d-flex justify-content-between">
+            <div>
+                <button type="button" class="btn btn-sm btn-success px-3" @click.self="SaveHTML"><i class="fas fa-save"></i></button>
+            </div>
+            <div class="text-white">Редактирование кода HTML текущей страницы {{ PageId }}</div>
+            <div>
+                <button type="button" class="btn btn-sm btn-danger px-3" @click.self="HideOptions"><i class="fas fa-window-close"></i></button>
+            </div>
+        </div>
+        <div class="border">
+
+            <textarea v-model="PageContent" class="form-control" id="TextareaSrc" rows="10"></textarea>
+
+        </div>
+    </div>
 
 </div>
     
@@ -93,31 +109,54 @@ var app = new Vue({
   el: '#AB',
   data: {
     message: 'Вы вошли как <{login}>',
+    PageId: '<{pageid}>',PageContent:'',
     editor:null,
-    state:0,BarShow:false,Options:false
+    state:0,BarShow:false,Options:false,editmode:false
   },
   methods: {
     StartEdit() {
         if(!this.editor){
             this.editor = new MediumEditor('.editable');
+            this.PageContent = this.editor.getContent();
         }
         this.editor.setup();
         this.state = 1;
+        this.editmode = true;
+        
     },
     StopEdit() {
       this.editor.destroy();
       this.state = 0;
+      this.editmode = false;
     },
     ShowOptions(){
         this.BarShow= false;
         this.Options = true;
 //        document.body.style.
         document.body.classList.add("scroll-hidden");
-//        alert(document.body);
+        if(this.editor)this.PageContent = this.editor.getContent();
     },
     HideOptions(){
         this.Options = false;
         document.body.className ='';
+    },
+    SaveHTML(){
+        if(this.editor) this.editor.setContent(this.PageContent);
+    },
+    SavePage(){
+        if(this.editor)this.PageContent = this.editor.getContent();
+        fetch('/page/save/<{pageid}>', {
+            mode: 'cors',
+            method: 'POST',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            body: JSON.stringify({PageId:'<{pageid}>',PageContent:this.PageContent})
+            })
+            .then(res => res.json())
+            .then(res => {
+
+                console.log(res);
+            });
     }
   }
 })

@@ -23,6 +23,10 @@ class Session {
      * if session has not started, start sessions
      */
     private static function SecSessionStart() {
+        if(session_status() === PHP_SESSION_ACTIVE){ 
+            self::$sessionStarted = true;
+            return true;
+        }
         $SessionsDir = SITE_DIR . 'usersessions';
         ini_set("session.gc_probability", 30); /* Можно настроить на 100%, если у вас там нет никакого медленного кода */
         ini_set("session.gc_divisor", 100);
@@ -49,10 +53,10 @@ $handler = new FileSessionHandler();
                 array($handler, 'destroy'),
                 array($handler, 'gc')
         );
-        session_start();            // Start the PHP session 
+        if(session_status() === PHP_SESSION_NONE) session_start();            // Start the PHP session 
         //session_regenerate_id();    // regenerated the session, delete the old one. 
         
-        $BrowserHesh = false;//self::get('BrowserHesh');
+        $BrowserHesh = self::get('BrowserHesh');
         if($BrowserHesh){
             
             $browser = mvcrb::BrouserHash();
@@ -69,7 +73,6 @@ $handler = new FileSessionHandler();
 //            session_start();
             self::$sessionName = mvcrb::BrouserHash();
             self::SecSessionStart();
-            self::$sessionStarted = true;
         }
         return self::$sessionStarted;
     }
@@ -170,6 +173,7 @@ $handler = new FileSessionHandler();
             setcookie(session_name(), '', time() - 42000, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
             /** if key is empty and $prefix is false */
             if ($key == '' && $prefix == false) {
+                session_gc();
                 session_unset();
                 session_destroy();
             } elseif ($prefix == true) {
@@ -192,6 +196,7 @@ $handler = new FileSessionHandler();
 //            session_destroy();
 //            session_start();
 //            session_regenerate_id(true);
+            session_gc();
             session_unset();
             session_destroy();
             session_write_close();

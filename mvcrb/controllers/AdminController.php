@@ -138,19 +138,13 @@ class AdminController extends Controller {
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
 
-    public function ConfiguratorAction() {
-        $this->View->admincontent = $this->View->execute('Configurator.html');
-        $this->View->content = $this->View->execute('AdminWraper.html');
-        return $this->View->execute('index.html', TEMPLATE_DIR);
-    }
-
-    public function GetmenuAction() {
+    public function GetMenuAction() {
         $Data = [
             ['id' => '1', 'parent' => '0', 'name' => 'Главная', 'src' => '/admin', 'class' => 'fas fa-home'],
             ['id' => '2', 'parent' => '0', 'name' => 'Пользователи', 'src' => '/admin/user', 'class' => 'fas fa-users-cog'],
             ['id' => '3', 'parent' => '0', 'name' => 'Страницы', 'src' => '/admin/pages', 'class' => 'far fa-file'],
 //            ['id' => '4', 'parent' => '3', 'name' => 'wisiwing', 'src' => '/admin/editor/tinymce', 'class' => 'far fa-file'],
-            ['id' => '5', 'parent' => '0', 'name' => 'Конфигуратор','src'=>'/admin/Configurator','class'=>'fas fa-calculator']
+//            ['id' => '5', 'parent' => '0', 'name' => 'Конфигуратор','src'=>'/admin/Configurator','class'=>'fas fa-calculator']
         ];
         return $Data;
     }
