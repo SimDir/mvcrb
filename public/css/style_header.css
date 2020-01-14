@@ -64,8 +64,13 @@ header {
    line-height: 16px;
    display: flex;
    align-items: center;
+   margin-bottom: 50px;
+   padding-top: 50px;
+   border-bottom: 3px solid transparent;
+   
 }
 .header__menu_link_btn:hover {
+   transition: all .5s ease .3s;
    text-decoration: none;
    color: #ffffff;
    border-bottom: 3px solid #fff;
