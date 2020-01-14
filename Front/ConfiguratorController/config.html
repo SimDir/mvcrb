@@ -49,10 +49,10 @@
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
-                    <input v-model="Param.count" type="checkbox" class="custom-control-input" id="Count">
+                    <input v-model="Param.counts" type="checkbox" class="custom-control-input" id="Count">
                     <label class="custom-control-label" for="Count">Имеет ли колличество</label>
                 </div>
-                <div v-if="Param.count" class="form-group">
+                <div v-if="Param.counts" class="form-group">
                     <label for="countval">Сколько по умолчанию</label>
                     <input v-model.number="Param.countval" type="number" id="countval" class="form-control" placeholder="Значение">
                     <div class="input-group mt-3">
@@ -69,7 +69,7 @@
 
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
-                    <input v-model="Param.default" type="checkbox" class="custom-control-input" id="default">
+                    <input v-model="Param.defaults" type="checkbox" class="custom-control-input" id="default">
                     <label class="custom-control-label" for="default">Выбрано по умолчанию</label>
                 </div>
             </div>
@@ -121,7 +121,7 @@ var ConfiguratorAdmin = new Vue({
     el: '#ConfiguratorAdmin',
     data: {
         ParamList:{},
-        Param:{count:false,base:false,default:false,step:0,sum:0,text:'Параметр',img:'',name:'Имя'},
+        Param:{counts:false,base:false,default:false,step:0,sum:0,text:'Параметр',img:'',name:'Имя'},
         ParamID:0,
         State:2
     },
@@ -186,9 +186,9 @@ var ConfiguratorAdmin = new Vue({
             .then((json) => {
                 this.Param=json;
                     //this.Param = this.ParamList[index];
-                this.Param.count = this.Param.count === '0' ? false :  true ;
+                this.Param.counts = this.Param.counts === '0' ? false :  true ;
                 this.Param.base = this.Param.base === '0' ? false : true;
-                this.Param.default = this.Param.default === '0' ? false : true;
+                this.Param.defaults = this.Param.defaults === '0' ? false : true;
                 this.ParamID = this.Param.id;
     //            console.log(this.ParamList[index]);
                 this.State = 3;
@@ -221,7 +221,7 @@ var ConfiguratorAdmin = new Vue({
         },
         AddParamSet(){
             this.State=1;
-            this.Param={count:false, countminval:1,countmaxtval:100,base:false,default:false,step:0,sum:0,text:'Параметр',img:'',name:'Имя'};
+            this.Param={counts:false, countminval:1,countmaxtval:100,base:false,default:false,step:0,sum:0,text:'Параметр',img:'',name:'Имя'};
         },
         ShowList(){
             this.GetAll();

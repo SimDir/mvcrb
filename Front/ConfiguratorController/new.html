@@ -29,64 +29,42 @@
         </div>
         <div v-if="step>=3 && step<7" class="configurator-wrap__content-form">
             <div class="form-left">
+                <div class="form-title">
+                    <p>БАЗОВЫЕ ПАРАМЕТРЫ</p>
+                    <span>(входят в стимость)</span>
+                </div>
                 <ul>
-                    <li v-for="(option, index) in Data">
-                        <label for="WriteText">
-                            {{option.text}}
-                            <input type="checkbox" id="WriteText" vw-model.number="WriteText" value="1000">
+                    <li v-for="(option, index) in Data" v-if="option.base" >
+                        <label :for="'ck'+index" :for="index">{{option.text}}
+                            <input type="checkbox" :id="'ck'+index" v-model.number="option.defaults" @change="Set(option,index)">
                             <span class="checkbox-visible"></span>
                         </label>
-                        <div vw-if="WriteText" class="step4-additional">
-                            <span id="basic-addon3">{{option.text}}</span>
-                            <input id="DopServecPresentCount" type="number" min="1" max="99" vw-model.number="WriteTextCount">
+                        <div v-if="option.counts && option.defaults" class="step4-additional">
+                            <span id="basic-addon3">Колличество</span>
+                            <input id="DopServecPresentCount" type="number" :min="option.countminval" :max="option.countmaxtval" v-model.number="option.countval">
                             <span>штук</span>
                         </div>
                     </li>
-<!--                    <li>
-                        <label for="SalePictures">
-                            Подбор и покупка изображений
-                            <input type="checkbox" id="SalePictures" v-model.number="SalePictures" value="390">
-                            <span class="checkbox-visible"></span>
-                        </label>
-                        <div v-if="SalePictures" class="step4-additional">
-                            <span id="basic-addon3">Количество</span>
-                            <input id="SalePictures" type="number" min="1" max="99" v-model.number="SalePicturesCount">
-                            <span>штук</span>
-                        </div>
-                    </li>-->
                 </ul>
             </div>
-            <!-- form-left -->
-
             <div class="form-right">
+                <div class="form-title">
+                    <p>ДОПОЛНИТЕЛЬНЫЕ ПАРАМЕТРЫ</p>
+                </div>
                 <ul>
-<!--                    <li>     
-                        <label for="DopMoveCreate">
-                            Создание видиоролика
-                            <input type="checkbox" id="DopMoveCreate" v-model.number="MoveCreate" value="1500">
+                    <li v-for="(option, index) in Data" v-if="!option.base">
+                        <label :for="'ck'+index" :for="index">{{option.text}}
+                            <input type="checkbox" :id="'ck'+index" v-model="option.defaults" @change="Set(option,index)">
                             <span class="checkbox-visible"></span>
                         </label>
-                        <div v-if="MoveCreate" class="step4-additional">
-                            <span id="basic-addon3">Количество</span>
-                            <input id="SalePictures" type="number" min="1" max="99" v-model.number="MoveCreateCount">
+                        <div v-if="option.counts && option.defaults" class="step4-additional">
+                            <span id="basic-addon3">Колличество</span>
+                            <input id="DopServecPresentCount" type="number" :min="option.countminval" :max="option.countmaxtval" v-model.number="option.countval" @change="Set(option,index)">
                             <span>штук</span>
                         </div>
                     </li>
-                    <li>
-                        <label for="DopPhotograph">
-                            Работа фотографа (2 часа 50 фотографий)
-                            <input type="checkbox" id="DopPhotograph" v-model.number="Photograph" value="500">
-                            <span class="checkbox-visible"></span>
-                        </label>
-                        <div v-if="Photograph" class="step4-additional">
-                            <span id="basic-addon3">Количество</span>
-                            <input id="SalePictures" type="number" min="2" max="99" v-model.number="PhotographCount">
-                            <span>штук</span>
-                        </div>
-                    </li>-->
                 </ul>
             </div>
-            <!-- form-right -->
         </div>
         <div v-if="step==7" class="step7-wrap">
             <!--<iframe src="https://calk.bitrix24.site/" frameborder="0"></iframe>--> 
@@ -126,15 +104,15 @@
     var configurator = new Vue({
         el: '#configurator',
         data: {
-            message: 'Выберите тип сайта',mesg: '',
+            message: 'Выберите настройки сайта',mesg: '',
             UserData: {email: '<{email}>', name: '<{firstname}>', tel: '<{phone}>'},
-            step: 1, MaxStep: 7,Data:{},SelectData:[],
+            step: 1, MaxStep: 7,Data:{},SelectData:[],StepData:[],SendData:[],
             totalprice:0
         },
         created() {
             let self = this;
             window.onpopstate = function(event) {
-                if(event.state!=null){
+                if(event.state!==null){
                     self.step = event.state;
                 }
 //                console.log(self.step);
@@ -150,16 +128,15 @@
         methods: {
             ArraySum(arr) {
                 let sum = 0;
-        console.log(arr);
-                if (arr.length) {
-                    
-                    sum = arr.reduce((a, b) => {
-                        
-                        return (parseFloat(a) || 0) + (parseFloat(b) || 0);
-                    });
-                } else {
-                    sum = 0;
-                }
+                this.StepData.forEach(function(item, i, arr) {
+                        sum+=item;
+//                        console.log(i,item);
+                });
+                
+                arr.forEach(function(item, i, arr) {
+                        sum+=item.val;
+//                        console.log(i,item);
+                });
                 return sum;
             },
             next() {
@@ -182,20 +159,53 @@
                 //window.history.pushState(st, "Title", "/configurator/step/"+st);
             },
             Set(Param, idx=0){
-                
+                this.SendData['Step_'+this.step+'_Data']=this.Data;
                 if (this.step <= 2) {
-                    this.SelectData[this.step-1] =Number(Param.sum);
-                    this.step++;
-                    this.GetStep();
-                    
+//                    this.SelectData.push(data);
+//                    this.Data.forEach((item, i, arr)=> {
+//                        let datas = {     
+//                            name: item.name,  
+//                            val: Number(item.sum)        
+//                        };
+//                        this.SelectData = _.without(this.SelectData, datas);
+//                        console.log(this.SelectData);
+//                    });
+                    this.StepData[this.step]=Number(Param.sum);
+//                    this.step++;
+//                    this.GetStep();
+                    this.next();
                 }else{
-//                    this.SelectData.push(Param.sum);
-                    this.SelectData[this.step+idx] =Number(Param.sum);
+                    let data = {     
+                        name: Param.name,  
+                        val: Number(Param.sum),
+                        kol_vo:0
+                    };
+                    if(Param.countval>1){
+                        data.val = Number(Param.sum)*Number(Param.countval);
+                        data.kol_vo = Number(Param.countval);
+                    }
+                    let result = this.SelectData.find(item => item.name === Param.name);
+                    if(!Param.defaults){
+                        
+                        if(result){
+                            this.SelectData = _.without(this.SelectData, result);
+//                            console.log(this.SelectData);
+                        }
+                    }else{
+                        
+                        if(result){
+                            this.SelectData = _.without(this.SelectData, result);
+//                            console.log(this.SelectData);
+                        }
+                        this.SelectData.push(data);
+                    }
+                    
                 }
                 this.totalprice = this.ArraySum(this.SelectData);
-//                console.log(this.SelectData);
+                
             },
             GetStep(){
+                this.Data = {};
                 fetch( '/configurator/api/getparam/',{
                     mode: 'cors',
                     method: 'POST',
@@ -208,40 +218,50 @@
                     throw new Error('Network response was not ok');
                 })
                 .then((json) => {
+                    var self = this;
                     this.Data=json;
+                    this.Data.forEach(function(item, i, arr) {
+                        self.Data[i]=item;
+                        self.Data[i].counts = item.counts === '0' ? false :  true ;;
+                        self.Data[i].base=item.base === '0' ? false : true;;
+                        self.Data[i].defaults=item.defaults === '0' ? false : true;;
+//                        self.Data[i]=item;
+//                        console.log(i,item);
+                    });
+                    
 
-    //                console.log(json);
+//                    console.log(this.Data);
                 })
                 .catch((error) => {
-                    console.log('Ошибка отправки данных конфигуратора ',error);
+                    console.log('Ошибка получения данных конфигуратора ',error);
                 });
             },
             CreateOrder(e) {
                 e.preventDefault();
                 
-
-                var OrderData = {};
-
-                fetch('/configurator/webhooks/?AJAX=1', {
-                    mode: 'cors',
-                    method: 'POST',
-                    body: JSON.stringify(OrderData)
-                })
-                .then((response) => {
-                    if (response.ok) {
-                        return response.json();
-                    }
-                    throw new Error('Network response was not ok');
-                })
-                .then((json) => {
-                    console.log(json);
-                    this.step++;
-//                            this.ShowUniKod = true;
-                })
-                .catch((error) => {
-                    this.step++;
-                    console.log('Ошибка отправки данных конфигуратора ', error);
-                });
+                
+                var OrderData = {'Send':this.SendData,'Select':this.SelectData};
+                console.log(OrderData);
+//                fetch('/configurator/webhooks/?AJAX=1', {
+//                    mode: 'cors',
+//                    method: 'POST',
+//                    body: JSON.stringify(OrderData)
+//                })
+//                .then((response) => {
+//                    if (response.ok) {
+//                        return response.json();
+//                    }
+//                    throw new Error('Network response was not ok');
+//                })
+//                .then((json) => {
+//                    console.log(json);
+//                    this.step++;
+////                            this.ShowUniKod = true;
+//                })
+//                .catch((error) => {
+//                    this.step++;
+//                    console.log('Ошибка отправки данных конфигуратора ', error);
+//                });
 
             }
             
