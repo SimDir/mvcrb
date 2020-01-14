@@ -236,7 +236,8 @@
    flex-direction: column;
    justify-content: flex-start;
    align-items: center;
-   background-color: #E4E7F1;
+   /* background-color: #E4E7F1; */
+   background-color:#e1f4ff;
    min-height: 100px;
    border-top: 17px solid #8CB0E4;
    text-align: center;

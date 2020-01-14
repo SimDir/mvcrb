@@ -44,7 +44,7 @@ $( document ).ready(function() {
         }
         else {
             $("header").css({'background': 'transparent'});
-            $(".header_bottom").css({'background':'rgba(255,255,255,.7)'});
+           
         }
     });
 });
