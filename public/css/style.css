@@ -43,7 +43,8 @@ p {
 }
 
 .active_underline {
-   text-decoration: underline;
+  
+   background-color: #F2F2F2;
 }
 @keyframes rotateCircle{
    0% {
