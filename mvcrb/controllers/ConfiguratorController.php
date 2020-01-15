@@ -107,6 +107,12 @@ class ConfiguratorController extends Controller {
         $MethodName = mb_strtolower($Method);
         $Model = new ConfiguratorModel();
         switch ($MethodName) {
+            case 'savesetting': 
+                $Data = json_decode($this->REQUEST,true);
+                
+                return $Model->SaveSetting($Data);
+            case 'getsetting': 
+                return $Model->GetSetting();
             case 'getparamid': 
                 $Data = json_decode($this->REQUEST,true);
                 $id = $Data['id'];

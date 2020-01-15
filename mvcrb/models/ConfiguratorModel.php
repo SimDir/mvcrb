@@ -82,4 +82,37 @@ class ConfiguratorModel extends Model{
         
         return $tempbean->export();
     }
+    
+    public function GetSetting($name=false) {
+        if($name){
+            $tempbean = $this->findAll('setting',"(name = :name) AND (module = 'Configurator')",[':name' => $name]);
+        }else{
+            $tempbean = $this->findAll('setting',"(module = 'Configurator')");
+        }
+        return $this->exportAll($tempbean, TRUE);
+    }
+    public function AddSetting($Data = null) {
+        if (is_null($Data))
+            return false;
+        $Table = $this->Dispense('setting');
+        $Table->module = 'Configurator';
+        $Table->import($Data);
+//        $Table->createdatetime = date('Y-m-d H:i:s');
+        return $this->store($Table);
+    }
+    public function SaveSetting($Data = null) {
+        if (is_null($Data))
+            return false;
+//        dd($Data);
+        $id = $this->findOne( 'setting', ' name = ? ', [ $Data['name'] ] );
+        if($id>0){
+            $Table = $this->load('setting',$id);
+        }else{
+            $Table = $this->Dispense('setting');
+        }
+        
+        $Table->import($Data);
+        $Table->module = 'Configurator';
+        return $this->store($Table);
+    }
 }

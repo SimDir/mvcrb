@@ -1,15 +1,14 @@
-Этот раздел только для сотрудников компании
 <div id="ConfiguratorAdmin">
     <div class="text-center border border-light">
         
         <div class="btn-group" role="group" aria-label="Basic example">
-            <button @click="AddParamSet" type="button" class="btn btn-primary mr-3">Добавить</button>
-            <button @click="ShowList" type="button" class="btn btn-primary mr-3">Список</button>
-            <!--<button @click="State=3" type="button" class="btn btn-primary mr-3">3</button>-->
+            <button @click="AddParamSet" type="button" class="btn btn-primary mr-3">Добавить параметр</button>
+            <button @click="ShowList" type="button" class="btn btn-primary mr-3">Список параметров</button>
+            <button @click="State=4" type="button" class="btn btn-primary mr-3">Общие настройки</button>
         </div>
     </div>
     
-    <div v-if="State==1 || State==3" class="text-center border border-light p-5">
+    <div v-if="State==1 || State==3" class="text-center border border-light p-2 mt-5">
         <div v-if="State==3" class="form-group">
             Изменить параметр по №{{ Param.id }}
         </div>
@@ -91,9 +90,9 @@
         </div> 
     </div>
     
-    <div v-if="State==2" class="text-center border border-light p-5">
+    <div v-if="State==2" class="text-center border border-light mt-5">
         <table class="table table-hover">
-            <thead>
+            <thead class="bg-warning">
                 <tr>
                     <th scope="col">id</th>
                     <th scope="col">step</th>
@@ -115,20 +114,130 @@
         </table>
 
     </div>
+    
+    <div v-if="State==4" class="text-center border border-light p-5">
+        <label for="basic-url">Фоновая картинка</label>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="bgimg-url">URL картинки</span>
+            </div>
+            <input type="text" class="form-control" v-model="BgImg">
+            <div class="input-group-append">
+                <button class="btn btn-default m-0 px-3 py-2" type="button" id="button-addon2" @click="SaveBgImage">Сохранить</button>
+            </div>
+        </div>
+        <label for="basic-url">Коллическво шагов</label>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="StepCountLbl">сколько всего шаговь?</span>
+            </div>
+            <input v-model.number="StepCount" type="number" min="1" max="1000" class="form-control" id="StepCount" aria-describedby="basic-addon3">
+            <div class="input-group-append">
+                <button class="btn btn-default m-0 px-3 py-2" type="button" id="button-addon2" @click="SaveStepCount">Сохранить</button>
+            </div>
+        </div>
+        <div v-if="StepSelekted==0" class="d-flex flex-wrap">
+            <button style="width:100px;" class="p-1 m-1 bg-info" v-for="(item, index) in StepCount" @click="StepSel(item)">Шаг {{item}}</button>
+            
+        </div>
+        <!-- Default form subscription -->
+        <div v-if="StepSelekted>0" class="text-center border border-light p-5" >
+            <p class="h4 mb-4">Настройка шага № {{StepSelekted}}</p>
+            <p>Имя шага англискими буквами это системный параметр</p>
+            <input type="text" class="form-control" placeholder="Имя шага">
+            <p>Название шага отображаемое на сайте</p>
+            <input type="text" class="form-control mb-4 pt-1" placeholder="Название шага">
+            <p>Название блока с лева</p>
+            <input type="text" class="form-control mb-4 pt-1" placeholder="Название левого блока">
+            <p>Название правого с права</p>
+            <input type="text" class="form-control mb-4 pt-1" placeholder="Название правого блока">
+            <button class="btn btn-info btn-block" type="submit" @click="SaveStepParam">Сохранить</button>
+
+        </div>
+
+    </div>
 </div>
 <script type="text/javascript">
 var ConfiguratorAdmin = new Vue({
     el: '#ConfiguratorAdmin',
     data: {
-        ParamList:{},
+        ParamList:{},StepList:{},StepCount:1,StepSelekted:0,
         Param:{counts:false,base:false,default:false,step:0,sum:0,text:'Параметр',img:'',name:'Имя'},
-        ParamID:0,
-        State:2
+        ParamID:0,BgImg:'',
+        State:4
     },
     created(){
-        this.GetAll();
+        fetch( '/configurator/api/getsetting/',{
+                mode: 'cors',
+                method: 'POST',
+//                body: JSON.stringify(this.Param)
+            })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok');
+            })
+            .then((json) => {
+                //this.ParamList=json.data;
+                console.log(json);
+            })
+            .catch((error) => {
+                console.log('Ошибка отправки данных конфигуратора ',error);
+            });
+//        this.GetAll();
     },
     methods: {
+        SaveBgImage(){
+            fetch( '/configurator/api/savesetting/',{
+                mode: 'cors',
+                method: 'POST',
+                body: JSON.stringify({'name':'bgimg','value':this.BgImg})
+            })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok');
+            })
+            .then((json) => {
+                //this.ParamList=json.data;
+                console.log(json);
+            })
+            .catch((error) => {
+                console.log('Ошибка отправки данных конфигуратора ',error);
+            });
+            
+        },
+        SaveStepCount(){
+            fetch( '/configurator/api/savesetting/',{
+                mode: 'cors',
+                method: 'POST',
+                body: JSON.stringify({'name':'StepCount','value':this.StepCount})
+            })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok');
+            })
+            .then((json) => {
+                //this.ParamList=json.data;
+                console.log(json);
+            })
+            .catch((error) => {
+                console.log('Ошибка отправки данных конфигуратора ',error);
+            });
+            
+        },
+        SaveStepParam(){
+            console.log(0);
+            this.StepSelekted = 0;
+        },
+        StepSel(item){
+            this.StepSelekted = item;
+            console.log(item);
+        },
         AddParam(){
             fetch( '/configurator/api/addparam/',{
                 mode: 'cors',
@@ -225,6 +334,7 @@ var ConfiguratorAdmin = new Vue({
         },
         ShowList(){
             this.GetAll();
+            
 //            this.State=2;
         }
     }
