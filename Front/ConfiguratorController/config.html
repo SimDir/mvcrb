@@ -129,7 +129,7 @@
         <label for="basic-url">Коллическво шагов</label>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="StepCountLbl">сколько всего шаговь?</span>
+                <span class="input-group-text" id="StepCountLbl">сколько всего шагов<a @click="showmsg">ъ</a>?</span>
             </div>
             <input v-model.number="StepCount" type="number" min="1" max="1000" class="form-control" id="StepCount" aria-describedby="basic-addon3">
             <div class="input-group-append">
@@ -137,7 +137,7 @@
             </div>
         </div>
         <div v-if="StepSelekted==0" class="d-flex flex-wrap">
-            <button style="width:100px;" class="p-1 m-1 bg-info" v-for="(item, index) in StepCount" @click="StepSel(item)">Шаг {{item}}</button>
+            <button style="width:100px;" class="p-1 m-1 bg-info" v-for="item  in StpCnts" @click="StepSel(item)">Шаг {{item}}</button>
             
         </div>
         <!-- Default form subscription -->
@@ -147,11 +147,13 @@
             <input type="text" class="form-control" placeholder="Имя шага">
             <p>Название шага отображаемое на сайте</p>
             <input type="text" class="form-control mb-4 pt-1" placeholder="Название шага">
-            <p>Название блока с лева</p>
+            <p>Название блока с лева (там где параметры по умолчанию выбраны и входят в базовую стоимость)</p>
             <input type="text" class="form-control mb-4 pt-1" placeholder="Название левого блока">
-            <p>Название правого с права</p>
+            <p>Название блока с права (ну это место где параметры стоят денег и оне не выбраны по дефолту)</p>
             <input type="text" class="form-control mb-4 pt-1" placeholder="Название правого блока">
             <button class="btn btn-info btn-block" type="submit" @click="SaveStepParam">Сохранить</button>
+            
+            <p class="text-danger">да ваще покую на эту кнопку я всеравно переписываю этот функционал и работать он будет по другому... я ваще я за пивом ушол... 2Ъ</p>
 
         </div>
 
@@ -166,7 +168,12 @@ var ConfiguratorAdmin = new Vue({
         ParamID:0,BgImg:'',
         State:4
     },
-    created(){
+    computed: {
+        StpCnts(){
+            return this.StepCount;
+        }
+    },
+    beforeCreate(){
         fetch( '/configurator/api/getsetting/',{
                 mode: 'cors',
                 method: 'POST',
@@ -180,7 +187,11 @@ var ConfiguratorAdmin = new Vue({
             })
             .then((json) => {
                 //this.ParamList=json.data;
-                console.log(json);
+                var BGImgs = _.find(json,{name:"bgimg"});
+                this.BgImg = BGImgs.value;
+                var StpCnt = _.find(json,{name:"StepCount"});
+                this.StepCount = Number(StpCnt.value);
+//                console.log(StpCnt);
             })
             .catch((error) => {
                 console.log('Ошибка отправки данных конфигуратора ',error);
@@ -188,6 +199,9 @@ var ConfiguratorAdmin = new Vue({
 //        this.GetAll();
     },
     methods: {
+        showmsg(){
+            prompt('ай маладец... ты всетаки сюды тыкнулъ ', 'Дореволюціонный Совѣтчикъ');
+        },
         SaveBgImage(){
             fetch( '/configurator/api/savesetting/',{
                 mode: 'cors',
