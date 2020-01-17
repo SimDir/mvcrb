@@ -29,14 +29,14 @@ $( document ).ready(function() {
     
 
     if (window.location.pathname.search('news--')>-1) {
-        $("header").css({'background':'#333'});
+        $("header").css({'background':'#3B487C'});
         $(".header_bottom").css({'background':'rgba(255,255,255,1)'});
         $('.new_center__center').css({'border-top':'none'})
     }
     $(window).scroll(function() {
         var top = $(this).scrollTop();
         if ( top > 0 ) {
-            $("header").css({'background':'#333'});
+            $("header").css({'background':'#3B487C'});
             $(".header_bottom").css({'background':'rgba(255,255,255,1)'});
         } 
         else if (window.location.pathname.search('news--')!==-1){
