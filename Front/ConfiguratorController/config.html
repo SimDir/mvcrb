@@ -153,8 +153,7 @@
             <input type="text" class="form-control mb-4 pt-1" placeholder="Название правого блока">
             <button class="btn btn-info btn-block" type="submit" @click="SaveStepParam">Сохранить</button>
             
-            <p class="text-danger">да ваще покую на эту кнопку я всеравно переписываю этот функционал и работать он будет по другому... я ваще я за пивом ушол... 2Ъ</p>
-
+            
         </div>
 
     </div>
@@ -191,10 +190,10 @@ var ConfiguratorAdmin = new Vue({
                 this.BgImg = BGImgs.value;
                 var StpCnt = _.find(json,{name:"StepCount"});
                 this.StepCount = Number(StpCnt.value);
-//                console.log(StpCnt);
+                console.log(json);
             })
             .catch((error) => {
-                console.log('Ошибка отправки данных конфигуратора ',error);
+                console.log('Ошибка получения данных конфигуратора ',error);
             });
 //        this.GetAll();
     },
