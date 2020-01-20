@@ -51,7 +51,7 @@
                     $('#VB').hide();
                     
                     $(preloader).on("ended", function (e) {
-//                        $('#VB').show(1000);
+                        $('#VB').show();
                         console.log("Video paused. Current time of videoplay: " + e.target.currentTime );
                     });
                 })

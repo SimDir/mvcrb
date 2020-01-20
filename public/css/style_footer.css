@@ -1,7 +1,7 @@
 /* FOOTER */
 footer {
    width: 100%;
-   background: #333;
+   background: #2D3555;
    position: relative;
    bottom: 0;
 }
@@ -17,7 +17,6 @@ footer {
 .footer__menu {
    text-align: center;
    padding: 60px 0;
-   border-bottom: 2px solid #4d4d4d;
    width: 100%;
 }
 .footer__menu nav {
@@ -69,6 +68,38 @@ footer {
    color: #999;
    text-decoration: underline;
 }
+.footer-socials {
+   width: 70%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-bottom: 10px;
+   border-bottom: 2px solid #BFA082;
+}
+.footer-social__tel {
+   color: #fff;
+   text-transform: uppercase;
+   white-space: nowrap;
+   font-size: 16px;
+   line-height: 16px;
+}
+.footer-social__tel:hover {
+   color: #fff;
+}
+.footer-socials__icons {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.footer-socials img {
+   width: 35px;
+   height: 35px;
+   transition: transform .5s;
+}
+.footer-socials img:hover {
+   transform: scale(1.03);
+}
 .footer__copyright {
    width: 70%;
    margin: 0 auto;
@@ -88,6 +119,8 @@ footer {
 }
 
 
+
+
 @media(max-width: 1600px) {
    .footer {
       width: 80%;
@@ -96,6 +129,9 @@ footer {
       margin: 0 30px 0 0;
    }
    .footer__copyright {
+      width: 80%;
+   }
+   .footer-socials {
       width: 80%;
    }
 }
@@ -111,15 +147,23 @@ footer {
    .footer__menu_link_btn_link_title{
       font-size: 12px;
    }
+   .footer-social__tel {
+      font-size: 14px;
+      line-height: 14px;
+   }
+   .footer-socials img {
+      width: 30px;
+      height: 30px;
+   }
    .footer__copyright p {
       font-size: 10px;
-   }
-   .footer__copyright img {
-      width: 75px;
    }
 }
 @media(max-width: 1200px) {
    .footer {
+      width: 90%;
+   }
+   .footer-socials {
       width: 90%;
    }
    .footer__copyright {
@@ -153,5 +197,13 @@ footer {
    }
    .footer__menu nav {
       justify-content: space-between;
+   }
+   .footer-social__tel {
+      font-size: 12px;
+      line-height: 12px;
+   }
+   .footer-socials img {
+      width: 25px;
+      height: 25px;
    }
 }
