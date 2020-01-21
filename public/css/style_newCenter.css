@@ -28,23 +28,108 @@
    padding-top: 120px;
 }
 .new-center__slide--title {
-   width: 70%;
-   font-size: 35px;
-   line-height: 35px;
+   width: 90%;
+   font-size: 48px;
+   line-height: 48px;
    letter-spacing: 0.05em;
    color: #fff;
    text-transform: uppercase;
    margin-bottom: 15px;
+   font-family: 'Helvetica Neue Cyr Roman';
 }
 .new-center__slide--text {
-   width: 70%;
+   width: 90%;
    color: #fff;
    font-size: 18px;
    line-height: 20px;
+   font-family: 'Helvetica Neue Cyr Roman';
 }
-
-
-
+@media(max-width: 1400px) {
+   .new-center__header {
+      height: 300px;
+   }
+   .new-center__slide--container_text{
+      padding-top: 100px;
+   }
+   .new-center__slide--title {
+      font-size: 44px;
+      line-height: 44px;
+   }
+   .new-center__slide--text {
+      font-size: 16px;
+      line-height: 18px;
+   }
+}
+@media(max-width: 1200px) {
+   .new-center__header {
+      height: 250px;
+   }
+   .new-center__slide--container_text{
+      padding-top: 80px;
+   }
+   .new-center__slide--title {
+      font-size: 38px;
+      line-height: 38px;
+   }
+   .new-center__slide--text {
+      font-size: 14px;
+      line-height: 16px;
+   }
+}
+@media(max-width: 1000px) {
+   .new-center__header {
+      height: 200px;
+   }
+   .new-center__slide--container_text{
+      padding-top: 75px;
+   }
+   .new-center__slide--title {
+      font-size: 30px;
+      line-height: 30px;
+      margin-bottom: 5px;
+   }
+   .new-center__slide--text {
+      font-size: 12px;
+      line-height: 14px;
+   }
+}
+@media(max-width: 800px) {
+   .new-center__header {
+      height: 150px;
+   }
+   .new-center__slide--container_text{
+      padding-top: 75px;
+   }
+   .new-center__slide--title {
+      font-size: 26px;
+      line-height: 26px;
+      margin-bottom: 0px;
+      width: 100%;
+      text-align: center;
+   }
+   .new-center__slide--text {
+      display: none;
+   }
+}
+@media(max-width: 600px) {
+   .new-center__header {
+      height: 125px;
+   }
+   .new-center__slide--container_text{
+      padding-top: 65px;
+   }
+   .new-center__slide--title {
+      font-size: 22px;
+      line-height: 22px;
+   }
+}
+@media(max-width: 400px) {
+   .new-center__slide--title {
+      font-size: 18px;
+      line-height: 18px;
+   }
+   
+}
 
 
 

@@ -49,6 +49,11 @@ ul {
 p {
    margin-bottom: 0;
 }
+@media(max-width: 1400px) {
+   ol {
+      margin-bottom: 0rem;
+   }
+}
 main {
    overflow-x: hidden;
 }
@@ -124,7 +129,7 @@ main {
 }
 .main-content__menu_link:hover {
    color: #fff;
-   box-shadow: inset 0 -80px 0 #344D73;
+   box-shadow: inset 0 -80px 0 rgba(52,77,115, .8);
 }
 .main-content__container {
    width: 1200px;
@@ -138,11 +143,14 @@ main {
 
 @media(max-width: 1400px) {
    .main-header {
-      height: 325px;
+      height: 300px;
+   }
+   .main-header__content {
+      padding-top: 100px;
    }
    .main-header__content-title {
-      font-size: 42px;
-      line-height: 42px;
+      font-size: 44px;
+      line-height: 44px;
    }
    .main-header__content-description {
       font-size: 16px;
@@ -158,19 +166,18 @@ main {
 }
 @media(max-width: 1200px) {
    .main-header {
-      height: 300px;
+      height: 250px;
    }
     .main-header__content {
-      width: 90%;
-      padding-top: 100px;
+      padding-top: 80px;
    } 
    .main-header__content-title {
-      font-size: 34px;
-      line-height: 34px;
+      font-size: 38px;
+      line-height: 38px;
    }
    .main-header__content-description {
-      font-size: 15px;
-      line-height: 17px;
+      font-size: 14px;
+      line-height: 16px;
    }
     .main-content__menu {
       height: 60px;
@@ -181,7 +188,7 @@ main {
       line-height: 13px;
    }
    .main-content__menu_link:hover {
-      box-shadow: inset 0 -60px 0 #344D73;
+      box-shadow: inset 0 -60px 0 rgba(52,77,115, .8);
    } 
    .main-content__container {
       width: 800px;
@@ -190,19 +197,20 @@ main {
 }
 @media(max-width: 1000px) {
    .main-header {
-      height: 275px;
+      height: 200px;
    }
     .main-header__content {
-      padding-top: 90px;
+      width: 90%;
+      padding-top: 75px;
    } 
    .main-header__content-title {
       margin-bottom: 10px; 
-      font-size: 28px;
-      line-height: 28px;
+      font-size: 30px;
+      line-height: 30px;
    }
    .main-header__content-description {
-      font-size: 14px;
-      line-height: 16px;
+      font-size: 12px;
+      line-height: 14px;
    }
    .main-content__menu_link {
       padding: 0 15px; 
@@ -216,20 +224,18 @@ main {
 }
 @media(max-width: 800px) {
    .main-header {
-      height: 225px;
+      height: 150px;
    }
     .main-header__content {
       padding-top: 80px;
-      width: 90%;
    } 
    .main-header__content-title {
-      font-size: 24px;
-      line-height: 24px;
-      width: 90%;
+      font-size: 26px;
+      line-height: 26px;
+      margin-bottom: 0;
    }
    .main-header__content-description {
-      font-size: 13px;
-      line-height: 14px;
+      display: none;
    }
    .main-content__menu {
       width: 90%;
@@ -250,7 +256,7 @@ main {
       border-bottom-right-radius: 20px;
    }  
    .main-content__menu_link:hover {
-      box-shadow: inset 0 -50px 0 #344D73;
+      box-shadow: inset 0 -50px 0 rgba(52,77,115, .8);
    } 
    .main-content__container {
       width: 550px;
@@ -259,21 +265,14 @@ main {
 }
 @media(max-width: 600px) {
    .main-header {
-      height: 200px;
+      height: 125px;
    }
     .main-header__content {
-      padding-top: 75px;
+      padding-top: 70px;
    } 
    .main-header__content-title {
-      font-size: 20px;
-      line-height: 20px;
-      width: 100%;
-      margin-bottom: 5px;
-   }
-   .main-header__content-description {
-      width: 100%;
-      font-size: 12px;
-      line-height: 13px;
+      font-size: 22px;
+      line-height: 22px;
    }
    .main-content__container {
       width: 350px;
@@ -281,20 +280,10 @@ main {
    } 
 }
 @media(max-width: 400px) {
-   .main-header {
-      height: 160px;
-   }
-    .main-header__content {
-      width: 95%; 
-      padding-top: 60px;
-   } 
    .main-header__content-title {
       font-size: 18px;
       line-height: 18px;
-   }
-   .main-header__content-description {
-      font-size: 11px;
-      line-height: 12px;
+      width: 100%;
    }
    .main-content__menu {
       width: 100%;
@@ -305,7 +294,7 @@ main {
       line-height: 11px;
    }
    .main-content__menu_link:hover {
-      box-shadow: inset 0 -35px 0 #344D73;
+      box-shadow: inset 0 -35px 0 rgba(52,77,115, .8);
    } 
    .main-content__container {
       width: 90%;
