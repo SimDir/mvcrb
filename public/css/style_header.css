@@ -128,7 +128,7 @@ header {
    line-height: 14px;
 }
 .header_bottom__content_menu_link_btn_title:hover {
-   color: #204680;
+   color: #344D73;
 }
 .title_link_product {
    border-bottom: 1px solid #d0d0d0;
@@ -149,7 +149,7 @@ header {
    color: #444;
 }
 .header_bottom__content_menu_link ul>li>a:hover {
-   color: #204680;
+   color: #344D73;
 }
 
 /* МЕНЮ СПРАВА */
@@ -394,7 +394,6 @@ header {
    } 
 }
 @media(max-width: 1200px) {
-  
    .header {
       width: 95%; 
       height: 80px;
@@ -628,6 +627,9 @@ header {
    }
 }
 @media(max-width: 400px) {
+   .header { 
+      height: 60px;
+   } 
    /* ЛОГО */
    .header__logo {
       margin-right: 10px; 

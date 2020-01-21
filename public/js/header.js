@@ -118,7 +118,7 @@ $( document ).ready(function() {
     $(window).scroll(function() {
         var top = $(this).scrollTop();
         if ( top > 0 ) {
-            $("header").css({'background':'#3B487C'});
+            $("header").css({'background':'#344D73'});
             $(".header_bottom").css({'background':'rgba(255,255,255,1)'});
         } 
         
