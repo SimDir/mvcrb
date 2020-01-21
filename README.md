@@ -5,7 +5,7 @@ mvcrb - Model View Controller RedBeanPHP
 https://redbeanphp.com/index.php
 https://github.com/gabordemooij/redbean
 
-<{ Addcss(/public/css/colutions.css) }> пример как подключить дополнительный стиль к макету
+<{ Addcss(/public/css/solutions.css) }> пример как подключить дополнительный стиль к макету
 <{ Title(Agatech - центр высоких технологий) }> Так устанавливать титл странице
 
 

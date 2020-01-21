@@ -181,13 +181,13 @@ header {
    width: 35px;
    height: 35px;
    margin-right: 5px;
-   filter: opacity(70%);
+   filter: opacity(100%);
    transition: filter .5s;
 }
 .header-right__calc:hover img,
 .header-right__tel:hover img,
 .header-right__social img:hover {
-   filter: opacity(100%);
+   filter: opacity(70%);
 }
  
 .header-right__calc p,
