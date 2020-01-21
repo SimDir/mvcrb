@@ -1,244 +1,248 @@
 <{ Title(Медиа центр - Новости) }>
 <{ Addcss(/public/css/style_newCenter.css) }>
-   <main class="new_center">
-      <div class="new_center__top">
-
-         <div id="carouselExampleIndicators" class="new_center-slider carousel slide" data-ride="carousel" data-interval="10000">
+   <main id="new_center">
+      <section class="new-center__header">
+         <div id="carouselExampleIndicators" class="new-center__slider carousel slide" data-ride="carousel" data-interval="10000">
                <ol class="carousel-indicators">
-                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                </ol>
                
                <div class="carousel-inner">
-                  <a href="/page/news--new-year.html" class="carousel-item active new_center-slide">
+                  <a href="/page/news--new-year.html" class="carousel-item active new-center__slide">
                      <img src="/public/img/new_center/news--new-year.png" alt="news--new-year">
-                     <div class="new_center-slide--container_text">
-                        <h2 class="new_center-slide--title">С Новым Годом!</h2>
+                     <div class="new-center__slide--container_text">
+                        <h2 class="new-center__slide--title">С Новым Годом!</h2>
+                        <p class="new-center__slide--text">Уважаемые наши клиенты! Поздравляем вас с Новым 2020 годом! Традиционно Новый год связывают с надеждами на лучшее в нашей жизни. Пускай же позитивные явления, приносящие вам в уходящем году радость и вдохновение, непременно найдут продолжение в новом</p>
                      </div>
                   </a>
 
-                  <a href="/page/news--best_entrepreneur.html" class="carousel-item new_center-slide">
+                  <a href="/page/news--best_entrepreneur.html" class="carousel-item new-center__slide">
                      <img src="/public/img/new_center/news--best_entrepreneur.png" alt="news--best_entrepreneur">
-                     <div class="new_center-slide--container_text">
-                        <h2 class="new_center-slide--title">Областной конкурс</h2>
-                        <p class="new_center-slide--text">"Лучший предприниматель года"</p>
+                     <div class="new-center__slide--container_text">
+                        <h2 class="new-center__slide--title">Лучший предприниматель года</h2>
+                        <p class="new-center__slide--text">Корпорация развития промышленности и предпринимательства Ульяновской области начала сбор заявок на участие в премии, которая вручается в регионе ежегодно с 2013 года</p>
                      </div>
                   </a>
 
-                  <a href="/page/news--sales_territory.html" class="carousel-item  new_center-slide">
+                  <a href="/page/news--sales_territory.html" class="carousel-item  new-center__slide">
                      <img src="/public/img/new_center/news--territory.png" alt="news--territory">
-                     <div class="new_center-slide--container_text">
-                           <h2 class="new_center-slide--title">ТЕРРИТОРИЯ ПРОДАЖ</h2>
-                           <p class="new_center-slide--text">2019</p>
+                     <div class="new-center__slide--container_text">
+                        <h2 class="new-center__slide--title">ТЕРРИТОРИЯ ПРОДАЖ</h2>
+                        <p class="new-center__slide--text">Компания AGATECH уже более 10 лет занимается и оказывает услуги в сфере дизайна. наши партнеры из компании BeBrand помогут вам официально защитить в РОС патенте</p>
                      </div>
                   </a>
                </div>
               
                <a class="carousel-control-prev sll" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                     <span class="sr-only">Previous</span>
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
                </a>
                <a class="carousel-control-next slr" href="#carouselExampleIndicators" role="button" data-slide="next">
-                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                     <span class="sr-only">Next</span>
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
                </a>
-            </div> 
+         </div> 
+         <!-- new-center__slider -->
+      </section>
 
-      </div>
 
-
-      <div class="new_center__center">
-         <nav class="new_center__center_menu">
-               <a class="new_center__center_menu_link" href="/page/AllNewCenter.html">Все новости</a>
-               <a class="new_center__center_menu_link active_underline" href="/page/NewCenter.html">Новости</a>
-               <a class="new_center__center_menu_link" href="/page/NewCenter_developments.html">События и мероприятия</a>
-               <a class="new_center__center_menu_link" href="/page/NewCenter_video.html">Видео материалы</a>
+      <section class="main-content">
+         <nav class="main-content__menu">
+            <a class="main-content__menu_link" href="/page/AllNewCenter.html">Все новости</a>
+            <a class="main-content__menu_link active_underline" href="/page/NewCenter.html">Новости</a>
+            <a class="main-content__menu_link" href="/page/NewCenter_developments.html">События и мероприятия</a>
+            <a class="main-content__menu_link" href="/page/NewCenter_video.html">Видео материалы</a>
          </nav>
+         <!-- /.main-content__menu -->
 
-         <ul class="data-select">
-            <div class="data-select--wrap">
-
-               <li class="data-select__link" id="data-select__link-2019">
-                  <img src="/public/img/new_center/plus.png" alt="plus" class="icon-plus" id="data-select--plus-2019">
-                  <img src="/public/img/new_center/minus.png" alt="minus" class="icon-minus" id="data-select--minus-2019">
-                  <div class="data-select--down" id="data-select--down-2019">
-                     <span class="data-select-title">2019</span>  
-                     <dl>
-                        <dd>Сентябрь</dd>
-                        <dd>Ноябрь</dd>
-                        <dd>Декабрь</dd>
-                     </dl>
-                  </div> 
-               </li>
-
-               <li class="data-select__link" id="data-select__link-2018">
-                  <img src="/public/img/new_center/plus.png" alt="plus" class="icon-plus" id="data-select--plus-2018">
-                  <img src="/public/img/new_center/minus.png" alt="minus" class="icon-minus" id="data-select--minus-2018">
-                  <div class="data-select--down" id="data-select--down-2018">
-                     <span class="data-select-title">2018</span>  
-                      <dl>
-                        <dd>Сентябрь</dd>
-                        <dd>Ноябрь</dd>
-                        <dd>Декабрь</dd>
-                     </dl> 
-                  </div> 
-               </li>
-
-               <li class="data-select__link" id="data-select__link-2017">
-                  <img src="/public/img/new_center/plus.png" alt="plus" class="icon-plus" id="data-select--plus-2017">
-                  <img src="/public/img/new_center/minus.png" alt="minus" class="icon-minus" id="data-select--minus-2017">
-                  <div class="data-select--down" id="data-select--down-2017">
-                     <span class="data-select-title">2017</span>  
-                     <dl>
-                        <dd>Сентябрь</dd>
-                        <dd>Ноябрь</dd>
-                        <dd>Декабрь</dd>
-                     </dl>
-                  </div> 
-               </li>
-
-            </div>
-            <!-- /.data-select-wrap -->
-         </ul>
-
-         <h6>Новости</h6>
-
-         <div class="new_center__center_news">
-            
-             <!-- С Новым годом! -->
-             <a class="news_block" href="/page/news--new-year.html">
-               <div class="news_block_img">
-                  <img src="/public/img/new_center/news/new_year/new_year.png" alt="new_year">
+         <div class="main-content__container">
+            <ul class="data-select">
+               <div class="data-select--wrap">
+   
+                  <li class="data-select__link" id="data-select__link-2019">
+                     <img src="/public/img/new_center/plus.png" alt="plus" class="icon-plus" id="data-select--plus-2019">
+                     <img src="/public/img/new_center/minus.png" alt="minus" class="icon-minus" id="data-select--minus-2019">
+                     <div class="data-select--down" id="data-select--down-2019">
+                        <span class="data-select-title">2019</span>  
+                        <dl>
+                           <dd>Сентябрь</dd>
+                           <dd>Ноябрь</dd>
+                           <dd>Декабрь</dd>
+                        </dl>
+                     </div> 
+                  </li>
+   
+                  <li class="data-select__link" id="data-select__link-2018">
+                     <img src="/public/img/new_center/plus.png" alt="plus" class="icon-plus" id="data-select--plus-2018">
+                     <img src="/public/img/new_center/minus.png" alt="minus" class="icon-minus" id="data-select--minus-2018">
+                     <div class="data-select--down" id="data-select--down-2018">
+                        <span class="data-select-title">2018</span>  
+                         <dl>
+                           <dd>Сентябрь</dd>
+                           <dd>Ноябрь</dd>
+                           <dd>Декабрь</dd>
+                        </dl> 
+                     </div> 
+                  </li>
+   
+                  <li class="data-select__link" id="data-select__link-2017">
+                     <img src="/public/img/new_center/plus.png" alt="plus" class="icon-plus" id="data-select--plus-2017">
+                     <img src="/public/img/new_center/minus.png" alt="minus" class="icon-minus" id="data-select--minus-2017">
+                     <div class="data-select--down" id="data-select--down-2017">
+                        <span class="data-select-title">2017</span>  
+                        <dl>
+                           <dd>Сентябрь</dd>
+                           <dd>Ноябрь</dd>
+                           <dd>Декабрь</dd>
+                        </dl>
+                     </div> 
+                  </li>
+   
                </div>
-               <div class="news_block__container-text">
-                  <p class="news_block__title">С Новым годом!</p>
-                  <div class="news_block__other">
-                     <span class="news_block__other-title">Новости</span>
-                     <span class="news_block__other-data">31 Декабря 2019</span>
+               <!-- /.data-select-wrap -->
+            </ul>
+   
+            <h6>Новости</h6>
+   
+            <div class="new_center__center_news">
+               
+                <!-- С Новым годом! -->
+                <a class="news_block" href="/page/news--new-year.html">
+                  <div class="news_block_img">
+                     <img src="/public/img/new_center/news/new_year/new_year.png" alt="new_year">
                   </div>
-                  <p class="news_block__text">Уважаемые наши клиенты! Поздравляем вас с Новым 2020 годом! Традиционно Новый год связывают с надеждами на лучшее в нашей жизни. Пускай же позитивные явления, приносящие вам в уходящем году радость и вдохновение, непременно найдут продолжение в новом.</p>
-               </div>
-               <img class="new_center__arrow" src="/public/img/new_center/arrow.png" alt="arrow">
-            </a>
-            <!-- С Новым годом!-->
-
-            <!-- Областной конкурс "Лучший предприниматель года" -->
-            <a class="news_block" href="/page/news--best_entrepreneur.html">
-               <div class="news_block_img">
-                  <img src="/public/img/new_center/news/best_entrepreneur/best_entrepreneur.jpg" alt="best_entrepreneur">
-               </div>
-               <div class="news_block__container-text">
-                  <p class="news_block__title">Областной конкурс "Лучший предприниматель года"</p>
-                  <div class="news_block__other">
-                     <span class="news_block__other-title">Новости</span>
-                     <span class="news_block__other-data">24 Декабря 2019</span>
-                  </div>
-                  <p class="news_block__text">Корпорация развития промышленности и предпринимательства Ульяновской области начала сбор заявок на участие в премии, которая вручается в регионе ежегодно с 2013 года.</p>
-               </div>
-               <img class="new_center__arrow" src="/public/img/new_center/arrow.png" alt="arrow">
-            </a>
-            <!-- Областной конкурс "Лучший предприниматель года"-->
-
-            <!-- Территория продаж -->
-            <a class="news_block" href="/page/news--sales_territory.html">
-               <div class="news_block_img">
-                  <img src="/public/img/new_center/news/sales_territory/sales_territory.jpg" alt="sales_territory">
-               </div>
-               <div class="news_block__container-text">
-                  <p class="news_block__title">Территория продаж</p>
-                  <div class="news_block__other">
-                     <span class="news_block__other-title">Новости</span>
-                     <span class="news_block__other-data">20 Ноября 2019</span>
-                  </div>
-                  <p class="news_block__text">Компания AGATECH уже более 10 лет занимается и оказывает услуги в сфере дизайна. наши партнеры из компании BeBrand помогут вам официально защитить в РОС патенте!</p>
-               </div>
-               <img class="new_center__arrow" src="/public/img/new_center/arrow.png" alt="arrow">
-            </a>
-            <!-- Территория продаж-->
-
-            <!-- Получение официального свидетельства на товарный знак AGATECH. -->
-            <a class="news_block" href="/page/news--off_certificate.html">
-               <div class="news_block_img">
-                  <img src="/public/img/new_center/news/off_certificate/off_certificate.jpg" alt="off_certificate">
-               </div>
-               <div class="news_block__container-text">
-                  <p class="news_block__title">Получение официального свидетельства на товарный знак AGATECH.</p>
-                  <div class="news_block__other">
-                     <span class="news_block__other-title">Новости</span>
-                     <span class="news_block__other-data">23 Сентября 2019</span>
-                  </div>
-                  <p class="news_block__text">
-                     Компания AGATECH уже более 10 лет занимается и оказывает услуги в сфере дизайна. наши партнеры из компании BeBrand помогут вам официально защитить в РОС патенте!
-                  </p>
-               </div>
-               <img class="new_center__arrow" src="/public/img/new_center/arrow.png" alt="arrow">
-            </a>
-            <!-- Получение официального свидетельства на товарный знак AGATECH. -->
-
-            <!-- Переезд в новый современный, комфортабельный офис в Ульяновске. -->
-            <a class="news_block" href="/page/news--new_office.html">
-               <div class="news_block_img">
-                  <img src="/public/img/new_center/news/new_office/new_office.png" alt="new_office">
-               </div>
-               <div class="news_block__container-text">
-                  <p class="news_block__title">Переезд в новый современный, комфортабельный офис в Ульяновске.</p>
-                  <div class="news_block__other">
-                     <span class="news_block__other-title">Новости</span>
-                     <span class="news_block__other-data">24 Августа 2019</span>
-                  </div>
-                  <p class="news_block__text">
-                     24 августа компания AGATECH переехала в новый офис, который находиться по адресу:</br> 
-                     г.Ульяновск, ул. Московское шоссе 55а.</br>
-                     Будем рады видеть вас в гостях.
-                  </p>
-               </div>
-               <img class="new_center__arrow" src="/public/img/new_center/arrow.png" alt="arrow">
-            </a>
-            <!-- Переезд в новый современный, комфортабельный офис в Ульяновске. -->
-
-            <!-- Интервью учредителя компании AGATECH Глеба Асташенкова -->
-            <a class="news_block" href="/page/news--interview_gleb.html">
-            <div class="news_block_img">
-               <img src="/public/img/new_center/news/interview_gleb/interview_gleb.jpg" alt="interview_gleb">
-            </div>
-            <div class="news_block__container-text">
-               <p class="news_block__title">Интервью учредителя компании AGATECH Глеба Асташенкова</p>
-               <div class="news_block__other">
-                  <span class="news_block__other-title">Новости</span>
-                  <span class="news_block__other-data">17 Июля 2019</span>
-               </div>
-               <p class="news_block__text">Хотите узнать больше о жизни нашей компании? Тогда, читайте подробное интервью учредителя компании AGATECH Глеба Асташенкова в июльском номере журнала ДЕЛОВОЕ ОБОЗРЕНИЕ.</p>
-            </div>
-            <img class="new_center__arrow" src="/public/img/new_center/arrow.png" alt="arrow">
-         </a>
-         <!-- Интервью учредителя компании AGATECH Глеба Асташенкова-->
-
-            <!-- Компания АГАТЕЧ получила статус бизнес-партнер 1C-БИТРИКС -->
-            <a class="news_block" href="/page/news--business_partner.html">
-               <div class="news_block_img">
-                  <img src="/public/img/new_center/news/business_partner/business_partner.png" alt="business_partner">
-               </div>
-               <div class="news_block__container-text">
-                  <p class="news_block__title">Компания АГАТЕЧ получила статус бизнес-партнер 1C-БИТРИКС</p>
-                  <div class="news_block__text">
+                  <div class="news_block__container-text">
+                     <p class="news_block__title">С Новым годом!</p>
                      <div class="news_block__other">
                         <span class="news_block__other-title">Новости</span>
-                        <span class="news_block__other-data">27 Ноября 2017</span>
+                        <span class="news_block__other-data">31 Декабря 2019</span>
+                     </div>
+                     <p class="news_block__text">Уважаемые наши клиенты! Поздравляем вас с Новым 2020 годом! Традиционно Новый год связывают с надеждами на лучшее в нашей жизни. Пускай же позитивные явления, приносящие вам в уходящем году радость и вдохновение, непременно найдут продолжение в новом.</p>
+                  </div>
+                  <img class="new_center__arrow" src="/public/img/new_center/arrow.png" alt="arrow">
+               </a>
+               <!-- С Новым годом!-->
+   
+               <!-- Областной конкурс "Лучший предприниматель года" -->
+               <a class="news_block" href="/page/news--best_entrepreneur.html">
+                  <div class="news_block_img">
+                     <img src="/public/img/new_center/news/best_entrepreneur/best_entrepreneur.jpg" alt="best_entrepreneur">
+                  </div>
+                  <div class="news_block__container-text">
+                     <p class="news_block__title">Областной конкурс "Лучший предприниматель года"</p>
+                     <div class="news_block__other">
+                        <span class="news_block__other-title">Новости</span>
+                        <span class="news_block__other-data">24 Декабря 2019</span>
+                     </div>
+                     <p class="news_block__text">Корпорация развития промышленности и предпринимательства Ульяновской области начала сбор заявок на участие в премии, которая вручается в регионе ежегодно с 2013 года.</p>
+                  </div>
+                  <img class="new_center__arrow" src="/public/img/new_center/arrow.png" alt="arrow">
+               </a>
+               <!-- Областной конкурс "Лучший предприниматель года"-->
+   
+               <!-- Территория продаж -->
+               <a class="news_block" href="/page/news--sales_territory.html">
+                  <div class="news_block_img">
+                     <img src="/public/img/new_center/news/sales_territory/sales_territory.jpg" alt="sales_territory">
+                  </div>
+                  <div class="news_block__container-text">
+                     <p class="news_block__title">Территория продаж</p>
+                     <div class="news_block__other">
+                        <span class="news_block__other-title">Новости</span>
+                        <span class="news_block__other-data">20 Ноября 2019</span>
+                     </div>
+                     <p class="news_block__text">Компания AGATECH уже более 10 лет занимается и оказывает услуги в сфере дизайна. наши партнеры из компании BeBrand помогут вам официально защитить в РОС патенте!</p>
+                  </div>
+                  <img class="new_center__arrow" src="/public/img/new_center/arrow.png" alt="arrow">
+               </a>
+               <!-- Территория продаж-->
+   
+               <!-- Получение официального свидетельства на товарный знак AGATECH. -->
+               <a class="news_block" href="/page/news--off_certificate.html">
+                  <div class="news_block_img">
+                     <img src="/public/img/new_center/news/off_certificate/off_certificate.jpg" alt="off_certificate">
+                  </div>
+                  <div class="news_block__container-text">
+                     <p class="news_block__title">Получение официального свидетельства на товарный знак AGATECH.</p>
+                     <div class="news_block__other">
+                        <span class="news_block__other-title">Новости</span>
+                        <span class="news_block__other-data">23 Сентября 2019</span>
                      </div>
                      <p class="news_block__text">
-                        Технологии 1C-БИТРИКС и БИТРИКС24 в разработке сайтов и магазинов, а также CRM системы с каждым годом.
+                        Компания AGATECH уже более 10 лет занимается и оказывает услуги в сфере дизайна. наши партнеры из компании BeBrand помогут вам официально защитить в РОС патенте!
                      </p>
                   </div>
+                  <img class="new_center__arrow" src="/public/img/new_center/arrow.png" alt="arrow">
+               </a>
+               <!-- Получение официального свидетельства на товарный знак AGATECH. -->
+   
+               <!-- Переезд в новый современный, комфортабельный офис в Ульяновске. -->
+               <a class="news_block" href="/page/news--new_office.html">
+                  <div class="news_block_img">
+                     <img src="/public/img/new_center/news/new_office/new_office.png" alt="new_office">
+                  </div>
+                  <div class="news_block__container-text">
+                     <p class="news_block__title">Переезд в новый современный, комфортабельный офис в Ульяновске.</p>
+                     <div class="news_block__other">
+                        <span class="news_block__other-title">Новости</span>
+                        <span class="news_block__other-data">24 Августа 2019</span>
+                     </div>
+                     <p class="news_block__text">
+                        24 августа компания AGATECH переехала в новый офис, который находиться по адресу:</br> 
+                        г.Ульяновск, ул. Московское шоссе 55а.</br>
+                        Будем рады видеть вас в гостях.
+                     </p>
+                  </div>
+                  <img class="new_center__arrow" src="/public/img/new_center/arrow.png" alt="arrow">
+               </a>
+               <!-- Переезд в новый современный, комфортабельный офис в Ульяновске. -->
+   
+               <!-- Интервью учредителя компании AGATECH Глеба Асташенкова -->
+               <a class="news_block" href="/page/news--interview_gleb.html">
+               <div class="news_block_img">
+                  <img src="/public/img/new_center/news/interview_gleb/interview_gleb.jpg" alt="interview_gleb">
+               </div>
+               <div class="news_block__container-text">
+                  <p class="news_block__title">Интервью учредителя компании AGATECH Глеба Асташенкова</p>
+                  <div class="news_block__other">
+                     <span class="news_block__other-title">Новости</span>
+                     <span class="news_block__other-data">17 Июля 2019</span>
+                  </div>
+                  <p class="news_block__text">Хотите узнать больше о жизни нашей компании? Тогда, читайте подробное интервью учредителя компании AGATECH Глеба Асташенкова в июльском номере журнала ДЕЛОВОЕ ОБОЗРЕНИЕ.</p>
                </div>
                <img class="new_center__arrow" src="/public/img/new_center/arrow.png" alt="arrow">
             </a>
-            <!-- Компания АГАТЕЧ получила статус бизнес-партнер 1C-БИТРИКС -->
-
+            <!-- Интервью учредителя компании AGATECH Глеба Асташенкова-->
+   
+               <!-- Компания АГАТЕЧ получила статус бизнес-партнер 1C-БИТРИКС -->
+               <a class="news_block" href="/page/news--business_partner.html">
+                  <div class="news_block_img">
+                     <img src="/public/img/new_center/news/business_partner/business_partner.png" alt="business_partner">
+                  </div>
+                  <div class="news_block__container-text">
+                     <p class="news_block__title">Компания АГАТЕЧ получила статус бизнес-партнер 1C-БИТРИКС</p>
+                     <div class="news_block__text">
+                        <div class="news_block__other">
+                           <span class="news_block__other-title">Новости</span>
+                           <span class="news_block__other-data">27 Ноября 2017</span>
+                        </div>
+                        <p class="news_block__text">
+                           Технологии 1C-БИТРИКС и БИТРИКС24 в разработке сайтов и магазинов, а также CRM системы с каждым годом.
+                        </p>
+                     </div>
+                  </div>
+                  <img class="new_center__arrow" src="/public/img/new_center/arrow.png" alt="arrow">
+               </a>
+               <!-- Компания АГАТЕЧ получила статус бизнес-партнер 1C-БИТРИКС -->
+   
+            </div>
+            <!-- new_center__center_news -->
          </div>
-         <!-- new_center__center_news -->
-      </div>
-      <!-- new_center__center -->
+         <!-- /.main-content__container -->
+      </section>
+      <!-- main-content -->
    </main>
    <!-- new_center -->
 
