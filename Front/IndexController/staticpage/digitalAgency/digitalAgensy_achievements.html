@@ -1,21 +1,32 @@
 <{ Title(Agatech - Достижения) }>
 <{ Addcss(/public/css/style_digitalAgatech.css) }>
- <div class="digital-agatech">
-      <img class="digitalAgatechBGC-achievments" src="/public/img/digital_agency/achievments.png" alt="achievments">
-      <div class="digital-agatech__content_top">
-         <h2>Достижения</h2>
+<main id="digital-agatech">
+   <section class="main-header">
+      <img src="/public/img/digital_agency/achievments.png" alt="achievments">
+      <div class="main-header__content">
+         <h2 class="main-header__content-title">Достижения</h2>
+         <p class="main-header__content-description">
+            Галерея работ выполненная нашей компанией с возможностью 
+            выбора кейсов по категориям, просмотром живых сайтов и продуктов
+            и описанием процесса выполнения задачи.
+         </p>
+         <!-- /.main-header__content-description -->
       </div>
-      
-      
-      <div class="digital-agatech__content_center_digAg achievements_bgc">
-         <nav class="digital-agatech__content_top_menu_digAg">
-           <a class="digital-agatech__content_top_menu_link_digAg" href="/page/digitalAgency.html">О компании</a>
-           <a class="digital-agatech__content_top_menu_link_digAg" href="/page/digitalAgensy_team.html">Команда</a>
-           <a class="digital-agatech__content_top_menu_link_digAg active_underline" href="/page/digitalAgensy_achievements.html">Достижения</a>
-           <a class="digital-agatech__content_top_menu_link_digAg" href="/page/digitalAgensy_contacts.html">Контакты</a>
-           <a class="digital-agatech__content_top_menu_link_digAg" href="/page/digitalAgensy_files.html">Файлы</a>
-         </nav>
+      <!-- main-header__content -->
+   </section>
+   <!-- /.main-header -->
 
+   <section class="main-content achievements_bgc">
+      <nav class="main-content__menu">
+         <a class="main-content__menu_link" href="/page/digitalAgency.html">О компании</a>
+         <a class="main-content__menu_link" href="/page/digitalAgensy_team.html">Команда</a>
+         <a class="main-content__menu_link  active_underline" href="/page/digitalAgensy_achievements.html">Достижения</a>
+         <a class="main-content__menu_link" href="/page/digitalAgensy_contacts.html">Контакты</a>
+         <a class="main-content__menu_link" href="/page/digitalAgensy_files.html">Файлы</a>
+      </nav>
+      <!-- /.main-content__menu -->
+
+      <div class="main-content__container">
          <div class="achievements">
             <div class="achievements__row-top">
                <div class="achievements__row-top--column-left">
@@ -54,13 +65,12 @@
                   <img src="/public/img/digital_agency/achivments/ach-12.svg" alt="ach" class="ach">
                </div>
             </div>
-
-            
-            
          </div>
       </div>
-      <!-- digital-agatech__content_center_digAg contacts_bgc -->
-   </div>
+      <!-- /.main-content__container -->
+   </section>
+   <!-- main-content -->
+</main>
 <!-- digital-agatech -->
 
 <{addjs(/public/js/achievements.js)}>

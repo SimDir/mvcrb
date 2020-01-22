@@ -1,1516 +1,341 @@
-/*DIGITAL AGATECH */
-.digital-agatech {
-   overflow-x: hidden;
-}
-.bgc-gradient {
-   background: linear-gradient(180deg, rgba(74, 121, 189, 0) 0%, #4A79BD 20%);
-}
-@media(max-width: 1000px) {
-   .bgc-gradient {
-      background: linear-gradient(180deg, rgba(74, 121, 189, 0) 0, #4A79BD 15%);
-   }
-}
-@media(max-width: 800px) {
-   .bgc-gradient {
-      background: linear-gradient(180deg, rgba(74, 121, 189, 0) -0, #4A79BD 10%);
-   }
-}
-.digitalAgatechBGC{
-   position: absolute;
-   top: 0; 
-   left: 0;
-   width: 100%;
-   height: 800px;
-   z-index: -1;
-}
-@media(max-width: 1400px) {
-   .digitalAgatechBGC {
-      height: 700px;
-   }
-}
-@media(max-width: 1200px) {
-   .digitalAgatechBGC {
-      height: 600px;
-   }
-}
-@media(max-width: 1000px) {
-   .digitalAgatechBGC{
-      height: 500px;
-   }
-}
-@media(max-width: 800px) {
-   .digitalAgatechBGC{
-      height: 400px;
-   }
-}
-
-
-.digital-agatech__main_top{
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   width: 100%;
-   margin: 0 auto;
-   height: 400px;
-   padding-top: 100px;
-}
-.digital-agatech__main_top img {
-   width: 500px;
-   margin-bottom:15px;
-}
-.digital-agatech__main_top h1{
-   font-size: 50px;
-   line-height: 50px;
-   color: #fff;
-   text-align: center;
-}
-@media(max-width: 1400px) {
-   .digital-agatech__main_top{
-      height: 360px;
-   }
-   .digital-agatech__main_top img {
-      width: 450px;
-   }
-   .digital-agatech__main_top h1{
-      font-size: 45px;
-      line-height: 45px;
-   }
-}
-@media(max-width: 1200px) {
-   .digital-agatech__main_top{
-      height: 330px;
-   }
-   .digital-agatech__main_top img {
-      width: 400px;
-   }
-   .digital-agatech__main_top h1{
-      font-size: 40px;
-      line-height: 40px;
-   }
-}
-@media(max-width: 1000px) {
-   .digital-agatech__main_top{
-      height: 300px;
-   }
-   .digital-agatech__main_top img {
-      width: 350px;
-      margin-bottom:10px;
-   }
-   .digital-agatech__main_top h1{
-      font-size: 35px;
-      line-height: 35px;
-   }
-}
-@media(max-width: 900px) {
-   .digital-agatech__main_top{
-      padding-top: 80px;
-   }
-}
-@media(max-width: 700px) {
-   .digital-agatech__main_top{
-      height: 250px;
-   }
-   .digital-agatech__main_top img {
-      width: 300px;  
-   }
-   .digital-agatech__main_top h1{
-      font-size: 30px;
-      line-height: 30px;
-   }
-}
-@media(max-width: 600px) {
-   .digital-agatech__main_top img {
-      width: 250px;
-      margin-bottom:10px;
-   }
-   .digital-agatech__main_top h1{
-      font-size: 25px;
-      line-height: 25px;
-   }
-}
-@media(max-width: 500px) {
-   .digital-agatech__main_top{
-      height: 180px;
-      padding-top: 60px;
-   }
-   .digital-agatech__main_top img {
-      width: 200px;
-      margin-bottom:5px;
-   }
-   .digital-agatech__main_top h1{
-      font-size: 20px;
-      line-height: 20px;
-   }
-}
-@media(max-width: 400px) {
-   .digital-agatech__main_top{
-      height: 200px;
-      width: 90%;
-   }
-   .digital-agatech__main_top img {
-      width: 80%;
-      margin-bottom:5px;
-   }
-   .digital-agatech__main_top h1{
-      font-size: 18px;
-      line-height: 18px;
-   }
-}
-
-
-.digital-agatech__content_top_menu {
-   margin: 50px 0 50px;
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   align-items: center;
-   flex-wrap: wrap;
-   text-align: center;
-}
-.digital-agatech__content_top_menu_link{
-   text-decoration: none;
-   padding: 0 20px;
-   font-size: 16px;
-   line-height: 16px;
-   color: #FFFFFF;
-   cursor: pointer;
-   transition: all .2s ease;
-}
-.digital-agatech__content_top_menu_link:hover{
-   color: #fff;
-   text-decoration: underline;
-}
-@media(max-width: 1400px) {
-   .digital-agatech__content_top_menu_link{
-      font-size: 14px;
-      line-height: 14px;
-   }
-}
-@media(max-width: 1000px) {
-   .digital-agatech__content_top_menu {
-      margin: 40px 0 40px;
-   }
-}
-@media(max-width: 700px) {
-   .digital-agatech__content_top_menu {
-      margin: 30px 0 30px;
-      
-   }
-   .digital-agatech__content_top_menu_link{
-      padding: 10px 20px;
-   }
-}
-@media(max-width: 400px) {
-   .digital-agatech__content_top_menu_link{
-      padding: 5px 10px;
-      font-size: 12px;
-      line-height: 12px;
-   }
-}
-
-.digital-agatech__content_center{
-   width: 90%;
-   margin: 0 auto;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   
-}
-@media(max-width: 900px) {
-   .digital-agatech__content_center{
-      width: 100%;
-   }
-}
-
-.digital-agatech__container-arrow {
-   position: relative;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   width: 100%;
-   margin: 20px 0 10px;
-}
-.arrow_graphic-right {
-   position: absolute;
-   width: 40px;
-   height: 40px;
-   right: 0px;
-   cursor: pointer;
-   z-index: 1;
-   display: none;
-}
-.arrow_graphic-left {
-   position: absolute;
-   width: 40px;
-   height: 40px;
-   transform: rotate(180deg);
-   left: 0px;
-   cursor: pointer;
-   z-index: 1;
-   display: none;
-}
-.digital-agatech__container-arrow h6 {
-   align-self: flex-start;
-   text-align: center;
-   width: 90%;
-   margin: 0px auto 10px;
-   font-size: 30px;
-   line-height: 30px;
-   color: #FFFFFF;
-}
-@media(max-width: 1400px) {
-   .digital-agatech__container-arrow h6{
-      font-size: 25px;
-      line-height: 25px;
-   }
-}
-@media(max-width: 800px) {
-   .digital-agatech__container-arrow h6{
-      font-size: 20px;
-      line-height: 20px;
-      margin: 0px auto 20px;
-   }
-}
-.digital-agatech__container-graphic {
-   width: 1165px;
-   overflow: hidden;
-   margin: 0px 0;
-}
-.digital-agatech__graphic {
-   background: url(../img/digital_agency/graphic.svg) no-repeat;
-   background-size: 100%;
-   background-position: cover;
-   width: 1700px;
-   height: 650px;
-   position: relative;
-   transition: all .5s;
-   right: 0;
-}
-.digital-agatech__graphic-item--title {
-   color: #fff;
-   font-size: 25px;
-   line-height: 25px;
-   margin-bottom: 5px;
-   font-family: 'Helvetica Neue Cyr Roman';
-   font-weight: bold;
-}
-.digital-agatech__graphic-item--description {
-   color: #fff;
-   font-size: 16px;
-   line-height: 16px;
-   font-family: 'Helvetica Neue Cyr Roman';
-}
-.digital-agatech__graphic button {
-   font-family: 'Helvetica Neue Cyr Roman';
-   color: #98BAED;
-   font-size: 16px;
-   line-height: 16px;
-   background: transparent;
-   border: none;
-   text-decoration: underline;
-   margin-top: 5px;
-   outline: none;
-}
-.digital-agatech__graphic-top {
-   width: 100%;
-   height: 50%;
-   display: flex;
-   justify-content: flex-start;
-   align-items: flex-start;
-   padding-left: 36px;
-   padding-top: 45px;
-}
-.digital-agatech__graphic-bottom {
-   width: 100%;
-   height: 50%;
-   display: flex;
-   justify-content: flex-start;
-   align-items: flex-start;
-   padding-left: 176px;
-}
-.graphic-top-item-1, .graphic-top-item-3, .graphic-top-item-5, .graphic-top-item-7, .graphic-top-item-9 {
-   width: 285px;
-   padding: 5px 10px 0px 10px;
-   transition: opacity 1s;
-}
-.graphic-top-item-9 {
-   padding: 5px 30px 0px 10px;
-   opacity: 0;
-}
-.graphic-top-item-11 {
-   width: 220px;
-   padding: 65px 10px 0px 10px;
-   opacity: 0;
-   transition: opacity 1s;
-}
-
-.graphic-top-item-2, .graphic-top-item-4, .graphic-top-item-6, .graphic-top-item-8, .graphic-top-item-10 {
-   width: 285px;
-   transition: opacity 1s;
-}
-.graphic-top-item-2 {
-   padding: 30px 10px 0px 10px;
-}
-.graphic-top-item-4 {
-   padding: 25px 10px 0px 10px;
-}
-.graphic-top-item-6 {
-   padding: 20px 10px 0px 10px;
-}
-.graphic-top-item-8 {
-   padding: 10px 10px 0px 10px;
-   opacity: 0;
-}
-.graphic-top-item-10 {
-   padding: 0px 10px 0px 10px;
-   opacity: 0;
-}
-@media(max-width: 1500px) {
-   .arrow_graphic-right {
-      width: 35px;
-      height: 35px;
-   }
-   .arrow_graphic-left {
-      width: 35px;
-      height: 35px;
-   }
-   .digital-agatech__container-graphic {
-      width: 865px;
-      margin: 0px 0;
-   }
-   .digital-agatech__graphic {
-      width: 1270px;
-      height: 500px;
-   }
-   .digital-agatech__graphic-item--title {
-      font-size: 20px;
-      line-height: 20px;
-   }
-   .digital-agatech__graphic-item--description {
-      font-size: 14px;
-      line-height: 14px;
-   }
-   .digital-agatech__graphic-top {
-      padding-left: 28px;
-      padding-top: 30px;
-   }
-   .digital-agatech__graphic-bottom {
-      padding-left: 132px;
-   }
-
-   .graphic-top-item-1, .graphic-top-item-3, .graphic-top-item-5, .graphic-top-item-7, .graphic-top-item-9 {
-      width: 235px;
-      padding: 5px 10px 0px 10px;
-   }
-   .graphic-top-item-9 {
-      padding: 5px 30px 0px 10px;
-   }
-   .graphic-top-item-11 {
-      width: 198px;
-      padding: 60px 10px 0px 10px;
-   }
-
-   .graphic-top-item-2, .graphic-top-item-4, .graphic-top-item-6, .graphic-top-item-8, .graphic-top-item-10 {
-      width: 213px;
-   }
-   .digital-agatech__graphic button {
-      font-size: 14px;
-      line-height: 14px;
-   }
-}
-@media(max-width: 1100px) {
-   .arrow_graphic-right {
-      width: 30px;
-      height: 30px;
-   }
-   .arrow_graphic-left {
-      width: 30px;
-      height: 30px;
-   }
-   .digital-agatech__container-graphic {
-      width: 865px;
-      width: 700px;
-   }
-   .digital-agatech__graphic {
-      width: 1025px;
-      height: 400px;
-   }
-   .digital-agatech__graphic-item--title {
-      font-size: 18px;
-      line-height: 18px;
-      margin-bottom: 3px;
-   }
-   .digital-agatech__graphic-item--description {
-      font-size: 12px;
-      line-height: 12px;
-   }
-   .digital-agatech__graphic-top {
-      padding-left: 20px;
-      padding-top: 25px;
-   }
-   .digital-agatech__graphic-bottom {
-      padding-left: 107px;
-   }
-   .graphic-top-item-1, .graphic-top-item-3, .graphic-top-item-5, .graphic-top-item-7, .graphic-top-item-9 {
-      width: 172px;
-      padding: 0px 5px 0px 5px;
-   }
-   .graphic-top-item-9 {
-      padding: 0px 55px 0px 5px;
-   }
-   .graphic-top-item-11 {
-      width: 140px;
-      padding: 45px 5px 0px 5px;
-   }
-
-   .graphic-top-item-2, .graphic-top-item-4, .graphic-top-item-6, .graphic-top-item-8, .graphic-top-item-10 {
-      width: 173px;
-   }
-   .graphic-top-item-2 {
-      padding: 30px 5px 0px 5px;
-   }
-   .graphic-top-item-4 {
-      padding: 25px 5px 0px 5px;
-   }
-   .graphic-top-item-6 {
-      padding: 20px 5px 0px 5px;
-   }
-   .graphic-top-item-8 {
-      padding: 10px 5px 0px 5px;
-   }
-   .graphic-top-item-10 {
-      padding: 0px 5px 0px 5px;
-   }
-   .digital-agatech__graphic button {
-      font-size: 12px;
-      line-height: 12px;
-      margin-top: 3px;
-   }
-}
-@media(max-width: 800px) {
-   .digital-agatech__container-arrow {
-      margin: 0px 0 10px;
-   }
-   .arrow_graphic-right {
-      display: none;
-   }
-   .arrow_graphic-left {
-      display: none;
-   }
-   .digital-agatech__container-graphic {
-      width: 90%;
-      margin: 0 auto;
-   }
-   .digital-agatech__graphic {
-      background: none;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: flex-start;
-      width: 100%;
-      height: initial;
-      background: rgba(255,255,255,.1);
-   }
-   .digital-agatech__graphic-top {
-      width: 50%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      padding-left: 0px;
-      padding-top: 0px;
-      padding: 40px;
-   }
-   .digital-agatech__graphic-bottom {
-      width: 50%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      padding-left: 0px;
-      padding: 40px;
-   }
-    .digital-agatech__graphic-item--title {
-      font-size: 20px;
-      line-height: 20px;
-      margin-bottom: 10px;
-   }
-   .digital-agatech__graphic-item--description {
-      font-size: 14px;
-      line-height: 14px;
-      
-      overflow: hidden;  
-   }
-   .graphic-top-item-1, .graphic-top-item-3, .graphic-top-item-5, .graphic-top-item-7, .graphic-top-item-9, .graphic-top-item-11 {
-      width: 100%;
-      height: 112px;
-      padding: 0px;
-      opacity: 1;
-      margin-bottom: 20px;
-   }
-   .graphic-top-item-2, .graphic-top-item-4, .graphic-top-item-6, .graphic-top-item-8, .graphic-top-item-10 {
-      width: 100%;
-      height: 112px;
-      padding: 0px;
-      opacity: 1;
-      margin-bottom: 20px;
-   }
-   .graphic-top-item-11{
-      font-size: 14px;
-      line-height: 14px;
-      height: 42px;
-      overflow: hidden;  
-   }
-}
-@media(max-width: 600px) {
-   .digital-agatech__graphic-top {
-      padding: 25px;
-   }
-   .digital-agatech__graphic-bottom {
-      padding: 25px;
-   }
-    .digital-agatech__graphic-item--title {
-      font-size: 18px;
-      line-height: 18px;
-      margin-bottom: 8px;
-   }
-   .digital-agatech__graphic-item--description {
-      font-size: 12px;
-      line-height: 12px;
-   }
-   .graphic-top-item-1, .graphic-top-item-3, .graphic-top-item-5, .graphic-top-item-7, .graphic-top-item-9, .graphic-top-item-11 {
-      margin-bottom: 15px;
-      height: 96px;
-   }
-   .graphic-top-item-2, .graphic-top-item-4, .graphic-top-item-6, .graphic-top-item-8, .graphic-top-item-10 {
-      margin-bottom: 15px;
-      height: 96px;
-   }
-   .graphic-top-item-11 {
-      font-size: 12px;
-      line-height: 12px;
-      height: 36px; 
-   }
-}
-@media(max-width: 450px) {
-   .digital-agatech__graphic-top {
-      padding: 15px;
-   }
-   .digital-agatech__graphic-bottom {
-      padding: 15px;
-   }
-    .digital-agatech__graphic-item--title {
-      font-size: 16px;
-      line-height: 16px;
-      margin-bottom: 6px;
-   }
-   .digital-agatech__graphic-item--description {
-      font-size: 11px;
-      line-height: 11px; 
-   }
-   .graphic-top-item-1, .graphic-top-item-3, .graphic-top-item-5, .graphic-top-item-7, .graphic-top-item-9, .graphic-top-item-11 {
-      margin-bottom: 10px;
-      height: 88px;
-   }
-   .graphic-top-item-2, .graphic-top-item-4, .graphic-top-item-6, .graphic-top-item-8, .graphic-top-item-10 {
-      margin-bottom: 10px;
-      height: 88px;
-   }
-   .graphic-top-item-11 {
-      font-size: 11px;
-      line-height: 11px;
-      height: 33px; 
-   }
-}
-
-.digital-agatech__slider-bottom {
-   width: 1000px;
-   height: 230px;
-   margin-top: -50px;
-   margin-bottom: 150px;
-   position: relative;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-}
-.pagination {
-   position: absolute;
-   top: 110%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
-.pagination-item {
-   width: 10px;
-   height: 10px;
-   background-color: #fff;
-   margin: 0 5px;
-   clip-path: circle();
-   opacity: .5;
-   cursor: pointer;
-   transition: .4s;
-}
-#pagination-item-1 {
-   opacity: 1;
-}
-.digital-agatech__slider-bottom--title, .first-customers__title, .public-activity__title {
-   color: #fff;
-   font-family: 'Helvetica Neue Cyr Roman';
-   font-size: 30px;
-   line-height: 30px;
-   margin-bottom: 20px;
-   text-align: center;
-   width: 90%;
-}
-.digital-agatech__slider-bottom--description {
-   display: none;
-}
-#slide-bottom-1 {
-   display: block;
-}
-.digital-agatech__slider-bottom--description p{
-   color: #fff;
-   font-family: 'Helvetica Neue Cyr Roman';
-   font-size: 16px;
-   line-height: 22px;
-}
-.digital-agatech__slider-bottom--description p::first-letter {
-   padding-left: 25px;
-}
-.digital-agatech__slider-bottom--list {
-   width: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: flex-start;
-}
-.digital-agatech__slider-bottom--list ul {
-   list-style-type: none;
-   min-width: 30%;
-   padding: 10px 20px 0 20px;
-}
-.digital-agatech__slider-bottom--list li {
-   color: #fff;
-   font-family: 'Helvetica Neue Cyr Roman';
-   font-size: 14px;
-   line-height: 14px;
-   padding: 3px 0;
-}
-.digital-agatech__first-customers {
-   width: 1000px;
-   margin: 0 auto 80px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-}
-.first-customers__content {
-   width: 90%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-wrap: wrap;
-}
-.first-customers__content img {
-   min-width: 100px;
-   height: 100px; 
-   margin: 10px;
-}
-.first-customers__content img:nth-child(9) {
-   width: 80px;
-   height: 60px;
-} 
-.digital-agatech__public-activity {
-   width: 1000px;
-   margin: 0 auto 80px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   text-align: center;
-}
-.public-activit__description {
-   color: #fff;
-   font-family: 'Helvetica Neue Cyr Roman';
-   font-size: 16px;
-   line-height: 22px;
-   text-align: left;
-}
-@media(max-width: 1400px) {
-   .digital-agatech__slider-bottom {
-      width: 800px;
-       height: 200px;
-      margin-top: -50px;
-      margin-bottom: 110px; 
-   }
-   .pagination-item {
-      width: 8px;
-      height: 8px;
-      margin: 0 4px;
-   }
-   .digital-agatech__slider-bottom--title, .first-customers__title, .public-activity__title {
-      font-size: 26px;
-      line-height: 26px;
-      margin-bottom: 15px;
-   }
-   .digital-agatech__slider-bottom--description p{
-      font-size: 14px;
-      line-height: 20px;
-   }
-   .digital-agatech__slider-bottom--description p::first-letter {
-      padding-left: 20px;
-   }
-   .digital-agatech__slider-bottom--list ul {
-      min-width: 30%;
-      padding: 8px 15px 0 15px;
-   }
-   .digital-agatech__slider-bottom--list li {
-      font-size: 12px;
-      line-height: 12px;
-      padding: 2px 0;
-   }
-   .digital-agatech__first-customers {
-      width: 800px;
-      margin: 0 auto 60px;
-   }
-   .first-customers__content img {
-      min-width: 90px;
-      height: 90px; 
-      margin: 8px;
-   }
-   .first-customers__content img:nth-child(9) {
-      width: 70px;
-      height: 50px;
-   } 
-   .digital-agatech__public-activity {
-      width: 800px;
-      margin: 0 auto 60px;
-   }
-   .public-activit__description {
-      font-size: 14px;
-      line-height: 20px;
-   }
-}
-@media(max-width: 900px) {
-   .digital-agatech__slider-bottom {
-      width: 90%;
-       height: 200px;
-      margin-top: -40px;
-      margin-bottom: 90px; 
-   }
-   .digital-agatech__slider-bottom--title, .first-customers__title, .public-activity__title {
-      font-size: 22px;
-      line-height: 22px;
-   }
-   .digital-agatech__slider-bottom--description p{
-      font-size: 12px;
-      line-height: 18px;
-   }
-   .digital-agatech__slider-bottom--description p::first-letter {
-      padding-left: 15px;
-   }
-   .digital-agatech__slider-bottom--list ul {
-      padding: 6px 10px 0 10px;
-   }
-   .digital-agatech__slider-bottom--list li {
-      font-size: 11px;
-      line-height: 11px;
-      padding: 2px 0;
-   }
-   .digital-agatech__first-customers {
-      width: 90%;
-      margin: 0 auto 40px;
-   }
-   .first-customers__content img {
-      min-width: 17%;
-      height: 80px; 
-      margin: 8px;
-   }
-   .first-customers__content img:nth-child(9) {
-      min-width: 12%;
-      height: 40px;
-   } 
-   .digital-agatech__public-activity {
-      width: 90%;
-      margin: 0 auto 40px;
-   }
-   .public-activit__description {
-      font-size: 12px;
-      line-height: 18px;
-   }
-}
-@media(max-width: 800px) {
-   .digital-agatech__slider-bottom {
-      width: 90%;
-      height: 200px;
-      margin-top: 0px;
-      margin-bottom: 70px; 
-   }
-}
-@media(max-width: 600px) {
-   .digital-agatech__slider-bottom {
-      height: 250px;
-      margin-bottom: 50px; 
-   }
-   .pagination {
-      top: 105%;
-   }
-   .pagination-item {
-      width: 6px;
-      height: 6px;
-      margin: 0 3px;
-   } 
-   .digital-agatech__slider-bottom--title, .first-customers__title, .public-activity__title {
-      font-size: 20px;
-      line-height: 20px;
-       margin-bottom: 10px; 
-   }
-   .digital-agatech__first-customers {
-      margin: 0 auto 30px;
-   }
-   .digital-agatech__public-activity {
-      margin: 0 auto 30px;
-   }
-}
-@media(max-width: 400px) {
-   .digital-agatech__slider-bottom {
-      height: 280px;
-      margin-bottom: 40px; 
-   }
-   .digital-agatech__slider-bottom--title, .first-customers__title, .public-activity__title {
-      font-size: 18px;
-      line-height: 18px;
-       margin-bottom: 8px; 
-   }
-   .digital-agatech__first-customers {
-      margin: 0 auto 20px;
-   }
-   .digital-agatech__public-activity {
-      margin: 0 auto 20px;
-   }
-   .first-customers__content img {
-      width: 40%;
-      height: initial; 
-   }
-}
-
-.digital-agatech__content_center_block3 {
-   position: relative;
-   width: 100%;
-   height: 1300px;
-} 
-.mountains{
-   width: 100%;
-   height: 900px;
-   background-color: #4A79BD;
-}
-.undermountains {
-   width: 100%;
-   height: 850px;
-   position: absolute;
-   bottom: 0;
-   left: 0;
-}
-.container-culture_and_contacts {
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   width: 100%;
-   height: 700px;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-around;
-}
-.culture {
-   width: 600px;
-   margin: 0 auto;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-}
-.culture-title {
-   font-size: 30px;
-   line-height: 30px;
-   color: #8D92A5;
+/*DIGITAL AGATECH MAIN */
+.digitalAgatech--bgc {
+   background-color: #fff;;   
+   box-shadow: 0px 10px 20px rgba(0,0,0, .1);
    margin-bottom: 50px;
 }
-.culture-content {
+.digitalAgatech--wrap {
+   padding: 50px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.digitalAgatech-history,
+.digitalAgatech-clients,
+.digitalAgatech-firstStep,
+.digitalAgatech-newSolutions,
+.digitalAgatech-lvlup,
+.digitalAgatech-newpeak,
+.digitalAgatech-services,
+.digitalAgatech-tasks,
+.digitalAgatech-culture,
+.digitalAgatech-contacts {
    width: 100%;
    display: flex;
-   flex-direction: row;
-   justify-content: space-between;
+   flex-direction: column;
    align-items: flex-start;
+   margin-bottom: 80px;
 }
-.culture-item {
+.digitalAgatech-history__title, 
+.digitalAgatech-clients__title,
+.digitalAgatech-firstStep__title,
+.digitalAgatech-newSolutions__title,
+.digitalAgatech-lvlup__title,
+.digitalAgatech-newpeak__title,
+.digitalAgatech-services__title,
+.digitalAgatech-tasks__title,
+.digitalAgatech-culture__title {
+   color: #000;
+   font-size: 30px;
+   line-height: 30px;
+   font-weight: bold;
+   margin-bottom: 30px;
+   font-family: 'Helvetica Neue Cyr Roman';
+}
+.digitalAgatech-history__description,
+.digitalAgatech-firstStep__description,
+.digitalAgatech-newSolutions__description,
+.digitalAgatech-lvlup__description,
+.digitalAgatech-newpeak__description,
+.digitalAgatech-services__description{
+   color: #000;
+   font-size: 18px;
+   line-height: 18px;
+   margin-bottom: 50px;
+   font-family: 'Helvetica Neue Cyr Roman';
+}
+.digitalAgatech-history img {
+   width: 100%;
+}
+
+.digitalAgatech-clients__img--wrap {
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+.digitalAgatech-clients__img--wrap img {
+   margin: 30px 50px;
+}
+.digitalAgatech-clients__img--wrap img:nth-child(1) {
+   width: 160px;
+   height: 80px;
+}
+.digitalAgatech-clients__img--wrap img:nth-child(2) {
+   width: 90px;
+   height: 80px;
+}
+.digitalAgatech-clients__img--wrap img:nth-child(3) {
+   width: 150px;
+   height: 80px;
+}
+.digitalAgatech-clients__img--wrap img:nth-child(4) {
+   width: 85px;
+   height: 85px;
+}
+.digitalAgatech-clients__img--wrap img:nth-child(5) {
+   width: 200px;
+   height: 80px;
+}
+.digitalAgatech-clients__img--wrap img:nth-child(6) {
+   width: 100px;
+   height: 100px;
+}
+.digitalAgatech-clients__img--wrap img:nth-child(7) {
+   width: 143px;
+   height: 90px;
+}
+
+.digitalAgatech-firstStep__ul--wrap,
+.digitalAgatech-newSolutions__ul--wrap,
+.digitalAgatech-lvlup__ul--wrap,
+.digitalAgatech-newpeak__ul--wrap {
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+}
+.digitalAgatech-firstStep__ul--wrap ul,
+.digitalAgatech-newSolutions__ul--wrap ul,
+.digitalAgatech-lvlup__ul--wrap ul,
+.digitalAgatech-newpeak__ul--wrap ul {
+   list-style-type: none;
+   display: flex;
+   flex-direction: column;
+   margin-right: 80px;
+   margin-bottom: 50px;
+}
+.digitalAgatech-firstStep__ul--wrap li,
+.digitalAgatech-newSolutions__ul--wrap li,
+.digitalAgatech-lvlup__ul--wrap li,
+.digitalAgatech-newpeak__ul--wrap li {
+   color: #0074CD;
+   font-size: 18px;
+   line-height: 18px;
+   margin-bottom: 15px;
+   font-family: 'Helvetica Neue Cyr Roman';
+}
+.digitalAgatech-firstStep img {
+   width: 70%;
+   align-self: center;
+}
+
+.digitalAgatech-newSolutions img {
+   width: 100%;
+   align-self: center;
+}
+
+.digitalAgatech-lvlup img {
+   width: 80%;
+   align-self: center;
+}
+
+.digitalAgatech-newpeak__ul--wrap ul {
+   margin-bottom: 0;
+}
+.digitalAgatech-newpeak__description-wt,
+.digitalAgatech-tasks__description-wt {
+   color: #000;
+   font-size: 18px;
+   line-height: 18px;
+   margin-bottom: 25px;
+   font-family: 'Helvetica Neue Cyr Roman';
+}
+.digitalAgatech-newpeak__description-wt span,
+.digitalAgatech-tasks__description-wt span {
+   color: #0074CD;
+   line-height: 25px;
+   font-family: 'Helvetica Neue Cyr Roman';
+}
+.digitalAgatech-newpeak img {
+   width: 50%;
+   align-self: center;
+}
+
+.digitalAgatech-services img {
+   width: 90%;
+   align-self: center;
+}
+
+.digitalAgatech-culture__content {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   margin-bottom: 50px;
+}
+.digitalAgatech-culture__content-item {
    flex-basis: 33%;
    display: flex;
    flex-direction: column;
-   justify-content: flex-start;
    align-items: center;
 }
-.culture-item span {
-   font-size: 16px;
-   line-height: 20px;
-   text-align: center;
-   color: #8D92A5;
-   margin-top: 10px;
+.digitalAgatech-culture__content-item--top {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 300px;
 }
-.culture-item img {
-   height: 70px;
+.digitalAgatech-culture__content-item--top img {
+   height: 60%;
 }
-.contacts {
-   padding: 30px;
-   width: 500px;
-   margin: 0 auto;
+.digitalAgatech-culture__content-item--bottom {
+   width: 100%;
+   padding: 0 25px;
+   height: 350px;
+}
+.culture-border {
+   border-left: 1px solid rgba(0,0,0, .15);
+   border-right: 1px solid rgba(0,0,0, .15);
+}
+.digitalAgatech-culture__content-item--bottom p {
+   color: #000;
+   font-size: 18px;
+   line-height: 18px;
+   font-family: 'Helvetica Neue Cyr Roman';
+}
+.digitalAgatech-culture > img {
+   width: 100%;
+   align-self: center;
+}
+
+.digitalAgatech-contacts ul {
+   list-style-type: none;
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 50px;
+}
+.digitalAgatech-contacts li {
+   color: #000;
+   font-size: 18px;
+   line-height: 18px;
+   margin-bottom: 15px;
+   font-family: 'Helvetica Neue Cyr Roman';
+}
+.digitalAgatech-contacts span {
+   text-transform: uppercase;
+   font-family: 'Helvetica Neue Cyr Roman';
+}
+.digitalAgatech-contacts__content {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+}
+.digitalAgatech-contacts__content--left,
+.digitalAgatech-contacts__content--right {
+   flex-basis: 50%;
+}
+.digitalAgatech-contacts__content--left {
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
 }
-.contacts__title {
-   font-size: 30px;
-   line-height: 30px;
-   color: #8D92A5;
-   margin-bottom: 40px;
+.digitalAgatech-contacts__content--left__title {
+   color: #000A6C;
+   font-weight: bold;
+   font-family: 'Helvetica Neue Cyr Roman';
+   font-size: 26px;
+   line-height: 26px;
+   margin-bottom: 30px;
 }
-.contacts__city {
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
+.digitalAgatech-contacts__content--left__cities {
    width: 100%;
-   margin-bottom: 10px;
+   display: flex;
+   justify-content: center;
+   margin-bottom: 20px;
 }
-.contacts__city img {
-   width: 35px;
-   height: 100px;
-   align-self: center;
-}
-.contacts__city span {
-   font-size: 16px;
-   line-height: 20px;
-   color: #8D92A5;
-}
-#Ulsk,
-#Moscow,
-#Liny,
-#Vilnus {
+.digitalAgatech-contacts__content--left__cities-item {
    display: flex;
    flex-direction: column;
+   align-items: center;
    cursor: pointer;
+   margin: 0 15px;
 }
-#Ulsk {
-   border-bottom: 1px solid grey;
+.digitalAgatech-contacts__content--left__cities-item img {
+   height: 120px;
+   margin-bottom: 10px;
 }
-
-
-.MCITY,
-.LCITY,
-.VCITY {
-   width: 100%;
-   display: none;
-}.ULCITY {
-   width: 100%;
-   display: block;
-}
-
-
-.contacts__address {
-   width: 70%;
-   margin: 0 auto;
-   padding-top: 20px;
-   display: flex;
-   flex-direction: row;
-   justify-content: flex-start;
-   align-items: center;
-}
-.contacts__address span{
+.digitalAgatech-contacts__content--left__cities-item p {
+   color: #000A6C;
+   font-family: 'Helvetica Neue Cyr Roman';
    font-size: 16px;
-   line-height: 20px;
-   color: #8D92A5;
-   margin-left: 15px;
-   font-weight: bold;
+   line-height: 16px;
 }
-.contacts__address img, .contacts__phone img {
-   width: 43px;
-   height: 43px;
-}
-.contacts__phone {
-   width: 70%;
-   margin: 0 auto;
-   padding-top: 10px;
+.digitalAgatech-contacts__content--left__contacts {
+   width: 100%;
    display: flex;
-   flex-direction: row;
-   justify-content: flex-start;
+   flex-direction: column;
    align-items: center;
 }
-.contacts__phone span{
-   font-size: 30px;
-   line-height: 30px;
-   color: #8D92A5;
-   margin-left: 15px;
+.digitalAgatech-contacts__content--left__contacts a {
+   color: #000A6C;
+   font-family: 'Helvetica Neue Cyr Roman';
+   position: relative;
+   font-weight: bold; 
+   height: 40px;
+   display: flex;
+   align-items: center;
 }
-@media(max-width: 1400px) {
-   .digital-agatech__content_center_block3 {
-      height: 1000px;
-   } 
-   .mountains{
-      height: 600px;
-   }
-   .undermountains {
-      height: 700px;
-   }
+.digitalAgatech-contacts__content--left__contacts-adress {
+   font-size: 18px;
+   line-height: 18px;
+   margin-bottom: 10px;
 }
-@media(max-width: 800px) {
-   .digital-agatech__content_center_block3 {
-      height: 750px;
-   } 
-   .mountains{
-      height: 450px;
-   }
-   .undermountains {
-      height: 550px;
-   }
+.digitalAgatech-contacts__content--left__contacts-adress::before {
+   content: '';
+   position: absolute;
+   right: 105%;
+   top: 0;
+   width: 40px;
+   height: 40px;
+   background-image: url(../img/digital_agency/digitalAgatec-main/digitalAgatech-main-contacts/address.svg);
+   background-size: contain;
 }
-@media(max-width: 600px) {
-   .digital-agatech__content_center_block3 {
-      height: 550px;
-   } 
-   .mountains{
-      height: 250px;
-   }
-   .undermountains {
-      height: 430px;
-   }
+.digitalAgatech-contacts__content--left__contacts-tel {
+   font-size: 34px;
+   line-height: 34px;
 }
-@media(max-width: 400px) {
-   .digital-agatech__content_center_block3 {
-      height: 460px;
-   } 
-   .mountains{
-      height: 200px;
-   }
-   .undermountains {
-      height: 370px;
-   }
+.digitalAgatech-contacts__content--left__contacts-tel::before {
+   content: '';
+   position: absolute;
+   right: 105%;
+   top: 0;
+   width: 40px;
+   height: 40px;
+   background-image: url(../img/digital_agency/digitalAgatec-main/digitalAgatech-main-contacts/tel.svg);
+   background-size: contain;
+}
+.digitalAgatech-contacts__content--right img{
+   width: 100%;
 }
 
-@media(max-width: 1400px) {
-   .container-culture_and_contacts {
-      height: 550px;
-   }
-   .culture {
-      width: 500px;
-   }
-   .culture-title {
-      font-size: 25px;
-      line-height: 25px;
-      margin-bottom: 30px;
-   }
-   .culture-item span {
-      font-size: 14px;
-      line-height: 18px;
-   }
-   .culture-item img {
-      height: 55px;
-   }
-   .contacts {
-      padding: 25px;
-      width: 400px;
-   }
-   .contacts__title {
-      font-size: 25px;
-      line-height: 25px;
-      margin-bottom: 30px;
-   }
-   .contacts__city img {
-      width: 30px;
-      height: 85px;
-   }
-   .contacts__city span {
-      font-size: 14px;
-      line-height: 18px;
-   }
-   .contacts__address {
-      width: 85%;
-      padding-top: 10px;
-   }
-   .contacts__phone {
-      width: 85%;
-   }
-   .contacts__address span{
-      font-size: 16px;
-      line-height: 20px;
-      margin-left: 15px;
-   }
-   .contacts__phone span{
-      font-size: 25px;
-      line-height: 25px;
-      color: #8D92A5;
-      margin-left: 15px;
-   }
-   .contacts__address img, .contacts__phone img {
-      width: 40px;
-      height: 40px;
-   }
-}
-@media(max-width: 800px) {
-   .container-culture_and_contacts {
-      height: 400px;
-      bottom: 30px;
-   }
-   .culture {
-      width: 430px;
-   }
-   .culture-title {
-      font-size: 20px;
-      line-height: 20px;
-      margin-bottom: 20px;
-   }
-   .culture-item span {
-      font-size: 12px;
-      line-height: 16px;
-   }
-   .culture-item img {
-      height: 40px;
-   }
-   .contacts {
-      padding: 15px;
-      width: 330px;
-   }
-   .contacts__title {
-      font-size: 20px;
-      line-height: 20px;
-      margin-bottom: 20px;
-   }
-   .contacts__city img {
-      width: 20px;
-      height: 55px;
-   }
-   .contacts__city span {
-      font-size: 12px;
-      line-height: 16px;
-   }
-   .contacts__address {
-      width: 90%;
-      padding-top: 5px;
-   }
-   .contacts__phone {
-      width: 90%;
-      padding-top: 5px;
-   }
-   .contacts__address span{
-      font-size: 14px;
-      line-height: 16px;
-      margin-left: 10px;
-   }
-   .contacts__phone span{
-      font-size: 20px;
-      line-height: 20px;
-      margin-left: 10px;
-   }
-   .contacts__address img, .contacts__phone img {
-      width: 35px;
-      height: 35px;
-   }
-}
-@media(max-width: 600px) {
-   .container-culture_and_contacts {
-      height: 320px;
-      bottom: 20px;
-   }
-   .culture {
-      width: 370px;
-   }
-   .culture-title {
-      font-size: 18px;
-      line-height: 18px;
-      margin-bottom: 15px;
-   }
-   .culture-item span {
-      font-size: 10px;
-      line-height: 14px;
-   }
-   .culture-item img {
-      height: 30px;
-   }
-   .contacts {
-      padding: 10px;
-      width: 250px;
-   }
-   .contacts__title {
-      font-size: 18px;
-      line-height: 18px;
-      margin-bottom: 15px;
-   }
-   .contacts__city img {
-      width: 15px;
-      height: 40px;
-   }
-   .contacts__city span {
-      font-size: 10px;
-      line-height: 14px;
-   }
-   .contacts__address {
-      width: 100%;
-      padding-top: 5px;
-   }
-   .contacts__phone {
-      width: 100%;
-      padding-top: 5px;
-   }
-   .contacts__address span{
-      font-size: 12px;
-      line-height: 14px;
-      margin-left: 5px;
-   }
-   .contacts__phone span{
-      font-size: 18px;
-      line-height: 18px;
-      margin-left: 5px;
-   }
-   .contacts__address img, .contacts__phone img {
-      width: 30px;
-      height: 30px;
-   }
-}
-@media(max-width: 400px) {
-   .container-culture_and_contacts {
-      height: 280px;
-      bottom: 15px;
-   }
-   .culture {
-      width: 250px;
-   }
-   .culture-title {
-      font-size: 16px;
-      line-height: 16px;
-      margin-bottom: 10px;
-   }
-   .culture-item span {
-      font-size: 9px;
-      line-height: 12px;
-      margin-top: 5px;
-   }
-   .culture-item img {
-      height: 25px;
-   }
-   .contacts {
-      padding: 5px;
-      width: 200px;
-   }
-   .contacts__title {
-      font-size: 16px;
-      line-height: 16px;
-      margin-bottom: 10px;
-   }
-   .contacts__city img {
-      width: 13px;
-      height: 35px;
-   }
-   .contacts__city span {
-      font-size: 9px;
-      line-height: 12px;
-   }
-   .contacts__address {
-      padding-top: 5px;
-   }
-   .contacts__phone {
-      padding-top: 5px;
-   }
-   .contacts__address span{
-      font-size: 10px;
-      line-height: 12px;
-      margin-left: 5px;
-   }
-   .contacts__phone span{
-      font-size: 16px;
-      line-height: 16px;
-      margin-left: 5px;
-   }
-   .contacts__address img, .contacts__phone img {
-      width: 25px;
-      height: 25px;
-   }
-}
+
+
+
+
+
+
 
 
 
 
 /* КОМАНДА */
-.digitalAgatechBGC-team{
-   position: absolute;
-   top: 0; 
-   left: 0;
-   width: 100%;
-   z-index: -1;
-}
-.digital-agatech__content_top {
-   display: flex;
-   flex-direction: column;
-   justify-content: space-evenly;
-   align-items: center;
-   width: 100%;
-   margin: 0 auto;
-   height: 500px;
-}
-.digital-agatech__content_top h2 {
-   font-weight: bold;
-   font-size: 50px;
-   line-height: 60px;
-   letter-spacing: 0.07em;
-   margin-top: 50px;
-   color: #fff;
-   text-align: center;
-   text-transform: uppercase;
-}
-
-@media(max-width: 1400px) {
-   .digital-agatech__content_top {
-      height: 450px;
-   }
-   .digital-agatech__content_top h2 {
-      font-size: 45px;
-      line-height: 55px;
-   }
-}
-@media(max-width: 1200px) {
-   .digital-agatech__content_top {
-      height: 400px;
-   }
-   .digital-agatech__content_top h2 {
-      font-size: 40px;
-      line-height: 50px;
-   }
-}
-@media(max-width: 1000px) {
-   .digital-agatech__content_top {
-      height: 350px;
-   }
-   .digital-agatech__content_top h2 {
-      font-size: 35px;
-      line-height: 45px;
-   }
-}
-@media(max-width: 900px) {
-   .digital-agatech__content_top {
-      height: 330px;
-   }
-   .digital-agatech__content_top h2 {
-      font-size: 33px;
-      line-height: 43px;
-      margin-top: 40px;
-   }
-}
-@media(max-width: 800px) {
-   .digital-agatech__content_top {
-      height: 300px;
-   }
-   .digital-agatech__content_top h2 {
-      font-size: 30px;
-      line-height: 40px;
-   }
-}
-@media(max-width: 600px) {
-   .digital-agatech__content_top {
-      height: 250px;
-   }
-   .digital-agatech__content_top h2 {
-      font-size: 25px;
-      line-height: 35px;
-   }
-}
-@media(max-width: 500px) {
-   .digital-agatech__content_top {
-      height: 230px;
-   }
-   .digitalAgatechBGC-team {
-      height: 260px; 
-   }
-   .digital-agatech__content_top h2 {
-      font-size: 23px;
-      line-height: 33px;
-      margin-top: 30px;
-   }
-}
-@media(max-width: 400px) {
-   .digital-agatech__content_top {
-      height: 220px;
-   }
-   .digitalAgatechBGC-team {
-      height: 220px;
-   }
-   .digital-agatech__content_top h2 {
-      font-size: 20px;
-      line-height: 30px;
-   }
-}
-.digital-agatech__content_center_digAg {
-   width: 100%;
-   margin: 0 auto;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   border-top: 17px solid #8CB0E4;
-}
-@media(max-width: 1200px) {
-   .digital-agatech__content_center_digAg {
-      border-top: 15px solid #8CB0E4;
-   }
-}
-@media(max-width: 800px) {
-   .digital-agatech__content_center_digAg {
-      border-top: 10px solid #8CB0E4;
-   }
-}
-@media(max-width: 500px) {
-   .digital-agatech__content_center_digAg {
-      border-top: 7px solid #8CB0E4;
-   }
-}
-
 .team_bgc {
   background-image: linear-gradient(rgba(140,176,228, .4), rgba(255,255,255, 1)), url(../img/digital_agency/mountains1.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-.digital-agatech__content_top_menu_digAg  {
-   margin: 30px 0 30px;
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   align-items: center;
-}
-.digital-agatech__content_top_menu_link_digAg{
-   text-decoration: none;
-   padding: 0 20px;
-   font-size: 16px;
-   line-height: 16px;
-   color: #626779;
-   cursor: pointer;
-   transition: all .6s ease;
-}
-.digital-agatech__content_top_menu_link_digAg:hover{
-   color: #626779;
-   text-decoration: underline;
-}
-@media(max-width: 1400px) {
-   .digital-agatech__content_top_menu_digAg  {
-      margin: 25px 0 25px;
-   }
-   .digital-agatech__content_top_menu_link_digAg{
-      font-size: 14px;
-      line-height: 14px;
-   }
-}
-@media(max-width: 900px) {
-   .digital-agatech__content_top_menu_digAg  {
-      display: none;
-   }
-}
-
-
 .team {
    width: 100%;
    min-height: 100px;
@@ -1850,54 +675,6 @@
 
 
 /* ACHIEVEMENTS */
-.digitalAgatechBGC-achievments {
-   position: absolute;
-   top: 0; 
-   left: 0;
-   width: 100%;
-   z-index: -1;
-   height: 500px;
-}
-@media(max-width: 1400px) {
-   .digitalAgatechBGC-achievments {
-      height: 450px;
-   }
-}
-@media(max-width: 1200px) {
-   .digitalAgatechBGC-achievments {
-      height: 400px;
-   }
-}
-@media(max-width: 1000px) {
-   .digitalAgatechBGC-achievments {
-      height: 350px;
-   }
-}
-@media(max-width: 900px) {
-   .digitalAgatechBGC-achievments {
-      height: 330px;
-   }
-}
-@media(max-width: 800px) {
-   .digitalAgatechBGC-achievments {
-      height: 300px;
-   }
-}
-@media(max-width: 600px) {
-   .digitalAgatechBGC-achievments {
-      height: 250px;
-   }
-}
-@media(max-width: 500px) {
-   .digitalAgatechBGC-achievments {
-      height: 230px;
-   }
-}
-@media(max-width: 400px) {
-   .digitalAgatechBGC-achievments {
-      height: 220px;
-   }
-}
 .achievements_bgc {
    background-color: #E5E5E5;
    min-height: 100px;
@@ -2512,55 +1289,6 @@
 
 
 /* FILES */
-.digitalAgatechBGC-files {
-   position: absolute;
-   top: 0; 
-   left: 0;
-   width: 100%;
-   z-index: -1;
-   height: 500px;
-}
-@media(max-width: 1400px) {
-   .digitalAgatechBGC-files {
-      height: 450px;
-   }
-}
-@media(max-width: 1200px) {
-   .digitalAgatechBGC-files {
-      height: 400px;
-   }
-}
-@media(max-width: 1000px) {
-   .digitalAgatechBGC-files {
-      height: 350px;
-   }
-}
-@media(max-width: 900px) {
-   .digitalAgatechBGC-files {
-      height: 330px;
-   }
-}
-@media(max-width: 800px) {
-   .digitalAgatechBGC-files {
-      height: 300px;
-   }
-}
-@media(max-width: 600px) {
-   .digitalAgatechBGC-files {
-      height: 250px;
-   }
-}
-@media(max-width: 500px) {
-   .digitalAgatechBGC-files {
-      height: 230px;
-   }
-}
-@media(max-width: 400px) {
-   .digitalAgatechBGC-files {
-      height: 220px;
-   }
-}
-
 .files_bgc {
    background-color: #E5E5E5;
    min-height: 100px;
