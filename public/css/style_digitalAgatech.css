@@ -272,10 +272,9 @@
    line-height: 16px;
 }
 .digitalAgatech-contacts__content--left__contacts {
-   width: 100%;
+   width: 300px;
    display: flex;
    flex-direction: column;
-   align-items: center;
 }
 .digitalAgatech-contacts__content--left__contacts a {
    color: #000A6C;
@@ -318,7 +317,264 @@
 .digitalAgatech-contacts__content--right img{
    width: 100%;
 }
+#Ulsk {
+   border-bottom: 1px solid #000A6C;
+}
+#MoscowContacts {
+   display: none;
+}
 
+
+@media(max-width: 1400px) {
+   /* .digitalAgatech--bgc {
+      margin-bottom: 50px;
+   } */
+   /* .digitalAgatech--wrap {
+      padding: 50px;
+   } */
+   /* .digitalAgatech-history,
+   .digitalAgatech-clients,
+   .digitalAgatech-firstStep,
+   .digitalAgatech-newSolutions,
+   .digitalAgatech-lvlup,
+   .digitalAgatech-newpeak,
+   .digitalAgatech-services,
+   .digitalAgatech-tasks,
+   .digitalAgatech-culture,
+   .digitalAgatech-contacts {
+      margin-bottom: 80px;
+   } */
+   /* .digitalAgatech-history__title, 
+   .digitalAgatech-clients__title,
+   .digitalAgatech-firstStep__title,
+   .digitalAgatech-newSolutions__title,
+   .digitalAgatech-lvlup__title,
+   .digitalAgatech-newpeak__title,
+   .digitalAgatech-services__title,
+   .digitalAgatech-tasks__title,
+   .digitalAgatech-culture__title {
+      font-size: 30px;
+      line-height: 30px;
+      margin-bottom: 30px;
+   }
+   .digitalAgatech-history__description,
+   .digitalAgatech-firstStep__description,
+   .digitalAgatech-newSolutions__description,
+   .digitalAgatech-lvlup__description,
+   .digitalAgatech-newpeak__description,
+   .digitalAgatech-services__description{
+      font-size: 18px;
+      line-height: 18px;
+      margin-bottom: 50px;
+   } */
+   
+   /* .digitalAgatech-clients__img--wrap {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+   } */
+   /* .digitalAgatech-clients__img--wrap img {
+      margin: 30px 50px;
+   }
+   .digitalAgatech-clients__img--wrap img:nth-child(1) {
+      width: 160px;
+      height: 80px;
+   }
+   .digitalAgatech-clients__img--wrap img:nth-child(2) {
+      width: 90px;
+      height: 80px;
+   }
+   .digitalAgatech-clients__img--wrap img:nth-child(3) {
+      width: 150px;
+      height: 80px;
+   }
+   .digitalAgatech-clients__img--wrap img:nth-child(4) {
+      width: 85px;
+      height: 85px;
+   }
+   .digitalAgatech-clients__img--wrap img:nth-child(5) {
+      width: 200px;
+      height: 80px;
+   }
+   .digitalAgatech-clients__img--wrap img:nth-child(6) {
+      width: 100px;
+      height: 100px;
+   }
+   .digitalAgatech-clients__img--wrap img:nth-child(7) {
+      width: 143px;
+      height: 90px;
+   } */
+   
+   /* .digitalAgatech-firstStep__ul--wrap ul,
+   .digitalAgatech-newSolutions__ul--wrap ul,
+   .digitalAgatech-lvlup__ul--wrap ul,
+   .digitalAgatech-newpeak__ul--wrap ul {
+      margin-right: 80px;
+      margin-bottom: 50px;
+   } */
+   /* .digitalAgatech-firstStep__ul--wrap li,
+   .digitalAgatech-newSolutions__ul--wrap li,
+   .digitalAgatech-lvlup__ul--wrap li,
+   .digitalAgatech-newpeak__ul--wrap li {
+      font-size: 18px;
+      line-height: 18px;
+      margin-bottom: 15px;
+   } */
+   /* .digitalAgatech-firstStep img {
+      width: 70%;
+      align-self: center;
+   }
+   
+   .digitalAgatech-newSolutions img {
+      width: 100%;
+      align-self: center;
+   }
+   
+   .digitalAgatech-lvlup img {
+      width: 80%;
+      align-self: center;
+   }
+    */
+
+   /* .digitalAgatech-newpeak__description-wt,
+   .digitalAgatech-tasks__description-wt {
+      font-size: 18px;
+      line-height: 18px;
+      margin-bottom: 25px;
+   }
+   .digitalAgatech-newpeak__description-wt span,
+   .digitalAgatech-tasks__description-wt span {
+      line-height: 25px;
+   } */
+   /* .digitalAgatech-newpeak img {
+      width: 50%;
+      align-self: center;
+   }
+   
+   .digitalAgatech-services img {
+      width: 90%;
+      align-self: center;
+   } */
+   
+   /* .digitalAgatech-culture__content {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 50px;
+   } */
+   /* .digitalAgatech-culture__content-item {
+      flex-basis: 33%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   } */
+   /* .digitalAgatech-culture__content-item--top {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+   }
+   .digitalAgatech-culture__content-item--top img {
+      height: 60%;
+   }
+   .digitalAgatech-culture__content-item--bottom {
+      width: 100%;
+      padding: 0 25px;
+      height: 350px;
+   } */
+   /* .culture-border {
+      border-left: 1px solid rgba(0,0,0, .15);
+      border-right: 1px solid rgba(0,0,0, .15);
+   } */
+   /* .digitalAgatech-culture__content-item--bottom p {
+      font-size: 18px;
+      line-height: 18px;
+   }
+   .digitalAgatech-culture > img {
+      width: 100%;
+      align-self: center;
+   } */
+   
+   /* .digitalAgatech-contacts ul {
+      margin-bottom: 50px;
+   } */
+   /* .digitalAgatech-contacts li {
+      font-size: 18px;
+      line-height: 18px;
+      margin-bottom: 15px;
+   } */
+   /* .digitalAgatech-contacts__content {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+   } */
+   /* .digitalAgatech-contacts__content--left,
+   .digitalAgatech-contacts__content--right {
+      flex-basis: 50%;
+   } */
+   /* .digitalAgatech-contacts__content--left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   } */
+   /* .digitalAgatech-contacts__content--left__title {
+      font-size: 26px;
+      line-height: 26px;
+      margin-bottom: 30px;
+   } */
+   /* .digitalAgatech-contacts__content--left__cities {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+   }
+   .digitalAgatech-contacts__content--left__cities-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      margin: 0 15px;
+   }
+   .digitalAgatech-contacts__content--left__cities-item img {
+      height: 120px;
+      margin-bottom: 10px;
+   }
+   .digitalAgatech-contacts__content--left__cities-item p {
+      font-size: 16px;
+      line-height: 16px;
+   }
+   .digitalAgatech-contacts__content--left__contacts {
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+   }*/
+   /* .digitalAgatech-contacts__content--left__contacts a {
+      height: 40px;
+   }
+   .digitalAgatech-contacts__content--left__contacts-adress {
+      font-size: 18px;
+      line-height: 18px;
+      margin-bottom: 10px;
+   } */
+   /* .digitalAgatech-contacts__content--left__contacts-adress::before {
+      right: 105%;
+      top: 0;
+      width: 40px;
+      height: 40px;
+   } */
+   /* .digitalAgatech-contacts__content--left__contacts-tel {
+      font-size: 34px;
+      line-height: 34px;
+   } */
+   /* .digitalAgatech-contacts__content--left__contacts-tel::before {
+      right: 105%;
+      top: 0;
+      width: 40px;
+      height: 40px;
+   } */
+}
 
 
 
