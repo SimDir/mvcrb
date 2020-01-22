@@ -180,30 +180,33 @@
    }
 }
 @media(max-width: 600px) {
-   .products-header {
-      height: 125px;
-      padding-top: 25px;
-   }
+    .products-header {
+      height: 125px; 
+      padding-top: 30px;
+   } 
    .products_top__circle {
-      width: 25px;
-   }
+      width: 35px;
+   } 
    .products_top__circle:nth-child(2) {
       margin: 0 70px;
    }  
    .products_top__circle:nth-child(3) {
-      width: 30px;
-   }
+      width: 40px;
+   } 
    .products_top__circle-text1::before {
+      content: 'Цифровая разработка';
       font-size: 11px;
       line-height: 11px;
       width: 100px
    }
    .products_top__circle-text2::before {
+      content: 'Продвижение и сопровождение';
       font-size: 11px;
       line-height: 11px;
       width: 100px
    }
    .products_top__circle-text3::before {
+      content: 'Автоматизация бизнеса';
       font-size: 11px;
       line-height: 11px;
       width: 100px
