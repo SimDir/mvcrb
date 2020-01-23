@@ -443,11 +443,11 @@ header {
    }  
    .header__menu_link:hover {
       transition:  background-color .7s;
-      background-color: rgba(255,255,255,.7);
+      background-color: rgba(255,255,255,.3);
    } 
    .header__menu_link:hover .header__menu_link_btn{
       transition: color .7s;
-      color: #3B487C;
+      color: #fff;
    } 
    .header__menu_link_btn {
       height: initial;
@@ -473,7 +473,7 @@ header {
       opacity: 1;
       z-index: 1;
       transform: translateY(0px);
-      background-color: rgba(255,255,255,.7);
+      background-color: #fff;
       transition: all .7s;
    }
    .header_bottom_last {
@@ -487,6 +487,12 @@ header {
       width: 100%;  
       flex-wrap: wrap;
       flex-direction: row;
+   }
+   .header_bottom__content_menu_link_btn_title{
+      text-decoration: none;
+      
+      font-size: 14px;
+      line-height: 14px;
    }
    .header_bottom__content_menu_link {
       padding: 0;
