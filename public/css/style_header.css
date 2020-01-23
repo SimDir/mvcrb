@@ -80,13 +80,13 @@ header {
 /* МЕНЮ СНИЗУ */
 .header_bottom {
    z-index: -1;
-   width: 100%;
+   width: 95%;
    background-color: rgba(255,255,255,1);
    display: flex;
    align-items: flex-start;
    justify-content: space-between;
    position: absolute;
-   transform: scale(0) translateX(100vw);
+   transform: scale(0) translateX(-100vw);
    top: 100%;
    left: 0;
    opacity: 0;
@@ -94,6 +94,7 @@ header {
    visibility: hidden;
    overflow: hidden;
    transition: all 1s;
+   border-radius: 5px 40px;
 }
 .header_bottom__content {
    width: 90%;
@@ -477,6 +478,7 @@ header {
       z-index: 1;
       transform: scale(1) translateX(0vw);
       background-color: #fff;
+      border-radius: 0;
       transition: all .7s;
    }
    .header_bottom_last {
