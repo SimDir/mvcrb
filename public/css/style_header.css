@@ -49,9 +49,9 @@ header {
    align-items: center;
 }
 .header__menu_link:hover .header_bottom {
-  visibility: visible;
+   visibility: visible;
    opacity: 1;
-   transform: translateY(100px);
+   transform: scale(1) translateX(0vw);
    min-height: initial;
 }
 .header__menu_link_btn {
@@ -86,13 +86,14 @@ header {
    align-items: flex-start;
    justify-content: space-between;
    position: absolute;
-   top: 0;
+   transform: scale(0) translateX(100vw);
+   top: 100%;
    left: 0;
    opacity: 0;
    min-height: 0;
    visibility: hidden;
    overflow: hidden;
-   transition: all .7s;
+   transition: all 1s;
 }
 .header_bottom__content {
    width: 90%;
@@ -455,6 +456,9 @@ header {
       margin-right: 0px; 
       border-bottom: none; 
       transition: color .7s;
+   }
+   .header__menu_link_btn--last {
+      border-bottom-left-radius: 20px;
    }
    .header__menu_link_btn:hover {
       border-bottom: none;

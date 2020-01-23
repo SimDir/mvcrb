@@ -138,29 +138,26 @@ $( document ).ready(function() {
         }
     }
 
-        
-   
 
-    // if (window.location.pathname.search('news--')>-1) {
-    //     $("header").css({'background':'#3B487C'});
-    //     $(".header_bottom").css({'background':'rgba(255,255,255,1)'});
-    //     $('.new_center__center').css({'border-top':'none'})
-    // }
-    
-    // $(window).scroll(function() {
-    //     var top = $(this).scrollTop();
-    //     if ( top > 0 ) {
-    //         $("header").css({'background':'#344D73'});
-    //         $(".header_bottom").css({'background':'rgba(255,255,255,1)'});
-    //     } 
-        
-    //     else if (window.location.pathname.search('news--')!==-1){
-    //         return;
-    //     }
-    //     else {
-    //         $("header").css({'background': 'transparent'});
-           
-    //     }
-    // });
-    
+    let headerMenuLinkBtn = [];
+    for(let elem of document.querySelectorAll('.header__menu_link_btn')) {
+        headerMenuLinkBtn.push(elem);
+    }
+    if(window.location.pathname.search('digitalAgency') > -1) {
+        headerMenuLinkBtn[0].style.borderBottom = "3px solid #fff";
+    }
+    else if((window.location.pathname.search('NewCenter')> -1) || 
+    (window.location.pathname.search('news--')>-1)){
+        headerMenuLinkBtn[1].style.borderBottom = "3px solid #fff";
+    }
+    else if (window.location.pathname.search('Solutions') > -1) {
+        headerMenuLinkBtn[2].style.borderBottom = "3px solid #fff";
+    }
+    else if(window.location.pathname.search('Products') > -1 ){
+        headerMenuLinkBtn[3].style.borderBottom = "3px solid #fff";
+    }
+    else if(window.location.pathname.search('BusinessCooperation') > -1) {
+        headerMenuLinkBtn[4].style.borderBottom = "3px solid #fff";
+    }
+
 });
