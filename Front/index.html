@@ -13,14 +13,21 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
         <!-- JQuery -->
         <script type="text/javascript" src="/public/js/jquery-3.4.1.min.js"></script>
+
+        <!-- LAZYLOAD -->
+        <script src="/public/js/script_lazyload.js"></script>
+
         <!-- Bootstrap core CSS -->
         <link href="/public/css/bootstrap.css" rel="stylesheet">
+
         <!-- Material Design Bootstrap -->
         <link href="/public/css/mdb.css" rel="stylesheet">
-        <!-- Your custom styles (optional) -->
 
+        <!-- Your custom styles (optional) -->
+        <link href="/public/css/preloader.css" rel="stylesheet">
         <link href="/public/css/style.css" rel="stylesheet">
         
+        <!-- VUE -->
         <script src="/public/js/vue.min.js"></script>
         <script src="/public/js/vuex.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js" integrity="sha256-VeNaFBVDhoX3H+gJ37DpT/nTuZTdjYro9yBruHjVmoQ=" crossorigin="anonymous"></script>
@@ -31,6 +38,22 @@
     </head>
 
     <body>
+        <div class="preloader">
+            <div class="preloader__row">
+              <div class="preloader__item"></div>
+              <div class="preloader__item"></div>
+            </div>
+        </div>
+        <script>
+            window.onload = function () {
+                document.body.classList.add('loaded_hiding');
+                window.setTimeout(function () {
+                document.body.classList.add('loaded');
+                document.body.classList.remove('loaded_hiding');
+                }, 500);
+            }
+        </script>
+
         <{ content }>
         <!-- SCRIPTS -->
         <{ bodycssjs }>

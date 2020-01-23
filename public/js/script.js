@@ -97,7 +97,7 @@ $( document ).ready(function() {
          document.querySelector('.graphic-top-item-11').style.opacity="0"; 
       }
       graphic.style.right = x + "px";
-   };
+   }
 
 
 

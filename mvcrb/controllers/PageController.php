@@ -31,11 +31,11 @@ class PageController extends Controller {
         $User = $this->GetModel('User');
         $curUser = $User->GetCurrentUser();
         
-        if ($curUser['role'] >= 300) {
-            $this->view->VarSetArray($curUser);
-            $this->View->pageid = $PRet['id'];
-            $this->View->adminpanel = $this->View->execute('AdminBar.html',TEMPLATE_DIR.'AdminController'.DS);
-        }
+//        if ($curUser['role'] >= 300) {
+//            $this->view->VarSetArray($curUser);
+//            $this->View->pageid = $PRet['id'];
+//            $this->View->adminpanel = $this->View->execute('AdminBar.html',TEMPLATE_DIR.'AdminController'.DS);
+//        }
 //        dd($PRet);
         if($PRet){
             if($PRet['type']!='notpublic'){
@@ -50,6 +50,7 @@ class PageController extends Controller {
         }
         $FinDir = TEMPLATE_DIR . 'IndexController' . DS . 'staticpage';
         $testFile = mvcrb::SearchFile($page, $FinDir);
+//        dd($testFile);
         $tempFile = $testFile;
         if ($testFile) {
             $testFile = str_ireplace(TEMPLATE_DIR . 'IndexController' . DS, '', $testFile);
