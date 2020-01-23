@@ -29,6 +29,9 @@
    color: #fff;
    background-color: #444;
 }
+#products {
+   scroll-behavior: smooth;
+}
 body::-webkit-scrollbar {
    width: 5px;
    background: #e1e1e1;
@@ -42,6 +45,7 @@ body::-webkit-scrollbar-thumb {
    margin: 0;
    box-sizing: border-box;
    font-family: 'Helvetica Neue Cyr Medium';
+   scroll-behavior: smooth;
 }
 ul {
    margin: 0;
