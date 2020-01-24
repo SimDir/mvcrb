@@ -1,28 +1,20 @@
-.products-promotionANDsupport {
-   width: 70%;
-   margin: 0 auto;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   margin-bottom: 100px;
-}
 .products-promotionANDsupport__row {
    width: 100%;
    display: flex;
    justify-content: center;
-   padding: 50px;
+   margin-bottom: 30px;
 }
 .products-promotionANDsupport__row-reverse {
    flex-direction: row-reverse;
 }
 .products-promotionANDsupport__row-img--wrap {
    flex-basis: 50%;
+   display: flex;
    justify-content: center;
    align-items: center;
 }
 .products-promotionANDsupport__row-img--wrap img {
-   width: 300px;
+   width: 200px;
 }
 .products-promotionANDsupport__row-text--wrap {
    flex-basis: 50%;
@@ -60,19 +52,12 @@
 }
 @media(max-width: 1400px) {
    .products-promotionANDsupport__row-img--wrap img {
-      width: 250px;
+      width: 160px;
    }
 }
 @media(max-width: 1200px) {
-   .products-promotionANDsupport {
-      width: 80%;
-      margin-bottom: 80px;
-   }
-   .products-promotionANDsupport__row {
-      padding: 30px;
-   }
    .products-promotionANDsupport__row-img--wrap img {
-      width: 200px;
+      width: 140px;
    }
    .products-promotionANDsupport__row-text--wrap {
       padding: 20px;
@@ -93,27 +78,15 @@
    }
 }
 @media(max-width: 1000px) {
-   .products-promotionANDsupport {
-      width: 90%;
-      margin-bottom: 60px;
-   }
-   .products-promotionANDsupport__row {
-      padding: 30px 0;
-   }
    .products-promotionANDsupport__row-img--wrap img {
-      width: 170px;
+      width: 120px;
    }
    .products-promotionANDsupport__row-text--wrap {
       padding: 10px;
    }
 }
 @media(max-width: 600px) {
-   .products-promotionANDsupport {
-      width: 90%;
-      margin-bottom: 40px;
-   }
    .products-promotionANDsupport__row {
-      padding: 30px 0;
       flex-direction: column;
    }
     .products-promotionANDsupport__row-img--wrap {
@@ -130,13 +103,6 @@
    }
 }
 @media(max-width: 400px) {
-   .products-promotionANDsupport {
-      margin-bottom: 20px;
-   }
-   .products-promotionANDsupport__row {
-      padding: 20px 0;
-      flex-direction: column;
-   }
     .products-promotionANDsupport__row-img--wrap img {
       width: 150px;
    } 

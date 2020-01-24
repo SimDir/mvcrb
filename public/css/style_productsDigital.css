@@ -1,29 +1,21 @@
 /* products digital */
-.products-digital {
-   width: 70%;
-   margin: 0 auto;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   margin-bottom: 100px;
-}
 .products-digital__row {
    width: 100%;
    display: flex;
    justify-content: center;
-   padding: 50px;
+   margin-bottom: 30px;
 }
 .products-digital__row-reverse {
    flex-direction: row-reverse;
 }
 .products-digital__row-img--wrap {
    flex-basis: 50%;
+   display: flex;
    justify-content: center;
    align-items: center;
 }
 .products-digital__row-img--wrap img {
-   width: 300px;
+   width: 200px;
 }
 .products-digital__row-text--wrap {
    flex-basis: 50%;
@@ -61,19 +53,12 @@
 }
 @media(max-width: 1400px) {
    .products-digital__row-img--wrap img {
-      width: 250px;
+      width: 160px;
    }
 }
 @media(max-width: 1200px) {
-   .products-digital {
-      width: 80%;
-      margin-bottom: 80px;
-   }
-   .products-digital__row {
-      padding: 30px;
-   }
    .products-digital__row-img--wrap img {
-      width: 200px;
+      width: 140px;
    }
    .products-digital__row-text--wrap {
       padding: 20px;
@@ -94,27 +79,15 @@
    }
 }
 @media(max-width: 1000px) {
-   .products-digital {
-      width: 90%;
-      margin-bottom: 60px;
-   }
-   .products-digital__row {
-      padding: 30px 0;
-   }
    .products-digital__row-img--wrap img {
-      width: 170px;
+      width: 120px;
    }
    .products-digital__row-text--wrap {
       padding: 10px;
    }
 }
 @media(max-width: 600px) {
-   .products-digital {
-      width: 90%;
-      margin-bottom: 40px;
-   }
    .products-digital__row {
-      padding: 30px 0;
       flex-direction: column;
    }
     .products-digital__row-img--wrap {
@@ -133,10 +106,6 @@
 @media(max-width: 400px) {
    .products-digital {
       margin-bottom: 20px;
-   }
-   .products-digital__row {
-      padding: 20px 0;
-      flex-direction: column;
    }
     .products-digital__row-img--wrap img {
       width: 150px;
@@ -163,14 +132,6 @@
 
 
 /* PRODUCTS */
-.products_center__block {
-   width: 90%;
-   margin: 0 auto;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-}
 .products_center__block-top {
    width: 100%;
    height: 800px;
@@ -464,9 +425,6 @@
    }
 }
 @media(max-width: 700px) {
-   .products_center__block {
-      width: 100%;
-   }
    .products_center__block-top,
    .products_center__block-internetCatalog-top,
    .products_center__block-promoSite-top,

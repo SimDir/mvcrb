@@ -139,6 +139,9 @@ $( document ).ready(function() {
     }
 
 
+
+
+    // active links in header
     let headerMenuLinkBtn = [];
     for(let elem of document.querySelectorAll('.header__menu_link_btn')) {
         headerMenuLinkBtn.push(elem);

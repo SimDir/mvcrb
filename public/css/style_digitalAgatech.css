@@ -1214,15 +1214,7 @@
 
 
 
-
-
-/* КОМАНДА */
-.team_bgc {
-  background-image: linear-gradient(rgba(140,176,228, .4), rgba(255,255,255, 1)), url(../img/digital_agency/mountains1.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
+/* TEAM */
 .team {
    width: 100%;
    min-height: 100px;
@@ -1562,10 +1554,6 @@
 
 
 /* ACHIEVEMENTS */
-.achievements_bgc {
-   background-color: #E5E5E5;
-   min-height: 100px;
-}
 .achievements {
    width: 70%;
    margin: 50px auto;
@@ -1664,10 +1652,6 @@
    width: 100%;
    z-index: -1;
    height: 500px;
-}
-.contacts_bgc {
-   background-color: #E5E5E5;
-   min-height: 100px;
 }
 .contacts-header {
    display: flex;
@@ -2176,10 +2160,6 @@
 
 
 /* FILES */
-.files_bgc {
-   background-color: #E5E5E5;
-   min-height: 100px;
-}
 .files {
    width: 100%;
    margin: 50px auto 150px;
@@ -2195,8 +2175,8 @@
    flex-direction: column;
    justify-content: flex-start;
    align-items: center;
-   background-color: #F4F4F4;
-   box-shadow: 10px 10px 10px #888;
+   /* background-color: #F4F4F4;
+   box-shadow: 10px 10px 10px #888; */
    padding: 50px;
    height: 1000px;
    position: relative;
