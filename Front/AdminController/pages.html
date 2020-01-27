@@ -126,6 +126,7 @@ https://codemirror.net/doc/manual.html
                     <div class="p-2">
                         <input v-model="Page.metaauthor" type="text" id="metatag" class="form-control mb-4" placeholder="author">
                     </div>
+                    
                     <div class="p-2">
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -144,6 +145,7 @@ https://codemirror.net/doc/manual.html
                     <div class="p-2">
                         <button class="btn btn-info btn-sm mr-3" type="submit" >Сохранить</button>
                     </div> 
+                    
                     <div class="p-2">
                         <!--<a class="btn btn-success btn-sm" href="/admin/editor/tinymce/">WYSIWYG</a>-->
                         <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#EditorMdl" type="button" >WYSIWYG</button>
@@ -156,11 +158,15 @@ https://codemirror.net/doc/manual.html
             
         </div>
         <div class="d-flex justify-content-center">
+            <textarea v-model="Page.anons" name="editor" id="editor" class="form-control rounded-0 bg-dark text-light" rows="5"></textarea>
+
+        </div>
+        <div class="p-2">
+            <input v-model="Page.img" type="text" id="metatag" class="form-control mb-4" placeholder="Картинка">
+        </div>
+        <div class="d-flex justify-content-center">
             <textarea v-model="Page.content" name="editor" id="editor" class="form-control rounded-0 bg-dark text-light" rows="14"></textarea>
-            <!--<div class="border border-dark" v-html="Page.content"></div>-->
-<!--            <pre class="border border-dark">
-                <code class="html">{{Page.content}}</code>
-            </pre>-->
+
         </div>
     </div>
     

@@ -72,7 +72,7 @@
             <button v-if="state==0" @click="StartEdit" class="btn btn-blue-grey btn-sm">Включить режим редактирования<i class="fas far fa-edit pl-1"></i></button>
             <button v-if="state==1" @click="StopEdit" class="btn btn-danger btn-sm">Выключить режим редактирования<i class="fas far fa-times-circle pl-1"></i></button>
             <a class="btn btn-elegant btn-sm" href="/page/edit/<{pageid}>" target="_blank">WISIWING редактор</a>  
-            <button v-if="editmode" @click="ShowOptions" class="btn btn-dark-green btn-sm">Дополнительно</button>
+            <!--<button v-if="editmode" @click="ShowOptions" class="btn btn-dark-green btn-sm">Дополнительно</button>-->
             <button v-if="editmode" @click="SavePage" class="btn btn-dark-green btn-sm">Сохранить страницу</button>
         </div>
 

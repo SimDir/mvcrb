@@ -31,18 +31,18 @@ class PageController extends Controller {
         $User = $this->GetModel('User');
         $curUser = $User->GetCurrentUser();
         
-//        if ($curUser['role'] >= 300) {
-//            $this->view->VarSetArray($curUser);
-//            $this->View->pageid = $PRet['id'];
-//            $this->View->adminpanel = $this->View->execute('AdminBar.html',TEMPLATE_DIR.'AdminController'.DS);
-//        }
+        if ($curUser['role'] >= 300) {
+            $this->view->VarSetArray($curUser);
+            $this->View->pageid = $PRet['id'];
+            $this->View->adminpanel = $this->View->execute('AdminBar.html',TEMPLATE_DIR.'AdminController'.DS);
+        }
 //        dd($PRet);
         if($PRet){
             if($PRet['type']!='notpublic'){
 
     //            dd($PRet);
                 $this->View->content = $this->View->Code($PRet['content']);
-    //            $this->View->content = $PRet['content'];
+//                $this->View->content = $PRet['content'];
                 $this->View->title = $PRet['title'];
                 $this->View->content = $this->View->execute('pages.html',TEMPLATE_DIR.'IndexController'.DS);
                 return $this->View->execute('index.html', TEMPLATE_DIR);
@@ -69,8 +69,8 @@ class PageController extends Controller {
                 $Data['type'] = 'notpublic';
                 $Data['author'] = 'mvcrb framework auto ubdate script';
                 $Data['title'] = $this->View->title;
-//                $Data['content'] = file_get_contents($tempFile);
-                $Data['content'] = $this->View->content;
+                $Data['content'] = file_get_contents($tempFile);
+//                $Data['content'] = $this->View->content;
                 $Pages->Edit($Data,$PRet['id']);
 //                dd($result);
             }
@@ -82,8 +82,8 @@ class PageController extends Controller {
             $Data['type'] = 'notpublic';
             $Data['author'] = 'mvcrb framework auto add script';
             $Data['title'] = $this->View->title;
-//            $Data['content'] = file_get_contents($tempFile);
-            $Data['content'] = $this->View->content;
+            $Data['content'] = file_get_contents($tempFile);
+//            $Data['content'] = $this->View->content;
 
             $Pages->Add($Data);
         }
@@ -119,7 +119,23 @@ class PageController extends Controller {
         $Data['content'] = htmlspecialchars_decode($postdata['PageContent'],ENT_HTML5);
         $Pages = new PageModel();
         
-        return ['cnt'=>$Data['content']];//$Pages->Edit($Data,(int)$postdata['PageId']);
+        return $Pages->Edit($Data,(int)$postdata['PageId']);
     }
+    public function AdminAction($param=null) {
+        $this->View->content = $this->View->execute('Admin.html');
+        return $this->View->execute('index.html', TEMPLATE_DIR);
+    }
+    public function NewsAction($categiry=null,$name=null) {
+        $Pages = new PageModel();
 
+        if($categiry){
+          $AllNews = $Pages->GetAllNews();
+//        dd($name);
+        }
+        $this->View->AllNews = $Pages->GetAllNews();
+        $this->View->content = $this->View->content = $this->View->execute('NewCenter.html');
+        
+        $this->View->content = $this->View->execute('pages.html',TEMPLATE_DIR.'IndexController'.DS);
+        return $this->View->execute('index.html', TEMPLATE_DIR);
+    }
 }

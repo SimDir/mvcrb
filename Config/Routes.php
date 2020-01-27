@@ -28,8 +28,8 @@ return array(
     
     '^id([0-9]+)' => 'user/index/$1',
 
-//    '\bmoney\b/' => 'site/money/',
-//    'logout' => 'user/logout'
+    '\bmediacentr\b' => 'page/news/',
+    '^mediacentr/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+.html)' => 'page/news/$1/$2',
     
 //    'font' => 'res/font/',
 //    'font/([-_a-z0-9]+)' => 'res/font/$1',

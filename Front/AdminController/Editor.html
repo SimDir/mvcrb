@@ -20,7 +20,7 @@
         language: 'ru',
         language_url: '/public/js/ru.js',
         menubar: true,
-        plugins: ['save code fullscreen image media insertdatetime media table paste code help wordcount'
+        plugins: ['save code fullscreen image media insertdatetime media table paste code help wordcount image code'
 //            'advlist autolink lists link image charmap print preview anchor save',
 //            'searchreplace visualblocks code fullscreen',
 //            'insertdatetime media table paste code help wordcount'
@@ -39,6 +39,15 @@
                 ' bold italic backcolor | alignleft aligncenter ' +
                 ' alignright alignjustify | bullist numlist outdent indent |' +
                 ' removeformat | help',
+        images_upload_url: 'postAcceptor.php',
+
+  /* we override default upload handler to simulate successful upload*/
+  images_upload_handler: function (blobInfo, success, failure) {
+    setTimeout(function () {
+      /* no matter what you upload, we will turn it into TinyMCE logo :)*/
+                        success('http://moxiecode.cachefly.net/tinymce/v9/images/logo.png');
+                    }, 2000);
+                    },
         content_css: [
             '/public/css/bootstrap.css',
             '/public/css/style.css'

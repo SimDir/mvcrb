@@ -92,5 +92,12 @@ class PageModel extends Model {
         }
         return FALSE;
     }
+    public function GetAllNews() {
+        $Ret = $this->findAll($this->TableName, "(type = 'news')");
+        if ($Ret) {
+            return $this->exportAll($Ret, TRUE);
+        }
+        return FALSE;
+    }
 
 }

@@ -52,6 +52,7 @@ class AdminController extends Controller {
     public function EditorAction($Editor = 'tinymce', $id = 0) {
         $Page = new PageModel();
         $p = $Page->GetPage($id);
+        $this->View->id = $p['id'];
         $this->View->apikey='2vf7bxyhwhgjglrd05fapr353yk2xhegpnqdxgnhdk78rsie';
         $this->View->EditorText = $p['content'];
         $this->View->content = $this->View->execute('Editor.html');
