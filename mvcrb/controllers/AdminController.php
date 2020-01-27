@@ -16,6 +16,7 @@ class AdminController extends Controller {
     public function __construct() {
         parent::__construct();
         $this->User = new UserModel();
+//        dd($this->User->GetCurrentUser());
         if ($this->User->GetCurrentUser()['role'] < 900) {
 
             if ($this->POST) {

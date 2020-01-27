@@ -43,7 +43,8 @@ class UserController extends Controller {
     }
 
     public function LogoutAction() {
-        Session::destroy();
+        Session::init();
+        Session::DestroyAll();
         return mvcrb::Redirect('/');
     }
 

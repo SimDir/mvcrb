@@ -43,7 +43,7 @@ class PageController extends Controller {
 //            dd($PRet);
             $this->View->content = $PRet['content'];
             $this->View->title = $PRet['title'];
-            $this->View->content = $this->View->execute('page.html',);
+            $this->View->content = $this->View->execute('page.html');
 //            return $this->View->execute('index.html', TEMPLATE_DIR);
         }
 
