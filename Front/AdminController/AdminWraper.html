@@ -1,90 +1,693 @@
-<!-- Navbar -->
-<nav class="navbar sticky-top navbar-expand-sm navbar-dark unique-color">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+    <div class="navbar-brand">
+        <img src="https://agatech.ru/public/img/logo-ny.svg" height="30" alt="mdb logo">
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+            aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">На сайт
+                </a>
+            </li>
 
-        <!-- Brand -->
-        <a class="navbar-brand waves-effect" href="/" target="_blank">
-            <img src="/public/img/all-seeing-eye.webp" class="rounded-circle z-depth-0" alt="avatar image" height="35">
-        </a>
-<!--        <a class="navbar-brand waves-effect" href="/" target="_blank">
-            <strong class="blue-text">На сайт</strong>
-        </a>-->
 
-        <!-- Collapse -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        </ul>
+        <ul class="navbar-nav nav-flex-icons">
+            <li class="nav-item text-white">
+                <!--<a href="https://github.com/SimDir/mvcrb" class="nav-link border border-secondary rounded waves-effect" target="_blank">-->
+                Панель управление сайтом
+                <!--</a>-->
+            </li>
 
-        <!-- Links -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">Подробнее об MDB</a>
-                </li>
 
+        </ul>
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item text-white pt-2">
+                <!--<span class="nav-link waves-effect waves-light">-->
+                    Привет администратор!
+                <!--</span>-->
+            </li>
+            <li class="nav-item">
+                <a href="/user/logout" class="nav-link waves-effect waves-light">
+                    выйти
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg">
+    Eghfdktybt cfqnfvb
+</nav>
+
+<main class="container-fluid pt-2">
+    <div class="row bg-dark">
+        <div class="col-2">
+            <ul class="list-group">
+                <li class="list-group-item active">Управление страницами</li>
+                <li class="list-group-item">Управление слайдерами</li>
+                <li class="list-group-item">Управление файлами</li>
+                
+                <li class="list-group-item">Управление формами</li>
+                <li class="list-group-item">Управление картинками</li>
             </ul>
-
-            <!-- Right -->
-            <ul class="navbar-nav nav-flex-icons">
-                <li class="nav-item">
-                    <a href="https://github.com/SimDir/mvcrb" class="nav-link border border-secondary rounded waves-effect" target="_blank">
-                        <i class="fab fa-github mr-2"></i>фреймворк RusBeard на GitHub
-                    </a>
-                </li>
+        </div>
+        <div class="col-10 bg-light">
+            <div class="content">
+                <div class="contentmain">
 
 
-            </ul>
-            <ul class="navbar-nav ml-auto nav-flex-icons">
-<!--                <li class="nav-item avatar">
-                    <a class="nav-link" >
-                        <img src="/public/img/all-seeing-eye.webp" class="rounded-circle z-depth-0" alt="avatar image" height="35">
-                    </a>
-                 
-                </li>-->
-                <li class="nav-item avatar">
-                    <a href="/user/logout" class="nav-link waves-effect waves-light"> Выход
-                        <i class="fas fa-sign-out-alt"></i>
-                    </a>
-                    
-                </li>
-            </ul>
+
+
+                    <script type="text/javascript">
+                            tinymce.init({
+                                    selector: '.visual-editor',
+                                    language : 'ru',
+                                    content_css : '/css/main.css',
+                                    height: "300",
+                                    menubar:false,
+                                    fullpage_default_font_family: '"Open sans", sans-serif',
+                                    plugins: [
+                                            "advlist autolink autosave autoresize link image lists charmap print preview hr anchor pagebreak",
+                                            "searchreplace wordcount visualblocks visualchars code insertdatetime media nonbreaking",
+                                            "table contextmenu directionality emoticons template textcolor paste textcolor colorpicker textpattern jbimages responsivefilemanager "
+                                    ],
+                                    fullpage_default_doctype: "<!DOCTYPE html>",
+                                    file_browser_callback: function(field_name, url, type, win) {
+                                            // (type=='image') $('#my_form input').click();
+                                    },
+	
+                                    toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
+                                    toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor  | insertdatetime preview | forecolor | code",
+                                    toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | visualchars visualblocks nonbreaking | template media jbimages responsivefilemanager",
+                                    style_formats_merge: true,
+                                    style_formats: [
+                                            { title: 'Подложка контента', block: 'div', 'classes': 'page-content', wrapper : true},
+                                            { title: 'Скрыть в мобильной версии', block: 'div', 'classes': 'hidden-mobile', wrapper: true},
+                                {title: 'Отступ справа', block: 'div', 'classes': 'mrgn', wrapper: true}
+                            ],
+                            external_filemanager_path: "/admin/filemanager/",
+                            filemanager_title: "Файловый менеджер",
+                            external_plugins: {"filemanager": "/admin/js/tinymce/plugins/responsivefilemanager/plugin.min.js"},
+                            autoresize_min_height: 350,
+                            force_p_newlines: false
+                        });
+                    </script>
+                    <div class="catalog full_w">
+                        <div class="h_title">Управление страницами</div>
+                        <div id="page-visual-block" style="display: none;">
+                            <pre class="information">Для простоты редактирования рабочая область контента максимально приближена к реальным размерам и окружена границами для ее визуального представления.
+Текст вида "{% block ... %}" обозначает подключение програмных модулей. Без необходимости не удалять.
+                            </pre>
+                            <div class="status-message"></div>
+                            <form id="visual-edit-form">
+                                <!-- <input class="upload" type="submit" value="Сохранить"> <button class="cancel">Отменить</button> -->
+                                <div id="mceu_47" class="mce-tinymce mce-container mce-panel" hidefocus="1" tabindex="-1" role="application" style="visibility: hidden; border-width: 1px; width: 100%;"><div id="mceu_47-body" class="mce-container-body mce-stack-layout"><div id="mceu_48" class="mce-top-part mce-container mce-stack-layout-item mce-first"><div id="mceu_48-body" class="mce-container-body"><div id="mceu_49" class="mce-toolbar-grp mce-container mce-panel mce-first mce-last" hidefocus="1" tabindex="-1" role="group"><div id="mceu_49-body" class="mce-container-body mce-stack-layout"><div id="mceu_50" class="mce-container mce-toolbar mce-stack-layout-item mce-first" role="toolbar"><div id="mceu_50-body" class="mce-container-body mce-flow-layout"><div id="mceu_51" class="mce-container mce-flow-layout-item mce-first mce-btn-group" role="group"><div id="mceu_51-body"><div id="mceu_0" class="mce-widget mce-btn mce-first" tabindex="-1" role="button" aria-label="Bold"><button id="mceu_0-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-bold"></i></button></div><div id="mceu_1" class="mce-widget mce-btn" tabindex="-1" role="button" aria-label="Italic"><button id="mceu_1-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-italic"></i></button></div><div id="mceu_2" class="mce-widget mce-btn" tabindex="-1" role="button" aria-label="Underline"><button id="mceu_2-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-underline"></i></button></div><div id="mceu_3" class="mce-widget mce-btn mce-last" tabindex="-1" role="button" aria-label="Strikethrough"><button id="mceu_3-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-strikethrough"></i></button></div></div></div><div id="mceu_52" class="mce-container mce-flow-layout-item mce-btn-group" role="group"><div id="mceu_52-body"><div id="mceu_4" class="mce-widget mce-btn mce-first" tabindex="-1" role="button" aria-label="Align left"><button id="mceu_4-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-alignleft"></i></button></div><div id="mceu_5" class="mce-widget mce-btn" tabindex="-1" role="button" aria-label="Align center"><button id="mceu_5-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-aligncenter"></i></button></div><div id="mceu_6" class="mce-widget mce-btn" tabindex="-1" role="button" aria-label="Align right"><button id="mceu_6-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-alignright"></i></button></div><div id="mceu_7" class="mce-widget mce-btn mce-last" tabindex="-1" role="button" aria-label="Justify"><button id="mceu_7-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-alignjustify"></i></button></div></div></div><div id="mceu_53" class="mce-container mce-flow-layout-item mce-last mce-btn-group" role="group"><div id="mceu_53-body"><div id="mceu_8" class="mce-widget mce-btn mce-menubtn mce-first mce-btn-has-text" tabindex="-1" aria-labelledby="mceu_8" role="button" aria-haspopup="true"><button id="mceu_8-open" role="presentation" type="button" tabindex="-1"><span class="mce-txt">Формат</span> <i class="mce-caret"></i></button></div><div id="mceu_9" class="mce-widget mce-btn mce-menubtn mce-fixed-width mce-listbox mce-btn-has-text" tabindex="-1" aria-labelledby="mceu_9" role="button" aria-haspopup="true"><button id="mceu_9-open" role="presentation" type="button" tabindex="-1"><span class="mce-txt">Параграф</span> <i class="mce-caret"></i></button></div><div id="mceu_10" class="mce-widget mce-btn mce-menubtn mce-fixed-width mce-listbox mce-btn-has-text" tabindex="-1" aria-labelledby="mceu_10" role="button" aria-label="Font Family" aria-haspopup="true"><button id="mceu_10-open" role="presentation" type="button" tabindex="-1"><span class="mce-txt">Verdana</span> <i class="mce-caret"></i></button></div><div id="mceu_11" class="mce-widget mce-btn mce-menubtn mce-fixed-width mce-listbox mce-last mce-btn-has-text" tabindex="-1" aria-labelledby="mceu_11" role="button" aria-label="Font Sizes" aria-haspopup="true"><button id="mceu_11-open" role="presentation" type="button" tabindex="-1"><span class="mce-txt">11pt</span> <i class="mce-caret"></i></button></div></div></div></div></div><div id="mceu_54" class="mce-container mce-toolbar mce-stack-layout-item" role="toolbar"><div id="mceu_54-body" class="mce-container-body mce-flow-layout"><div id="mceu_55" class="mce-container mce-flow-layout-item mce-first mce-btn-group" role="group"><div id="mceu_55-body"><div id="mceu_12" class="mce-widget mce-btn mce-first" tabindex="-1" role="button" aria-label="Cut"><button id="mceu_12-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-cut"></i></button></div><div id="mceu_13" class="mce-widget mce-btn" tabindex="-1" role="button" aria-label="Copy"><button id="mceu_13-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-copy"></i></button></div><div id="mceu_14" class="mce-widget mce-btn mce-last" tabindex="-1" role="button" aria-label="Paste"><button id="mceu_14-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-paste"></i></button></div></div></div><div id="mceu_56" class="mce-container mce-flow-layout-item mce-btn-group" role="group"><div id="mceu_56-body"><div id="mceu_15" class="mce-widget mce-btn mce-first mce-last" tabindex="-1" role="button" aria-label="Find and replace"><button id="mceu_15-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-searchreplace"></i></button></div></div></div><div id="mceu_57" class="mce-container mce-flow-layout-item mce-btn-group" role="group"><div id="mceu_57-body"><div id="mceu_16" class="mce-widget mce-btn mce-splitbtn mce-menubtn mce-first" role="button" tabindex="-1" aria-label="Bullet list" aria-haspopup="true"><button type="button" hidefocus="1" tabindex="-1"><i class="mce-ico mce-i-bullist"></i></button><button type="button" class="mce-open" hidefocus="1" tabindex="-1"> <i class="mce-caret"></i></button></div><div id="mceu_17" class="mce-widget mce-btn mce-splitbtn mce-menubtn mce-last" role="button" tabindex="-1" aria-label="Numbered list" aria-haspopup="true"><button type="button" hidefocus="1" tabindex="-1"><i class="mce-ico mce-i-numlist"></i></button><button type="button" class="mce-open" hidefocus="1" tabindex="-1"> <i class="mce-caret"></i></button></div></div></div><div id="mceu_58" class="mce-container mce-flow-layout-item mce-btn-group" role="group"><div id="mceu_58-body"><div id="mceu_18" class="mce-widget mce-btn mce-first" tabindex="-1" role="button" aria-label="Decrease indent"><button id="mceu_18-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-outdent"></i></button></div><div id="mceu_19" class="mce-widget mce-btn" tabindex="-1" role="button" aria-label="Increase indent"><button id="mceu_19-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-indent"></i></button></div><div id="mceu_20" class="mce-widget mce-btn mce-last" tabindex="-1" role="button" aria-label="Blockquote"><button id="mceu_20-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-blockquote"></i></button></div></div></div><div id="mceu_59" class="mce-container mce-flow-layout-item mce-btn-group" role="group"><div id="mceu_59-body"><div id="mceu_21" class="mce-widget mce-btn mce-first mce-disabled" tabindex="-1" role="button" aria-label="Undo" aria-disabled="true"><button id="mceu_21-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-undo"></i></button></div><div id="mceu_22" class="mce-widget mce-btn mce-last mce-disabled" tabindex="-1" role="button" aria-label="Redo" aria-disabled="true"><button id="mceu_22-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-redo"></i></button></div></div></div><div id="mceu_60" class="mce-container mce-flow-layout-item mce-btn-group" role="group"><div id="mceu_60-body"><div id="mceu_23" class="mce-widget mce-btn mce-first" tabindex="-1" role="button" aria-label="Insert/edit link"><button id="mceu_23-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-link"></i></button></div><div id="mceu_24" class="mce-widget mce-btn" tabindex="-1" role="button" aria-label="Remove link"><button id="mceu_24-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-unlink"></i></button></div><div id="mceu_25" class="mce-widget mce-btn mce-last" tabindex="-1" role="button" aria-label="Anchor"><button id="mceu_25-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-anchor"></i></button></div></div></div><div id="mceu_61" class="mce-container mce-flow-layout-item mce-btn-group" role="group"><div id="mceu_61-body"><div id="mceu_26" class="mce-widget mce-btn mce-splitbtn mce-menubtn mce-first" role="button" tabindex="-1" aria-label="Insert date/time" aria-haspopup="true"><button type="button" hidefocus="1" tabindex="-1"><i class="mce-ico mce-i-insertdatetime"></i></button><button type="button" class="mce-open" hidefocus="1" tabindex="-1"> <i class="mce-caret"></i></button></div><div id="mceu_27" class="mce-widget mce-btn mce-last" tabindex="-1" role="button" aria-label="Preview"><button id="mceu_27-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-preview"></i></button></div></div></div><div id="mceu_62" class="mce-container mce-flow-layout-item mce-btn-group" role="group"><div id="mceu_62-body"><div id="mceu_28" class="mce-widget mce-btn mce-splitbtn mce-colorbutton mce-first mce-last" role="button" tabindex="-1" aria-haspopup="true" aria-label="Text color"><button role="presentation" hidefocus="1" type="button" tabindex="-1"><i class="mce-ico mce-i-forecolor"></i><span id="mceu_28-preview" class="mce-preview"></span></button><button type="button" class="mce-open" hidefocus="1" tabindex="-1"> <i class="mce-caret"></i></button></div></div></div><div id="mceu_63" class="mce-container mce-flow-layout-item mce-last mce-btn-group" role="group"><div id="mceu_63-body"><div id="mceu_29" class="mce-widget mce-btn mce-first mce-last" tabindex="-1" role="button" aria-label="Source code"><button id="mceu_29-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-code"></i></button></div></div></div></div></div><div id="mceu_64" class="mce-container mce-toolbar mce-stack-layout-item mce-last" role="toolbar"><div id="mceu_64-body" class="mce-container-body mce-flow-layout"><div id="mceu_65" class="mce-container mce-flow-layout-item mce-first mce-btn-group" role="group"><div id="mceu_65-body"><div id="mceu_30" class="mce-widget mce-btn mce-menubtn mce-first mce-last" tabindex="-1" aria-labelledby="mceu_30" role="button" aria-label="Table" aria-haspopup="true"><button id="mceu_30-open" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-table"></i> <i class="mce-caret"></i></button></div></div></div><div id="mceu_66" class="mce-container mce-flow-layout-item mce-btn-group" role="group"><div id="mceu_66-body"><div id="mceu_31" class="mce-widget mce-btn mce-first" tabindex="-1" role="button" aria-label="Horizontal line"><button id="mceu_31-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-hr"></i></button></div><div id="mceu_32" class="mce-widget mce-btn mce-last" tabindex="-1" role="button" aria-label="Clear formatting"><button id="mceu_32-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-removeformat"></i></button></div></div></div><div id="mceu_67" class="mce-container mce-flow-layout-item mce-btn-group" role="group"><div id="mceu_67-body"><div id="mceu_33" class="mce-widget mce-btn mce-first" tabindex="-1" role="button" aria-label="Subscript"><button id="mceu_33-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-subscript"></i></button></div><div id="mceu_34" class="mce-widget mce-btn mce-last" tabindex="-1" role="button" aria-label="Superscript"><button id="mceu_34-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-superscript"></i></button></div></div></div><div id="mceu_68" class="mce-container mce-flow-layout-item mce-btn-group" role="group"><div id="mceu_68-body"><div id="mceu_35" class="mce-widget mce-btn mce-first" tabindex="-1" role="button" aria-label="Special character"><button id="mceu_35-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-charmap"></i></button></div><div id="mceu_36" class="mce-widget mce-btn mce-last" tabindex="-1" role="button" aria-label="Emoticons" aria-haspopup="true"><button id="mceu_36-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-emoticons"></i></button></div></div></div><div id="mceu_69" class="mce-container mce-flow-layout-item mce-btn-group" role="group"><div id="mceu_69-body"><div id="mceu_37" class="mce-widget mce-btn mce-first mce-last" tabindex="-1" role="button" aria-label="Print"><button id="mceu_37-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-print"></i></button></div></div></div><div id="mceu_70" class="mce-container mce-flow-layout-item mce-btn-group" role="group"><div id="mceu_70-body"><div id="mceu_38" class="mce-widget mce-btn mce-first" tabindex="-1" role="button" aria-label="Left to right"><button id="mceu_38-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-ltr"></i></button></div><div id="mceu_39" class="mce-widget mce-btn mce-last" tabindex="-1" role="button" aria-label="Right to left"><button id="mceu_39-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-rtl"></i></button></div></div></div><div id="mceu_71" class="mce-container mce-flow-layout-item mce-btn-group" role="group"><div id="mceu_71-body"><div id="mceu_40" class="mce-widget mce-btn mce-first" tabindex="-1" role="button" aria-label="Show invisible characters"><button id="mceu_40-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-visualchars"></i></button></div><div id="mceu_41" class="mce-widget mce-btn" tabindex="-1" role="button" aria-label="Show blocks"><button id="mceu_41-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-visualblocks"></i></button></div><div id="mceu_42" class="mce-widget mce-btn mce-last" tabindex="-1" role="button" aria-label="Nonbreaking space"><button id="mceu_42-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-nonbreaking"></i></button></div></div></div><div id="mceu_72" class="mce-container mce-flow-layout-item mce-last mce-btn-group" role="group"><div id="mceu_72-body"><div id="mceu_43" class="mce-widget mce-btn mce-first" tabindex="-1" role="button" aria-label="Insert template"><button id="mceu_43-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-template"></i></button></div><div id="mceu_44" class="mce-widget mce-btn" tabindex="-1" role="button" aria-label="Insert/edit media"><button id="mceu_44-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-media"></i></button></div><div id="mceu_45" class="mce-widget mce-btn" tabindex="-1" role="button" aria-label="Загрузить изображение"><button id="mceu_45-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-image"></i></button></div><div id="mceu_46" class="mce-widget mce-btn mce-last" tabindex="-1" role="button" aria-label="Загрузить файл"><button id="mceu_46-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-browse"></i></button></div></div></div></div></div></div></div></div></div><div id="mceu_73" class="mce-edit-area mce-container mce-panel mce-stack-layout-item" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"><iframe id="mce_0_ifr" frameborder="0" allowtransparency="true" title="Текстовое поле. Нажмите ALT-F9 чтобы вызвать меню, ALT-F10 панель инструментов, ALT-0 для вызова помощи." style="width: 100%; height: 350px; display: block;" data-mce-style="width: 100%; height: 350px; display: block;"></iframe></div><div id="mceu_74" class="mce-statusbar mce-container mce-panel mce-stack-layout-item mce-last" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"><div id="mceu_74-body" class="mce-container-body mce-flow-layout"><div id="mceu_75" class="mce-path mce-flow-layout-item mce-first"><div class="mce-path-item">&nbsp;</div></div><span id="mceu_78" class="mce-wordcount mce-widget mce-label mce-flow-layout-item">4 words</span><div id="mceu_76" class="mce-flow-layout-item mce-resizehandle"><i class="mce-ico mce-i-resize"></i></div><span id="mceu_77" class="mce-branding mce-widget mce-label mce-flow-layout-item mce-last"> Powered by <a href="https://www.tinymce.com/?utm_campaign=editor_referral&amp;utm_medium=poweredby&amp;utm_source=tinymce" rel="noopener" target="_blank">tinymce</a></span></div></div></div></div><textarea class="visual-editor" id="mce_0" aria-hidden="true" style="display: none;">				Страница не была загружена
+                                </textarea>
+                                <input class="upload" type="submit" value="Сохранить">
+                            </form>
+                            <button class="cancel">Отменить</button>
+                        </div>
+
+                        <div class="col-3 jstree jstree-1 jstree-default" id="cat-view" role="tree" aria-multiselectable="true" tabindex="0" aria-activedescendant="4" aria-busy="false"><ul class="jstree-container-ul jstree-children jstree-striped" role="group"><li role="treeitem" page-group="content" page-id="1" page-key="1" aria-selected="false" aria-level="1" aria-labelledby="1_anchor" aria-expanded="false" id="1" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="#" tabindex="-1" id="1_anchor"><i class="jstree-icon jstree-themeicon" role="presentation"></i>Главная страница</a></li><li role="treeitem" page-group="catalog" page-id="4" page-key="1" aria-selected="true" aria-level="1" aria-labelledby="4_anchor" aria-expanded="false" id="4" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor jstree-clicked" href="#" tabindex="-1" id="4_anchor"><i class="jstree-icon jstree-themeicon" role="presentation"></i>Каталог</a></li><li role="treeitem" page-group="gallery" page-id="5" page-key="6" aria-selected="false" aria-level="1" aria-labelledby="5_anchor" aria-expanded="false" id="5" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="#" tabindex="-1" id="5_anchor"><i class="jstree-icon jstree-themeicon" role="presentation"></i>Галерея</a></li><li role="treeitem" page-group="news" page-id="8" page-key="1" aria-selected="false" aria-level="1" aria-labelledby="8_anchor" aria-expanded="false" id="8" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="#" tabindex="-1" id="8_anchor"><i class="jstree-icon jstree-themeicon" role="presentation"></i>Новости</a></li><li role="treeitem" page-group="item" page-id="10" page-key="5" aria-selected="false" aria-level="1" aria-labelledby="10_anchor" aria-expanded="false" id="10" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="#" tabindex="-1" id="10_anchor"><i class="jstree-icon jstree-themeicon" role="presentation"></i>Карточка товара</a></li><li role="treeitem" page-group="actions" page-id="13" page-key="8" aria-selected="false" aria-level="1" aria-labelledby="13_anchor" aria-expanded="false" id="13" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="#" tabindex="-1" id="13_anchor"><i class="jstree-icon jstree-themeicon" role="presentation"></i>Акции и скидки на кухни</a></li><li role="treeitem" page-group="projects" page-id="26" page-key="1" aria-selected="false" aria-level="1" aria-labelledby="26_anchor" aria-expanded="false" id="26" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="#" tabindex="-1" id="26_anchor"><i class="jstree-icon jstree-themeicon" role="presentation"></i>Проекты</a></li><li role="treeitem" page-group="project" page-id="27" page-key="1" aria-selected="false" aria-level="1" aria-labelledby="27_anchor" aria-expanded="false" id="27" class="jstree-node  jstree-closed jstree-last"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="#" tabindex="-1" id="27_anchor"><i class="jstree-icon jstree-themeicon" role="presentation"></i>Карточка проекта</a></li></ul></div>
+                        <div class="col-2-3">
+                            <div class="custom-admin-page"></div>
+                            <div id="options-panel">
+                                <button class="option upload allowed" id="visible-page" onclick="Page.pagevisible(4)" style="display: inline-block;">Опубликовать</button>
+                                <button class="option upload" id="edit-page" onclick="Page.visualEdit(4)" style="display: inline-block;">Визуальное редактирование</button>
+                                <button class="option additionally" id="options-page" onclick="Page.getOptions(4)" style="display: inline-block;">Параметры</button>
+                                <button class="option delete" id="delete-page" onclick="Page.delete(4)" style="display: inline-block;">Удалить страницу</button>
+                            </div>
+                            <div id="form-options" style=""></div>
+                            <div id="page-options-basic">
+                                <div class="group"><form>	<span class="last_change">Последнее изменение : 10:09:35 26.04.2018</span><input type="hidden" name="page_id" value="4"><input type="hidden" name="action" value="updatepageoptionsbasic"><label>Название</label><input type="text" name="page_name" value="Каталог"><label>Адрес страницы</label><input type="text" name="page_uri" value="/catalog"><input class="upload" type="submit" name="submit" value="Обновить"></form></div>
+                            </div>
+                            <div id="page-options-meta">
+                                <div class="group"><form>	<input type="hidden" name="page_id" value="4"><input type="hidden" name="action" value="updatepageoptionsmeta"><label>Заголовок</label><input type="text" name="page_title" value="Каталог"><label>Ключевые слова</label><input type="text" name="page_keywords" value="каталог"><label>Описание</label><input type="text" name="page_description" value="Каталог"><input class="upload" type="submit" name="submit" value="Обновить"></form></div>
+                            </div>
+                            <div id="add-new-page" style="display: none;">
+                                <div class="group"></div>
+                            </div>
+                            <div id="post-thumbnail">
+                                <div class="group"><form><input class="upload" type="submit" name="submit" value="Задать миниатюру"></form></div>
+                            </div>
+
+                            <div id="post-checkbox">
+                                <div class="group"><form><input class="upload" type="submit" name="submit" value="Список городов публикации"></form></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <script>
+                        function hideCustomAdminPage(type) {
+                            $('.custom-admin-page').html('');
+                            switch (type) {
+                                case 'add':
+                                    break;
+                                default:
+                                    $('.custom-admin-page').siblings().show();
+                            }
+
+                        }
+                        var Page = {
+                            showOptionPanel: function (pageId, data) {
+                                if (data.IS_ALLOWED == 1) {
+                                    $('#visible-page').addClass('button-visible');
+                                    $('#visible-page').text('Скрыть');
+                                } else {
+                                    $('#visible-page').text('Опубликовать');
+                                    $('#visible-page').removeClass('button-visible');
+                                }
+                                $('#visible-page').attr('onclick', 'Page.pagevisible(' + pageId + ')').show();
+                                $('#edit-page').attr('onclick', 'Page.visualEdit(' + pageId + ')').show();
+                                $('#options-page').attr('onclick', 'Page.getOptions(' + pageId + ')').show();
+                                $('#delete-page').attr('onclick', 'Page.delete(' + pageId + ')').show();
+                            },
+
+                            pagevisible: function (pageId) {
+                                status('uploading', 'Запрос обрабатывается...');
+                                $.ajax({
+                                    type: 'post',
+                                    data: {
+                                        action: 'pagevisible',
+                                        page_id: pageId
+                                    }
+                                }).success(function (r) {
+                                    status('done', 'Страница опубликованна!');
+                                    var t = $('li[page-id=' + pageId + '] a').text()
+                                    var e;
+                                    $('#visible-page').toggleClass('button-visible');
+                                    if ($("#visible-page").hasClass("button-visible")) {
+                                        $('#visible-page').text('Скрыть');
+                                        $('li[page-id=' + pageId + '] a span.not-publicated').remove();
+                                    } else {
+                                        $('#visible-page').text('Опубликовать');
+                                        e = "(Черновик) ";
+                                        $('<span class="not-publicated">' + e + '</span>').insertAfter($('li[page-id=' + pageId + '] a i'));
+                                    }
+
+
+                                }).error(function (e) {
+                                    status('error', 'Ошибка сервера');
+                                });
+                            },
+
+                            delete: function (pageId) {
+                                status('uploading', 'Страница удаляется...');
+                                $.ajax({
+                                    type: 'post',
+                                    data: {
+                                        action: 'removepage',
+                                        page_id: pageId
+                                    }
+                                }).success(function (r) {
+                                    status('done', 'Страница удалена!');
+                                    var $deleted = $('li[page-id="' + pageId + '"]');
+                                    $deleted.parent().siblings('a').click();
+                                    $deleted.siblings().last().addClass('jstree-last');
+                                    $deleted.remove();
+                                }).error(function (e) {
+                                    status('error', 'Ошибка сервера');
+                                    $('body').append('<div style="position:fixed;right:0;bottom:0;width:330px;border:1px #aaa solid;background-color:rgba(255,0,0,0.6);z-index:500;font-size:0.9rem;box-sizing:border-box;color:#fff" id="servererrorlog"><div style="text-align:right;padding:5px;cursor:default;background-color:#a27c4d"><span onclick="$(\'#servererrorlog\').hide();" style="cursor:pointer;padding:5px;">X</span></div><div style="padding:0 10px 20px 10px;" id="servererrorlogtext"><b>Запрос:</b><br>' + JSON.stringify($that.serializeArray()) + '<br><hr><b>Ответ сервера:</b><br>' + e.responseText + '</div><div style="background-color:#f1f1f2;color:#000;padding:10px 0;text-align:center;"><span style="cursor:pointer;margin:15px auto;padding:8px 10px;width:80%;user-select:none;" id="sendservererrorbutton" class="button" onclick="senderrorlogtoagatech();">Отправить отчет разработчикам</span><br><span>Контактный email: <a href="mailto:support@agatech.ru"><b>support@agatech.ru</b></a></span></div></div>');
+                                });
+                            },
+                            getOptions: function (pageId) {
+                                status('uploading', 'Страница загружается...');
+                                $.ajax({
+                                    type: 'post',
+                                    data: {
+                                        action: 'getoptions',
+                                        page_id: pageId
+                                    }
+                                }).done(function (data) {
+                                    status('done', 'Страница загружена!');
+                                    $('#visual-edit-form').unbind().one("submit", function () {
+                                        Page.updateVisual(pageId);
+                                        return false;
+                                    });
+                                    if (data.options == null) {
+                                        $('#page-visual-block').slideDown();
+                                        $('#page-visual-block #visual-edit-form').hide();
+                                        $('#page-visual-block .status-message').empty().html('Для данной страницы еще не был добавлен контент. <button onclick="Page.visualEditCreate(\'Для простоты редактирования рабочая область контента максимально приближена к реальным размерам и окружена границами для ее визуального представления.\')">Добавить</button>');
+                                    } else {
+                                        Page.form_options(data.options);
+                                    }
+                                })
+                            },
+                            default_options: null,
+                            form_options: function (content) {
+                                $('#form-options').slideDown();
+                                $('#form-options').empty();
+                                this.default_options = '';
+                                /*content.defaults.forEach(function(item, i, arr) {
+                                 console.log( i + ": " + item + " (массив:" + arr + ")" );
+                                 });*/
+                                var opt = null;
+                                for (var item in content.defaults) {
+                                    opt += '<option value="' + item + '">' + item + '</option>';
+                                }
+                                $('#form-options').html(content.html).append(
+                                        $('#form').submit(function (e) {
+                                    Page.updateOptionsBasic($(this));
+                                    return false;
+                                }),
+                                        $('.addSelect').on('click', function (e) {
+
+                                    $('.form-row').append('<div class="row"><select class="js-example-tags" name="sbox[]" multiple="" tabindex="-1" aria-hidden="true">' + opt + '</select></div><div class="row"><input name="ibox[]" value=""></div>'
+                                            );
+                                    $(".js-example-tags").select2({
+                                        tags: true,
+                                        maximumSelectionLength: 1
+                                    });
+                                })
+                                        )
+
+                                /**/
+                                $('#page-visual-block .status-message').empty();
+                                $(".js-example-tags").select2({
+                                    tags: true,
+                                    maximumSelectionLength: 1
+                                });
+                            },
+                            appendoptions: function () {
+
+                            },
+                            visualEdit: function (pageId) {
+                                status('uploading', 'Загружается...');
+                                $.ajax({
+                                    type: 'post',
+                                    data: {
+                                        action: 'getpagecontent',
+                                        page_id: pageId
+                                    }
+                                }).done(function (data) {
+                                    status('done', 'Содержимое страницы успешно загружено в визуальный редактор.');
+                                    if ($(".wrapper .visible").hasClass("full_visible")) {
+                                    } else {
+                                        $('.wrapper .visible').toggleClass("full_visible");
+                                    }
+                                    $('#visual-edit-form').unbind().one("submit", function () {
+                                        Page.updateVisual(pageId);
+                                        return false;
+                                    });
+                                    if (data.content == null) {
+                                        $('#page-visual-block').slideDown();
+                                        $('#page-visual-block #visual-edit-form').hide();
+                                        $('#page-visual-block .status-message').empty().html('Для данной страницы еще не был добавлен контент. <button onclick="Page.visualEditCreate(\'Для простоты редактирования рабочая область контента максимально приближена к реальным размерам и окружена границами для ее визуального представления.\')">Добавить</button>');
+                                    } else {
+                                        Page.visualEditCreate(data.content);
+                                    }
+                                })
+                            },
+                            visualEditCreate: function (content) {
+                                tinyMCE.activeEditor.setContent(content);
+                                $('#page-visual-block').slideDown();
+                                $('#page-visual-block #visual-edit-form').show();
+                                $('#page-visual-block .status-message').empty();
+                            },
+                            updateVisual: function (pageId) {
+                                status('uploading', 'Страница обновляется...');
+                                var content = $(tinyMCE.activeEditor.getBody());
+                                content.find('[data-mce-bogus]').parent().remove();
+                                content.find('[data-mce-bogus]').remove();
+                                var $that = $('#visual-edit-form');
+                                $.ajax({
+                                    type: "POST",
+                                    data: {
+                                        'action': 'updatepagevisual',
+                                        'page_id': pageId,
+                                        'content': content.html()
+                                    },
+                                }).success(function (r) {
+                                    status('done', 'Страница обновлена!');
+                                    $('#page-visual-block').slideUp();
+                                    if ($(".wrapper .visible").hasClass("full_visible")) {
+
+                                        $('.wrapper .visible').toggleClass("full_visible");
+                                    } else {
+                                    }
+                                }).error(function (e) {
+                                    status('error', 'Ошибка сервера при обновлении страницы');
+                                    $('body').append('<div style="position:fixed;right:0;bottom:0;width:330px;border:1px #aaa solid;background-color:rgba(255,0,0,0.6);z-index:500;font-size:0.9rem;box-sizing:border-box;color:#fff" id="servererrorlog"><div style="text-align:right;padding:5px;cursor:default;background-color:#a27c4d"><span onclick="$(\'#servererrorlog\').hide();" style="cursor:pointer;padding:5px;">X</span></div><div style="padding:0 10px 20px 10px;" id="servererrorlogtext"><b>Запрос:</b><br>' + JSON.stringify($that.serializeArray()) + '<br><hr><b>Ответ сервера:</b><br>' + e.responseText + '</div><div style="background-color:#f1f1f2;color:#000;padding:10px 0;text-align:center;"><span style="cursor:pointer;margin:15px auto;padding:8px 10px;width:80%;user-select:none;" id="sendservererrorbutton" class="button" onclick="senderrorlogtoagatech();">Отправить отчет разработчикам</span><br><span>Контактный email: <a href="mailto:support@agatech.ru"><b>support@agatech.ru</b></a></span></div></div>');
+                                });
+                                return false;
+                            },
+
+                            visualEditCancel: function () {
+                                tinyMCE.activeEditor.setContent('');
+                                $('#page-visual-block').slideUp();
+                            },
+
+                            showOptionsMeta: function (pageId, page) {
+                                status('done', 'МетаТеги загружены');
+                                var form = ' ' +
+                                        '<form>	' +
+                                        '<input type="hidden" name="page_id" value="' + pageId + '">' +
+                                        '<input type="hidden" name="action" value="updatepageoptionsmeta">' +
+                                        '<label>Заголовок</label>' +
+                                        '<input type="text" name="page_title" value="' + page.title + '">' +
+                                        '<label>Ключевые слова</label>' +
+                                        '<input type="text" name="page_keywords" value="' + page.keywords + '">' +
+                                        '<label>Описание</label>' +
+                                        '<input type="text" name="page_description" value="' + page.description + '">' +
+                                        '<input class="upload" type="submit" name="submit" value="Обновить">' +
+                                        '';
+                                $('#page-options-meta .group').empty().append(
+                                        $(form).submit(function (e) {
+                                    Page.updateOptionsMeta($(this));
+                                    return false;
+                                })
+                                        );
+                            },
+                            updateOptionsMeta: function (form) {
+                                status('uploading', 'Метатеги обновляются...');
+                                var data = form.serialize();
+                                $.ajax({
+                                    type: 'post',
+                                    data: data
+                                }).done(function (data) {
+                                    switch (data.result) {
+                                        case "2" :
+                                            break;
+                                        default :
+                                            status('done', 'Метатеги успешно обновлены');
+                                    }
+                                });
+                            },
+                            showOptionPostThumbnail: function (pageId, page) {
+                                var children_page = false;
+                                if ((page.page_uri.split("/").length - 1) > 1) { // определяет, главная страница модуля открыта, либо дочерняя
+                                    children_page = true;
+                                }
+
+                                switch (page.GROUP) {
+                                    case 'gallery':
+                                        //$('.custom-admin-page').siblings().hide();
+                                        var custom_suffix = '';
+                                        if (children_page) {
+                                            var alb = explode('/', page.page_uri);
+                                            alb = alb[alb.length - 1];
+                                            custom_suffix = '%2F' + alb;
+                                        }
+                                        $('.custom-admin-page').html('<iframe class="custom-admin-page-iframe" src="/admin/filemanager/dialog.php?type=4&descending=false&lang=ru&akey=key&fldr=gallery' + custom_suffix + '"></iframe>');
+                                        break;
+                                    default: // content-page
+                                        hideCustomAdminPage();
+                                        $('#add-new-page').hide(0);
+                                        if (page.picture == 0) {
+                                            var form = ' ' +
+                                                    '<form><input class="upload" type="submit" name="submit" value="Задать миниатюру"></form>';
+                                            $('#post-thumbnail .group').empty().append(
+                                                    $(form).submit(function (e) {
+                                                $('body').addClass('modal');
+                                                $('#hdn').css('width', '100%');
+                                                $('#hdn').css('height', '100vh');
+                                                Page.postToIframe({PageId: pageId, iframe: 'true'}, "/adm/views/thumbnail", "hdn");
+                                                return false;
+                                            })
+
+                                                    );
+                                        } else {
+                                            Page.getPicturePage(page.picture, pageId);
+                                            return false;
+                                        }
+                                }
+
+                                status('done', 'Страница ' + pageId + ' успешно загружена');
+                            },
+
+                            showOptionCheckboxCities: function (pageId, page) {
+                                var form = ' ' +
+                                        '<form><input class="upload" type="submit" name="submit" value="Список городов публикации"></form>';
+                                $('#post-checkbox .group').empty().append(
+                                        $(form).submit(function (e) {
+                                    $('body').addClass('modal');
+                                    $('#hdn').css('width', '100%');
+                                    $('#hdn').css('height', '100vh');
+                                    Page.postToIframe({PageId: pageId, iframe: 'true'}, "/adm/views/citiescheckbox", "hdn");
+                                    return false;
+                                })
+
+                                        );
+
+
+                            },
+
+                            getPicturePage: function (pictureID, pageId) {
+                                $.ajax({
+                                    type: 'post',
+                                    data: {
+                                        cmd: 'getpicturebyid',
+                                        id: pictureID
+                                    }
+                                }).done(function (data) {
+                                    if (data.status == 200) {
+                                        $('#post-thumbnail .group').empty().append(
+                                                '<div class="box__picture">' +
+                                                '<img src="/' + data.picture.URL + '">' +
+                                                '</div>' +
+                                                '<button type="submit" class="remove__picture" onclick="Page.removePicture(' + pageId + ')">Удалить миниатюру</button>'
+                                                )
+                                    }
+                                })
+                            },
+
+                            removePicture: function (pageId) {
+                                $.ajax({
+                                    type: 'post',
+                                    data: {
+                                        cmd: 'removePicture',
+                                        id: pageId
+                                    }
+                                }).done(function (data) {
+                                    if (data.status == 200) {
+                                        var form = ' ' +
+                                                '<form><input class="upload" type="submit" name="submit" value="Задать миниатюру"></form>';
+                                        $('#post-thumbnail .group').empty().append(
+                                                $(form).submit(function (e) {
+                                            $('body').addClass('modal');
+                                            $('#hdn').css('width', '100%');
+                                            $('#hdn').css('height', '100vh');
+                                            Page.postToIframe({PageId: pageId, iframe: 'true'}, "/adm/views/thumbnail", "hdn");
+                                            return false;
+                                        })
+
+                                                );
+                                    }
+                                })
+                            },
+
+                            showOptionsBasic: function (pageId, page) {
+                                status('done', 'Основные опции страницы загружены');
+
+                                // закрываем виз. редактор если он был открыт
+                                $('#page-visual-block').slideUp();
+                                if ($(".wrapper .visible").hasClass("full_visible")) {
+                                    $('.wrapper .visible').toggleClass("full_visible");
+                                }
+
+                                var date = new Date(page.time_last_change);
+
+                                var form = ' ' +
+                                        '<form>	' +
+                                        '<span class="last_change">Последнее изменение : ' + date.format("HH:MM:ss dd.mm.yyyy") + '</span>' +
+                                        '<input type="hidden" name="page_id" value="' + pageId + '">' +
+                                        '<input type="hidden" name="action" value="updatepageoptionsbasic">' +
+                                        '<label>Название</label>' +
+                                        '<input type="text" name="page_name" value="' + page.NAME + '">' +
+                                        '<label>Адрес страницы</label>' +
+                                        '<input type="text" name="page_uri" value="' + page.page_uri + '">' +
+                                        '<input class="upload" type="submit" name="submit" value="Обновить">' +
+                                        '';
+                                $('#page-options-basic .group').empty().append(
+                                        $(form).submit(function (e) {
+                                    Page.updateOptionsBasic($(this));
+                                    return false;
+                                })
+                                        );
+                            },
+
+                            addNewPage: function (group, parent, parentkey) {
+                                status('uploading', 'Форма добавления новой страницы загружается...');
+                                $('#options-panel').hide();
+                                $('#form-options').hide();
+                                $('#page-options-basic').hide();
+                                $('#page-options-meta').hide();
+                                $('#add-new-page').show();
+                                Page.testfunc(group, parent, parentkey);
+                                hideCustomAdminPage('add');
+                            },
+
+                            testfunc: function (group, parent, parentkey) {
+                                // получаем url родительского элемента
+                                status('done', 'Форма добавления новой страницы загружена');
+                                $.ajax({
+                                    type: 'post',
+                                    data: {
+                                        action: 'getpageoptionsbykey',
+                                        group: group,
+                                        page: ' ' + parentkey
+                                    }
+                                }).done(function (data) {
+                                    if (data.status == 200) {
+                                        var pageuri = data.basic.page_uri;
+                                        var form = ' ' +
+                                                '<form><input type="hidden" name="group" value="' + group + '"><input type="hidden" name="parent" value="' + parentkey + '"><input type="hidden" name="action" value="addnewpage"><label>Название</label><input type="text" name="page_name" value=""><label>Адрес страницы</label><input type="text" name="page_uri" value="' + pageuri + '/mynewpage"><label>Заголовок</label><input type="text" name="page_title" value=""><label>Ключевые слова</label><input type="text" name="page_keywords" value=""><label>Описание</label><input type="text" name="page_description" value=""><input class="upload" type="submit" name="submit" value="Добавить"></form>' +
+                                                '';
+                                        $('#add-new-page .group').empty().append(
+                                                $(form).submit(function (e) {
+                                            Page.createNewPage($(this));
+                                            return false;
+                                        })
+                                                );
+                                    }
+                                })
+
+
+                            },
+
+                            createNewPage: function (form) {
+                                status('uploading', 'Создаётся новая страница...');
+                                var data = form.serialize();
+                                $.ajax({
+                                    type: 'post',
+                                    data: data
+                                }).done(function (data) {
+                                    switch (data.result) {
+                                        case "2":
+                                            break;
+                                        default :
+                                            status('done', 'Страница успешно создана!');
+                                    }
+                                    $('#cat-view').jstree(true).refresh();
+                                });
+                            },
+
+                            updateOptionsBasic: function (form) {
+                                status('uploading', 'Основные опции обновляются...');
+                                var data = form.serialize();
+                                $.ajax({
+                                    type: 'post',
+                                    data: data
+                                }).done(function (data) {
+                                    switch (data.result) {
+                                        case "2":
+                                            break;
+                                        default :
+                                            status('done', 'Основные опции успешно обновлены');
+                                    }
+                                });
+                            },
+
+                            getPageOptions: function (pageId) {
+                                status('uploading', 'Загрузка...');
+                                $('#options-panel').show();
+                                $('#page-options-basic').show();
+                                $('#add-new-page').hide();
+                                $('#page-options-meta').show();
+                                $.ajax({
+                                    type: 'post',
+                                    data: {
+                                        action: 'getpageoptions',
+                                        page: ' ' + pageId
+                                    }
+                                }).done(function (data) {
+                                    if (data.status == 200) {
+                                        Page.showOptionsMeta(pageId, data.meta);
+                                        Page.showOptionsBasic(pageId, data.basic);
+                                        Page.showOptionPanel(pageId, data.basic);
+                                        Page.showOptionPostThumbnail(pageId, data.basic);
+                                        Page.showOptionCheckboxCities(pageId, data.basic);
+                                    }
+                                })
+                            },
+                            postToIframe(data, url, target) {
+                                $('body').append('<form action="' + url + '" method="get" target="' + target + '" id="postToIframe"></form>');
+                                $.each(data, function (n, v) {
+                                    $('#postToIframe').append('<input type="hidden" name="' + n + '" value="' + v + '" />');
+                                });
+                                $('#postToIframe').submit().remove();
+
+                            }
+                        };
+
+                        var nestedTree = $("#cat-view").jstree({
+                            "core": {
+                                "animation": 1,
+                                "check_callback": true,
+                                "themes": {"stripes": true},
+                                'data': {
+                                    'cache': false,
+                                    'type': 'POST',
+                                    'dataType': 'JSON',
+                                    'contentType': false,
+                                    'processData': false,
+                                    'data': function (node) {
+                                        var formData = new FormData();
+                                        node.id === '#' ?
+                                                formData.append('action', 'gettoptree') : formData.append('action', 'gettree');
+                                        if (node.id === '#') {
+
+                                        } else {
+                                            formData.append('group', $('#' + node.id).attr('page-group'));
+                                        }
+
+                                        formData.append('id', node.id);
+                                        if (node.id != '#') {
+                                            formData.append('key', $('#' + node.id).attr('page-key'));
+                                        }
+                                        formData.append('api', 'true');
+                                        return formData;
+                                    },
+                                    'url': function (node) {
+                                        return node.id === '#' ?
+                                                '/adm/views/tree' : '/adm/views/tree';
+                                    }
+                                }
+                            },
+                        }).on("select_node.jstree",
+                                function (evt, data) {
+                                    var node_id = (data.node.id);
+                                    var description = $("#" + node_id).attr("page-group");
+                                    //console.log(description);
+                                }
+                        );
+                        ;
+
+
+                        nestedTree.on('changed.jstree', function (e, data) {
+                            var i, j, r = [];
+                            for (i = 0, j = data.selected.length; i < j; i++) {
+                                var origid = $('#' + data.instance.get_node(data.selected[i]).id).attr("id");
+                                if (parseInt($('#' + data.instance.get_node(data.selected[i]).id).attr("id")) != origid) {
+                                    Page.addNewPage($('#' + data.instance.get_node(data.selected[i]).id).attr("page-group"), $('#' + data.instance.get_node(data.selected[i]).id).attr("page-parent"), $('#' + data.instance.get_node(data.selected[i]).id).attr("page-key"));
+                                } else {
+                                    Page.getPageOptions($('#' + data.instance.get_node(data.selected[i]).id).attr("page-id"));
+                                    r.push($('#' + data.instance.get_node(data.selected[i]).id).attr("page-id"));
+                                }
+                            }
+                        });
+                        $('.cancel').on("click", function () {
+                            Page.visualEditCancel();
+                        });
+
+
+
+
+                    </script>
+                    <style>
+                        .box__picture {padding: 20px;display: inline-block;}
+                        .box__picture img {width: 150px;}
+                        .jstree-default .jstree-node.add-new-page.jstree-leaf a i {background-position: -100px -69px;}
+                        .jstree-default .jstree-node.jstree-leaf a *:only-child {background-position: -227px -36px;}
+                        .jstree-node.jstree-leaf a *:first-child {background-position: -163px -36px;transition: .3s;}
+                    </style>					<div class="clear"></div>
+                </div>
+            </div>
         </div>
 
     </div>
-</nav>
-<!-- Navbar -->
-
-<!-- Sidebar -->
-<div id="AdminMenu" class="sidebar-fixed position-fixed stylish-color-dark">
-   
-    <div class="list-group list-group-flush rounded-0">
-        <a v-for="item in Menu" :href="item.src" class="list-group-item list-group-item-action waves-effect d-flex justify-content-between">
-            <span>{{item.name}}</span><i :class="item.class"></i>
-        </a>
-    </div>
-</div>
-<script>
-var AdminMenu = new Vue({
-    el: '#AdminMenu',
-    data: {
-      Menu:[]
-    },
-    beforeCreate() {
-        fetch('/admin/getmenu/?AJAX=1')
-            .then(res => res.json())
-            .then(res => {this.Menu = res;});
-    }
-});
-</script>
-<!-- Sidebar -->
-
-
-
-<!--Main layout-->
-<main>
-
-    <div class="mr-3 ml-3 mt-3"><{ admincontent }></div>
-
 </main>
-<!--Main layout-->
