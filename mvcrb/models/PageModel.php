@@ -79,7 +79,7 @@ class PageModel extends Model {
         if (is_null($Data))
             return false;
 //        $Table = $this->Dispense($this->TableName);
-        $Table = $this->findOne($this->TableName, 'id = ?', array($id));
+        $Table = $this->findOne($this->TableName, 'id = ?', [$id]);
         $Table->import($Data);
         $Table->editdatetime = date('Y-m-d H:i:s');
         return $this->store($Table);

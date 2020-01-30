@@ -18,77 +18,17 @@ class PageController extends Controller {
         $this->View->content = $this->View->execute('pages.html',TEMPLATE_DIR.'IndexController'.DS);
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
-
-    public function TestAction($par=0) {
-        $vdl = $this->GetModel('Page')->Get($par);
-//        $tmp = $vdl->Get($par);
-        dd($vdl);
-    }
-    public function PageAction($page) {
+    public function PageAction($page, $category=null) {
+//        dd($page);
         $this->View->TplDir=TEMPLATE_DIR.'IndexController'.DS;
-        $Pages = $this->GetModel('Page');
-        $PRet = $Pages->GetPage($page);
-        $User = $this->GetModel('User');
-        $curUser = $User->GetCurrentUser();
-        
-        if ($curUser['role'] >= 300) {
-            $this->view->VarSetArray($curUser);
-            $this->View->pageid = $PRet['id'];
-            $this->View->adminpanel = $this->View->execute('AdminBar.html',TEMPLATE_DIR.'AdminController'.DS);
-        }
-//        dd($PRet);
-        if($PRet){
-            if($PRet['type']!='notpublic'){
-
-    //            dd($PRet);
-                $this->View->content = $this->View->Code($PRet['content']);
-//                $this->View->content = $PRet['content'];
-                $this->View->title = $PRet['title'];
-                $this->View->content = $this->View->execute('pages.html',TEMPLATE_DIR.'IndexController'.DS);
-                return $this->View->execute('index.html', TEMPLATE_DIR);
-            }
-        }
         $FinDir = TEMPLATE_DIR . 'IndexController' . DS . 'staticpage';
         $testFile = mvcrb::SearchFile($page, $FinDir);
-//        dd($testFile);
-        $tempFile = $testFile;
         if ($testFile) {
             $testFile = str_ireplace(TEMPLATE_DIR . 'IndexController' . DS, '', $testFile);
         } else {
-//            dd($testFile);
             return mvcrb::Redirect(ERROR_URL);
         }
         $this->View->content = $this->View->execute($testFile,TEMPLATE_DIR.'IndexController'.DS);
-//        dd($this->View->headcssjs);
-        if (file_exists($tempFile)) {
-            $date1=$PRet["editdatetime"];
-            $date2=date('Y-m-d H:i:s', filectime($tempFile));
-            $result=(strtotime($date1)< strtotime($date2));
-            if($result and $PRet){
-                $Data['name'] = $page;
-                $Data['type'] = 'notpublic';
-                $Data['author'] = 'mvcrb framework auto ubdate script';
-                $Data['title'] = $this->View->title;
-                $Data['content'] = file_get_contents($tempFile);
-//                $Data['content'] = $this->View->content;
-                $Pages->Edit($Data,$PRet['id']);
-//                dd($result);
-            }
-
-        }
-        if (!$PRet) {
-
-            $Data['name'] = $page;
-            $Data['type'] = 'notpublic';
-            $Data['author'] = 'mvcrb framework auto add script';
-            $Data['title'] = $this->View->title;
-            $Data['content'] = file_get_contents($tempFile);
-//            $Data['content'] = $this->View->content;
-
-            $Pages->Add($Data);
-        }
-
-        
         $this->View->content = $this->View->execute('pages.html',TEMPLATE_DIR.'IndexController'.DS);
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
@@ -111,7 +51,7 @@ class PageController extends Controller {
         $User = new UserModel();
         $curUser=$User->GetCurrentUser();
         if ($curUser['role'] < 300) {
-            return ['acces_denide'];
+            return ['error'=> 'acces denide'];
         }
         $postdata=json_decode($this->REQUEST,true);
         $Data['author'] = $curUser['login'];

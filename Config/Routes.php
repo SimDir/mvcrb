@@ -1,42 +1,49 @@
 <?php defined('ROOT') OR die('No direct script access.');
 
 return array(
-    
-    
-//    '\b([-_a-zA-Z0-9]+).css\b' => 'lessons/style/$1',
-//    '([-_a-zA-Z0-9]+).js' => 'lessons/script/$1',
-//    '\bimages\b/([-_a-zA-Z0-9]+).png' => 'lessons/images/$1',
-//    '\blessons\b/([-_a-zA-Z0-9]+).htm' => 'lessons/page/$1',
-//    'product/([0-9]+)' => 'main/product/0/$1',
-//    'category/([0-9]+)' => 'main/category/$1',
-//    'category/([0-9]+)/product/([0-9]+)' => 'main/product/$1/$2',
-//    
-//    'im' => 'user/index/',
-//    'cart/addAjax/([0-9]+)' => 'main/addAjax/$1',
-//    'cart/delete/([0-9]+)' => 'main/delete/$1',
-//    'cart/checkout' => 'main/checkout',
 
-//    '\binclude\b/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+).html' => 'index/pagef/$1/$2',
     '^error/([0-9]+)' => 'index/eror/$1',
-//    'index.php' => 'main/redirect',
-//    '\bpage\b' => 'index/eror/404',
-//    '\bpage\b/([0-9]+)' => 'index/page/$1',
-//    '\beditor\b/([-_a-zA-Z0-9]+)' => 'page/edit/$1',
-//    '\beditorsave\b/([-_a-zA-Z0-9]+)' => 'page/save/$1',
-    '^page/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+).html' => 'page/index/$1/$2',
+    
+    'index.html' => 'index/index/',
+    'digitalagency/company.html' => 'page/page/digitalAgency.html',
+    'digitalagency/team.html' => 'page/page/digitalAgency_team.html',
+    'digitalagency/progress.html' => 'page/page/digitalAgency_achievements.html',
+    'digitalagency/contacts.html' => 'page/page/digitalAgency_contacts.html',
+    'digitalagency/files.html' => 'page/page/digitalAgency_files.html',
+    'mediacentr/mediacentr.html' => 'page/page/AllNewCenter.html',
+    'mediacentr/news/news.html' => 'page/page/NewCenter.html',
+    'mediacentr/events/events.html' => 'page/page/NewCenter_developments.html',
+    'mediacentr/video/video.html' => 'page/page/NewCenter_video.html',
+    'solutions/solutions.html' => 'page/page/Solutions.html',
+    'solutions/digital.html' => 'page/page/Solutions_digital.html',
+    'solutions/support.html' => 'page/page/Solutions_promotion.html',
+    'solutions/CRM.html' => 'page/page/Solutions_crm.html',
+    'products/products.html' => 'page/page/Products.html',
+    'products/digitalagency/digitalagency.html' => 'page/page/Products_digital.html',
+    'products/digitalagency/corporation.html' => 'page/page/Products_corporateSites.html',
+    'products/digitalagency/e_catalog.html' => 'page/page/Products_internetCatalog.html',
+    'products/digitalagency/promo.html' => 'page/page/Products_promoSite.html',
+    'products/digitalagency/mobile.html' => 'page/page/Products_mobileApps.html',
+    'products/digitalagency/unique.html' => 'page/page/Products_individualSolutions.html',
+    'products/marketing/marketing.html' => 'page/page/Products_promotionANDsupport.html',
+    'products/marketing/SMM.html' => 'page/page/Products_promotionANDsupport_SMM.html',
+    'products/marketing/complex.html' => 'page/page/Products_promotionANDsupport_completeSolutions.html',
+    'products/marketing/target_SEO.html' => 'page/page/Products_promotionANDsupport_targetANDseo.html',
+    'products/marketing/context.html' => 'page/page/Products_promotionANDsupport_contextualAdvertising.html',
+    'products/marketing/promotion.html' => 'page/page/Products_promotionANDsupport_maintenance.html',
+    'products/CRM/systems.html' => 'page/page/Products_controlSystems.html',
+    'products/CRM/CRM.html' => 'page/page/Products_controlSystems_crm.html',
+    'products/CRM/tasks.html' => 'page/page/Products_controlSystems_tasks.html',
+    'products/CRM/contactcentr.html' => 'page/page/Products_controlSystems_contactCenter.html',
+    'products/CRM/sites.html' => 'page/page/Products_controlSystems_sites.html',
+    'products/CRM/shops.html' => 'page/page/Products_controlSystems_shops.html',
+    'cooperations/cooperations.html' => 'page/page/BusinessCooperation.html',
+    'cooperations/Russia/Russia.html' => 'page/page/BusinessCooperation_Russia.html',
+    'cooperations/international/international.html' => 'page/page/BusinessCooperation_International.html',
+    
+    '^page/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+.html)' => 'page/page/$2/$1',
     '^page/([-_a-zA-Z0-9]+.html)' => 'page/page/$1',
-    
-    '^id([0-9]+)' => 'user/index/$1',
-
-    '\bmediacentr\b' => 'page/news/',
-    '^mediacentr/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+.html)' => 'page/news/$1/$2',
-    
-//    'font' => 'res/font/',
-//    'font/([-_a-z0-9]+)' => 'res/font/$1',
-//    '\bcss\b' => 'res/css/',
     '\bcss\b/([-_a-z0-9]+)' => 'res/css/$1',
-//    '\bjs\b' => 'res/js/',
     '\bjs\b/([-_a-z0-9]+)' => 'res/js/$1',
-//    '\bimg\b' => 'res/img/',
-//    '\bimg\b/([-_a-z0-9]+)' => 'res/img/$1'
+
 );

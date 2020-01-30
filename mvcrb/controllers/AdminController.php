@@ -36,4 +36,12 @@ class AdminController extends Controller {
         $this->View->content = $this->View->execute('AdminWraper.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
+    public function FmAction() {
+        $_GET['akey'] = 'AgaDevKeyFm';
+//        $filM = include SITE_DIR.'fm'.DS.'dialog.php';
+//        dd($filM);
+        $this->View->admincontent = $this->View->execute('FlieM.html');
+        $this->View->content = $this->View->execute('AdminWraper.html');
+        return $this->View->execute('index.html', TEMPLATE_DIR);
+    }
 }
