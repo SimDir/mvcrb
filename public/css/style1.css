@@ -76,7 +76,7 @@ main {
    z-index:-2;
 }
 .main-header__content {
-   width: 80%;
+   width: 1250px;
    margin: 0 auto;
    display: flex;
    flex-direction: column;
@@ -152,6 +152,7 @@ main {
       height: 300px;
    }
    .main-header__content {
+      width: 1050px;
       padding-top: 100px;
    }
    .main-header__content-title {
@@ -175,6 +176,7 @@ main {
       height: 250px;
    }
     .main-header__content {
+      width: 850px;
       padding-top: 80px;
    } 
    .main-header__content-title {
@@ -206,17 +208,19 @@ main {
       height: 200px;
    }
     .main-header__content {
-      width: 90%;
-      padding-top: 75px;
+      width: 750px;
+      height: 70%;
+      justify-content: flex-end;
+      padding-top: 0px;
    } 
    .main-header__content-title {
-      margin-bottom: 10px; 
       font-size: 30px;
       line-height: 30px;
+      margin-bottom: 0;
+      width: 100%;
    }
    .main-header__content-description {
-      font-size: 12px;
-      line-height: 14px;
+      display: none;
    }
    .main-content__menu_link {
       padding: 0 15px; 
@@ -233,17 +237,12 @@ main {
       height: 150px;
    }
     .main-header__content {
-      padding-top: 80px;
+      height: 75%;
+      width: 550px;
    } 
    .main-header__content-title {
       font-size: 26px;
       line-height: 26px;
-      margin-bottom: 0;
-      width: 100%;
-      text-align: center;
-   }
-   .main-header__content-description {
-      display: none;
    }
    .main-content__menu {
       width: 100%;
@@ -272,12 +271,14 @@ main {
    .main-header {
       height: 125px;
    }
-    .main-header__content {
-      padding-top: 70px;
+   .main-header__content {
+     width: 350px;
+     height: 80%;
    } 
    .main-header__content-title {
       font-size: 22px;
       line-height: 22px;
+      text-align: center;
    }
    .main-content__menu_link {
       padding: 15px 0px;
@@ -288,10 +289,13 @@ main {
    } 
 }
 @media(max-width: 400px) {
+   .main-header__content {
+      width: 90%;
+      height: 75%;
+    }
    .main-header__content-title {
       font-size: 18px;
       line-height: 18px;
-      width: 100%;
    }
    .main-content__menu {
       width: 100%;
