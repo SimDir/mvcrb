@@ -172,10 +172,12 @@
 .solutionsCrm-top {
    width: 100%;
    display: flex;
+   justify-content: space-between;
    align-items: flex-end;
+   margin-bottom: 50px;
 }
 .solutionsCrm-top__left {
-   width: 800px;
+   width: 850px;
    display: flex;
    flex-direction: column;
 }
@@ -188,11 +190,78 @@
 }
 .solutionsCrm-top__left-content {
    width: 100%;
-   margin-left: -50px;
+   margin-left: -30px;
    background-color: #3999D1;
    display: flex;
    justify-content: space-between;
+   align-items: center;
+   padding: 25px 50px;
 }
 .solutionsCrm-top__left-content__description {
-   padding: 25px 50px;
+   font-family: "Museo Sans 300";
+   color: #fff;
+   font-size: 18px;
+   line-height: 18px;
+   margin-right: 50px;
+}
+.solutionsCrm-top__left-content__btn {
+   font-family: "Museo Sans 500";
+   color: #3C4C70;
+   font-size: 15px;
+   line-height: 15px;
+   background-color: #fff;
+   padding: 20px 40px;
+   white-space: nowrap;
+   border: 1px solid transparent;
+   transition: all .7s;
+}
+.solutionsCrm-top__left-content__btn:hover {
+   box-shadow: inset 250px 0 0 #74AFD1;
+   border: 1px solid #fff;
+   color: #fff;
+}
+.solutionsCrm-top__right {
+   width: 200px;
+}
+.solutionsCrm-top__right img {
+   width: 100%;
+}
+.solutionsCrm-company,
+.solutionsCrm-certificates {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 50px;
+}
+.solutionsCrm-company__title,
+.solutionsCrm-certificates__title {
+   font-family: "Museo Sans 500";
+   color: #7787AA;
+   font-size: 24px;
+   line-height: 24px;
+   margin-bottom: 20px;
+}
+.solutionsCrm-company__content,
+.solutionsCrm-certificates__content {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+}
+.solutionsCrm-company__content img {
+   width: 280px;
+}
+.solutionsCrm-company__content img:nth-child(1) {
+   margin-left: -30px;
+}
+.solutionsCrm-company__content img:nth-child(4) {
+   margin-right: -30px;
+}
+.solutionsCrm-certificates {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+}
+
+.solutionsCrm-certificates__content  img{
+   width: 170px;
 }

@@ -363,7 +363,7 @@
    background-color: #344D73;
 }
 .hideItem {
-   transition: all .7s;
+   transition: transform .3s;
    height: 0;
    margin-bottom: 0;
    transform: scale(0);
