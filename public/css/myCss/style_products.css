@@ -1,0 +1,355 @@
+#products {
+   overflow-x: hidden;
+}
+.products-background {
+   background-color: #fff;
+   box-shadow: 0px 10px 20px rgba(0,0,0, .1);
+}
+.products-header {
+   width: 100%;
+   height: 350px;
+   padding: 80px 0 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: linear-gradient(to bottom, #11234E 15%, #05083B 50%);
+   overflow: hidden;
+}
+.products-header__img--wrap {
+   height: 90%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+}
+.img--wrap-2 {
+   margin: 0 40px;
+}
+.img--wrap-1::before {
+   content: 'Креативная цифровая разработка';
+   position: absolute;
+   width: 65%;
+   text-align: center;
+   font-family: "Museo Sans 700";
+   color: #fff;
+   font-size: 18px;
+   line-height: 18px;
+}
+.img--wrap-2::before {
+   content: 'Комплексное продвижение и сопровождение';
+   position: absolute;
+   width: 65%;
+   text-align: center;
+   font-family: "Museo Sans 700";
+   color: #fff;
+   font-size: 18px;
+   line-height: 18px;
+}
+.img--wrap-3::before {
+   content: 'Креативная цифровая разработка';
+   position: absolute;
+   width: 65%;
+   text-align: center;
+   font-family: "Museo Sans 700";
+   color: #fff;
+   font-size: 18px;
+   line-height: 18px;
+}
+
+.products-header__img--wrap:hover img{
+   transform: scale(1.1)
+}
+.products-header__img--wrap img {
+   height: 100%;
+   transition: transform .7s;
+}
+.active-circle {
+   animation: active-circle .5s linear infinite;
+}
+@keyframes active-circle {
+   0% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(360deg);
+   }
+}
+
+/* DIGITAL */
+.products {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.products-title {
+   font-family: "Museo Sans 900";
+   color: #334f8d;
+   font-size: 36px;
+   line-height: 40px;
+   margin-bottom: 40px;
+   text-align: center;
+}
+.products-under-title--wrap {
+   width: 100%;
+   text-align: left;
+   margin-bottom: 70px;
+}
+.products-under-title {
+   font-family: "Museo Sans 300";
+   color: #000;
+   font-size: 18px;
+   line-height: 24px;
+}
+.products-under-title span {
+   font-family: "Museo Sans 500";
+}
+.products-content {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+}
+.products-content__title,
+.products-navigation__title {
+   font-family: "Museo Sans 700";
+   color: #7787aa;
+   font-size: 30px;
+   line-height: 34px;
+   margin-bottom: 20px;
+}
+.products-content__under-title,
+.products-navigation__under-title {
+   font-family: "Museo Sans 500";
+   color: #000;
+   font-size: 18px;
+   line-height: 24px;
+   margin-bottom: 30px;
+}
+.products-content__statistics {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 100px;
+}
+.products-content__statistics-left {
+   display: flex;
+   flex-direction: column;
+   width: 25%;
+   margin-right: 50px;
+}
+.statistics-left__title {
+   font-family: "Museo Sans 900";
+   color: #396d9d;
+   text-decoration: underline;
+   text-transform: uppercase;
+   font-size: 18px;
+   line-height: 18px;
+   margin-bottom: 25px;
+}
+.statistics-left__line {
+   font-family: "Museo Sans 900";
+   color: #000;
+   text-transform: uppercase;
+   font-size: 18px;
+   line-height: 18px;
+   margin-bottom: 25px;
+   position: relative;
+}
+.statistics-left__line::before {
+   content: '';
+   position: absolute;
+   left: 100%;
+   color: #000;
+   text-transform: uppercase;
+   white-space: nowrap;
+   font-family: "Museo Sans 900";
+   font-size: 18px;
+   line-height: 18px;
+}
+.products-content__statistics-left .line-digital-1::before {
+   content: '- 22%';
+}
+.products-content__statistics-left .line-digital-2::before {
+   content: '- 42%';
+}
+.products-content__statistics-left .line-digital-3::before {
+   content: '- 9%';
+}
+.products-content__statistics-left .line-digital-4::before {
+   content: '- 11%';
+}
+.products-content__statistics-left .line-digital-5::before {
+   content: '- 6%';
+}
+.products-content__statistics-left .line-digital-6::before {
+   content: '- 10%';
+}
+
+.products-content__statistics-diagram {
+  width: 28%;
+  align-self: center;
+}
+.products-content__statistics-right {
+   width: 30%;
+   display: flex;
+   flex-direction: column;
+}
+.products-content__statistics-right span {
+   font-family: "Museo Sans 500";
+   font-size: 18px;
+   line-height: 18px;
+   margin-bottom: 25px;
+   padding-left: 30px;
+   position: relative;
+}
+.products-content__statistics-right span::before {
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 18px;
+   height: 18px;
+}
+.products-content__statistics-right .line-digital-1::before {
+   background-color: #4456A1;
+}
+.products-content__statistics-right .line-digital-2::before {
+   background-color: #00A0E3;
+}
+.products-content__statistics-right .line-digital-3::before {
+   background-color: #EF7F1A;
+}
+.products-content__statistics-right .line-digital-4::before {
+   background-color: #B2B3B3;
+}
+.products-content__statistics-right .line-digital-5::before {
+   background-color: #FECC00;
+}
+.products-content__statistics-right .line-digital-6::before {
+   background-color: #7E71B1;
+}
+.products-content__statistics-right p {
+   font-family: "Museo Sans 300";
+   color: #6f6f6f;
+   font-size: 18px;
+   line-height: 25px;
+   margin-top: 50px;
+}
+.products-navigation {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+}
+.products-navigation nav {
+   width: 1200px;
+   padding: 50px;
+   margin-left: -50px;
+   margin-right: -50px;
+   display: flex;
+   justify-content: space-around;
+}
+.products-digital-navigation {
+   background-color: #78b76a;
+}
+.products-navigation__item {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.products-navigation__item a {
+   width: 160px;
+   height: 160px;
+   border: 5px solid #fff;
+   border-radius: 10px;
+   margin-bottom: 15px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transition: all .3s;
+}
+.products-digital-navigation a:hover {
+   background-color: #478a38;
+   box-shadow: 1px 1px 10px #fff;
+}
+.products-navigation__item a img {
+   width: 130px;
+   height: 130px;
+}
+.products-navigation__item span {
+   font-family: "Museo Sans 500";
+   color: #fff;
+   text-transform: uppercase;
+   text-align: center;
+   font-size: 15px;
+   line-height: 17px;
+   width: 160px;
+}
+/* DIGITAL */
+
+
+
+/* PROMOTION */
+.products-content__statistics-left .line-promotion-1::before {
+   content: '- 461';
+}
+.products-content__statistics-left .line-promotion-2::before {
+   content: '- 1960';
+}
+.products-content__statistics-left .line-promotion-3::before {
+   content: '- 397';
+}
+.products-content__statistics-left .line-promotion-4::before {
+   content: '- 214';
+}
+.products-content__statistics-left .line-promotion-5::before {
+   content: '- 78';
+}
+.products-content__statistics-left .line-promotion-6::before {
+   content: '- 89';
+}
+.products-content__statistics-left .line-promotion-7::before {
+   content: '- 10';
+}
+.products-content__statistics-left .line-promotion-8::before {
+   content: '- 214';
+}
+.products-content__statistics-left .line-promotion-9::before {
+   content: '- 27';
+}
+
+.products-content__statistics-right .line-promotion-1::before {
+   background-color: #4456A1;
+}
+.products-content__statistics-right .line-promotion-2::before {
+   background-color: #00A0E3;
+}
+.products-content__statistics-right .line-promotion-3::before {
+   background-color: #EF7F1A;
+}
+.products-content__statistics-right .line-promotion-4::before {
+   background-color: #B2B3B3;
+}
+.products-content__statistics-right .line-promotion-5::before {
+   background-color: #FECC00;
+}
+.products-content__statistics-right .line-promotion-6::before {
+   background-color: #7E71B1;
+}
+.products-content__statistics-right .line-promotion-7::before {
+   background-color: #D53C3F;
+}
+.products-content__statistics-right .line-promotion-8::before {
+   background-color: #6EC26E;
+}
+.products-content__statistics-right .line-promotion-9::before {
+   background-color: #E385EB;
+}
+
+.products-promotion-navigation {
+   background-color: #9E85CB;
+}
+.products-promotion-navigation a:hover {
+   background-color: #7052A5;
+   box-shadow: 1px 1px 10px #fff;
+}
+/* PROMOTION */

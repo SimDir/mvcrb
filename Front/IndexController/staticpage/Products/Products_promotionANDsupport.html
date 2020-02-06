@@ -1,27 +1,20 @@
 <{ Title(Продукты - Комплексное продвижение и сопровождение) }>
-<{ Addcss(/public/css/style_productsMain.css) }>
-<{ Addcss(/public/css/style_productsPromotionANDsupport.css) }>
- <!-- Комплексное продвижение и сопровождение - SMM-->
-<main id="products">
+<{ Addcss(/public/css/myCss/style_products.css) }>
+ <!-- Комплексное продвижение и сопровождение -->
+ <main id="products">
    <section class="products-header">
-      <div class="products_top__circle">
-         <a class="products_top__circle-text1" href="/page/Products_digital.html">
-            <img class="circle" src="/public/img/slider/circular1.png" alt="circle">
-         </a>
-      </div>
-      <div class="products_top__circle">
-         <a class="products_top__circle-text2" href="/page/Products_promotionANDsupport.html">
-            <img class="circle active-circle" src="/public/img/slider/circular2.png" alt="circle">
-         </a>
-      </div>
-      <div class="products_top__circle">
-         <a class="products_top__circle-text3" href="/page/Products_controlSystems.html">
-            <img class="circle" src="/public/img/slider/circular3.png" alt="circle">
-         </a>
-      </div>
+      <a href="/page/Products_digital.html" class="products-header__img--wrap img--wrap-1">
+         <img src="/public/img/products/circle-1.png" alt="circle-1">
+      </a>
+      <a href="/page/Products_promotionANDsupport.html" class="products-header__img--wrap img--wrap-2">
+         <img class="active-circle" src="/public/img/products/circle-2.png" alt="circle-2">
+      </a>
+      <a href="/page/Products_controlSystems.html" class="products-header__img--wrap img--wrap-3">
+         <img src="/public/img/products/circle-3.png" alt="circle-3">
+      </a>
    </section>
    <!-- /.products-header -->
-    
+
    <section class="main-content">
       <nav class="main-content__menu">
          <a class="main-content__menu_link" href="/page/Products_promotionANDsupport_SMM.html">SММ</a>
@@ -32,74 +25,86 @@
       </nav>
       <!-- /.main-content__menu -->
 
-      <div class="main-content__container products--bgc">
-         <div class="products--wrap">
-            <h6 class="products--wrap-title">Комплексное продвижение и сопровождение</h6>
-            <div class="products-promotionANDsupport__row">
-               <div class="products-promotionANDsupport__row-img--wrap">
-                  <img src="/public/img/products/promotionANDsupport/SMM.png" alt="SMM">
-               </div>
-               <div class="products-promotionANDsupport__row-text--wrap">
-                  <p class="products-promotionANDsupport__row-text--title">SMM</p>
-                  <p class="products-promotionANDsupport__row-text--description">SMM – это душистые специи для увеличения продаж! Знаете ли Вы, что Россия занимает 1 место в мире по количеству времени, проведенному в соцсетях?!</p>
-                  <a href="/page/Products_promotionANDsupport_SMM.html" class="products-promotionANDsupport__row-text--link">Подробнее</a>
-               </div>
+      <div class="main-content__container products-background">
+         <div class="products">
+            <h3 class="products-title">Комплексное сопровождение и продвижение сайтов, интернет магазинов, социальных сетей</h3>
+            <div class="products-under-title--wrap">
+               <p class="products-under-title"><span>Интернет маркетинговое агентство полного цикла AGATECH</span> начинала с того, что развивали техническую поддержку созданных решений. Постепенно под запросы пользователей мы стали предоставлять услуги серверови работами с базами данных и безопасностью (защита от DDOS атак). Основными запросами наших клиентов всегда были: обновление новостей, акций, товаров и размещение статей на сайте. Мы полностью помогаем клиентам решать эти проблемы: придумаем и проанализируем аткуальные акции, разработаем дизайн оформление(ссылка) разместим и обновим их на сайте.</p>
             </div>
-            <!-- products-promotionANDsupport__row -->
-   
-            <div class="products-promotionANDsupport__row products-promotionANDsupport__row-reverse">
-               <div class="products-promotionANDsupport__row-img--wrap">
-                  <img src="/public/img/products/promotionANDsupport/completeSolutions.png" alt="completeSolutions">
+            <!-- products-under-title--wrap -->
+            <div class="products-content">
+               <h6 class="products-content__title">Рейтинг популярности интернет рекламы на основе данных Яндекс Метрика 20019 год</h6>
+               <p class="products-content__under-title">Средний показатель по всем компаниям клиентов AGATECH: Январь - Декабрь 2019, млн.чел.</p>
+               <div class="products-content__statistics">
+                  <div class="products-content__statistics-left">
+                     <span class="statistics-left__line line-promotion-1">Яндекс Дзен</span>
+                     <span class="statistics-left__line line-promotion-2">Прямые заходы</span>
+                     <span class="statistics-left__line line-promotion-3">Яндекс</span>
+                     <span class="statistics-left__line line-promotion-4">Google</span>
+                     <span class="statistics-left__line line-promotion-5">Яндекс Директ</span>
+                     <span class="statistics-left__line line-promotion-6">Google Adwords</span>
+                     <span class="statistics-left__line line-promotion-7">Таргет@Mail.ru</span>
+                     <span class="statistics-left__line line-promotion-8">Переходы по ссылкам на сайтах</span>
+                     <span class="statistics-left__line line-promotion-9">Переходы из социальных сетей</span>
+                  </div>
+                  <!-- /.products-content__statistics-left -->
+                  <img class="products-content__statistics-diagram" src="/public/img/products/promotionANDsupport/diagram.png" alt="diagram">
+                  <div class="products-content__statistics-right">
+                     <span class="line-promotion-1">- Яндекс Дзен</span>
+                     <span class="line-promotion-2">- Прямые заходы</span>
+                     <span class="line-promotion-3">- Яндекс</span>
+                     <span class="line-promotion-4">- Google</span>
+                     <span class="line-promotion-5">- Яндекс Директ</span>
+                     <span class="line-promotion-6">- Google Adwords</span>
+                     <span class="line-promotion-7">- Таргет@Mail.ru</span>
+                     <span class="line-promotion-8">- Переходы по ссылкам на сайтах</span>
+                     <span class="line-promotion-9">- Переходы из социальных сетей</span>
+                  </div>
+                  <!-- /.products-content__statistics-right -->
                </div>
-               <div class="products-promotionANDsupport__row-text--wrap">
-                  <p class="products-promotionANDsupport__row-text--title">Комплексные решения</p>
-                  <p class="products-promotionANDsupport__row-text--description">Хотите презентовать товары в интернете? Сделать удобным каталог для пользователей? Увеличить продажи Ваших товаров, а может полностью автоматизировать цикл продаж и сэкономить на продавцах и аренде? Подберем и запустим решение этих проблем под ключ!</p>
-                  <a href="/page/Products_promotionANDsupport_completeSolutions.html" class="products-promotionANDsupport__row-text--link">Подробнее</a>
-               </div>
+               <!-- /.products-content__statistics -->
             </div>
-            <!-- products-promotionANDsupport__row -->
-   
-            <div class="products-promotionANDsupport__row">
-               <div class="products-promotionANDsupport__row-img--wrap">
-                  <img src="/public/img/products/promotionANDsupport/targetANDseo.png" alt="completeSolutions">
-               </div>
-               <div class="products-promotionANDsupport__row-text--wrap">
-                  <p class="products-promotionANDsupport__row-text--title">Target и SEO</p>
-                  <p class="products-promotionANDsupport__row-text--description">Рост трафика из Яндекс и Google. «Топ» – заветная мечта любого владельца сайта. Таргетированная реклама максимально эффективно использует бюджет за счёт точного попадания в Вашу аудиторию, больше продаж за меньший бюджет!</p>
-                  <a href="/page/Products_promotionANDsupport_targetANDseo.html" class="products-promotionANDsupport__row-text--link">Подробнее</a>
-               </div>
+            <!-- /.products-content -->
+
+            <div class="products-navigation">
+               <h6 class="products-navigation__title">Виды продвижения и комплексного сопровождения сайтов</h6>
+               <p class="products-navigation__under-title">Сделайте свой выбор и узнайте о предложениях компании AGATECH по сопровождению и продвижению сайтов, интернет магазинов и социальных сетей. Мы предлагаем нашим клиентам полный комплекс услуг по интернет маркетингу: разработка стратегии, СЕО продвижение в ТОП-5, ТОП-10, контекстная реклама в Яндекс и Google, таргетированная реклама в вконтакте, Instagramm, Facebook. Своевременная статистика и предложения по оптимизации позволят Вам выбрать оптимальный бюджет для достижения целей: продажи, узнаваемость или трафик.</p>
+               <nav class="products-promotion-navigation">
+                  <div class="products-navigation__item">
+                     <a  href="/page/Products_promotionANDsupport_SMM.html">
+                     <img src="/public/img/products/promotionANDsupport/item-1.png" alt=""></a>
+                     <span>SMM</span>
+                  </div>
+                  <div class="products-navigation__item">
+                     <a href="/page/Products_promotionANDsupport_completeSolutions.html">
+                     <img src="/public/img/products/promotionANDsupport/item-2.png" alt=""></a>
+                     <span>Комплексные<br>решения</span>
+                  </div>
+                  <div class="products-navigation__item">
+                     <a href="/page/Products_promotionANDsupport_targetANDseo.html">
+                     <img src="/public/img/products/promotionANDsupport/item-3.png" alt=""></a>
+                     <span>Target<br>и seo</span>
+                  </div>
+                  <div class="products-navigation__item">
+                     <a href="/page/Products_promotionANDsupport_contextualAdvertising.html">
+                     <img src="/public/img/products/promotionANDsupport/item-4.png" alt=""></a>
+                     <span>Контексная<br>реклама</span>
+                  </div>
+                  <div class="products-navigation__item">
+                     <a href="/page/Products_promotionANDsupport_maintenance.html">
+                     <img src="/public/img/products/promotionANDsupport/item-5.png" alt=""></a>
+                     <span>Сопровождение<br>сайтов</span>
+                  </div>
+               </nav>
             </div>
-            <!-- products-promotionANDsupport__row -->
-   
-            <div class="products-promotionANDsupport__row products-promotionANDsupport__row-reverse">
-               <div class="products-promotionANDsupport__row-img--wrap">
-                  <img src="/public/img/products/promotionANDsupport/contextualAdvertising.png" alt="completeSolutions">
-               </div>
-               <div class="products-promotionANDsupport__row-text--wrap">
-                  <p class="products-promotionANDsupport__row-text--title">Контекстная реклама</p>
-                  <p class="products-promotionANDsupport__row-text--description">Объявление видят только те пользователи, которые в нем заинтересованы. Чёткие, конкретные, измеримые результаты. Экономим бюджет, обеспечим поток клиентов!</p>
-                  <a href="/page/Products_promotionANDsupport_contextualAdvertising.html" class="products-promotionANDsupport__row-text--link">Подробнее</a>
-               </div>
-            </div>
-            <!-- products-promotionANDsupport__row -->
-   
-            <div class="products-promotionANDsupport__row">
-               <div class="products-promotionANDsupport__row-img--wrap">
-                  <img src="/public/img/products/promotionANDsupport/maintenance.png" alt="completeSolutions">
-               </div>
-               <div class="products-promotionANDsupport__row-text--wrap">
-                  <p class="products-promotionANDsupport__row-text--title">Сопровождение сайтов</p>
-                  <p class="products-promotionANDsupport__row-text--description">Устраняем баги, добавляем фишки. Качественное обновление контента, исправление ошибок, “ремонт” неполадок.</p>
-                  <a href="/page/Products_promotionANDsupport_maintenance.html" class="products-promotionANDsupport__row-text--link">Подробнее</a>
-               </div>
-            </div>
-            <!-- products-promotionANDsupport__row -->
+            <!-- /.products-content__navigation -->
          </div>
-         <!-- products--wrap -->
+         <!-- /.products -->
       </div>
       <!-- /.main-content__container -->
    </section>
-   <!-- main-content -->
-</main>
-<!-- products -->
+   <!-- /.main-content -->
+ </main>
+ <!-- /#products -->
+
     
