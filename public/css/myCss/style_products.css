@@ -476,10 +476,48 @@
    flex-direction: column;
    justify-content: space-between;
    align-items: center;
+   position: relative;
+   overflow: hidden;
+   z-index: 0;
    transition: all .7s;
 }
+.products-pagePresentations__item-text::before {
+   content: '';
+   position: absolute;
+   top: 100%;
+   left: 0;
+   width: 101%;
+   height: 100%;
+   background-color: #3C4C70;
+   background-image: url(../../img/products/download.png);
+   background-repeat: no-repeat;
+   background-size: 90px 90px;
+   background-position: center top 65%;
+   clip-path: polygon(0 0, 5% 0, 25% 10%, 75% 10%, 95% 0, 100% 0, 100% 100%, 0 100%);
+   opacity: 1;
+   z-index: -1;
+   transition: all 1s;
+}
 .products-pagePresentations__item-text:hover {
-   box-shadow: 1px 1px 5px #00579a;
+   box-shadow: 5px 5px 20px #3C4C70;
+}
+.products-pagePresentations__item-text:hover::before {
+   top: -50%;
+   height: 150%;
+}
+.products-pagePresentations__item-text:hover a {
+   color: #fff;
+   box-shadow: 3px 3px 10px solid #fff;
+   transform: scale(1.15);
+}
+.products-pagePresentations__item-text:hover a::before {
+   background-color: #fff;
+}
+.products-pagePresentations__item-text:hover a::after {
+   background-color: #fff;
+}
+.products-pagePresentations__item-text:hover p {
+   transform: translateY(-200px);
 }
 .products-pagePresentations__item-text p {
    font-family: "Museo Sans 700";
@@ -487,6 +525,7 @@
    color: #00579a;
    font-size: 20px;
    line-height: 22px;
+   transition: all 1s;
 }
 .products-pagePresentations__item-text a {
    font-family: "Museo Sans 300";
@@ -498,9 +537,7 @@
    position: relative;
    z-index: 0;
    overflow: hidden;
-}
-.products-pagePresentations__item-text a:hover::before {
-   left: -100%;
+   transition: all 1s;
 }
 .products-pagePresentations__item-text a::before {
    content: '';
@@ -513,8 +550,8 @@
    transition: all .7s;
    z-index: -1;
 }
-.products-pagePresentations__item-text a:hover::after {
-   right: -100%;
+.products-pagePresentations__item-text a:hover::before {
+   left: -100%;
 }
 .products-pagePresentations__item-text a::after {
    content: '';
@@ -527,6 +564,10 @@
    transition: all .7s;
    z-index: -1;
 }
+.products-pagePresentations__item-text a:hover::after {
+   right: -100%;
+}
+
 /* КОРПОРАТИВНЫЕ САЙТЫ */
 /* DIGITAL */
 
