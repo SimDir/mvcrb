@@ -255,6 +255,7 @@
    display: flex;
    flex-direction: column;
    align-items: center;
+   transition: all .5s;
 }
 .products-navigation__item a {
    width: 160px;
@@ -265,16 +266,41 @@
    display: flex;
    justify-content: center;
    align-items: center;
+   position: relative;
+   overflow: hidden;
+   z-index: 1;
+   transition: all .5s;
+}
+.products-navigation__item a::before {
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 0;
+   width:200%;
+   height:100%;
+   background-color: rgba(255,255,255, .1);
+   clip-path: polygon(0 0, 50% 0, 100% 100%, 50% 100%);
+   z-index: -1;
    transition: all .3s;
 }
-.products-digital-navigation a:hover {
-   background-color: #478a38;
-   box-shadow: 1px 1px 10px #fff;
-   transform: scale(.95);
+.products-navigation__item:hover {
+   transform: rotateY(-20deg);
 }
+.products-navigation__item:hover a{
+   box-shadow: 3px 3px 10px #fff;
+}
+.products-navigation__item a:hover::before {
+   left: -100%;
+}
+.products-navigation__item:hover span{
+  text-shadow: 1px 1px 10px #fff;
+}
+
+
 .products-navigation__item a img {
    width: 130px;
    height: 130px;
+   transition: transform .7s;
 }
 .products-navigation__item span {
    font-family: "Museo Sans 500";
@@ -284,6 +310,7 @@
    font-size: 15px;
    line-height: 17px;
    width: 160px;
+   transition: all .3s;
 }
 
 
@@ -455,6 +482,16 @@
    width: 100%;
    display: flex;
    justify-content: center;
+   flex-wrap: wrap;
+}
+.products-pagePresentations__title {
+   width: 100%;
+   color: #4a689f;
+   font-family: "Museo Sans 700";
+   font-size: 24px;
+   line-height: 24px;
+   margin-bottom: 50px;
+   text-align: center;
 }
 .products-pagePresentations__item {
    display: flex;
@@ -470,7 +507,7 @@
    width: 100%;
    height: 170px;
    margin-top: 30px;
-   padding: 25px 20px;
+   padding: 25px 10px;
    border: 1px solid #00579a;
    display: flex;
    flex-direction: column;
@@ -633,9 +670,5 @@
 .products-promotion-navigation {
    background-color: #9E85CB;
 }
-.products-promotion-navigation a:hover {
-   background-color: #7052A5;
-   box-shadow: 1px 1px 10px #fff;
-   transform: scale(.95);
-}
+
 /* PROMOTION */
