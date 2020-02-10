@@ -1,12 +1,12 @@
 'use strict';
 document.addEventListener('DOMContentLoaded', function() {
    if(window.innerWidth<=1300) {
-      let item_1Circle = document.querySelector('.item__circle-1');
-      let item_2Circle = document.querySelector('.item__circle-2');
-      let item_3Circle = document.querySelector('.item__circle-3');
-      let item1 = document.querySelector('.item-1');
-      let item2 = document.querySelector('.item-2');
-      let item3 = document.querySelector('.item-3');
+      let item_1Circle = document.querySelector('.productsMain-mobile-forSlider .item__circle-1');
+      let item_2Circle = document.querySelector('.productsMain-mobile-forSlider .item__circle-2');
+      let item_3Circle = document.querySelector('.productsMain-mobile-forSlider .item__circle-3');
+      let item1 = document.querySelector('.productsMain-mobile-forSlider .item-1');
+      let item2 = document.querySelector('.productsMain-mobile-forSlider .item-2');
+      let item3 = document.querySelector('.productsMain-mobile-forSlider .item-3');
 
       
       item_1Circle.removeAttribute('href');

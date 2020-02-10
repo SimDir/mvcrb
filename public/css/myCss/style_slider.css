@@ -1,0 +1,237 @@
+/* SLIDER */
+.slider_block {
+   width: 100vw;
+   height: 100vh;
+   overflow: hidden;
+}
+.sll, .slr {
+   width: 5%;
+   z-index: 10;
+}
+
+.video {
+   width: 100vw;
+   height: 100vh;
+   background: #010304;
+}
+
+.slide-2 {
+   height: 100vh;
+   width: 100vw;
+}
+
+.slide-3 {
+   height: 100vh;
+   width: 100vw;
+   overflow: hidden;
+   background: url(../../img/slider/slide-3-bgc.jpg) no-repeat center;
+   background-size: 100%;
+   background-color: #180D2E;
+}
+
+.slide-4 {
+   height: 100vh;
+   width: 100vw;
+   overflow: hidden;
+   background: linear-gradient(#06B1E7,#56CBBE);
+   position: relative;
+   cursor: pointer;
+}
+.slide-4-content {
+   width: 100%;
+   height: 100%;
+   position: absolute; z-index: 2;
+   padding-top: 150px;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   text-decoration: none;
+}
+.slide-4-bitrix24 {
+   width: 400px;
+}
+.slide-4-content-price {
+   width: 90%;
+   margin-top: 50px;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: flex-start;
+}
+.slslide-4-content__price-item {
+   flex-basis: 33%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.slide-4-content__price-item--top {
+   color: #fff;
+   text-align: center;
+   font-size: 40px;
+   line-height: 40px;
+   font-family: 'Helvetica Neue Cyr Roman';
+   font-weight: bold;
+}
+.slide-4-content__price-item--procent-wrap {
+   display: flex;
+   align-items: flex-start;
+   justify-content: center;
+   margin: 10px 0;
+}
+.slide-4-content__price-item--number {
+   font-size: 200px;
+   line-height: 150px;
+   font-weight: bold;
+   color: #fff;
+   font-family: 'Helvetica Neue Cyr Roman';
+}
+.slide-4-content__price-item--procent {
+   color: #fff;
+   font-family: 'Helvetica Neue Cyr Roman';
+   font-size: 70px;
+   line-height: 70px;
+   font-weight: bold;
+}
+.slide-4-content__price-item--bottom {
+   color: #fff;
+   font-family: 'Helvetica Neue Cyr Roman';
+   font-size: 30px;
+   line-height: 30px;
+   text-align: center;
+}
+.slide-4-mountains {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 150px;
+}
+@media(max-width: 1600px) {
+   .slide-4-bitrix24 {
+      width: 350px;
+   }
+   .slide-4-content-price {
+      margin-top: 40px;
+   }
+   .slide-4-content__price-item--top {
+      font-size: 36px;
+      line-height: 36px;
+   }
+   .slide-4-content__price-item--number {
+      font-size: 180px;
+      line-height: 130px;
+   }
+   .slide-4-content__price-item--procent {
+      font-size: 65px;
+      line-height: 65px;
+   }
+   .slide-4-content__price-item--bottom {
+      font-size: 28px;
+      line-height: 28px;
+   }
+   .slide-4-mountains {
+      height: 140px;
+   }
+}
+@media(max-width: 1400px) {
+   .slide-4-content__price-item--top {
+      font-size: 32px;
+      line-height: 32px;
+   }
+   .slide-4-content__price-item--number {
+      font-size: 160px;
+      line-height: 110px;
+   }
+   .slide-4-content__price-item--procent {
+      font-size: 60px;
+      line-height: 60px;
+   }
+   .slide-4-content__price-item--bottom {
+      font-size: 26px;
+      line-height: 26px;
+   }
+   .slide-4-mountains {
+      height: 130px;
+   }
+}
+@media(max-width: 1200px) {
+   .slide-4-bitrix24 {
+      width: 300px;
+   }
+   .slide-4-content__price-item--top {
+      font-size: 26px;
+      line-height: 26px;
+   }
+   .slide-4-content__price-item--number {
+      font-size: 130px;
+      line-height: 80px;
+   }
+   .slide-4-content__price-item--procent {
+      font-size: 50px;
+      line-height: 50px;
+   }
+   .slide-4-content__price-item--bottom {
+      font-size: 20px;
+      line-height: 22px;
+   }
+   .slide-4-mountains {
+      height: 110px;
+   }
+}
+@media(max-height: 750px) {
+   .slide-4-bitrix24 {
+      width: 300px;
+   }
+   .slide-4-content__price-item--top {
+      font-size: 26px;
+      line-height: 26px;
+   }
+   .slide-4-content__price-item--number {
+      font-size: 130px;
+      line-height: 80px;
+   }
+   .slide-4-content__price-item--procent {
+      font-size: 50px;
+      line-height: 50px;
+   }
+   .slide-4-content__price-item--bottom {
+      font-size: 20px;
+      line-height: 22px;
+   }
+   .slide-4-mountains {
+      height: 110px;
+   }
+}
+@media(max-height: 600px) {
+   .slide-4-bitrix24 {
+      width: 250px;
+   }
+   .slide-4-content__price {
+      margin-top: 30px;
+   }
+   .slide-4-content__price-item--top {
+      font-size: 24px;
+      line-height: 24px;
+   }
+   .slide-4-content__price-item--number {
+      font-size: 120px;
+      line-height: 70px;
+   }
+   .slide-4-content__price-item--procent {
+      font-size: 45px;
+      line-height: 45px;
+   }
+   .slide-4-content__price-item--bottom {
+      font-size: 18px;
+      line-height: 18px;
+   }
+   .slide-4-mountains {
+      height: 100px;
+   }
+}
+
+@media(max-width: 1300px) {
+   .slider_block {
+      display: none;
+   }
+}
