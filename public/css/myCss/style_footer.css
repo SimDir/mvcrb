@@ -1,0 +1,124 @@
+.footer {
+   width: 100%;
+   background: #2D3555;
+   display: flex;
+   justify-content: center;
+}
+.footer-container {
+   width: 1200px;
+   padding: 50px 0;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.footer-top {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 50px;
+}
+.footer-top__item {
+   display: flex;
+   flex-direction: column;
+}
+.footer-top__item-main-link {
+   font-family: "Museo Sans 700";
+   color: #fff;
+   font-size: 18px;
+   line-height: 2em;
+   margin-bottom: 1em;
+   align-self: flex-start;
+   position: relative;
+}
+.footer-top__item-main-link::before {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 0%;
+   height: 1px;
+   background-color: rgba(255,255,255,1);
+   clip-path: polygon(0 100%, 99% 0, 100% 100%);
+   transition: all ease-in-out .5s;
+}
+
+.footer-top__item-main-link:hover {
+   color: #fff;
+   text-shadow: 0px 1px 10px rgba(255,255,255,.5);
+}
+.footer-top__item-main-link:hover::before {
+   width: 100%;
+}
+.footer-top__item-link {
+   color: #999;
+   font-family: "Museo Sans 300";
+   font-size: 16px;
+   line-height: 2em;
+   align-self: flex-start;
+   transition: color .5;
+}
+.footer-top__item-link:hover {
+   color: #C4C4C4;
+}
+.footer-social {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 15px 0;
+   border-bottom: 2px solid #BFA082;
+}
+.footer-social__left {
+   display: flex;
+   align-items: center;
+   margin-right: 20px;
+}
+.footer-social__left-link {
+   margin-right: 20px;
+}
+.footer-social__left-link img {
+   width: 31px;
+   margin-right: 5px;  
+   transition: all 1s;
+}
+.footer-social__left-link span {
+   font-family: "Museo Sans 500";
+   color: #fff;
+   font-size: 18px;
+   line-height: 1em;
+}
+.footer-social__left-link:hover img{
+   transform: rotate(360deg);
+}
+.footer-social__right {
+   display: flex;
+   align-items: center;
+}
+.footer-social__right-link {
+   margin-right: 5px;
+}
+.footer-social__right-link img {
+   width: 31px;
+   transition: all 1.5s;
+}
+.footer-social__right-link:hover img{
+   transform: rotate(360deg);
+}
+.footer-copyright {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 5px 0 0;
+}
+.footer-copyright span {
+   font-family: "Museo Sans 300";
+   color: #999;
+   font-size: 14px;
+   line-height: 1em;
+   margin-right: 20px;
+}
+.footer-copyright img {
+   width: 100px;
+}
+

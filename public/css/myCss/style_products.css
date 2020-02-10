@@ -99,7 +99,7 @@
    font-family: "Museo Sans 300";
    color: #000;
    font-size: 18px;
-   line-height: 24px;
+   line-height: 2em;
 }
 .products-under-title span {
    font-family: "Museo Sans 500";
@@ -114,15 +114,15 @@
    font-family: "Museo Sans 700";
    color: #7787aa;
    font-size: 30px;
-   line-height: 34px;
+   line-height: 1.2em;
    margin-bottom: 20px;
 }
 .products-content__under-title,
 .products-navigation__under-title {
-   font-family: "Museo Sans 500";
+   font-family: "Museo Sans 300";
    color: #000;
    font-size: 18px;
-   line-height: 24px;
+   line-height: 2em;
    margin-bottom: 30px;
 }
 .products-content__statistics {
@@ -134,7 +134,7 @@
 .products-content__statistics-left {
    display: flex;
    flex-direction: column;
-   width: 25%;
+   width: 30%;
    margin-right: 50px;
 }
 .statistics-left__title {
@@ -143,15 +143,15 @@
    text-decoration: underline;
    text-transform: uppercase;
    font-size: 18px;
-   line-height: 18px;
+   line-height: 1.2em;
    margin-bottom: 25px;
 }
 .statistics-left__line {
    font-family: "Museo Sans 900";
    color: #000;
    text-transform: uppercase;
-   font-size: 18px;
-   line-height: 18px;
+   font-size: 16px;
+   line-height: 1em;
    margin-bottom: 25px;
    position: relative;
 }
@@ -163,8 +163,8 @@
    text-transform: uppercase;
    white-space: nowrap;
    font-family: "Museo Sans 900";
-   font-size: 18px;
-   line-height: 18px;
+   font-size: 16px;
+   line-height: 1em;
 }
 .products-content__statistics-left .line-digital-1::before {
    content: '- 22%';
@@ -187,17 +187,17 @@
 
 .products-content__statistics-diagram {
   width: 28%;
-  align-self: center;
+  align-self: flex-start;
 }
 .products-content__statistics-right {
-   width: 30%;
+   width: 28%;
    display: flex;
    flex-direction: column;
 }
 .products-content__statistics-right span {
    font-family: "Museo Sans 500";
-   font-size: 18px;
-   line-height: 18px;
+   font-size: 16px;
+   line-height: 1em;
    margin-bottom: 25px;
    padding-left: 30px;
    position: relative;
@@ -207,8 +207,8 @@
    position: absolute;
    left: 0;
    top: 0;
-   width: 18px;
-   height: 18px;
+   width: 16px;
+   height: 16px;
 }
 .products-content__statistics-right .line-digital-1::before {
    background-color: #4456A1;
@@ -231,9 +231,9 @@
 .products-content__statistics-right p {
    font-family: "Museo Sans 300";
    color: #6f6f6f;
-   font-size: 18px;
-   line-height: 25px;
-   margin-top: 50px;
+   font-size: 16px;
+   line-height: 1.2em;
+   margin-top: 30px;
 }
 .products-navigation {
    width: 100%;
@@ -295,8 +295,6 @@
 .products-navigation__item:hover span{
   text-shadow: 1px 1px 10px #fff;
 }
-
-
 .products-navigation__item a img {
    width: 130px;
    height: 130px;
@@ -308,7 +306,7 @@
    text-transform: uppercase;
    text-align: center;
    font-size: 15px;
-   line-height: 17px;
+   line-height: 1.2em;
    width: 160px;
    transition: all .3s;
 }
@@ -330,7 +328,7 @@
    font-family: "Museo Sans 700";
    color: #000;
    font-size: 24px;
-   line-height: 28px;
+   line-height: 1.2em;
    margin-bottom: 50px;
 }
 .products-pageContent__left ol {
@@ -341,7 +339,7 @@
    font-family: "Museo Sans 300";
    color: #000;
    font-size: 18px;
-   line-height: 26px;
+   line-height: 2em;
    margin-bottom: 30px;
 }
 .products-pageContent__left li span {
@@ -350,8 +348,8 @@
 .products-pageContent__left-text--other {
    font-family: "Museo Sans 300";
    color: #8b8b8b;
-   font-size: 18px;
-   line-height: 26px;
+   font-size: 16px;
+   line-height: 1.2em;
 }
 .products-pageContent__right {
    width: 35%;
@@ -375,7 +373,7 @@
    font-family: "Museo Sans 300";
    color: #000;
    font-size: 18px;
-   line-height: 24px;
+   line-height: 1.3em;
 }
 .products-pageContent__right-description p span {
    font-family: "Museo Sans 700";
@@ -398,7 +396,7 @@
    font-family: "Museo Sans 500";
    color: #fff;
    font-size: 15px;
-   line-height: 15px;
+   line-height: 1em;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -474,7 +472,7 @@
    color: #000;
    text-align: center;
    font-size: 18px;
-   line-height: 26px;
+   line-height: 1.5em;
    margin-top: 50px;
 }
 
@@ -484,12 +482,15 @@
    justify-content: center;
    flex-wrap: wrap;
 }
+.products-pagePresentations2--margin-top {
+   margin-top: 100px;
+}
 .products-pagePresentations__title {
    width: 100%;
    color: #4a689f;
    font-family: "Museo Sans 700";
    font-size: 24px;
-   line-height: 24px;
+   line-height: 1.2em;
    margin-bottom: 50px;
    text-align: center;
 }
