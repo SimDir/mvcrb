@@ -5,7 +5,7 @@
    justify-content: center;
 }
 .footer-container {
-   width: 1200px;
+   width: 1400px;
    padding: 50px 0;
    display: flex;
    flex-direction: column;
@@ -20,7 +20,9 @@
 .footer-top__item {
    display: flex;
    flex-direction: column;
+   align-self: center;
 }
+
 .footer-top__item-main-link {
    font-family: "Museo Sans 700";
    color: #fff;
@@ -41,7 +43,6 @@
    clip-path: polygon(0 100%, 99% 0, 100% 100%);
    transition: all ease-in-out .5s;
 }
-
 .footer-top__item-main-link:hover {
    color: #fff;
    text-shadow: 0px 1px 10px rgba(255,255,255,.5);

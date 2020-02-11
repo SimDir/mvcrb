@@ -6,7 +6,7 @@ https://redbeanphp.com/index.php
 https://github.com/gabordemooij/redbean
 
 <{ Addcss(/public/css/solutions.css) }> пример как подключить дополнительный стиль к макету
-<{ Title(Agatech - центр высоких технологий) }> Так устанавливать титл странице
+<{ Title(AGATECH - центр высоких технологий) }> Так устанавливать титл странице
 
 
 ореинтация телефона. https://toster.ru/q/413611 для верстки инфа
