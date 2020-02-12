@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
          item__box[i].onclick = function() {
             for(let i=0; i<item__text.length; i++) {
                item__text[i].style.opacity = '0';
-               item__text[i].style.transform = 'translate(0,500px)';
+               item__text[i].style.transform = 'translate(-500px,0px)';
             }
             for(let i=0; i<item__box.length; i++) {
                this.nextElementSibling.style.opacity = '1';
