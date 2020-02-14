@@ -172,11 +172,18 @@
 .footer-social__right-link {
    margin-right: 5px;
 }
-.footer-social__right-link img {
+.footer-social__right-link svg {
    width: 31px;
-   transition: all 1.5s;
+   height: 31px;
 }
-
+.footer-social__right-link svg .fil1,
+.footer-social__right-link svg .fil0 {
+   fill:#29C9D3;
+}
+.footer-social__right-link svg:hover .fil1,
+.footer-social__right-link svg:hover .fil0{
+   fill:#fff;
+}
 .footer-copyright {
    width: 100%;
    display: flex;

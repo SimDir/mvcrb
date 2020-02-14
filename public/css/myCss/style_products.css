@@ -708,6 +708,12 @@
 .tech_support-header {
    background-image: url(../../img/products/marketing/tech_supprot/tech_supprot-header.png);
 }
+.SMM-header {
+   background-image: url(../../img/products/marketing/SMM/smm-header.png);
+}
+.target-header {
+   background-image: url(../../img/products/marketing/target/target-header.png);
+}
 .productsPage-top {
    width: 100%;
    display: flex;
@@ -855,18 +861,32 @@
 }
 .top__other-advertising {
    width: 100%;
-   height: 400px;
+  flex-grow: 1;
 }
 
 .productsPage-presentation {
    width: 100%;
    display: flex;
-   justify-content: space-between;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+.productsPage-presentation--row-2 {
+   margin-top: 60px;
+}
+h3.productsPage-presentation__title {
+   width: 100%;
+   font-family: "Museo Sans 700";
+   font-size: 24px;
+   line-height: 1em;
+   text-align: center;
+   color: #7787aa;
+   margin-bottom: 30px;
 }
 .productsPage-presentation__item {
-   width: 250px;
    border: 1px solid #3C4C70;
    padding: 20px;
+   width: 240px;
+   margin: 0 15px;
    display: flex;
    flex-direction: column;
    align-items: center;
