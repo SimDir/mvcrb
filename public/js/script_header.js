@@ -19,6 +19,21 @@ $( document ).ready(function() {
         this.classList.toggle('header-burger--rotate');
         headerMobileWrap.classList.toggle('header-mobile--active');
     }
+
+
+    let expandAll = document.querySelectorAll('.header-mobile-expand-arrow--wrap');
+    for(let i=0; i<expandAll.length; i++) {
+        expandAll[i].onclick = function() {
+            for(let i=0; i<expandAll.length; i++) {
+                expandAll[i].parentElement.nextElementSibling.classList.remove('header-mobile__menu-item__bottom--active');
+                expandAll[i].parentElement.classList.remove('header-mobile__menu-item__link--wrap-active');
+                expandAll[i].classList.remove('header-mobile-expand-arrow--wrap-active');
+            }
+            this.parentElement.nextElementSibling.classList.toggle('header-mobile__menu-item__bottom--active');
+            this.parentElement.classList.toggle('header-mobile__menu-item__link--wrap-active');
+            this.classList.toggle('header-mobile-expand-arrow--wrap-active');
+        }
+    }
     
 
     // let burger = document.querySelector('.header-burger');
@@ -107,7 +122,7 @@ $( document ).ready(function() {
     
 
 
-    if(window.location.pathname == '/') {
+    // if(window.location.pathname == '/') {
         // header.style.backgroundColor = "transparent";
         // if(burger.classList.contains('header-burger--rotate')) {
         //     burger.onclick = function() {
@@ -123,30 +138,30 @@ $( document ).ready(function() {
         //         header.style.backgroundColor = "#3B487C";
         //     }
         // }
-    }
+    // }
 
     
-    let headerMenuLinkBtn = [];
-    for(let elem of document.querySelectorAll('.header__menu_link_btn')) {
-        headerMenuLinkBtn.push(elem);
-    }
+    // let headerMenuLinkBtn = [];
+    // for(let elem of document.querySelectorAll('.header__menu_link_btn')) {
+    //     headerMenuLinkBtn.push(elem);
+    // }
     
-    if(window.location.pathname.search('digitalAgency') > -1) {
-        headerMenuLinkBtn[0].style.borderBottom = "3px solid #fff";
-    }
-    else if((window.location.pathname.search('NewCenter')> -1) || 
-    (window.location.pathname.search('news--')>-1)){
-        headerMenuLinkBtn[1].style.borderBottom = "3px solid #fff";
-    }
-    else if (window.location.pathname.search('Solutions') > -1) {
-        headerMenuLinkBtn[2].style.borderBottom = "3px solid #fff";
-    }
-    else if(window.location.pathname.search('Products') > -1 ){
-        headerMenuLinkBtn[3].style.borderBottom = "3px solid #fff";
-    }
-    else if(window.location.pathname.search('BusinessCooperation') > -1) {
-        headerMenuLinkBtn[4].style.borderBottom = "3px solid #fff";
-    }
+    // if(window.location.pathname.search('digitalAgency') > -1) {
+    //     headerMenuLinkBtn[0].style.borderBottom = "3px solid #fff";
+    // }
+    // else if((window.location.pathname.search('NewCenter')> -1) || 
+    // (window.location.pathname.search('news--')>-1)){
+    //     headerMenuLinkBtn[1].style.borderBottom = "3px solid #fff";
+    // }
+    // else if (window.location.pathname.search('Solutions') > -1) {
+    //     headerMenuLinkBtn[2].style.borderBottom = "3px solid #fff";
+    // }
+    // else if(window.location.pathname.search('Products') > -1 ){
+    //     headerMenuLinkBtn[3].style.borderBottom = "3px solid #fff";
+    // }
+    // else if(window.location.pathname.search('BusinessCooperation') > -1) {
+    //     headerMenuLinkBtn[4].style.borderBottom = "3px solid #fff";
+    // }
 
 
 
