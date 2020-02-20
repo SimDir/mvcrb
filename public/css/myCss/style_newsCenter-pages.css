@@ -1,0 +1,98 @@
+.news-best-entrepreneur {
+   background-image: url(../../img/new_center/news/best_entrepreneur/best_entrepreneur-header.png);
+}
+.news-new-office {
+   background-image: url(../../img/new_center/news/new_office/new-office-header.png);
+}
+.news-sales-territory {
+   background-image: url(../../img/new_center/news/sales_territory/sales-territory-header.png);
+}
+.news-new-year {
+   background-image: url(../../img/new_center/news/new_year/new-year-header.png);
+}
+.news-off-certificate {
+   background-image: url(../../img/new_center/news/off_certificate/off-certificate-header.png);
+}
+.newspage-date {
+   align-self: flex-end;
+   color: #949494;
+   font-family: "Museo Sans 300";
+   font-size: 16px;
+   line-height: 1em;
+   margin: -20px 0 20px 0;
+}
+.newspage-row {
+   width: 100%;
+   margin-bottom: 50px;
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+}
+.newspage-row__img {
+   width: 520px; 
+}
+.newspage-row__text {
+   flex-grow: 1;
+   font-size: 18px;
+   line-height: 2em;
+   color: #000;
+   font-family: "Museo Sans 300";
+}
+.newspage-row-reverse {
+   width: 100%;
+   margin-bottom: 50px;
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+}
+.newspage-row__list {
+   list-style-type: none;
+   display: flex;
+   flex-direction: column;
+}
+.newspage-row__list li {
+   font-size: 16px;
+   line-height: 2em;
+   color: #000;
+   font-family: "Museo Sans 300";
+}
+
+.newspage-row-all {
+   width: 100%;
+   margin-bottom: 50px;
+}
+.newspage-row .newspage-row__text {
+   margin-right: 50px;
+}
+.newspage-row-reverse .newspage-row__text {
+   margin-left: 50px;
+}
+
+.newspage-bottom {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.newspage-bottom__previous {
+   font-family: "Museo Sans 300";
+   color: #b4b5b5;
+   font-size: 18px;
+   line-height: 1em;
+   text-decoration: underline;
+}
+.newspage-bottom__next {
+   font-family: "Museo Sans 300";
+   color: #7898df;
+   font-size: 18px;
+   line-height: 1em;
+   text-decoration: underline;
+}
+.newspage-bottom__previous:hover {
+   color: #b4b5b5;
+   text-decoration: none;
+}
+.newspage-bottom__next:hover {
+   color: #7898df;
+   text-decoration: none;
+}

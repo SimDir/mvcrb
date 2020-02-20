@@ -888,45 +888,29 @@
    }
 }
 @media(max-width: 1500px) {
-   /* .slide-5 {
-      background-position: center;
-      background-size: 100% 100%;
-   } */
    .slide-5-content {
       padding-top: 110px;
    }
-   /* .slide-5-content__item {
-      width: 69%;
-   } */
    .slide-5-content__item-title {
       font-size: 62px;
-      /* line-height: 1em; */
    }
    .slide-5-content__item-description--wrap {
-      /* width: 70%;
-      height: 100%;
-      display: flex; */
       padding: 60px;
    }
    .slide-5-content__item-description--line-1 {
       font-size: 30px;
-      /* line-height: .9em; */
    }
    .slide-5-content__item-description--line-2 {
       font-size: 30px;
-      /* line-height: .9em; */
    }
    .slide-5-content__item-description--line-2 span {
       font-size: 58px;
-      /* line-height: .9em; */
    }
    .slide-5-content__item-description--line-3 {
       font-size: 50px;
-      /* line-height: .9em; */
    }
    .slide-5-content__item-description--line-4 {
       font-size: 50px;
-      /* line-height: .9em; */
    }
    .slide-5-content__item-description-btn {
       margin-top: 30px;

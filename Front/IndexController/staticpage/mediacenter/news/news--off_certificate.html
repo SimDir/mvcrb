@@ -1,61 +1,69 @@
 <{ Title(Медиа центр - Новости) }>
-<{ Addcss(/public/css/style_newCenter.css) }>
-<{ Addcss(/public/css/style_newsPages.css) }>
-   <div class="new_center">
+<{ Addcss(/public/css/myCss/style_newsCenter-pages.css) }>
 
-      <div class="news-page-top"></div>
+<main id="newsCenter">
+   <section class="main-header news-off-certificate"></section>
+   <!-- /.main-header -->
+   
+   <section class="main-content">
+      <nav class="main-content__menu">
+         <a class="main-content__menu_link" href="/page/mediacenter.html">Все новости</a>
+         <a class="main-content__menu_link active" href="/page/news.html">Новости</a>
+         <a class="main-content__menu_link" href="/page/events.html">События и мероприятия</a>
+         <a class="main-content__menu_link" href="/page/video.html">Видео материалы</a>
+      </nav>
+      <!-- /.main-content__menu -->
 
-      <div class="new_center__center">
-
-         <div class="news-pag__breadcrumbs">
-            <a href="/page/mediacenter.html">Медиа центр ></a>
-            <a href="/page/news.html">Новости ></a>
-            <a href="/page/news--sales_territory.html">Получение официального свидетельства</a>
+      <div class="main-content__container">
+         <div class="main-content-breadcrumbs">
+            <a href="/page/mediacenter.html" class="main-content-breadcrumbs__link">Все новости</a>
+            <a href="/page/news.html" class="main-content-breadcrumbs__link">Новости</a>
+            <a href="/page/news--off_certificate.html" class="main-content-breadcrumbs__link">Получение официального свидетельства</a>
          </div>
-            
-         <div class="news-page">
-            <h6>Получение официального свидетельства на товарный знак AGATECH</h6>
-            <span class="news-page_data">23 Сентября 2019</span>
-            
-            <div class="news-page--wrap">
-               <div class="news-page_container-img">
-                  <img src="/public/img/new_center/news/off_certificate/off_certificate.jpg" alt="off_certificate">
-               </div>
-               <div class="news-page_block-text">
-                  <p>
-                     Компания AGATECH выбрала среди наших друзей и партнеров, подрядчика в лице казанской компании BeBrand. 
-                  </p>
-               </div>
-               <div class="news-page_block-text">
-                  <p>
-                     Проведя продуктивные переговоры, мы сошлись на том, что будем регистрировать товарную марку. Это длительный процесс, который занимает от 6 до 12 месяцев. 
-                  </p>
-               </div>
-               <div class="news-page_block-text">
-                  <p>
-                     После этого периода, заплатив все госпошлины и, подав, все документы, мы получили свидетельство о том, что торговый знак AGATECH теперь наша собственность. 
-                  </p>
-               </div>
-               <div class="news-page_block-text">
-                  <p>
-                     При подаче торговой марки подбирается дизайн-макет и сотрудники компании BeBrand, так же как и сотрудники компании AGATECH могут помочь вам разработать логотип. 
-                  </p>
-               </div>
-               <div class="news-page_block-text">
-                  <p>Компания AGATECH уже более 10 лет занимается и оказывает услуги в сфере дизайна. Мы можем помочь вам: </p>
-                  <ul>
-                     <li>разработать логотип; </li>
-                     <li>разработать фирменный стиль; </li>
-                     <li>brand bookкоторые потом наши партнеры из компании BeBrand помогут вам официально защитить в РОСпотенте! </li>
-                  </ul>
-               </div>
+         <!-- /.main-content-breadcrumbs -->
+        <h2 class="main-content__title">Получение официального свидетельства на товарный знак AGATECH</h2>  
+         <span class="newspage-date">23 Сентября 2019</span>
+
+         <div class="newspage-row">
+            <p class="newspage-row__text">Компания AGATECH выбрала среди наших друзей и партнеров, подрядчика в лице казанской компании BeBrand.<br>
+               Проведя продуктивные переговоры, мы сошлись на том, что будем регистрировать товарную марку. Это длительный процесс, который занимает от 6 до 12 месяцев. 
+               После этого периода, заплатив все госпошлины и, подав, все документы, мы получили свидетельство о том, что торговый знак AGATECH теперь наша собственность. 
+             </p>
+            <div>
+               <img src="/public/img/new_center/news/off_certificate/img-1.jpg" class="newspage-row__img" alt="Получение официального свидетельства">
             </div>
-            <!-- news-page--wrap -->
-            
          </div>
+         <!-- /.newspage-row -->
 
-         <!-- news-page -->
+         <div class="newspage-row-all">
+            <p class="newspage-row__text">При подаче торговой марки подбирается дизайн-макет и сотрудники компании BeBrand, так же как и сотрудники компании AGATECH могут помочь вам разработать логотип. <br>Компания AGATECH уже более 10 лет занимается и оказывает услуги в сфере дизайна. Мы можем помочь вам: 
+            </p>
+            <ul class="newspage-row__list">
+               <li>- разработать логотип; </li>
+               <li>- разработать фирменный стиль; </li>
+               <li>- brand bookкоторые потом наши партнеры из компании BeBrand помогут вам официально защитить в РОСпотенте! </li>
+            </ul>
+         </div>
+         <!-- /.newspage-row-all -->
+
+         <div class="newspage-bottom">
+            <a href="#" class="newspage-bottom__previous">Предыдущая новость</a>
+            <a href="#" class="newspage-bottom__next">Следующая новость</a>
+         </div>
+         <!-- /.newspage-bottom -->
       </div>
-      <!-- new_center__center -->
-   </div>
-   <!-- new_center -->
+      <!-- /.main-content__container -->
+   </section>
+   <!-- /.main-content -->
+</main>
+<!-- /#newsCenter -->
+
+
+
+
+
+
+
+
+
+   
