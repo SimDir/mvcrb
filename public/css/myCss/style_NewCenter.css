@@ -188,22 +188,22 @@
    background-repeat: no-repeat;
 }
 .news-slide-1 {
-   background-image: url(../../img/new_center/news--new-year.png);
+   background-image: url(../../img/new_center/news/new_year/new-year-header.png);
 }
 .news-slide-2 {
-   background-image: url(../../img/new_center/news--best_entrepreneur.png);
+   background-image: url(../../img/new_center/news/best_entrepreneur/best_entrepreneur-header.png);
 }
 .news-slide-3 {
-   background-image: url(../../img/new_center/news--territory.png);
+   background-image: url(../../img/new_center/news/sales_territory/sales-territory-header.png);
 }
 .news-slide-4 {
-   background-image: url(../../img/new_center/events--ICEM.png);
+   background-image: url(../../img/new_center/events/ICEM/events-ICEM-header.png);
 }
 .news-slide-5 {
-   background-image: url(../../img/new_center/events--circle-table.png);
+   background-image: url(../../img/new_center/events/dot_boiling/events-circle-table-header.png);
 }
 .news-slide-6 {
-   background-image: url(../../img/new_center/events--gtcom.png);
+   background-image: url(../../img/new_center/events/gadzhets_GTCOM/events-gtcom-header.png);
 }
 .newsCenter-header__slider-item__content {
    height: 100%;
