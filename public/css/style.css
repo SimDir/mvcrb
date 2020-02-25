@@ -442,7 +442,7 @@ h2.main-content__title {
     margin-bottom: 40px;
   }
   .main-content-breadcrumbs {
-    margin: -5px 0 10px -5px;
+    margin: 0px 0 10px 0px;
   }
   .main-content-breadcrumbs__link {
     font-size: 11px;
