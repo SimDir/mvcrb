@@ -175,6 +175,7 @@ h1.main-header__content-title {
   align-items: center;
   align-self: flex-start;
   margin: -20px 0 40px -20px;
+  flex-wrap: wrap;
 }
 .main-content-breadcrumbs__link {
   font-family: "Museo Sans 300";
@@ -437,7 +438,7 @@ h2.main-content__title {
   }
   .main-content__container {
     width: 300px;
-    padding: 20px;
+    padding: 12px;
     margin-bottom: 40px;
   }
   .main-content-breadcrumbs {
