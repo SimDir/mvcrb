@@ -17,13 +17,6 @@
    flex-direction: column;
    margin-bottom: 40px;
 }
-.newsCenterAll-row__title {
-   font-family: "Museo Sans 700";
-   color: #7787AA;
-   font-size: 30px;
-   line-height: 30px;
-   margin-bottom: 30px;
-}
 .newsCenterAll-row__content {
    width: 100%;
    display: flex;
@@ -188,32 +181,24 @@
    background-repeat: no-repeat;
 }
 .news-slide-1 {
-   background-image: url(../../img/new_center/news/new_year/new-year-header.png);
-}
-.news-slide-2 {
-   background-image: url(../../img/new_center/news/best_entrepreneur/best_entrepreneur-header.png);
-}
-.news-slide-3 {
    background-image: url(../../img/new_center/news/sales_territory/sales-territory-header.png);
 }
-.news-slide-4 {
+.news-slide-2 {
+   background-image: url(../../img/new_center/news/new_year/new-year-header.png);
+}
+.news-slide-3 {
+   background-image: url(../../img/new_center/news/best_entrepreneur/best_entrepreneur-header.png);
+}
+.events-slide-1 {
    background-image: url(../../img/new_center/events/ICEM/events-ICEM-header.png);
 }
-.news-slide-5 {
+.events-slide-2 {
    background-image: url(../../img/new_center/events/dot_boiling/events-circle-table-header.png);
 }
-.news-slide-6 {
+.events-slide-3 {
    background-image: url(../../img/new_center/events/gadzhets_GTCOM/events-gtcom-header.png);
 }
-.newsCenter-header__slider-item__content {
-   height: 100%;
-   width: 1250px;
-   margin: 0 auto;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   text-align: left;
-}
+
 .newsCenter-content {
    width: 100%;
    display: flex;
