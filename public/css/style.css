@@ -203,7 +203,7 @@ h1.main-header__content-title {
 .main-content-breadcrumbs__link:last-child::before {
   content: '';
 }
-h2.main-content__title {
+.main-content__title {
   font-family: "Museo Sans 700";
   color: #7787aa;
   font-size: 30px;

@@ -19,22 +19,6 @@
   align-items: flex-start;
   margin-bottom: 80px;
 }
-.digitalAgatech-history__title, 
-.digitalAgatech-clients__title,
-.digitalAgatech-firstStep__title,
-.digitalAgatech-newSolutions__title,
-.digitalAgatech-lvlup__title,
-.digitalAgatech-newpeak__title,
-.digitalAgatech-services__title,
-.digitalAgatech-tasks__title,
-.digitalAgatech-culture__title {
-  color: #000;
-  font-size: 30px;
-  line-height: 30px;
-  font-weight: bold;
-  margin-bottom: 30px;
-  font-family: "Museo Sans 700";
-}
 .digitalAgatech-history__description,
 .digitalAgatech-firstStep__description,
 .digitalAgatech-newSolutions__description,
