@@ -739,6 +739,25 @@
 .seo-header {
    background-image: url(../../img/products/marketing/seo/seo-header.png);
 }
+
+.p_CRM-header {
+   background-image: url(../../img/products/CRM/CRM/p_CRM-header.png); 
+}
+.tasks-header {
+   background-image: url(../../img/products/CRM/tasks/tasks-header.png); 
+}
+.contactcenter-header {
+   background-image: url(../../img/products/CRM/contactcenter/contactcenter-header.png); 
+}
+.sites-header {
+   background-image: url(../../img/products/CRM/sites/sites-header.png); 
+}
+.office-header {
+   background-image: url(../../img/products/CRM/office/office-header.png); 
+}
+.systems-header {
+   background-image: url(../../img/products/CRM/systems/systems-header.png); 
+}
 .productsPage-top {
    width: 100%;
    display: flex;
