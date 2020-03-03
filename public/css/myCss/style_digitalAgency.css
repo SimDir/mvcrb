@@ -215,6 +215,9 @@
   display: flex;
   flex-direction: column;
 }
+.digitalAgatech-culture__cutaways-item__text a{
+  color: #000;
+}
 .digitalAgatech-culture__cutaways-item__text-line-1 {
   font-size: 18px;
   line-height: 28px;

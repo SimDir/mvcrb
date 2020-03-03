@@ -76,6 +76,7 @@
    width: 100%;
    height: 100%;
    transition: transform .7s;
+   object-fit: cover;
 }
 .newsCenterAll-row__content-item:hover .newsCenterAll-row__content-item__img img{
    transform: scale(1.1)
@@ -157,7 +158,221 @@
 .newsCenterAll-row__more:hover::before {
    background-color: #344D73;
 }
-
+@media(max-width: 1500px) { 
+   .newsCenterAll-row {
+      margin-bottom: 35px;
+   }
+   .newsCenterAll-row__content {
+      margin-bottom: 18px;
+   }
+   .newsCenterAll-row__content-item {
+      width: 285px;
+   }
+   .newsCenterAll-row__content-item__img {
+      height: 190px;
+   }
+   .newsCenterAll-row__content-item__text {
+      padding: 18px;
+   }
+   .newsCenterAll-row__content-item__text-title {
+      font-size: 17px;
+      line-height: 17px;
+      margin-bottom: 9px;
+   }
+   .newsCenterAll-row__content-item__text-data--wrap {
+      height: 11px;
+      margin-bottom: 5px;
+   }
+   .newsCenterAll-row__content-item__text-data--wrap span:nth-child(1){
+      font-size: 11px;
+      font-size: 11px;
+      margin-right: 9px;
+   }
+   .newsCenterAll-row__content-item__text-data--wrap span:nth-child(2){
+      font-size: 10px;
+      line-height: 10px;
+   }
+   .newsCenterAll-row__content-item__text-decription {
+      font-size: 13px;
+      line-height: 15px;
+      height: 45px;
+      margin-bottom: 14px;
+   }
+   .newsCenterAll-row__more {
+      font-size: 17px;
+      line-height: 17px;
+   }
+}
+@media(max-width: 1300px) { 
+   .newsCenterAll-row {
+      margin-bottom: 30px;
+   }
+   .newsCenterAll-row__content {
+      margin-bottom: 16px;
+   }
+   .newsCenterAll-row__content-item {
+      width: 225px;
+   }
+   .newsCenterAll-row__content-item::before {
+      width:25px;
+      height:25px;
+   }
+   .newsCenterAll-row__content-item__img {
+      height: 170px;
+   }
+   .newsCenterAll-row__content-item__text {
+      padding: 16px;
+   }
+   .newsCenterAll-row__content-item__text-title {
+      font-size: 16px;
+      line-height: 16px;
+      margin-bottom: 8px;
+   }
+   .newsCenterAll-row__content-item__text-decription {
+      font-size: 12px;
+      line-height: 14px;
+      height: 42px;
+      margin-bottom: 13px;
+   }
+   .newsCenterAll-row__more {
+      font-size: 16px;
+      line-height: 16px;
+   }
+}
+@media(max-width: 1100px) { 
+   .newsCenterAll-row {
+      margin-bottom: 25px;
+   }
+   .newsCenterAll-row__content {
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-bottom: 0px;
+   }
+   .newsCenterAll-row__content-item {
+      width: 100%;
+      height: 100%;
+      flex-direction: row;
+      margin-bottom: 10px;
+   }
+   .newsCenterAll-row__content-item::after {
+      top: initial;
+      left: initial;
+      bottom: 0;
+      right: 0;
+      width: 2px;
+      height: 0;
+      background-color: #4889E4;
+      transition: all .7s;
+   }
+   .newsCenterAll-row__content-item::before {
+      bottom: 5px;
+      right: 10px; 
+      width:20px;
+      height:20px;
+   }
+   .newsCenterAll-row__content-item:hover::after {
+      width: 2px;
+      height: 100%;
+   }
+   .newsCenterAll-row__content-item__img {
+      width: 150px;
+      height: 120px;
+   }
+   .newsCenterAll-row__content-item__text {
+      width: calc(100% - 150px);
+      padding: 14px;
+   }
+   .newsCenterAll-row__content-item__text-decription {
+      margin-bottom: 10px;
+   }
+   .newsCenterAll-row__more {
+      font-size: 15px;
+      line-height: 15px;
+   }
+}
+@media(max-width: 700px) { 
+   .newsCenterAll-row {
+      margin-bottom: 20px;
+   }
+   .newsCenterAll-row__content-item {
+      margin-bottom: 9px;
+   }
+   .newsCenterAll-row__content-item::before {
+      bottom: 4px;
+      right: 8px; 
+      width:18px;
+      height:18px;
+   }
+   .newsCenterAll-row__content-item__img {
+      width: 130px;
+      height: 99px;
+   }
+   .newsCenterAll-row__content-item__text {
+      width: calc(100% - 130px);
+      padding: 12px;
+   }
+   .newsCenterAll-row__content-item__text-title {
+      font-size: 15px;
+      line-height: 15px;
+      margin-bottom: 7px;
+   }
+   .newsCenterAll-row__content-item__text-data--wrap {
+      margin-bottom: 4px;
+   }
+   .newsCenterAll-row__content-item__text-data--wrap span:nth-child(1){
+      margin-right: 6px;
+   }
+   .newsCenterAll-row__content-item__text-decription {
+      height: 28px;
+   }
+   .newsCenterAll-row__more {
+      font-size: 14px;
+      line-height: 14px;
+   }
+}
+@media(max-width: 500px) { 
+   .newsCenterAll-row__content-item {
+      margin-bottom: 8px;
+   }
+   .newsCenterAll-row__content-item::before {
+      bottom: 3px;
+      right: 6px; 
+      width:16px;
+      height:16px;
+   }
+   .newsCenterAll-row__content-item__img {
+      width: 105px;
+      height: 87px;
+   }
+   .newsCenterAll-row__content-item__text {
+      width: calc(100% - 105px);
+      padding: 10px;
+   }
+   .newsCenterAll-row__content-item__text-title {
+      font-size: 14px;
+      line-height: 14px;
+      margin-bottom: 6px;
+   }
+   .newsCenterAll-row__content-item__text-data--wrap {
+      height: 10px;
+      margin-bottom: 3px;
+   }
+   .newsCenterAll-row__content-item__text-data--wrap span:nth-child(1){
+      font-size: 10px;
+      font-size: 10px;
+      margin-right: 4px;
+   }
+   .newsCenterAll-row__content-item__text-decription {
+      font-size: 11px;
+      line-height: 13px;
+      height: 26px;
+      margin-bottom: 8px;
+   }
+   .newsCenterAll-row__more {
+      font-size: 13px;
+      line-height: 13px;
+   }
+}
 
 
 /* НОВОСТИ */
@@ -181,22 +396,22 @@
    background-repeat: no-repeat;
 }
 .news-slide-1 {
-   background-image: url(../../img/new_center/news/sales_territory/sales-territory-header.png);
-}
-.news-slide-2 {
-   background-image: url(../../img/new_center/news/new_year/new-year-header.png);
-}
-.news-slide-3 {
    background-image: url(../../img/new_center/news/best_entrepreneur/best_entrepreneur-header.png);
 }
-.events-slide-1 {
-   background-image: url(../../img/new_center/events/ICEM/events-ICEM-header.png);
+.news-slide-2 {
+   background-image: url(../../img/new_center/news/sales_territory/sales-territory-header.png);
+}
+.news-slide-3 {
+   background-image: url(../../img/new_center/news/off_certificate/off-certificate-header.png);
 }
 .events-slide-2 {
-   background-image: url(../../img/new_center/events/dot_boiling/events-circle-table-header.png);
+   background-image: url(../../img/new_center/events/ICEM/events-ICEM-header.png);
 }
 .events-slide-3 {
-   background-image: url(../../img/new_center/events/gadzhets_GTCOM/events-gtcom-header.png);
+   background-image: url(../../img/new_center/events/dot_boiling/events-circle-table-header.png);
+}
+.events-slide-1 {
+   background-image: url(../../img/new_center/events/kipr-international-relations/kipr-international-realtions-header.png);
 }
 
 .newsCenter-content {
@@ -441,6 +656,7 @@
 .data-select--down dd:hover {
    color: #626779;
 }
+
 
 
 

@@ -1,6 +1,3 @@
-.news--kipr-international-relations {
-   background-image: url(../../img/new_center/news/best_entrepreneur/best_entrepreneur-header.png);
-}
 .news-best-entrepreneur {
    background-image: url(../../img/new_center/news/best_entrepreneur/best_entrepreneur-header.png);
 }
@@ -18,6 +15,9 @@
 }
 .news-business-partner {
    background-image: url(../../img/new_center/news/business_partner/business-partner-header.png);
+}
+.events--kipr-international-relations {
+   background-image: url(../../img/new_center/events/kipr-international-relations/kipr-international-realtions-header.png);
 }
 .events-ICEM {
    background-image: url(../../img/new_center/events/ICEM/events-ICEM-header.png);
