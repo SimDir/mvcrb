@@ -163,13 +163,17 @@
    justify-content: space-around;
 }
 .products-digital-navigation {
-   background-color: #78b76a;
+   background-color: #2A7D3C;
 }
+.products-digital-navigation .products-navigation__item:hover .fil1 {
+   transition: all .7s;
+   fill: #2A7D3C;
+} 
 .products-navigation__item {
    display: flex;
    flex-direction: column;
    align-items: center;
-   transition: all .5s;
+   transition: all .7s;
 }
 .products-navigation__item a {
    width: 160px;
@@ -188,31 +192,34 @@
 .products-navigation__item a::before {
    content: '';
    position: absolute;
-   left: -200%;
-   top: 0;
-   width:200%;
-   height:100%;
-   background-color: rgba(255,255,255, .1);
-   clip-path: polygon(0 0, 50% 0, 100% 100%, 50% 100%);
+   top: 100%;
+   right: 100%;
+   background-color: #fff;
+   width: 100%;
+   height: 100%;
+   clip-path: polygon(0 0, 100% 100%, 0 100%);
    z-index: -1;
-   transition: all .6s;
+   transition: all .7s;
 }
 .products-navigation__item:hover a{
    box-shadow: 3px 3px 10px #fff;
 }
-.products-digital-navigation .products-navigation__item:hover a{
-   background-color: #298B00;
-}
-.products-navigation__item a:hover::before {
-   left: 100%;
+.products-navigation__item:hover a::before{
+  top: -100%;
+  right: -100%;
+  width: 200%;
+  height: 200%;
 }
 .products-navigation__item:hover span{
   text-shadow: 1px 1px 10px #fff;
 }
-.products-navigation__item a img {
+.products-navigation__item a svg {
    width: 130px;
    height: 130px;
-   transition: transform .7s;
+   transition: all .7s;
+}
+svg .fil1 {
+   fill: #fff;
 }
 .products-navigation__item span {
    font-family: "Museo Sans 500";
@@ -286,12 +293,26 @@
 }
 
 .products-promotion-navigation {
-   background-color: #9E85CB;
+   background-color: #43387D;
 }
-.products-promotion-navigation .products-navigation__item:hover a{
-   background-color: #7052A5;
+.products-promotion-navigation .products-navigation__item:hover .fil1{
+   transition: all .7s;
+   fill: #43387D;
 }
 /* PROMOTION */
+
+
+/* CRM */
+.products-crm-navigation {
+   background-color:#3C76B3;
+}
+.products-crm-navigation .products-navigation__item:hover .fil1 {
+   transition: all .7s;
+   fill: #3C76B3;
+}
+
+
+/* CRM */
 @media(max-width: 1500px) { 
    .products-under-title--wrap {
       margin-bottom: 60px;
@@ -351,7 +372,7 @@
       border: 4px solid #fff;
       margin-bottom: 12px;
    }
-   .products-navigation__item a img {
+   .products-navigation__item a svg {
       width: 100px;
       height: 100px;
    }
@@ -422,7 +443,7 @@
       border: 3px solid #fff;
       margin-bottom: 10px;
    }
-   .products-navigation__item a img {
+   .products-navigation__item a svg {
       width: 70px;
       height: 70px;
    }
@@ -479,7 +500,7 @@
       height: 100px;
       margin-bottom: 5px;
    }
-   .products-navigation__item a img {
+   .products-navigation__item a svg {
       width: 70px;
       height: 70px;
    }
@@ -621,7 +642,7 @@
       height: 80px; 
       border: 2px solid #fff;
    }
-    .products-navigation__item a img {
+    .products-navigation__item a svg {
       width: 50px;
       height: 50px;
    }
@@ -675,7 +696,7 @@
       width: 70px;
       height: 70px; 
    }
-    .products-navigation__item a img {
+    .products-navigation__item a svg {
       width: 40px;
       height: 40px;
    }
