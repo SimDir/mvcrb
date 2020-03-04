@@ -152,16 +152,30 @@ document.addEventListener('DOMContentLoaded', function() {
       let top = window.pageYOffset;
       let widthDocument = window.innerWidth;
       let dataSelect = document.querySelector('.data-select');
-      let widthDataSelect = dataSelect.clientWidth;
       let widthContainer = document.querySelector('.main-content__container').clientWidth;
-      let dataSelectFixedRight = (widthDocument-widthContainer)/2 - widthDataSelect - 30;     
-      if(top > 350) {
-         dataSelect.classList.add('data-select--fixed');
-         dataSelect.style.right = dataSelectFixedRight + 'px';
+      let dataSelectFixedLeft = (widthDocument-widthContainer)/2 + widthContainer + 30;
+
+
+      if((top < 350 ) && (widthDocument > 1500)) {
+         dataSelect.classList.remove('data-select--fixed');
+         dataSelect.style.left = '1230px';
+        
+      }
+      else if((top < 325 ) && (widthDocument <= 1500)) {
+         dataSelect.classList.remove('data-select--fixed');
+         dataSelect.style.left = '1030px';
+      }
+      else if((top < 300 ) && (widthDocument <= 1300)){
+         dataSelect.classList.remove('data-select--fixed');
+         dataSelect.style.left = '830px';
+      }
+      else if((top < 275 ) && (widthDocument <= 1100) && (widthDocument > 900)) {
+         dataSelect.classList.remove('data-select--fixed');
+         dataSelect.style.left = '730px';
       }
       else {
-         dataSelect.classList.remove('data-select--fixed');
-         dataSelect.style.right = 'initial';
+         dataSelect.classList.add('data-select--fixed');
+         dataSelect.style.left = dataSelectFixedLeft + 'px';
       }
    }); 
    
