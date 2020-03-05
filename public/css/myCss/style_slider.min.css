@@ -2,40 +2,15 @@
 .sll,.slr{width:5%;z-index:10}
 .video{width:100vw;height:100vh;background:#010304}
 .slide-2{height:100vh;width:100vw}
-.slide-3{height:100vh;width:100vw;overflow:hidden;background-image:url(../../img/slider/slide-3/slide-3-bgc.png);background-repeat:no-repeat;background-position:center;background-size:100% 100%}
+.slide-3{height:100vh;width:100vw;overflow:hidden;background-image:url(../../img/slider/slide-3/slide-3-bgc.png);background-repeat:no-repeat;background-position:center;background-size:cover}
 .slide-3-content{width:100%;height:100%;padding-top:150px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;position:relative;z-index:1}
-.slide-3-content-bitrix-cloud-1{position:absolute;bottom:0;left:0;width:500px;z-index:-1;animation:translateBitrix 10s linear infinite}
-.slide-3-content-bitrix-cloud-2{position:absolute;right:0;top:0;width:400px;z-index:-1;animation:translateBitrix 10s linear infinite}
-@keyframes translateBitrix{
-0%{transform:translate(0,0)}
-50%{transform:translate(-20px,0)}
-100%{transform:translate(0,0)}
-}
-.slide-3-content-clouds-1{position:absolute;bottom:0;left:25%;width:500px;z-index:-1;animation:translateCloud-1 80s linear infinite}
-.slide-3-content-clouds-2{position:absolute;bottom:0;left:50%;width:800px;z-index:-1;animation:translateCloud-2 60s linear infinite}
-.slide-3-content-clouds-3{position:absolute;bottom:0;right:0;width:300px;z-index:-1;animation:translateCloud-3 40s linear infinite}
-@keyframes translateCloud-1{
-0%{transform:translate(0,0)}
-50%{transform:translate(100px,0)}
-100%{transform:translate(0,0)}
-}
-@keyframes translateCloud-2{
-0%{transform:translate(0,0)}
-50%{transform:translate(100px,0)}
-100%{transform:translate(0,0)}
-}
-@keyframes translateCloud-3{
-0%{transform:translate(0,0)}
-50%{transform:translate(100px,0)}
-100%{transform:translate(0,0)}
-}
 .slide-3-content__title{width:100%;display:flex;justify-content:center;align-items:center;position:relative;margin-bottom:50px}
 .slide-3-content__title-img{width:250px}
 .slide-3-content__title-text{display:flex;flex-direction:column;margin-left:30px}
-.slide-3-content__title-text__top{font-family:Montserrat,sans-serif;font-weight:700;font-size:44px;line-height:1.5em;color:#fff}
+.slide-3-content__title-text__top{font-family:Montserrat,sans-serif;font-weight:700;font-size:44px;line-height:1.5em;color:#ed3a8e}
 .slide-3-content__title-text__bottom{display:flex;justify-content:space-between;align-items:flex-end}
-.slide-3-content__title-text__bottom-number{font-family:Montserrat,sans-serif;font-weight:700;color:#fff;font-size:72px;line-height:.8em;margin-right:20px}
-.slide-3-content__title-text__bottom-description{font-family:Montserrat,sans-serif;font-style:italic;text-transform:uppercase;color:#9affc3;font-size:18px;line-height:1.1em}
+.slide-3-content__title-text__bottom-number{font-family:Montserrat,sans-serif;font-weight:700;color:#ed3a8e;font-size:72px;line-height:.8em}
+.slide-3-content__title-text__bottom-description{font-family:Montserrat,sans-serif;font-style:italic;text-transform:uppercase;color:#fff;font-size:18px;line-height:1.1em;padding:20px;margin-left:-20px;background:linear-gradient(to right,#9c1659,rgba(156,22,89,.01))}
 .slide-3-content__stocks{width:90%;height:100%;display:flex;justify-content:space-evenly;align-items:flex-end}
 .slide-3-content__stocks-item{width:400px;height:100%;background-color:rgba(255,255,255,.2);border-radius:20px 20px 0 0;padding:40px;display:flex;flex-direction:column;align-items:center;transition:all .7s}
 .slide-3-content__stocks-item__title{font-family:Montserrat,sans-serif;text-align:center;text-transform:uppercase;font-weight:900;color:#fff;font-size:24px;line-height:1.3em}
@@ -47,46 +22,6 @@
 .slide-3-content__stock-btn::before{content:'';position:absolute;left:-100%;bottom:0;width:100%;height:100%;background-color:rgba(255,255,255,.3);clip-path:polygon(40% 0,70% 0,50% 100%,20% 100%);transition:all .7s ease-in-out}
 .slide-3-content__stock-btn:hover{color:#fff;text-shadow:0 0 10px rgba(255,255,255,.7);box-shadow:0 0 10px rgba(255,255,255,.3)}
 .slide-3-content__stock-btn:hover::before{left:50%}
-@media(max-width:1700px){
-.slide-3-content{padding-top:120px}
-.slide-3-content-bitrix-cloud-1{width:420px}
-.slide-3-content-bitrix-cloud-2{width:350px}
-.slide-3-content-clouds-1{width:450px}
-.slide-3-content-clouds-2{width:700px}
-.slide-3-content-clouds-3{width:250px}
-.slide-3-content__title{margin-bottom:40px}
-.slide-3-content__title-img{width:200px}
-.slide-3-content__title-text{margin-left:25px}
-.slide-3-content__title-text__top{font-size:40px}
-.slide-3-content__title-text__bottom-number{font-size:64px;margin-right:15px}
-.slide-3-content__title-text__bottom-description{font-size:17px}
-.slide-3-content__stocks-item{width:350px;padding:35px}
-.slide-3-content__stocks-item__title{font-size:22px}
-.slide-3-content__stocks-line{width:50%;height:3px;margin:15px 0}
-.slide-3-content__stock-discount{font-size:105px}
-.slide-3-content__stock-under-discount{font-size:22px;margin-bottom:25px}
-.slide-3-content__stock-btn{font-size:17px;line-height:1em;padding:10px 35px}
-}
-@media(max-width:1500px){
-.slide-3-content{padding-top:100px}
-.slide-3-content-bitrix-cloud-1{width:350px}
-.slide-3-content-bitrix-cloud-2{width:300px}
-.slide-3-content-clouds-1{width:350px}
-.slide-3-content-clouds-2{width:550px}
-.slide-3-content-clouds-3{width:150px}
-.slide-3-content__title{margin-bottom:30px}
-.slide-3-content__title-img{width:170px}
-.slide-3-content__title-text{margin-left:20px}
-.slide-3-content__title-text__top{font-size:36px}
-.slide-3-content__title-text__bottom-number{font-size:56px;margin-right:10px}
-.slide-3-content__title-text__bottom-description{font-size:16px}
-.slide-3-content__stocks-item{width:300px;padding:30px 10px}
-.slide-3-content__stocks-item__title{font-size:20px}
-.slide-3-content__stocks-line{height:2px;margin:10px 0}
-.slide-3-content__stock-discount{font-size:90px}
-.slide-3-content__stock-under-discount{font-size:20px;margin-bottom:20px}
-.slide-3-content__stock-btn{font-size:16px;padding:8px 30px}
-}
 .slide-4{height:100vh;width:100vw;overflow:hidden;background-image:url(../../img/slider/slide-4/slide-4-bgc.png);background-repeat:no-repeat;background-position:center;background-size:100% 100%;position:relative}
 .slide-4-gear-1{position:absolute;left:-65px;top:150px;width:130px;animation:rotate-gear-1 10s linear infinite}
 .slide-4-gear-2{position:absolute;width:90px;left:90px;top:170px;animation:rotate-gear-2 5s linear infinite}
