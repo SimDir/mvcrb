@@ -218,7 +218,7 @@
    height: 130px;
    transition: all .7s;
 }
-svg .fil1 {
+.products-navigation__item a svg .fil1 {
    fill: #fff;
 }
 .products-navigation__item span {

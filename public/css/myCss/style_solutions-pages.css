@@ -4,7 +4,7 @@
    width: 1200px;
    background-color: #ffffff;
    z-index: 1;
-   box-shadow: -2px -2px 20px #81736c;
+   box-shadow: -2px -2px 20px rgba(0,0,0, .3);
    padding: 50px 100px;
    display: flex;
    flex-direction: column;
@@ -384,12 +384,12 @@
 
 
 
-@media(max-width: 1600px) {
+@media(max-width: 1500px) {
    .container-page {
       width: 1100px;
    }
 }
-@media(max-width: 1400px) {
+@media(max-width: 1300px) {
    .container-page {
       width: 1000px;
    }
@@ -430,7 +430,7 @@
       font-size: 16px;
    }
 }
-@media(max-width: 1200px) {
+@media(max-width: 1100px) {
    .container-page {
       width: 800px;
    }
@@ -442,9 +442,10 @@
       width: 30px;
    }
 }
-@media(max-width: 1000px) {
+@media(max-width: 900px) {
    .container-page {
       width: 700px;
+      top: 80px;
    }
    .container-page__header,
    .container-page__task-and-description {
@@ -502,14 +503,9 @@
       margin-bottom: 50px;
    }
 }
-@media(max-width: 900px) {
+@media(max-width: 700px) {
    .container-page {
-      top: 80px;
-   }
-}
-@media(max-width: 800px) {
-   .container-page {
-      width: 90%;
+      width: 95%;
       padding: 40px 75px;
    }
    .container-page__back-btn {
@@ -582,29 +578,30 @@
       width: 20px;
    }
 }
-@media(max-width: 600px) {
+@media(max-width: 500px) {
    .container-page {
-      padding: 30px 60px;
+      top: 60px;
+      padding: 25px 50px;
    }
    .container-page__back-btn {
-      width: 45px;
-      height: 30px;
+      width: 30px;
+      height: 20px;
    }
    .container-page__back-btn img {
-      width: 25px;
+      width: 20px;
    }
    .container-page__header,
    .container-page__task-and-description {
-      margin-bottom: 25px;
+      margin-bottom: 15px;
    }
    .container-page__rusult,
    .container-page__additionally {
-      margin-bottom: 25px;
+      margin-bottom: 15px;
    }
    .container-page__header-title {
       font-size: 22px;
       line-height: 22px;
-      margin-bottom: 22px;
+      margin-bottom: 15px;
    }
    .container-page__header-text {
       font-size: 12px;
@@ -632,49 +629,10 @@
       font-size: 12px;
    }
    .container-page__task-text {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
    }
    .container-page__look-btn-text {
       font-size: 12px;
-   }
-   .container-toyota__img-4,
-   .container-canon__img-4,
-   .container-cronos__img-4,
-   .container-arb__img-4,
-   .container-rmh__img-4,
-   .container-business__img-4,
-   .container-evita__img-4{
-      margin-bottom: 30px;
-   }
-}
-@media(max-width: 500px) {
-   .container-page {
-      top: 60px;
-      padding: 25px 0 25px 40px;
-   }
-   .container-page__back-btn {
-      width: 30px;
-      height: 20px;
-   }
-   .container-page__back-btn img {
-      width: 20px;
-   }
-   .container-page__header,
-   .container-page__task-and-description {
-      margin-bottom: 15px;
-   }
-   .container-page__rusult,
-   .container-page__additionally {
-      margin-bottom: 15px;
-   }
-   .container-page__header-title {
-      margin-bottom: 15px;
-   }
-   .container-page__header-text {
-      margin-bottom: 10px;
-   }
-   .container-page__task-text {
-      margin-bottom: 10px;
    }
    .container-toyota__img-4,
    .container-canon__img-4,
