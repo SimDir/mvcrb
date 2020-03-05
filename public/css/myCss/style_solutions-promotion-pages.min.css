@@ -1,0 +1,172 @@
+.container-promotion-page{position:absolute;top:100px;right:0;width:1200px;background-color:#fff;z-index:1;box-shadow:-2px -2px 20px #81736c;padding:50px 100px;display:flex;align-items:center;flex-direction:column;transform:scale(0);transition:transform 1s}
+.container-page__back-btn{position:absolute;background-color:#8cb0e4;width:70px;height:50px;display:flex;justify-content:center;align-items:center;left:0;cursor:pointer}
+.container-page__back-btn img{transform:rotate(180deg);width:40px}
+.container-promotion-page__title{color:#56698f;font-size:41px;line-height:41px;font-weight:700;margin-bottom:30px}
+.container-promotion-page__header{width:100%}
+.container-promotion-page__header img{width:100%}
+.container-promotion-page__content-top{display:flex;justify-content:space-between;width:100%}
+.container-promotion-page__content-top--left{flex-basis:65%;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:20px 0}
+.container-promotion-page__content-top--left p{font-family:'Helvetica Neue Cyr Roman';font-size:18px;line-height:28px;color:#626779;margin-bottom:25px}
+.container-promotion-page__content-top--left a{font-family:'Helvetica Neue Cyr Roman';color:#56698f;font-size:14px;line-height:14px}
+.container-promotion-page__content-top--right{flex-basis:25%;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:20px 0}
+.container-promotion-page__content-top--right p{font-family:'Helvetica Neue Cyr Roman';font-size:18px;line-height:18px;margin-bottom:10px;color:#626779}
+.container-promotion-page__content-top--right span{font-family:'Helvetica Neue Cyr Roman';font-size:36px;line-height:28px;color:#626779}
+.container-promotion-page__content-center{width:100%;display:flex;justify-content:space-between;flex-wrap:wrap;margin-bottom:40px}
+.container-promotion-page__content-center--left{flex-basis:38%;padding:20px 0}
+.container-promotion-page__content-center--right{flex-basis:58%;padding:20px 0}
+.container-promotion-page__content-center--full{flex-basis:100%;padding:20px 0}
+.container-promotion-page__content-center--full ul,.container-promotion-page__content-center--left ul,.container-promotion-page__content-center--right ul{margin-bottom:20px}
+.container-promotion-page__content-center--title{font-family:'Helvetica Neue Cyr Roman';font-weight:700;font-size:18px;line-height:18px;color:#626779;margin-bottom:10px;align-self:flex-start}
+.container-promotion-page__content-center--text{font-family:'Helvetica Neue Cyr Roman';font-size:14px;line-height:28px;color:#626779}
+.container-promotion-page__content-center--undertitle{font-family:'Helvetica Neue Cyr Roman';font-size:14px;line-height:14px;color:#626779;margin-bottom:30px}
+.container-promotion-page__content-bottom{width:100%;display:flex;justify-content:space-between;flex-wrap:wrap;margin-bottom:40px}
+.container-promotion-page__content-bottom--left{flex-basis:39%;padding:10px 0;display:flex}
+.container-promotion-page__content-bottom--right{flex-basis:59%;padding:10px 0;display:flex}
+.container-promotion-page__content-bottom--item{display:flex;flex-direction:column;align-items:center;margin:0 20px 0 0;justify-content:center;text-align:center}
+.item-big__number{font-size:85px;line-height:85px;color:#4a79bd;font-weight:700;font-family:'Helvetica Neue Cyr Roman'}
+.item-small__number{font-size:40px;line-height:40px;color:#4a79bd;font-weight:700;font-family:'Helvetica Neue Cyr Roman'}
+.item-text{font-size:18px;line-height:18px;color:#4a79bd;font-family:'Helvetica Neue Cyr Roman'}
+.item-small__text{font-size:16px;line-height:16px;color:#4a79bd;font-family:'Helvetica Neue Cyr Roman'}
+.container-promotion-page__footer-text{font-size:14px;line-height:14px;color:#4a79bd;font-family:'Helvetica Neue Cyr Roman'}
+.container-promotion-page__graphic{width:100%;display:flex;flex-direction:column;align-items:center;margin-bottom:40px}
+.container-promotion-page__graphic img{width:80%;margin-bottom:30px}
+.container-promotion-page__graphic img[alt=vizcenter-graphic-1]{width:100%;margin-bottom:0}
+.container-promotion-page__graphic img[alt=vizcenter-graphic-2]{width:100%;margin-bottom:0}
+.container-promotion-page__graphic img[alt=vizcenter-graphic-3]{width:100%;margin-bottom:0}
+.container-promotion-page__graphic img[alt=wedding-gown-graphic-1]{width:100%;margin-bottom:0}
+.container-promotion-page__graphic img[alt=wedding-gown-graphic-2]{width:100%;margin-bottom:0}
+.container-promotion-page__graphic img[alt=wedding-gown-graphic-3]{width:70%;margin-bottom:0}
+.container-promotion-page__graphic img[alt=green-street-graphic-1]{width:100%;margin-bottom:0}
+.container-promotion-page__graphic img[alt=green-street-graphic-2]{width:100%;margin-bottom:0}
+.container-promotion-page__graphic--text-top{font-family:'Helvetica Neue Cyr Roman';font-size:14px;line-height:14px;color:#626779;margin-bottom:40px;align-self:flex-start}
+.container-promotion-page__graphic--text-bottom{font-family:'Helvetica Neue Cyr Roman';font-size:14px;line-height:14px;color:#626779;align-self:flex-start}
+@media(max-width:1500px){
+.container-promotion-page{width:1100px}
+}
+@media(max-width:1300px){
+.container-promotion-page{width:1000px}
+.container-promotion-page__title{font-size:35px;line-height:35px;margin-bottom:25px}
+.container-promotion-page__content-top--left p{font-size:16px;line-height:24px;margin-bottom:20px}
+.container-promotion-page__content-top--left a{font-size:12px;line-height:12px}
+.container-promotion-page__content-top--right p{font-size:16px;line-height:16px;margin-bottom:10px}
+.container-promotion-page__content-top--right span{font-size:32px;line-height:24px}
+.container-promotion-page__content-center{margin-bottom:35px}
+.container-promotion-page__content-center--title{font-size:16px;line-height:16px}
+.container-promotion-page__content-center--text{font-size:12px;line-height:24px}
+.container-promotion-page__content-center--undertitle{font-size:12px;line-height:12px;margin-bottom:25px}
+.container-promotion-page__content-bottom{margin-bottom:35px}
+.item-big__number{font-size:66px;line-height:66px}
+.item-small__number{font-size:34px;line-height:34px}
+.item-text{font-size:16px;line-height:16px}
+.item-small__text{font-size:14px;line-height:14px}
+.container-promotion-page__footer-text{font-size:12px;line-height:12px}
+.container-promotion-page__graphic{margin-bottom:35px}
+.container-promotion-page__graphic img{margin-bottom:25px}
+.container-promotion-page__graphic--text-top{font-size:12px;line-height:12px;margin-bottom:35px}
+.container-promotion-page__graphic--text-bottom{font-size:12px;line-height:12px}
+}
+@media(max-width:1100px){
+.container-promotion-page{width:800px;padding:35px 70px}
+.container-page__back-btn{width:60px;height:40px}
+.container-page__back-btn img{width:35px}
+.container-promotion-page__content-bottom--item{margin:0 15px 0 0}
+.item-big__number{font-size:54px;line-height:54px}
+.item-small__number{font-size:30px;line-height:30px}
+}
+@media(max-width:900px){
+.container-promotion-page{width:700px;padding:30px 60px;top:80px}
+.container-page__back-btn{width:50px;height:30px}
+.container-page__back-btn img{width:30px}
+.container-promotion-page__title{font-size:30px;line-height:30px;margin-bottom:20px}
+.container-promotion-page__content-top--left{padding:15px 0}
+.container-promotion-page__content-top--left p{font-size:14px;line-height:20px;margin-bottom:15px}
+.container-promotion-page__content-top--left a{font-size:11px;line-height:11px}
+.container-promotion-page__content-top--right{padding:15px 0}
+.container-promotion-page__content-top--right p{font-size:14px;line-height:14px;margin-bottom:5px}
+.container-promotion-page__content-top--right span{font-size:28px;line-height:20px}
+.container-promotion-page__content-center{margin-bottom:25px}
+.container-promotion-page__content-center--left{padding:15px 0}
+.container-promotion-page__content-center--right{padding:15px 0}
+.container-promotion-page__content-center--full{padding:15px 0}
+.container-promotion-page__content-center--full ul,.container-promotion-page__content-center--left ul,.container-promotion-page__content-center--right ul{margin-bottom:15px}
+.container-promotion-page__content-center--title{font-size:14px;line-height:14px;margin-bottom:5px}
+.container-promotion-page__content-center--text{font-size:11px;line-height:20px}
+.container-promotion-page__content-center--undertitle{font-size:11px;line-height:11px;margin-bottom:20px}
+.container-promotion-page__content-bottom{margin-bottom:25px}
+.container-promotion-page__content-bottom--left{padding:5px 0}
+.container-promotion-page__content-bottom--right{padding:5px 0}
+.container-promotion-page__content-bottom--item{margin:0 10px 0 0}
+.item-big__number{font-size:42px;line-height:42px}
+.item-small__number{font-size:26px;line-height:26px}
+.item-text{font-size:14px;line-height:14px}
+.item-small__text{font-size:12px;line-height:12px}
+.container-promotion-page__footer-text{font-size:11px;line-height:11px}
+.container-promotion-page__graphic{margin-bottom:25px}
+.container-promotion-page__graphic img{margin-bottom:20px}
+.container-promotion-page__graphic--text-top{font-size:11px;line-height:11px;margin-bottom:25px}
+.container-promotion-page__graphic--text-bottom{font-size:11px;line-height:11px}
+}
+@media(max-width:700px){
+.container-promotion-page{width:95%;padding:25px 50px}
+.container-page__back-btn{width:40px;height:25px}
+.container-page__back-btn img{width:20px}
+.container-promotion-page__title{font-size:26px;line-height:26px;margin-bottom:15px}
+.container-promotion-page__content-top--left{padding:10px 0}
+.container-promotion-page__content-top--left p{font-size:12px;line-height:16px;margin-bottom:10px}
+.container-promotion-page__content-top--left a{font-size:10px;line-height:10px}
+.container-promotion-page__content-top--right{padding:10px 0}
+.container-promotion-page__content-top--right p{font-size:12px;line-height:12px;margin-bottom:4px}
+.container-promotion-page__content-top--right span{font-size:24px;line-height:16px}
+.container-promotion-page__content-center{margin-bottom:20px}
+.container-promotion-page__content-center--left{padding:10px 0}
+.container-promotion-page__content-center--right{padding:10px 0}
+.container-promotion-page__content-center--full{padding:10px 0}
+.container-promotion-page__content-center--full ul,.container-promotion-page__content-center--left ul,.container-promotion-page__content-center--right ul{margin-bottom:10px}
+.container-promotion-page__content-center--title{font-size:10px;line-height:10px;margin-bottom:4px}
+.container-promotion-page__content-center--text{font-size:10px;line-height:18px}
+.container-promotion-page__content-center--undertitle{font-size:10px;line-height:10px;margin-bottom:18px}
+.container-promotion-page__content-bottom{margin-bottom:20px}
+.container-promotion-page__content-bottom--left{flex-basis:42%;padding:4px 0}
+.container-promotion-page__content-bottom--right{flex-basis:49%;padding:4px 0}
+.item-big__number{font-size:38px;line-height:38px}
+.item-small__number{font-size:22px;line-height:22px}
+.item-text{font-size:12px;line-height:12px}
+.item-small__text{font-size:11px;line-height:11px}
+.container-promotion-page__footer-text{font-size:10px;line-height:10px}
+.container-promotion-page__graphic{margin-bottom:20px}
+.container-promotion-page__graphic img{margin-bottom:15px}
+.container-promotion-page__graphic--text-top{font-size:10px;line-height:10px;margin-bottom:20px}
+.container-promotion-page__graphic--text-bottom{font-size:10px;line-height:10px}
+}
+@media(max-width:500px){
+.container-promotion-page{padding:20px 40px}
+.container-page__back-btn{width:30px;height:20px}
+.container-page__back-btn img{width:20px}
+.container-promotion-page__title{font-size:22px;line-height:22px;margin-bottom:10px}
+.container-promotion-page__content-top{flex-wrap:wrap;margin-bottom:15px}
+.container-promotion-page__content-top--left{flex-basis:100%;padding:5px 0}
+.container-promotion-page__content-top--left p{font-size:11px;line-height:14px;margin-bottom:5px}
+.container-promotion-page__content-top--left a{font-size:9px;line-height:9px}
+.container-promotion-page__content-top--right{flex-basis:100%;padding:5px 0}
+.container-promotion-page__content-top--right p{font-size:11px;line-height:11px;margin-bottom:3px}
+.container-promotion-page__content-top--right span{font-size:20px;line-height:12px}
+.container-promotion-page__content-center{margin-bottom:15px;flex-wrap:wrap}
+.container-promotion-page__content-center--left{flex-basis:100%;padding:5px 0}
+.container-promotion-page__content-center--right{flex-basis:100%;padding:5px 0}
+.container-promotion-page__content-center--full{padding:5px 0}
+.container-promotion-page__content-center--full ul,.container-promotion-page__content-center--left ul,.container-promotion-page__content-center--right ul{margin-bottom:5px}
+.container-promotion-page__content-center--title{font-size:9px;line-height:9px;margin-bottom:9px}
+.container-promotion-page__content-center--text{font-size:9px;line-height:16px}
+.container-promotion-page__content-center--undertitle{font-size:9px;line-height:9px;margin-bottom:16px}
+.container-promotion-page__content-bottom{margin-bottom:15px}
+.container-promotion-page__content-bottom--left{flex-basis:50%;padding:5px 0;flex-direction:column}
+.container-promotion-page__content-bottom--right{flex-basis:50%;padding:5px;flex-direction:column}
+.container-promotion-page__content-bottom--item{margin:5px}
+.item-big__number{font-size:26px;line-height:26px}
+.item-small__number{font-size:16px;line-height:16px}
+.item-text{font-size:10px;line-height:10px}
+.item-small__text{font-size:9px;line-height:9px}
+.container-promotion-page__graphic{margin-bottom:15px}
+.container-promotion-page__graphic img{margin-bottom:10px}
+.container-promotion-page__graphic--text-top{margin-bottom:15px}
+}
