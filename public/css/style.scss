@@ -1,6 +1,6 @@
 @import "/public/css/preloader.css";
 @import "/public/css/myCss/style_header.min.css";
-@import "/public/css/myCss/style_slider.css";
+@import "/public/css/myCss/style_slider.min.css";
 @import "/public/css/myCss/style_footer.min.css";
 @import "/public/css/myCss/style_digitalAgency.min.css";
 @import "/public/css/myCss/style_NewCenter.min.css";
@@ -30,6 +30,13 @@
   font-family: "Helvetica Neue Cyr Medium";
   src: url("../fonts/HelveticaNeueCyr-Medium.eot");
   src: url("../fonts/HelveticaNeueCyr-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/HelveticaNeueCyr-Medium.woff") format("woff"), url("../fonts/HelveticaNeueCyr-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Appetite";
+  src: url("../fonts/appetite.eot");
+  src: url("../fonts/appetite.woff") format("woff"), url("../fonts/appetite.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

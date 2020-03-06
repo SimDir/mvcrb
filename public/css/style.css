@@ -1,17 +1,17 @@
 @charset "UTF-8";
 @import url(/public/css/preloader.css);
-@import url(/public/css/myCss/min.css/.css);
-@import url(/public/css/myCss/min.css/style_slider.min.css);
-@import url(/public/css/myCss/min.css/style_footer.min.css);
-@import url(/public/css/myCss/min.css/style_digitalAgency.min.css);
-@import url(/public/css/myCss/min.css/style_NewCenter.min.css);
-@import url(/public/css/myCss/min.css/style_solutions.min.css);
-@import url(/public/css/myCss/min.css/style_productsMain.min.css);
-@import url(/public/css/myCss/min.css/style_products.min.css);
-@import url(/public/css/myCss/min.css/style_cooperation.min.css);
-@import url(/public/css/myCss/min.css/style_newsCenter-pages.min.css);
-@import url(/public/css/myCss/min.css/style_solutions-pages.min.css);
-@import url(/public/css/myCss/min.css/style_solutions-promotion-pages.min.css);
+@import url(/public/css/myCss/style_header.min.css);
+@import url(/public/css/myCss/style_slider.css);
+@import url(/public/css/myCss/style_footer.min.css);
+@import url(/public/css/myCss/style_digitalAgency.min.css);
+@import url(/public/css/myCss/style_NewCenter.min.css);
+@import url(/public/css/myCss/style_solutions.min.css);
+@import url(/public/css/myCss/style_productsMain.min.css);
+@import url(/public/css/myCss/style_products.min.css);
+@import url(/public/css/myCss/style_cooperation.min.css);
+@import url(/public/css/myCss/style_newsCenter-pages.min.css);
+@import url(/public/css/myCss/style_solutions-pages.min.css);
+@import url(/public/css/myCss/style_solutions-promotion-pages.min.css);
 @font-face {
   font-family: "Helvetica Neue Cyr Light";
   src: url("../fonts/HelveticaNeueCyr-Light.eot");
@@ -28,6 +28,12 @@
   font-family: "Helvetica Neue Cyr Medium";
   src: url("../fonts/HelveticaNeueCyr-Medium.eot");
   src: url("../fonts/HelveticaNeueCyr-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/HelveticaNeueCyr-Medium.woff") format("woff"), url("../fonts/HelveticaNeueCyr-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: "Appetite";
+  src: url("../fonts/appetite.eot");
+  src: url("../fonts/HelveticaNeueCyr-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/appetite.woff") format("woff"), url("../fonts/HelveticaNeueCyr-Light.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
