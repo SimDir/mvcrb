@@ -1,16 +1,16 @@
 @import "/public/css/preloader.css";
-@import "/public/css/myCss/style_header.min.css";
-@import "/public/css/myCss/style_slider.min.css";
-@import "/public/css/myCss/style_footer.min.css";
-@import "/public/css/myCss/style_digitalAgency.min.css";
-@import "/public/css/myCss/style_NewCenter.min.css";
-@import "/public/css/myCss/style_solutions.min.css";
-@import "/public/css/myCss/style_productsMain.min.css";
-@import "/public/css/myCss/style_products.min.css";
-@import "/public/css/myCss/style_cooperation.min.css";
-@import "/public/css/myCss/style_newsCenter-pages.min.css";
-@import "/public/css/myCss/style_solutions-pages.min.css";
-@import "/public/css/myCss/style_solutions-promotion-pages.min.css";
+@import "myScss/header";
+@import "myScss/slider";
+@import "myScss/footer";
+@import "myScss/digitalAgency";
+@import "myScss/mediacenter";
+@import "myScss/solutions";
+@import "myScss/products-main";
+@import "myScss/products";
+@import "myScss/cooperation";
+@import "myScss/mediacenter-pages";
+@import "myScss/solutions-digital-pages";
+@import "myScss/solutions-promotion-pages";
 
 @font-face {
   font-family: "Helvetica Neue Cyr Light";
