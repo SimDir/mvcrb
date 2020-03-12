@@ -40,18 +40,21 @@ $( document ).ready(function() {
     // popup
     let callbtn = document.querySelectorAll('.call-popup-btn');
     let popup = document.querySelector('.popup--wrap');
-    
     for(let i=0;i<callbtn.length;i++) {
         callbtn[i].onclick = function() {
             popup.style.display = 'flex';
         }
     }
+   
     document.addEventListener('click', e => {
         let target = e.target;
-        let its_hamburger = target == popup;
-        if (its_hamburger) {
+        let targetPopup = target == popup;
+
+        if (targetPopup) {
             popup.style.display = 'none';
         }
+        
+        
     })
 
 

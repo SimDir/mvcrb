@@ -468,7 +468,7 @@
             <img src="/public/img/popup/message.png" alt="message" class="popup-success__img">
          </div>
          <span class="popup-success__title">ФОРМА УСПЕШНО ОТПРАВЛЕНА!</span>
-         <button class="popup-success__btn">Вернуться</button>
+         <button class="popup-success__btn" v-on:click="show">Вернуться</button>
        </div>
    </div>
 </div>
@@ -482,8 +482,9 @@
          sbmt(e) {
             e.preventDefault();
             this.showForm=false;
-            this.message = this.message.split('').reverse().join('');
-
+         },
+         show() {
+            this.showForm=true;
          }
       }
    })

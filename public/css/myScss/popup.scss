@@ -151,6 +151,23 @@
         font-family: "Museo Sans 500";
         margin: 1em 0;
     }
+    &__btn {
+        background-color: #1f4c75;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 25px;
+        line-height: 1em;
+        border: none;
+        font-family: "Museo Sans 700";
+        align-self: center;
+        border-radius: 10px;
+        padding: 0.5em;
+        margin-top: 1em;
+        transition: all .5s ease-in-out;
+        &:hover {
+            box-shadow: inset 180px 0 0 #C9997D;
+        }
+    }
 }
 
  
