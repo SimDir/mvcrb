@@ -36,6 +36,32 @@ $( document ).ready(function() {
     }
     
 
+
+    // popup
+    let callbtn = document.querySelectorAll('.call-popup-btn');
+    let popup = document.querySelector('.popup--wrap');
+    
+    for(let i=0;i<callbtn.length;i++) {
+        callbtn[i].onclick = function() {
+            popup.style.display = 'flex';
+        }
+    }
+    document.addEventListener('click', e => {
+        let target = e.target;
+        let its_hamburger = target == popup;
+        if (its_hamburger) {
+            popup.style.display = 'none';
+        }
+    })
+
+
+   
+   
+    
+    
+  
+    
+
     // let burger = document.querySelector('.header-burger');
     // let allLines = document.querySelectorAll('.eader-burger__line');
     // let navBAr = document.querySelector('.header__menu');

@@ -1,3 +1,5 @@
+@import "/public/libs/fancybox/jquery.fancybox.css";
+@import "/public/libs/animate.css/animate.css";
 @import "/public/css/preloader.css";
 @import "myScss/header";
 @import "myScss/slider";
@@ -11,6 +13,7 @@
 @import "myScss/mediacenter-pages";
 @import "myScss/solutions-digital-pages";
 @import "myScss/solutions-promotion-pages";
+@import "myScss/popup";
 
 @font-face {
   font-family: "Helvetica Neue Cyr Light";

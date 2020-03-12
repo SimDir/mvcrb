@@ -1,0 +1,376 @@
+.news-best-entrepreneur {
+  background-image: url(/public/img/new_center/news/best_entrepreneur/best_entrepreneur-header.png); }
+
+.news-new-office {
+  background-image: url(/public/img/new_center/news/new_office/new-office-header.png); }
+
+.news-sales-territory {
+  background-image: url(/public/img/new_center/news/sales_territory/sales-territory-header.png); }
+
+.news-new-year {
+  background-image: url(/public/img/new_center/news/new_year/new-year-header.png); }
+
+.news-off-certificate {
+  background-image: url(/public/img/new_center/news/off_certificate/off-certificate-header.png); }
+
+.news-business-partner {
+  background-image: url(/public/img/new_center/news/business_partner/business-partner-header.png); }
+
+.events--kipr-international-relations {
+  background-image: url(/public/img/new_center/events/kipr-international-relations/kipr-international-realtions-header.png); }
+
+.events-ICEM {
+  background-image: url(/public/img/new_center/events/ICEM/events-ICEM-header.png); }
+
+.events-dot-boiling {
+  background-image: url(/public/img/new_center/events/dot_boiling/events-circle-table-header.png); }
+
+.events-gadzhets-gtcom {
+  background-image: url(/public/img/new_center/events/gadzhets_GTCOM/events-gtcom-header.png); }
+
+.events-conference-bitrix24-skolkovo {
+  background-image: url(/public/img/new_center/events/conference_bitrix24_skolkovo/events-conference-bitrix24-skolkovo-header.png); }
+
+.events-conference-bitrix24-rmh {
+  background-image: url(/public/img/new_center/events/conference_bitrix24_rmh/events-conference-bitrix24-rmh-header.png); }
+
+.newspage-date {
+  align-self: flex-end;
+  color: #949494;
+  font-family: "Museo Sans 300";
+  font-size: 16px;
+  line-height: 1em;
+  margin: -20px 0 20px 0; }
+
+.newspage-row {
+  width: 100%;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; }
+
+.newspage-row__img {
+  width: 520px; }
+
+.newspage-row__text {
+  flex-grow: 1;
+  font-size: 18px;
+  line-height: 2em;
+  color: #000;
+  font-family: "Museo Sans 300"; }
+
+.newspage-row-reverse {
+  width: 100%;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; }
+
+.newspage-row__list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column; }
+
+.newspage-row__list li {
+  font-size: 16px;
+  line-height: 2em;
+  color: #000;
+  font-family: "Museo Sans 300"; }
+
+.newspage-row-all {
+  width: 100%;
+  margin-bottom: 50px; }
+
+.newspage-row .newspage-row__text {
+  margin-right: 50px; }
+
+.newspage-row-reverse .newspage-row__text {
+  margin-left: 50px; }
+
+.newspage-row__gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-bottom: 50px; }
+
+.newspage-row__gallery img {
+  height: 300px;
+  margin: 15px; }
+
+.newspage-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.newspage-bottom__previous {
+  font-family: "Museo Sans 300";
+  color: #b4b5b5;
+  font-size: 18px;
+  line-height: 1em;
+  text-decoration: underline; }
+
+.newspage-bottom__next {
+  font-family: "Museo Sans 300";
+  color: #7898df;
+  font-size: 18px;
+  line-height: 1em;
+  text-decoration: underline; }
+
+.newspage-bottom__previous:hover {
+  color: #b4b5b5;
+  text-decoration: none; }
+
+.newspage-bottom__next:hover {
+  color: #7898df;
+  text-decoration: none; }
+
+@media (max-width: 1500px) {
+  .newspage-date {
+    font-size: 15px;
+    margin: -18px 0 18px 0; }
+
+  .newspage-row {
+    margin-bottom: 45px; }
+
+  .newspage-row__img {
+    width: 400px; }
+
+  .newspage-row__text {
+    font-size: 16px; }
+
+  .newspage-row-reverse {
+    margin-bottom: 45px; }
+
+  .newspage-row__list li {
+    font-size: 15px; }
+
+  .newspage-row-all {
+    margin-bottom: 45px; }
+
+  .newspage-row .newspage-row__text {
+    margin-right: 35px; }
+
+  .newspage-row-reverse .newspage-row__text {
+    margin-left: 35px; }
+
+  .newspage-row__gallery {
+    margin-bottom: 45px; }
+
+  .newspage-row__gallery img {
+    height: 200px;
+    margin: 10px; }
+
+  .newspage-bottom__previous {
+    font-size: 17px; }
+
+  .newspage-bottom__next {
+    font-size: 17px; } }
+@media (max-width: 1300px) {
+  .newspage-date {
+    font-size: 15px;
+    margin: -18px 0 18px 0; }
+
+  .newspage-row {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 40px; }
+
+  .newspage-row__img {
+    width: 50%; }
+
+  .newspage-row-reverse {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 40px; }
+
+  .newspage-row-all {
+    margin-bottom: 40px; }
+
+  .newspage-row .newspage-row__text {
+    margin-right: 0px;
+    margin-top: 20px; }
+
+  .newspage-row-reverse .newspage-row__text {
+    margin-left: 0px;
+    margin-top: 20px; }
+
+  .newspage-row__gallery {
+    margin-bottom: 40px; }
+
+  .newspage-row__gallery img {
+    height: 150px;
+    margin: 8px; } }
+@media (max-width: 1100px) {
+  .newspage-date {
+    font-size: 14px;
+    margin: -16px 0 16px 0; }
+
+  .newspage-row {
+    margin-bottom: 35px; }
+
+  .newspage-row__img {
+    width: 60%; }
+
+  .newspage-row__text {
+    font-size: 15px; }
+
+  .newspage-row-reverse {
+    margin-bottom: 35px; }
+
+  .newspage-row__list li {
+    font-size: 14px; }
+
+  .newspage-row-all {
+    margin-bottom: 35px; }
+
+  .newspage-row .newspage-row__text {
+    margin-top: 16px; }
+
+  .newspage-row-reverse .newspage-row__text {
+    margin-top: 16px; }
+
+  .newspage-row__gallery {
+    margin-bottom: 35px; }
+
+  .newspage-row__gallery img {
+    height: 200px;
+    margin: 8px; }
+
+  .newspage-bottom__previous {
+    font-size: 16px; }
+
+  .newspage-bottom__next {
+    font-size: 16px; } }
+@media (max-width: 900px) {
+  .newspage-date {
+    font-size: 13px;
+    margin: -14px 0 14px 0; }
+
+  .newspage-row {
+    margin-bottom: 30px; }
+
+  .newspage-row__img {
+    width: 70%; }
+
+  .newspage-row__text {
+    font-size: 14px; }
+
+  .newspage-row-reverse {
+    margin-bottom: 30px; }
+
+  .newspage-row__list li {
+    font-size: 13px; }
+
+  .newspage-row-all {
+    margin-bottom: 30px; }
+
+  .newspage-row .newspage-row__text {
+    margin-top: 12px; }
+
+  .newspage-row-reverse .newspage-row__text {
+    margin-top: 12px; }
+
+  .newspage-row__gallery {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 30px; }
+
+  .newspage-row__gallery img {
+    height: initial;
+    width: 70%;
+    margin: 0 0 12px 0; }
+
+  .newspage-bottom__previous {
+    font-size: 15px; }
+
+  .newspage-bottom__next {
+    font-size: 15px; } }
+@media (max-width: 700px) {
+  .newspage-date {
+    font-size: 12px;
+    margin: -12px 0 12px 0; }
+
+  .newspage-row {
+    margin-bottom: 25px; }
+
+  .newspage-row__img {
+    width: 80%; }
+
+  .newspage-row__text {
+    font-size: 13px; }
+
+  .newspage-row-reverse {
+    margin-bottom: 25px; }
+
+  .newspage-row__list li {
+    font-size: 12px; }
+
+  .newspage-row-all {
+    margin-bottom: 25px; }
+
+  .newspage-row .newspage-row__text {
+    margin-top: 10px; }
+
+  .newspage-row-reverse .newspage-row__text {
+    margin-top: 10px; }
+
+  .newspage-row__gallery {
+    margin-bottom: 25px; }
+
+  .newspage-row__gallery img {
+    width: 80%;
+    margin: 0 0 10px 0; }
+
+  .newspage-bottom__previous {
+    font-size: 14px; }
+
+  .newspage-bottom__next {
+    font-size: 14px; } }
+@media (max-width: 500px) {
+  .newspage-date {
+    font-size: 11px;
+    margin: -10px 0 10px 0; }
+
+  .newspage-row {
+    margin-bottom: 20px; }
+
+  .newspage-row__img {
+    width: 90%; }
+
+  .newspage-row__text {
+    font-size: 12px; }
+
+  .newspage-row-reverse {
+    margin-bottom: 20px; }
+
+  .newspage-row__list li {
+    font-size: 11px; }
+
+  .newspage-row-all {
+    margin-bottom: 20px; }
+
+  .newspage-row .newspage-row__text {
+    margin-top: 8px; }
+
+  .newspage-row-reverse .newspage-row__text {
+    margin-top: 8px; }
+
+  .newspage-row__gallery {
+    margin-bottom: 20px; }
+
+  .newspage-row__gallery img {
+    width: 90%;
+    margin: 0 0 8px 0; }
+
+  .newspage-bottom__previous {
+    font-size: 13px; }
+
+  .newspage-bottom__next {
+    font-size: 13px; } }
+
+/*# sourceMappingURL=mediacenter-pages.css.map */

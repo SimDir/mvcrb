@@ -432,4 +432,60 @@
    <!-- /.header-mobile -->
 </div>
 <!-- /.header-mobile -->
+
+
+
+<div id="app" class="popup--wrap">
+   <div class="popup">
+      <div v-if="showForm" class="popup-static">
+         <img src="/public/img/popup/message.png" alt="message" class="popup-static__img">
+         <form  @submit="sbmt" class="popup-static__form form">
+             <label for="" class="form__label">
+                 <span class="form__title">Имя: 
+                 </span>
+                 <input type="text" class="form__input" placeholder="Введите имя...">
+             </label>
+             <label for="" class="form__label">
+                 <span class="form__title">Телефон:</span>
+                 <input type="tel" class="form__input" placeholder="Введите номер телефона...">
+             </label>
+             <label for="" class="form__label">
+                 <span class="form__title">E-mail:</span>
+                 <input type="email" class="form__input" placeholder="Введите почту...">
+             </label>
+             <label for="" class="form__label">
+                 <span class="form__title">Комментарий:</span>
+             <textarea class="form__textarea" placeholder="Введите текст сообщения..."></textarea>
+             </label>
+             <input type="submit" value="Отправить" class="form__submit">
+         </form>
+      </div>
+       
+       <div v-if="!showForm" class="popup-success">
+         <div class="popup-success__img--wrap">
+            <img src="/public/img/popup/message-right.png" alt="message-right" class="popup-success__img-right animated infinite swing">
+            <img src="/public/img/popup/message-left.png" alt="message-left" class="popup-success__img-left animated infinite swing">
+            <img src="/public/img/popup/message.png" alt="message" class="popup-success__img">
+         </div>
+         <span class="popup-success__title">ФОРМА УСПЕШНО ОТПРАВЛЕНА!</span>
+         <button class="popup-success__btn">Вернуться</button>
+       </div>
+   </div>
+</div>
+<script>
+   var app = new Vue({
+   el: '#app',
+   data: {
+      showForm:true
+      },
+      methods: {
+         sbmt(e) {
+            e.preventDefault();
+            this.showForm=false;
+            this.message = this.message.split('').reverse().join('');
+
+         }
+      }
+   })
+</script>
 <{addjs(/public/js/script_header.js)}>
