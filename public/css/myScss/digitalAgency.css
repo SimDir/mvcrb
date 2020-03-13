@@ -1610,8 +1610,8 @@
 
 .digitalAgency-contacts__top-left--phone {
   font-family: "Museo Sans 900";
-  font-size: 36px;
-  line-height: 36px; }
+  font-size: 32px;
+  line-height: 32px; }
 
 .digitalAgency-contacts__top-left--phone::before {
   content: "";
@@ -1695,6 +1695,12 @@
   line-height: 30px;
   position: relative; }
 
+.digitalAgency-contacts__bottom-row__item a span {
+  font-family: "Museo Sans 900";
+  color: #626779;
+  font-size: 24px;
+  line-height: 30px; }
+
 .digitalAgency-contacts__bottom-row__item a::before {
   content: "";
   position: absolute;
@@ -1750,8 +1756,8 @@
     height: 35px; }
 
   .digitalAgency-contacts__top-left--phone {
-    font-size: 32px;
-    line-height: 32px; }
+    font-size: 28px;
+    line-height: 28px; }
 
   .digitalAgency-contacts__top-left--phone::before {
     width: 35px;
@@ -1784,6 +1790,10 @@
     line-height: 16px; }
 
   .digitalAgency-contacts__bottom-row__item a {
+    font-size: 22px;
+    line-height: 28px; }
+
+  .digitalAgency-contacts__bottom-row__item a span {
     font-size: 22px;
     line-height: 28px; }
 
@@ -1832,8 +1842,8 @@
     height: 30px; }
 
   .digitalAgency-contacts__top-left--phone {
-    font-size: 28px;
-    line-height: 28px; }
+    font-size: 24px;
+    line-height: 24px; }
 
   .digitalAgency-contacts__top-left--phone::before {
     width: 30px;
@@ -1867,6 +1877,10 @@
     margin-bottom: 3px; }
 
   .digitalAgency-contacts__bottom-row__item a {
+    font-size: 18px;
+    line-height: 24px; }
+
+  .digitalAgency-contacts__bottom-row__item a span {
     font-size: 18px;
     line-height: 24px; }
 
@@ -1994,8 +2008,8 @@
     height: 25px; }
 
   .digitalAgency-contacts__top-left--phone {
-    font-size: 24px;
-    line-height: 24px; }
+    font-size: 22px;
+    line-height: 22px; }
 
   .digitalAgency-contacts__top-left--phone::before {
     width: 25px;
@@ -2041,6 +2055,10 @@
     margin-bottom: 3px; }
 
   .digitalAgency-contacts__bottom-row__item a {
+    font-size: 16px;
+    line-height: 22px; }
+
+  .digitalAgency-contacts__bottom-row__item a span {
     font-size: 16px;
     line-height: 22px; }
 
