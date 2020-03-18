@@ -41,11 +41,15 @@ return array(
     'cooperation/russia/russia.html' => 'page/page/russia.html',
     'cooperation/international/international.html' => 'page/page/international.html',
 
+    'mediacenter/news/person_of_year_2019.html' => 'page/page/person_of_year_2019.html',
     'mediacenter/news/best_entrepreneur.html' => 'page/page/best_entrepreneur.html',
     'mediacenter/news/business_partner.html' => 'page/page/business_partner.html',
     'mediacenter/news/new_office.html' => 'page/page/new_office.html',
     'mediacenter/news/off_certificate.html' => 'page/page/off_certificate.html',
     'mediacenter/news/sales_territory.html' => 'page/page/sales_territory.html',
+    
+    'mediacenter/events/advice_for_it.html' => 'page/page/advice_for_it.html',
+    'mediacenter/events/it_modification.html' => 'page/page/it_modification.html',
     'mediacenter/events/conference_bitrix24_rmh.html' => 'page/page/conference_bitrix24_rmh.html',
     'mediacenter/events/conference_bitrix24_skolkovo.html' => 'page/page/conference_bitrix24_skolkovo.html',
     'mediacenter/events/dot_boiling.html' => 'page/page/dot_boiling.html',

@@ -380,25 +380,26 @@
   padding: 80px 0 0;
   width: 100%;
   height: 100%;
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: center top;
   background-repeat: no-repeat; }
 
 .news-slide-1 {
-  background-image: url(/public/img/new_center/news/best_entrepreneur/best_entrepreneur-header.jpg); }
+  background-image: url(/public/img/new_center/news/person_of_year_2019/person-of-year-2019-header.jpg); }
 
 .news-slide-2 {
-  background-image: url(/public/img/new_center/news/sales_territory/sales-territory-header.jpg); }
+  background-image: url(/public/img/new_center/news/best_entrepreneur/best_entrepreneur-header.jpg); }
 
 .news-slide-3 {
-  background-image: url(/public/img/new_center/news/off_certificate/off-certificate-header.png); }
-
-.events-slide-2 {
-  background-image: url(/public/img/new_center/events/ICEM/events-ICEM-header.jpg); }
-
-.events-slide-3 {
-  background-image: url(/public/img/new_center/events/dot_boiling/events-circle-table-header.jpg); }
+  background-image: url(/public/img/new_center/news/sales_territory/sales-territory-header.jpg); }
 
 .events-slide-1 {
+  background-image: url(/public/img/new_center/events/advice_for_it/advice-for-it-header.jpg); }
+
+.events-slide-2 {
+  background-image: url(/public/img/new_center/events/it_modification/it-modification-header.jpg); }
+
+.events-slide-3 {
   background-image: url(/public/img/new_center/events/kipr-international-relations/kipr-international-realtions-header.jpg); }
 
 .newsCenter-content {
@@ -641,9 +642,7 @@
     height: 325px; }
 
   .newsCenter-header__slider-item {
-    padding: 60px 0 0;
-    background-size: auto 100%;
-    background-position: center top; }
+    padding: 60px 0 0; }
 
   .newsCenter-content__item-text {
     width: calc(910px - 320px); }
