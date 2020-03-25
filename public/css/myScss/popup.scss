@@ -170,4 +170,207 @@
     }
 }
 
+@media(max-width: 1600px) { 
+    .popup {
+        width: 450px;
+        height: 650px;
+        padding: 36px;
+    }
+    .popup-static {
+        &__img {
+            width: 125px;
+        }
+        &__form {
+            margin-top: 25px;
+        }
+    }
+    
+    .form {
+        &__label {
+            margin-bottom: 8px;
+        }
+        &__title {
+            font-size: 20px;
+        }
+        &__input {
+            font-size: 17px;
+            &::placeholder {
+                font-size: 15px;
+            }
+            &:invalid:not(:focus):not(:placeholder-shown) {
+                background-size: 18px;
+                background-position: center right 8px;
+            }
+        }
+        
+        &__textarea {
+            height: 110px;
+            font-size: 17px;
+            &::placeholder {
+                font-size: 15px;
+            }
+        }
+        &__submit {
+            font-size: 23px;
+            &:hover {
+                box-shadow: inset 165px 0 0 #C9997D;
+            }
+        }
+    }
+    
+    .popup-success {
+        &__img {
+            width: 125px;
+        }
+        &__img-right, &__img-left   {
+            width: 54px;
+        }
+        &__title {
+            font-size: 40px;
+        }
+        &__btn {
+            font-size: 23px;
+            &:hover {
+                box-shadow: inset 160px 0 0 #C9997D;
+            }
+        }
+    }
+}
+
+@media(max-width: 1400px) { 
+    .popup {
+        width: 350px;
+        height: 550px;
+        padding: 30px;
+        border-radius: 20px;
+    }
+    .popup-static {
+        &__img {
+            width: 90px;
+        }
+        &__form {
+            margin-top: 20px;
+        }
+    }
+    
+    .form {
+        &__label {
+            margin-bottom: 6px;
+        }
+        &__title {
+            font-size: 18px;
+        }
+        &__input {
+            font-size: 16px;
+            &::placeholder {
+                font-size: 14px;
+            }
+            &:invalid:not(:focus):not(:placeholder-shown) {
+                background-size: 16px;
+                background-position: center right 6px;
+            }
+        }
+        
+        &__textarea {
+            height: 85px;
+            font-size: 16px;
+            &::placeholder {
+                font-size: 14px;
+            }
+        }
+        &__submit {
+            font-size: 21px;
+            &:hover {
+                box-shadow: inset 150px 0 0 #C9997D;
+            }
+        }
+    }
+    
+    .popup-success {
+        &__img {
+            width: 90px;
+        }
+        &__img-right, &__img-left   {
+            width: 44px;
+        }
+        &__title {
+            font-size: 32px;
+        }
+        &__btn {
+            font-size: 21px;
+            &:hover {
+                box-shadow: inset 145px 0 0 #C9997D;
+            }
+        }
+    }
+}
+
+@media(max-width: 500px) { 
+    .popup {
+        width: 300px;
+        height: 450px;
+        padding: 25px;
+        border-radius: 15px;
+    }
+    .popup-static {
+        &__img {
+            width: 70px;
+        }
+        &__form {
+            margin-top: 10px;
+        }
+    }
+    
+    .form {
+        &__label {
+            margin-bottom: 4px;
+        }
+        &__title {
+            font-size: 16px;
+        }
+        &__input {
+            font-size: 14px;
+            &::placeholder {
+                font-size: 12px;
+            }
+            &:invalid:not(:focus):not(:placeholder-shown) {
+                background-size: 14px;
+                background-position: center right 5px;
+            }
+        }
+        
+        &__textarea {
+            height: 60px;
+            font-size: 14px;
+            &::placeholder {
+                font-size: 12px;
+            }
+        }
+        &__submit {
+            font-size: 18px;
+            &:hover {
+                box-shadow: inset 130px 0 0 #C9997D;
+            }
+        }
+    }
+    
+    .popup-success {
+        &__img {
+            width: 70px;
+        }
+        &__img-right, &__img-left   {
+            width: 34px;
+        }
+        &__title {
+            font-size: 26px;
+        }
+        &__btn {
+            font-size: 18px;
+            &:hover {
+                box-shadow: inset 125px 0 0 #C9997D;
+            }
+        }
+    }
+}
+
  
