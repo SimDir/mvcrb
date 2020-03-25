@@ -41,6 +41,8 @@ return array(
     'cooperation/russia/russia.html' => 'page/page/russia.html',
     'cooperation/international/international.html' => 'page/page/international.html',
 
+
+    'mediacenter/news/presentation_Internet_project.html' => 'page/page/presentation_Internet_project.html',
     'mediacenter/news/fruits_of_digitalization.html' => 'page/page/fruits_of_digitalization.html',
     'mediacenter/news/person_of_year_2019.html' => 'page/page/person_of_year_2019.html',
     'mediacenter/news/best_entrepreneur.html' => 'page/page/best_entrepreneur.html',

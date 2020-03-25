@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": ";AACA,YAAa;EACT,UAAU,EAAE,MAAM;;AAErB,mBAAoB;EACjB,gBAAgB,EAAE,gDAAgD;;AAErE,sBAAuB;EACpB,gBAAgB,EAAE,mDAAmD;;AAExE,gCAAiC;EAC9B,gBAAgB,EAAE,6DAA6D",
-"sources": ["cooperation.scss"],
-"names": [],
-"file": "cooperation.css"
-}
