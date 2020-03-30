@@ -11,9 +11,9 @@
  * https://redbeanphp.com/index.php?p=/connection
  */
 return array(
-    'db_driver' => 'SQLite',
+    'db_driver' => 'MariaDB',
     'db_host' => '127.0.0.1',
-    'db_port' => '3307',
+    'db_port' => '3306',
     
     'db_name' => 'mvcrb',
     'db_login' => 'root',
