@@ -9,7 +9,8 @@ defined('ROOT') OR die('No direct script access.');
  * 
  */
 function dd($str) {
-    var_dump($str);
+    dump($str);
+//    var_dump($str);
     die();
 }
 
@@ -70,25 +71,27 @@ class mvcrb {
      * 
      */
     public static function Run() {
-        
         if (SHOW_ERROR) {
             self::initWhoops();
         } else {
-            require_once APP . 'libs'.DS.'ErrorHandler.php';
             $errorHandler = new ErrorHandler;
             $errorHandler->register();
         }
         self::SetupConfig();
+
         self::InitAutoload();
-        
         
         self::GetControllerAndAction();
         self::$ExecRetVal = self::Exec(self::$ControllerName, self::$ActionName, self::$ParametersArray);
         if (is_string(self::$ExecRetVal)) {
             echo self::$ExecRetVal;
         } else {
-            if (!headers_sent())
+            if (!headers_sent()){
+                header("Access-Control-Allow-Orgin: *");
+                header("Access-Control-Allow-Methods: *");
                 header('Content-type: application/json');
+            }
+                
             echo json_encode(self::$ExecRetVal);
         }
     }
@@ -243,7 +246,7 @@ class mvcrb {
     private static function SetupConfig() {
         self::$globalConfig['App_Name'] = __NAMESPACE__;
         self::$globalConfig['App_Dir'] = APP;
-        self::$globalConfig['App_lib_Dir'] = self::$globalConfig['App_Dir'] . 'libs' . DIRECTORY_SEPARATOR;
+        self::$globalConfig['App_lib_Dir'] = self::$globalConfig['App_Dir'] . 'classes' . DIRECTORY_SEPARATOR;
         self::$globalConfig['App_Config_Dir'] = CONFIG_DIR;
         self::$globalConfig['App_Controllers_Dir'] = self::$globalConfig['App_Dir'] . 'controllers' . DIRECTORY_SEPARATOR;
         self::$globalConfig['App_Models_Dir'] = self::$globalConfig['App_Dir'] . 'models' . DIRECTORY_SEPARATOR;
@@ -252,7 +255,7 @@ class mvcrb {
 
         if (!file_exists(self::$globalConfig['App_Config_Dir'] . 'AutoLoader.php')) {
 //            exit('AutoLoaderConfig.php не найден');
-            self::$globalConfig['App_Clas_Loader_Dir_Array'] = ['libs', 'models', 'controllers'];
+            self::$globalConfig['App_Clas_Loader_Dir_Array'] = ['classes', 'models', 'controllers'];
         } else {
             self::$globalConfig['App_Clas_Loader_Dir_Array'] = include_once self::$globalConfig['App_Config_Dir'] . 'AutoLoader.php';
         }
@@ -364,6 +367,7 @@ class mvcrb {
         }
     }
     public static function BrouserHash() {
-        return md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
+//        dd($_SERVER);
+        return md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT'] . $_SERVER['HTTP_ACCEPT_LANGUAGE']);
     }
 }
