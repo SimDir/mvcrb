@@ -36,10 +36,11 @@ final class View {
         return self::$instance;
     }
 
-    public function __construct() {
+    public function __construct($TplDir) {
         $this->vars['headcssjs'] = '';
         $this->vars['bodycssjs'] = '';
 //        $this->TplDir = TEMPLATE_DIR.$TplDir.DS;
+//        return $this;
     }
 
     private function __clone() {

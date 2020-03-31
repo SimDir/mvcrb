@@ -38,7 +38,7 @@ class ControllerModel extends Model {
 //        dd($tempbean);
         if ($tempbean) {
 
-            $List['data'] = $tempbean; //$this->exportAll($tempbean, TRUE);
+            $List['data'] = $this->exportAll($tempbean, TRUE);
             return $List;
         }
         return FALSE;

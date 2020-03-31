@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-sm navbar-dark primary-color">
+<!--<nav class="navbar navbar-expand-sm navbar-dark primary-color">
     <div class="navbar-brand">
-        <img src="https://agatech.ru/public/img/logo-ny.svg" height="30" alt="mdb logo">
+        <img src="/public/img/logo-ny.svg" height="30" alt="mdb logo">
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
             aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,18 +17,18 @@
         </ul>
         <ul class="navbar-nav nav-flex-icons">
             <li class="nav-item text-white">
-                <!--<a href="https://github.com/SimDir/mvcrb" class="nav-link border border-secondary rounded waves-effect" target="_blank">-->
+                <a href="https://github.com/SimDir/mvcrb" class="nav-link border border-secondary rounded waves-effect" target="_blank">
                 Панель управление сайтом
-                <!--</a>-->
+                </a>
             </li>
 
 
         </ul>
         <ul class="navbar-nav ml-auto nav-flex-icons">
             <li class="nav-item text-white pt-2">
-                <!--<span class="nav-link waves-effect waves-light">-->
+                <span class="nav-link waves-effect waves-light">
                     Привет администратор!
-                <!--</span>-->
+                </span>
             </li>
             <li class="nav-item">
                 <a href="/user/logout" class="nav-link waves-effect waves-light">
@@ -37,12 +37,12 @@
             </li>
         </ul>
     </div>
-</nav>
+</nav>-->
 
 <!--<nav class="navbar navbar-expand-lg">
     тут какая то хрень должна будет распологатся
 </nav>-->
-
+<!--
 <main class="container-fluid pt-2">
     <div class="row">
         <div class="col-2">
@@ -60,4 +60,60 @@
         </div>
 
     </div>
-</main>
+</main>-->
+
+<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="navbar-brand">
+            <img src="/public/img/logo-ny.svg" height="50" alt="agalogo">
+        </div>
+        <!--<div class="sidebar-heading">Start Bootstrap </div>-->
+        <div class="list-group list-group-flush">
+            <a href="/admin/" class="list-group-item list-group-item-action bg-light">Новостной центр</a>
+            <a href="/admin/fm/" class="list-group-item list-group-item-action bg-light">Файлы сервера</a>
+            <a href="/admin/user/" class="list-group-item list-group-item-action bg-light">Пользователи</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <button class="btn btn-primary" id="menu-toggle">Menu</button>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="user/logout">Выход</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid" id="admincontent">
+            <{ admincontent }>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click((e) => {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>

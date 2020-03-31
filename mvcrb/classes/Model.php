@@ -51,8 +51,9 @@ class Model extends R {
 //        });
 
         if (!$this->testConnection()) {
-            $this->fancyDebug(TRUE);
-            throw new \Exception(__METHOD__ . " ошибка бaзы данных $host:$port. неудалось установить соединение c БД $dbname");
+//            $this->fancyDebug(TRUE);
+            die("ошибка бaзы данных $host:$port. неудалось установить соединение c БД $dbname");
+//            throw new \Exception(__METHOD__ . " ошибка бaзы данных $host:$port. неудалось установить соединение c БД $dbname");
         }
 
 
