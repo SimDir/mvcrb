@@ -1,18 +1,14 @@
-<{ Addcss(/public/css/style.css) }>
+<{ Addcss(/public/css/style.min.css) }>
 
 
 
-
+<div>
 <{ Controller(index:header) }>
-<div class="editable">
 <{ content }>
-</div> 
-<{ adminpanel }>
-
 <{ Controller(index:footer) }>
+</div> 
 
-
-
+<{ adminpanel }>
 <script>
    (function(w,d,u){
            var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/60000|0);

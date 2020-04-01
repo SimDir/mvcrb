@@ -1,11 +1,6 @@
 'use strict';
 $( document ).ready(function() {  
-    var listImg = document.getElementsByTagName('img');
-    console.log(listImg);
-
-    for (var i = 0; i < listImg.length; i++) {
-        console.log(listImg[i].src);
-    }
+   
    // toyota
    $('#toyota-item').click(function(){
       let heightBlock = $('#TOYOTA-PAGE').height();

@@ -242,7 +242,7 @@ class UserModel extends Model {
                 $user->lastlogin = date('Y-m-d H:i:s');
                 $user->browser = $_SERVER['HTTP_USER_AGENT'];
                 $user->ip = $_SERVER['REMOTE_ADDR'];
-                $user->session = mvcrb::BrouserHash();
+//                $user->session = mvcrb::BrouserHash();
                 $this->store($user);
                 $VarUser = $user->export();
 //                dd($VarUser);

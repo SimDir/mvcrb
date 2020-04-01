@@ -23,11 +23,11 @@ class AdminController extends Controller {
                 die('Forbidden: Asses denide');
             } else {
                 Session::set('UserRedirect', mvcrb::$URI);
-                return mvcrb::Redirect('/user');
+                return mvcrb::Redirect('/user/login');
             }
         }
-//        $this->View->AddCss('/css/adminstyle.css');
-        $this->View->AddCss('/css/sidebar.css');
+        $this->View->AddCss('/css/admin.css');
+//        $this->View->AddCss('/css/sidebar.css');
         $this->View->title = 'Админка';
     }
 
