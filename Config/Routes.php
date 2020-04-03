@@ -59,6 +59,9 @@ return array(
     'mediacenter/events/gadzhets_GTCOM.html' => 'page/page/gadzhets_GTCOM.html',
     'mediacenter/events/kipr_international_relations.html' => 'page/page/kipr_international_relations.html',
     'mediacenter/events/ICEM.html' => 'page/page/ICEM.html',
+
+
+    'stocks/stocks_tech_support.html' => 'page/page/stocks_tech_support.html',
     
     '^page/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+.html)' => 'page/page/$2/$1',
     '^page/([-_a-zA-Z0-9]+.html)' => 'page/page/$1',
