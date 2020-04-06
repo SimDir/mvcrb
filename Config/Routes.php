@@ -61,7 +61,8 @@ return array(
     'mediacenter/events/ICEM.html' => 'page/page/ICEM.html',
 
 
-    'stocks/stocks_tech_support.html' => 'page/page/stocks_tech_support.html',
+    'promo/tech999.html' => 'page/page/tech999.html',
+    'promo/dostavka.html' => 'page/page/dostavka.html',
     
     '^page/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+.html)' => 'page/page/$2/$1',
     '^page/([-_a-zA-Z0-9]+.html)' => 'page/page/$1',

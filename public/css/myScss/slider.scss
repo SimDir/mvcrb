@@ -864,4 +864,180 @@
     }
  }
  
+
  
+ .slide-delivery  {
+   height: 100vh;
+   width: 100vw;
+   overflow: hidden;
+   background-image: url(/public/img/slider/slide-delivery/slide-delivery-bgc.png);
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   background-color: #7736F2;
+   position: relative;
+}
+.slide-delivery__content {
+   width: 100%;
+   height: 100%;
+   padding-top: 100px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.slide-delivery__preview {
+   font-size: 10px;
+   background-color: #fff;
+   box-shadow: .3em .6em 2em #280878;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   padding: 6em 10em 6em 6em;
+   border-radius: 3em 0 0 3em;
+}
+.slide-delivery__preview__title {
+   color: #000;
+   font-family: "Museo Sans 900";
+   font-size: 5em;
+   line-height: 1.2em;
+   margin-bottom: .7em;
+   &--blue {
+      color: #5821ec;
+   }
+   &--upcs {
+      text-transform: uppercase;
+   }  
+}
+.slide-delivery__preview__subtitle {
+   color: #000;
+   font-family: "Museo Sans 700";
+   font-size: 2.2em;
+   line-height: 1.2em;
+   margin-bottom: 1.6em;
+}
+.slide-delivery__preview__btn {
+   box-shadow: 0.1em 0 .5em rgba(#000, .2);
+   font-size: 2em;
+   line-height: 1em;
+   color: #fff;
+   font-family: "Museo Sans 700";
+   letter-spacing: .05em;
+   padding: 0.75em 2em;
+   border-radius: 1.5em;
+   transition: all .2s;
+   position: relative;
+   overflow: hidden;
+   z-index: 0;
+   &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(310deg, #5D27FE, #C165DD, #5D27FE);
+      z-index: -1;
+      transition: all .2s;
+   }
+   &:hover {
+      &::before {
+         left: -100%;
+      }
+      color: #fff;
+      box-shadow:  0.1em 0 .5em rgba(#000, .2), .2em .2em 0em #5821ec;
+   }
+}
+.slide-delivery__content__typography {
+   position: relative;
+   width: calc(100vw - 700px);
+   height: 100%;
+}
+.slide-delivery__content__typography__cloud {
+   width: 250px;
+   position: absolute;
+   top: 0;
+   right: 10%;
+   animation: slide-delivery__content__typography__cloud 3s linear infinite;
+}
+@keyframes slide-delivery__content__typography__cloud {
+   0%, 100% {
+      transform: translate(0, 0);
+   }
+   50% {
+      transform: translate(5px, 5px);
+   }
+}
+.slide-delivery__content__typography__box {
+   width: 100px;
+   position: absolute;
+   left: 43%;
+   top: 17%;
+   animation: slide-delivery__content__typography__box 4s linear infinite;
+}
+@keyframes slide-delivery__content__typography__box {
+   0%, 100% {
+      transform: translateY(-10px);
+   }
+   50% {
+      transform: translateY(0px);
+   }
+}
+@media(max-width: 1700px) {
+   .slide-delivery__content {
+      padding-top: 90px;
+   }
+   .slide-delivery__preview {
+      padding: 4em 9em 4em 5em;
+   }
+   .slide-delivery__preview__title {
+      font-size: 4.4em;
+   }
+   .slide-delivery__preview__subtitle {
+      font-size: 2.0em;
+   }
+   .slide-delivery__preview__btn {
+      font-size: 1.8em;
+   }
+   .slide-delivery__content__typography {
+      width: calc(100vw - 580px);
+   }
+   .slide-delivery__content__typography__cloud {
+      width: 230px;  
+      // top: 0;
+      right: 5%;
+   }
+   .slide-delivery__content__typography__box {
+      width: 90px;
+      left: 43%;
+      top: 17%;
+   }
+}
+@media(max-width: 1500px) {
+   .slide-delivery__content {
+      padding-top: 80px;
+   }
+   .slide-delivery__preview {
+      padding: 3.2em 7.5em 3.2em 4em;
+   }
+   .slide-delivery__preview__title {
+      font-size: 3.8em;
+   }
+   .slide-delivery__preview__subtitle {
+      font-size: 1.8em;
+   }
+   .slide-delivery__preview__btn {
+      font-size: 1.6em;
+   }
+   .slide-delivery__content__typography {
+      width: calc(100vw - 485px);
+   }
+   .slide-delivery__content__typography__cloud {
+      width: 200px;  
+      right: 10%;
+   }
+   .slide-delivery__content__typography__box {
+      width: 80px;
+      left: 39%;
+      top: 20%;
+   }
+}
