@@ -12,7 +12,7 @@ header.header {
 }
 
 .header-bgc {
-  background-color: #3B487C;
+  background-color: #3B487C !important;
 }
 
 .header--wrap {
@@ -12211,6 +12211,7 @@ h3.productsPage-presentation__title {
   top: 0;
   z-index: 99;
   background-color: transparent;
+  transition: all 0.2s;
 }
 
 .stc-header__container {
@@ -12307,9 +12308,11 @@ h3.productsPage-presentation__title {
 .stc-main {
   font-size: 10px;
   width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #E4E7F1;
 }
 
 .stc-main__header {
@@ -12394,26 +12397,795 @@ h3.productsPage-presentation__title {
   transform: translateY(50%);
   box-shadow: 0 1 10px rgba(0, 0, 0, 0.2);
   transition: all 0.2s;
+  z-index: 15;
 }
 .stc-main__header-t-sup__btn:hover {
   box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.63), 0 0 1em rgba(255, 255, 255, 0.63), 0 0 1.5em rgba(255, 255, 255, 0.63);
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.63);
 }
 
-.stc-main__body {
+.stc-main__offer {
   width: 100%;
-  background-color: #E4E7F1;
   font-size: 10px;
 }
 
-.stc-main__body-t-sup__container {
-  padding: 8em 0 15em;
+.stc-main__offer-t-sup__container {
+  padding: 8em 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.stc-main__offer__title {
+  font-family: "Museo Sans 900";
+  color: #000;
+  text-transform: uppercase;
+  font-size: 2em;
+  line-height: 1.2em;
+  padding: 1em 3em 1em 1em;
+  background-color: #fff;
+  border-radius: 0.5em;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 0;
+  box-shadow: 0 0.3em 0.6em rgba(0, 0, 0, 0.1);
+}
+.stc-main__offer__title::before {
+  content: "";
+  position: absolute;
+  right: 1em;
+  top: 0.85em;
+  width: 1.8em;
+  height: 1.35em;
+  background: url(/public/img/stocks/stc-main__offer__title.png) center/contain no-repeat;
+}
+
+.stc-main__offer__list--wrap {
+  position: absolute;
+  top: 144px;
+  width: 550px;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: inset 0 0.3em 0.6em rgba(0, 0, 0, 0.2), 0 0 0.6em rgba(0, 0, 0, 0.2);
+  transition: all 0.2s;
+  height: 0;
+}
+
+.stc-main__offer__list--active {
+  height: 318px;
+}
+
+.stc-main__offer__list {
+  padding: 2em 3em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.stc-main__offer__list__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 4em;
+  margin-bottom: 3.5em;
+  position: relative;
+}
+.stc-main__offer__list__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 3em;
+  height: 3em;
+  background: url(/public/img/stocks/stc-main__offer__list__item.png) center/contain no-repeat;
+}
+
+.stc-main__offer__list__title {
+  font-family: "Museo Sans 900";
+  color: #000;
+  font-size: 1.8em;
+  line-height: 1.2em;
+  text-transform: uppercase;
+}
+
+.stc-main__offer__list__subtitle {
+  font-family: "Museo Sans 500";
+  color: #3e3d3d;
+  font-size: 1.3em;
+  line-height: 1.2em;
+}
+
+.stc-main__advantages {
+  width: 100%;
+  font-size: 10px;
+  padding-bottom: 15em;
+}
+
+.stc-main__advantages-t-sup__title {
+  font-family: "Museo Sans 900";
+  color: #000;
+  text-transform: uppercase;
+  font-size: 3em;
+  line-height: 1.2em;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.stc-main__advantages__body {
+  width: 100%;
+  position: relative;
+}
+.stc-main__advantages__body::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2em;
+  width: 100%;
+  height: 8em;
+  background: linear-gradient(to right, #0CCFDF, #2AB4E7);
+  z-index: 0;
+}
+
+.stc-main__advantages__container {
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  z-index: 5;
+}
+
+.stc-main__advantages__item {
+  background-color: #fff;
+  box-shadow: 0 0.3em 0.7em rgba(0, 0, 0, 0.3);
+  padding: 3em;
+  border-radius: 0 0 2em 2em;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
+.stc-main__advantages__item__img {
+  height: 13em;
+  margin-bottom: 2em;
+}
+
+.stc-main__advantages__item_desc {
+  font-family: "Museo Sans 700";
+  color: #423737;
+  font-size: 1.4em;
+  line-height: 1.2em;
+  text-align: center;
+}
+
+@media (max-width: 1500px) {
+  .stc-header {
+    height: 9.5em;
+  }
+
+  .stc-header__container {
+    width: 1100px;
+  }
+
+  .stc-header__logo--wrap {
+    width: 160px;
+  }
+
+  .stc-header__anchor {
+    font-size: 1.8em;
+  }
+  .stc-header__anchor::before {
+    height: 0.1em;
+  }
+
+  .stc-header__link {
+    font-size: 1.6em;
+  }
+
+  .stc-main__header {
+    height: 34em;
+    padding-top: 9.5em;
+  }
+
+  .stc-main__container {
+    width: 1000px;
+  }
+
+  .stc-main__header-t-sup__title--wrap {
+    width: 750px;
+    height: 95px;
+  }
+
+  .stc-main__header-t-sup__title {
+    font-size: 2.5em;
+  }
+
+  .stc-main__header-t-sup__subtitle {
+    font-size: 1.9em;
+  }
+
+  .stc-main__header-t-sup__desc {
+    font-size: 1.6em;
+  }
+
+  .stc-main__header-t-sup__btn {
+    font-size: 1.8em;
+  }
+
+  .stc-main__offer-t-sup__container {
+    padding: 7em 0;
+  }
+
+  .stc-main__offer__title {
+    font-size: 1.8em;
+  }
+
+  .stc-main__offer__list--wrap {
+    top: 127px;
+    width: 510px;
+  }
+
+  .stc-main__offer__list--active {
+    height: 285px;
+  }
+
+  .stc-main__offer__list {
+    padding: 1.8em 2.6em 0;
+  }
+
+  .stc-main__offer__list__item {
+    padding-left: 3.5em;
+    margin-bottom: 3em;
+  }
+  .stc-main__offer__list__item::before {
+    width: 2.5em;
+    height: 2.5em;
+  }
+
+  .stc-main__offer__list__title {
+    font-size: 1.6em;
+  }
+
+  .stc-main__offer__list__subtitle {
+    font-size: 1.2em;
+  }
+
+  .stc-main__advantages {
+    padding-bottom: 14em;
+  }
+
+  .stc-main__advantages-t-sup__title {
+    font-size: 2.8em;
+  }
+
+  .stc-main__advantages__item {
+    padding: 2.8em;
+    width: 250px;
+  }
+
+  .stc-main__advantages__item__img {
+    height: 12em;
+    margin-bottom: 1.8em;
+  }
+
+  .stc-main__advantages__item_desc {
+    font-size: 1.3em;
+  }
+}
+@media (max-width: 1300px) {
+  .stc-header {
+    height: 9em;
+  }
+
+  .stc-header__container {
+    width: 900px;
+  }
+
+  .stc-header__logo--wrap {
+    width: 145px;
+  }
+
+  .stc-header__anchor {
+    font-size: 1.7em;
+  }
+
+  .stc-header__link {
+    font-size: 1.5em;
+  }
+
+  .stc-main__header {
+    height: 32em;
+    padding-top: 9em;
+  }
+
+  .stc-main__container {
+    width: 850px;
+  }
+
+  .stc-main__header-t-sup__title--wrap {
+    width: 670px;
+    height: 85px;
+  }
+
+  .stc-main__header-t-sup__title {
+    font-size: 2.3em;
+  }
+
+  .stc-main__header-t-sup__subtitle {
+    font-size: 1.8em;
+  }
+
+  .stc-main__header-t-sup__desc {
+    font-size: 1.5em;
+  }
+
+  .stc-main__header-t-sup__btn {
+    font-size: 1.7em;
+  }
+
+  .stc-main__offer-t-sup__container {
+    padding: 6em 0;
+  }
+
+  .stc-main__offer__title {
+    font-size: 1.6em;
+  }
+
+  .stc-main__offer__list--wrap {
+    top: 112px;
+    width: 455px;
+  }
+
+  .stc-main__offer__list--active {
+    height: 248px;
+  }
+
+  .stc-main__offer__list {
+    padding: 1.6em 2.2em 0;
+  }
+
+  .stc-main__offer__list__item {
+    padding-left: 3em;
+    margin-bottom: 2.5em;
+  }
+  .stc-main__offer__list__item::before {
+    width: 2.2em;
+    height: 2.2em;
+  }
+
+  .stc-main__offer__list__title {
+    font-size: 1.4em;
+  }
+
+  .stc-main__offer__list__subtitle {
+    font-size: 1.1em;
+  }
+
+  .stc-main__advantages {
+    padding-bottom: 12em;
+  }
+
+  .stc-main__advantages-t-sup__title {
+    font-size: 2.5em;
+  }
+
+  .stc-main__advantages__item {
+    padding: 2.6em;
+    width: 225px;
+  }
+
+  .stc-main__advantages__item__img {
+    height: 10.5em;
+    margin-bottom: 1.6em;
+  }
+
+  .stc-main__advantages__item_desc {
+    font-size: 1.2em;
+  }
+}
+@media (max-width: 1100px) {
+  .stc-header {
+    height: 8.5em;
+  }
+
+  .stc-header__container {
+    width: 700px;
+  }
+
+  .stc-header__logo--wrap {
+    width: 125px;
+  }
+
+  .stc-header__anchor {
+    white-space: nowrap;
+    font-size: 1.5em;
+    margin-right: 2em;
+  }
+
+  .stc-header__link {
+    white-space: nowrap;
+    font-size: 1.3em;
+  }
+
+  .stc-main__header {
+    height: 29em;
+    padding-top: 8.5em;
+  }
+
+  .stc-main__container {
+    width: 750px;
+  }
+
+  .stc-main__header-t-sup__title--wrap {
+    width: 620px;
+    height: 80px;
+  }
+
+  .stc-main__header-t-sup__title {
+    font-size: 2.1em;
+  }
+
+  .stc-main__header-t-sup__subtitle {
+    font-size: 1.7em;
+  }
+
+  .stc-main__header-t-sup__desc {
+    width: 85%;
+    font-size: 1.4em;
+  }
+
+  .stc-main__header-t-sup__btn {
+    font-size: 1.6em;
+  }
+
+  .stc-main__offer-t-sup__container {
+    padding: 5em 0;
+  }
+
+  .stc-main__offer__list--wrap {
+    top: 102px;
+  }
+
+  .stc-main__advantages {
+    padding-bottom: 10.5em;
+  }
+
+  .stc-main__advantages-t-sup__title {
+    font-size: 2.2em;
+    margin-bottom: 1.5em;
+  }
+
+  .stc-main__advantages__item {
+    padding: 2.2em;
+    width: 200px;
+  }
+
+  .stc-main__advantages__item__img {
+    height: 8.5em;
+    margin-bottom: 1.2em;
+  }
+
+  .stc-main__advantages__item_desc {
+    font-size: 1.1em;
+  }
+}
+@media (max-width: 900px) {
+  .stc-header {
+    height: 8em;
+  }
+
+  .stc-header__container {
+    width: 600px;
+  }
+
+  .stc-header__logo--wrap {
+    width: 100px;
+  }
+
+  .stc-header__anchor {
+    font-size: 1.4em;
+    margin-right: 0.5em;
+  }
+
+  .stc-header__link {
+    font-size: 1.2em;
+  }
+
+  .stc-main__header {
+    height: 26em;
+    padding-top: 8em;
+  }
+
+  .stc-main__container {
+    width: 550px;
+  }
+
+  .stc-main__header-t-sup__title--wrap {
+    width: 550px;
+    height: 70px;
+  }
+
+  .stc-main__header-t-sup__title {
+    font-size: 1.8em;
+    margin-bottom: 0;
+  }
+
+  .stc-main__header-t-sup__subtitle {
+    font-size: 1.5em;
+  }
+
+  .stc-main__header-t-sup__desc {
+    width: 90%;
+    font-size: 1.2em;
+  }
+
+  .stc-main__header-t-sup__btn {
+    font-size: 1.4em;
+  }
+
+  .stc-main__offer-t-sup__container {
+    padding: 4em 0;
+  }
+
+  .stc-main__offer__list--wrap {
+    top: 92px;
+  }
+
+  .stc-main__advantages {
+    padding-bottom: 9em;
+  }
+
+  .stc-main__advantages-t-sup__title {
+    font-size: 2em;
+    margin-bottom: 1.2em;
+  }
+
+  .stc-main__advantages__item {
+    padding: 1.6em;
+    width: 160px;
+  }
+
+  .stc-main__advantages__item__img {
+    height: 7em;
+    margin-bottom: 1em;
+  }
+
+  .stc-main__advantages__item_desc {
+    font-size: 1.05em;
+  }
+}
+@media (max-width: 700px) {
+  .stc-header {
+    height: 7.5em;
+  }
+
+  .stc-header__container {
+    width: 450px;
+    height: 4.5em;
+    position: relative;
+    border-bottom: 1px solid #0ccfdf;
+  }
+
+  .stc-header__logo--wrap {
+    width: 80px;
+    transform: translate(0, -2px);
+  }
+
+  .stc-header__anchor {
+    font-size: 1.3em;
+    margin-right: 0em;
+    margin-top: 0.5em;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .stc-main__header {
+    height: 25em;
+    padding-top: 7.5em;
+  }
+
+  .stc-main__container {
+    width: 400px;
+  }
+
+  .stc-main__header-t-sup__title--wrap {
+    width: 400px;
+    height: 55px;
+  }
+
+  .stc-main__header-t-sup__title {
+    font-size: 1.6em;
+    margin-bottom: 0;
+  }
+
+  .stc-main__header-t-sup__subtitle {
+    font-size: 1.3em;
+  }
+
+  .stc-main__header-t-sup__desc {
+    width: 95%;
+    font-size: 1.1em;
+  }
+
+  .stc-main__header-t-sup__btn {
+    font-size: 1.3em;
+  }
+
+  .stc-main__offer-t-sup__container {
+    padding: 3.5em 0 3em;
+  }
+
+  .stc-main__offer__title {
+    font-size: 1.25em;
+  }
+
+  .stc-main__offer__list--wrap {
+    top: 76px;
+    width: 360px;
+  }
+
+  .stc-main__offer__list--active {
+    height: 222px;
+  }
+
+  .stc-main__offer__list {
+    padding: 1.2em 1.8em 0;
+  }
+
+  .stc-main__offer__list__item {
+    padding-left: 2.5em;
+    margin-bottom: 2em;
+  }
+  .stc-main__offer__list__item::before {
+    width: 2em;
+    height: 2em;
+  }
+
+  .stc-main__offer__list__title {
+    font-size: 1.2em;
+  }
+
+  .stc-main__offer__list__subtitle {
+    font-size: 1.05em;
+  }
+
+  .stc-main__advantages {
+    padding-bottom: 5em;
+  }
+
+  .stc-main__advantages-t-sup__title {
+    font-size: 1.7em;
+    margin-bottom: 1em;
+  }
+
+  .stc-main__advantages__container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .stc-main__advantages__item {
+    margin-bottom: 1.5em;
+  }
+}
+@media (max-width: 500px) {
+  .stc-header {
+    height: 7em;
+  }
+
+  .stc-header__container {
+    width: 305px;
+    height: 4em;
+  }
+
+  .stc-header__logo--wrap {
+    width: 60px;
+    transform: translate(0, -2px);
+  }
+
+  .stc-header__anchor {
+    font-size: 1.2em;
+  }
+
+  .stc-header__link {
+    font-size: 1.05em;
+    margin-left: 1em;
+    padding-left: 2em;
+  }
+
+  .stc-hedader__link__mail::before {
+    content: "";
+    width: 1.7em;
+    height: 1.7em;
+  }
+
+  .stc-hedader__link__tel::before {
+    width: 1.7em;
+    height: 1.7em;
+  }
+
+  .stc-main__header {
+    height: 23.5em;
+    padding-top: 7em;
+  }
+
+  .stc-main__container {
+    width: 305px;
+  }
+
+  .stc-main__header-t-sup__title--wrap {
+    width: 305px;
+    height: 40px;
+  }
+
+  .stc-main__header-t-sup__title {
+    font-size: 1.3em;
+    margin-bottom: 0;
+  }
+
+  .stc-main__header-t-sup__subtitle {
+    font-size: 1.15em;
+  }
+
+  .stc-main__header-t-sup__desc {
+    width: 100%;
+    font-size: 1.05em;
+  }
+
+  .stc-main__header-t-sup__btn {
+    font-size: 1.15em;
+  }
+
+  .stc-main__offer-t-sup__container {
+    padding: 3em 0 2.5em;
+  }
+
+  .stc-main__offer__title {
+    font-size: 1.15em;
+    text-align: center;
+  }
+
+  .stc-main__offer__list--wrap {
+    top: 80px;
+    width: 290px;
+  }
+
+  .stc-main__offer__list--active {
+    height: 214px;
+  }
+
+  .stc-main__offer__list {
+    padding: 1em 1.5em 0;
+  }
+
+  .stc-main__offer__list__item {
+    padding-left: 2em;
+    margin-bottom: 1.5em;
+  }
+  .stc-main__offer__list__item::before {
+    width: 1.7em;
+    height: 1.7em;
+  }
+
+  .stc-main__offer__list__title {
+    font-size: 1.1em;
+  }
+
+  .stc-main__offer__list__subtitle {
+    font-size: 1em;
+  }
+
+  .stc-main__advantages {
+    padding-bottom: 4em;
+  }
+
+  .stc-main__advantages-t-sup__title {
+    font-size: 1.5em;
+  }
+}
 @font-face {
   font-family: "Helvetica Neue Cyr Light";
   src: url("../fonts/HelveticaNeueCyr-Light.eot");
