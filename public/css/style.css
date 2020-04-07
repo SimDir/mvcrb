@@ -12019,6 +12019,12 @@ h3.productsPage-presentation__title {
   position: relative;
   letter-spacing: 0.001em;
 }
+.stc-header__anchor--blue::before {
+  background-color: #0ccfdf;
+}
+.stc-header__anchor--purple::before {
+  background-color: #c883f3;
+}
 .stc-header__anchor:hover {
   color: #fff;
 }
@@ -12032,7 +12038,6 @@ h3.productsPage-presentation__title {
   left: 0;
   width: 0;
   height: 0.1em;
-  background-color: #0ccfdf;
   transition: width 0.2s;
 }
 
@@ -12054,25 +12059,29 @@ h3.productsPage-presentation__title {
 .stc-header__link:hover {
   color: #fff;
 }
-
-.stc-hedader__link__mail::before {
+.stc-header__link::before {
   content: "";
   position: absolute;
   left: 0;
   top: -0.4em;
-  background: url(/public/img/stocks/stc-hedader__link__mail.png) center/contain;
   width: 2em;
   height: 2em;
 }
 
-.stc-hedader__link__tel::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: -0.4em;
-  background: url(/public/img/stocks/stc-hedader__link__tel.png) center/contain;
-  width: 2em;
-  height: 2em;
+.stc-hedader__link__mail--tech::before {
+  background: url(/public/img/stocks/tech/stc-hedader__link__mail.png) center/contain;
+}
+
+.stc-hedader__link__tel--tech::before {
+  background: url(/public/img/stocks/tech/stc-hedader__link__tel.png) center/contain;
+}
+
+.stc-hedader__link__mail--dostavka::before {
+  background: url(/public/img/stocks/dostavka/stc-hedader__link__mail.png) center/contain;
+}
+
+.stc-hedader__link__tel--dostavka::before {
+  background: url(/public/img/stocks/dostavka/stc-hedader__link__tel.png) center/contain;
 }
 
 .stc-main {
@@ -12095,8 +12104,12 @@ h3.productsPage-presentation__title {
   display: flex;
 }
 
-.stc-main__header-t-sup__bgc {
-  background-image: url(/public/img/stocks/stc-main__header-tech-support__bgc.png);
+.stc-header-bgc-tech {
+  background-image: url(/public/img/stocks/tech/stc-header-bgc-tech.png);
+}
+
+.stc-header-bgc-dostavka {
+  background-image: url(/public/img/stocks/dostavka/stc-header-bgc-dostavka.png);
 }
 
 .stc-main__container {
@@ -12104,7 +12117,7 @@ h3.productsPage-presentation__title {
   margin: 0 auto;
 }
 
-.stc-main__header-t-sup__container {
+.stc-main-header-container {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -12113,16 +12126,7 @@ h3.productsPage-presentation__title {
   height: 100%;
 }
 
-.stc-main__header-t-sup__title--wrap {
-  width: 800px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url(/public/img/stocks/stc-main__header-t-sup__title-bgc.png) center/cover no-repeat;
-}
-
-.stc-main__header-t-sup__title {
+.stc-main-header-title {
   color: #fff;
   font-size: 2.7em;
   line-height: 1.2em;
@@ -12130,10 +12134,10 @@ h3.productsPage-presentation__title {
   padding: 0.5em;
   text-transform: uppercase;
   font-family: "Museo Sans 900";
-  border: 0.15em solid #fff;
+  border: 0.1em solid #fff;
 }
 
-.stc-main__header-t-sup__subtitle {
+.stc-main-header-subtitle {
   font-size: 2.1em;
   line-height: 1.2em;
   margin: 0.8em 0 0.3em;
@@ -12142,7 +12146,7 @@ h3.productsPage-presentation__title {
   text-align: center;
 }
 
-.stc-main__header-t-sup__desc {
+.stc-main-header-desc {
   width: 80%;
   font-size: 1.8em;
   line-height: 1.2em;
@@ -12152,7 +12156,7 @@ h3.productsPage-presentation__title {
   margin-bottom: 3em;
 }
 
-.stc-main__header-t-sup__btn {
+.stc-main-header-btn {
   position: absolute;
   bottom: 0;
   color: #fff;
@@ -12160,7 +12164,6 @@ h3.productsPage-presentation__title {
   line-height: 1em;
   padding: 0.8em 2em;
   border: none;
-  background: linear-gradient(89deg, #0CCFDF, #2BB4E7);
   font-family: "Museo Sans 700";
   letter-spacing: 0.01em;
   border-radius: 1.5em;
@@ -12169,7 +12172,7 @@ h3.productsPage-presentation__title {
   transition: all 0.2s;
   z-index: 15;
 }
-.stc-main__header-t-sup__btn:hover {
+.stc-main-header-btn:hover {
   box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.63), 0 0 1em rgba(255, 255, 255, 0.63), 0 0 1.5em rgba(255, 255, 255, 0.63);
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.63);
 }
@@ -12179,7 +12182,7 @@ h3.productsPage-presentation__title {
   font-size: 10px;
 }
 
-.stc-main__offer-t-sup__container {
+.stc-main-offer-container {
   padding: 8em 0;
   display: flex;
   flex-direction: column;
@@ -12188,7 +12191,7 @@ h3.productsPage-presentation__title {
   z-index: 10;
 }
 
-.stc-main__offer__title {
+.stc-main-offer-title {
   font-family: "Museo Sans 900";
   color: #000;
   text-transform: uppercase;
@@ -12202,20 +12205,17 @@ h3.productsPage-presentation__title {
   margin-bottom: 0;
   box-shadow: 0 0.3em 0.6em rgba(0, 0, 0, 0.1);
 }
-.stc-main__offer__title::before {
+.stc-main-offer-title::before {
   content: "";
   position: absolute;
   right: 1em;
   top: 0.85em;
   width: 1.8em;
   height: 1.35em;
-  background: url(/public/img/stocks/stc-main__offer__title.png) center/contain no-repeat;
 }
 
-.stc-main__offer__list--wrap {
+.stc-main-offer-list--wrap {
   position: absolute;
-  top: 144px;
-  width: 550px;
   background-color: #fff;
   overflow: hidden;
   box-shadow: inset 0 0.3em 0.6em rgba(0, 0, 0, 0.2), 0 0 0.6em rgba(0, 0, 0, 0.2);
@@ -12223,11 +12223,11 @@ h3.productsPage-presentation__title {
   height: 0;
 }
 
-.stc-main__offer__list--active {
+.stc-main-offer-list--active {
   height: 318px;
 }
 
-.stc-main__offer__list {
+.stc-main-offer-list {
   padding: 2em 3em 0;
   display: flex;
   flex-direction: column;
@@ -12235,7 +12235,7 @@ h3.productsPage-presentation__title {
   position: relative;
 }
 
-.stc-main__offer__list__item {
+.stc-main-offer-list-item {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -12243,16 +12243,15 @@ h3.productsPage-presentation__title {
   margin-bottom: 3.5em;
   position: relative;
 }
-.stc-main__offer__list__item::before {
+.stc-main-offer-list-item::before {
   content: "";
   position: absolute;
   left: 0;
   width: 3em;
   height: 3em;
-  background: url(/public/img/stocks/stc-main__offer__list__item.png) center/contain no-repeat;
 }
 
-.stc-main__offer__list__title {
+.stc-main-offer-list-title {
   font-family: "Museo Sans 900";
   color: #000;
   font-size: 1.8em;
@@ -12260,11 +12259,54 @@ h3.productsPage-presentation__title {
   text-transform: uppercase;
 }
 
-.stc-main__offer__list__subtitle {
+.stc-main-offer-list-subtitle {
   font-family: "Museo Sans 500";
   color: #3e3d3d;
   font-size: 1.3em;
   line-height: 1.2em;
+}
+
+.stc-main__header-tech__title--wrap {
+  width: 800px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(/public/img/stocks/tech/stc-main__header-tech__title-bgc.png) center/cover no-repeat;
+}
+
+.stc-main-header-btn--tech {
+  background: linear-gradient(89deg, #0CCFDF, #2BB4E7);
+}
+
+.stc-main-header-btn--dostavka {
+  background: linear-gradient(to bottom, #C165DD, #5C27FE);
+}
+
+.stc-main__offer__title--tech::before {
+  background: url(/public/img/stocks/tech/stc-main__offer__title.png) center/contain no-repeat;
+}
+
+.stc-main__offer__title--dostavka::before {
+  background: url(/public/img/stocks/dostavka/stc-main__offer__title.png) center/contain no-repeat;
+}
+
+.stc-main-offer-list--wrap-tech {
+  top: 144px;
+  width: 550px;
+}
+
+.stc-main-offer-list--wrap-dostavka {
+  top: 144px;
+  width: 600px;
+}
+
+.stc-main-offer-list-item--tech::before {
+  background: url(/public/img/stocks/tech/stc-main-offer-list-item.png) center/contain no-repeat;
+}
+
+.stc-main-offer-list-item--dostavka::before {
+  background: url(/public/img/stocks/dostavka/stc-main-offer-list-item.png) center/contain no-repeat;
 }
 
 .stc-main__advantages {
@@ -12362,62 +12404,67 @@ h3.productsPage-presentation__title {
     width: 1000px;
   }
 
-  .stc-main__header-t-sup__title--wrap {
+  .stc-main__header-tech__title--wrap {
     width: 750px;
     height: 95px;
   }
 
-  .stc-main__header-t-sup__title {
+  .stc-main-header-title {
     font-size: 2.5em;
   }
 
-  .stc-main__header-t-sup__subtitle {
+  .stc-main-header-subtitle {
     font-size: 1.9em;
   }
 
-  .stc-main__header-t-sup__desc {
+  .stc-main-header-desc {
     font-size: 1.6em;
   }
 
-  .stc-main__header-t-sup__btn {
+  .stc-main-header-btn {
     font-size: 1.8em;
   }
 
-  .stc-main__offer-t-sup__container {
+  .stc-main-offer-container {
     padding: 7em 0;
   }
 
-  .stc-main__offer__title {
+  .stc-main-offer-title {
     font-size: 1.8em;
   }
 
-  .stc-main__offer__list--wrap {
+  .stc-main-offer-list--wrap-tech {
     top: 127px;
     width: 510px;
   }
 
-  .stc-main__offer__list--active {
+  .stc-main-offer-list--wrap-dostavka {
+    top: 127px;
+    width: 580px;
+  }
+
+  .stc-main-offer-list--active {
     height: 285px;
   }
 
-  .stc-main__offer__list {
+  .stc-main-offer-list {
     padding: 1.8em 2.6em 0;
   }
 
-  .stc-main__offer__list__item {
+  .stc-main-offer-list-item {
     padding-left: 3.5em;
     margin-bottom: 3em;
   }
-  .stc-main__offer__list__item::before {
+  .stc-main-offer-list-item::before {
     width: 2.5em;
     height: 2.5em;
   }
 
-  .stc-main__offer__list__title {
+  .stc-main-offer-list-title {
     font-size: 1.6em;
   }
 
-  .stc-main__offer__list__subtitle {
+  .stc-main-offer-list-subtitle {
     font-size: 1.2em;
   }
 
@@ -12473,62 +12520,67 @@ h3.productsPage-presentation__title {
     width: 850px;
   }
 
-  .stc-main__header-t-sup__title--wrap {
+  .stc-main__header-tech__title--wrap {
     width: 670px;
     height: 85px;
   }
 
-  .stc-main__header-t-sup__title {
+  .stc-main-header-title {
     font-size: 2.3em;
   }
 
-  .stc-main__header-t-sup__subtitle {
+  .stc-main-header-subtitle {
     font-size: 1.8em;
   }
 
-  .stc-main__header-t-sup__desc {
+  .stc-main-header-desc {
     font-size: 1.5em;
   }
 
-  .stc-main__header-t-sup__btn {
+  .stc-main-header-btn {
     font-size: 1.7em;
   }
 
-  .stc-main__offer-t-sup__container {
+  .stc-main-offer-container {
     padding: 6em 0;
   }
 
-  .stc-main__offer__title {
+  .stc-main-offer-title {
     font-size: 1.6em;
   }
 
-  .stc-main__offer__list--wrap {
+  .stc-main-offer-list--wrap-tech {
     top: 112px;
     width: 455px;
   }
 
-  .stc-main__offer__list--active {
+  .stc-main-offer-list--wrap-dostavka {
+    top: 112px;
+    width: 550px;
+  }
+
+  .stc-main-offer-list--active {
     height: 248px;
   }
 
-  .stc-main__offer__list {
+  .stc-main-offer-list {
     padding: 1.6em 2.2em 0;
   }
 
-  .stc-main__offer__list__item {
+  .stc-main-offer-list-item {
     padding-left: 3em;
     margin-bottom: 2.5em;
   }
-  .stc-main__offer__list__item::before {
+  .stc-main-offer-list-item::before {
     width: 2.2em;
     height: 2.2em;
   }
 
-  .stc-main__offer__list__title {
+  .stc-main-offer-list-title {
     font-size: 1.4em;
   }
 
-  .stc-main__offer__list__subtitle {
+  .stc-main-offer-list-subtitle {
     font-size: 1.1em;
   }
 
@@ -12587,33 +12639,37 @@ h3.productsPage-presentation__title {
     width: 750px;
   }
 
-  .stc-main__header-t-sup__title--wrap {
+  .stc-main__header-tech__title--wrap {
     width: 620px;
     height: 80px;
   }
 
-  .stc-main__header-t-sup__title {
+  .stc-main-header-title {
     font-size: 2.1em;
   }
 
-  .stc-main__header-t-sup__subtitle {
+  .stc-main-header-subtitle {
     font-size: 1.7em;
   }
 
-  .stc-main__header-t-sup__desc {
+  .stc-main-header-desc {
     width: 85%;
     font-size: 1.4em;
   }
 
-  .stc-main__header-t-sup__btn {
+  .stc-main-header-btn {
     font-size: 1.6em;
   }
 
-  .stc-main__offer-t-sup__container {
+  .stc-main-offer-container {
     padding: 5em 0;
   }
 
-  .stc-main__offer__list--wrap {
+  .stc-main-offer-list--wrap-tech {
+    top: 102px;
+  }
+
+  .stc-main-offer-list--wrap-dostavka {
     top: 102px;
   }
 
@@ -12671,35 +12727,40 @@ h3.productsPage-presentation__title {
     width: 550px;
   }
 
-  .stc-main__header-t-sup__title--wrap {
+  .stc-main__header-tech__title--wrap {
     width: 550px;
     height: 70px;
   }
 
-  .stc-main__header-t-sup__title {
+  .stc-main-header-title {
     font-size: 1.8em;
     margin-bottom: 0;
   }
 
-  .stc-main__header-t-sup__subtitle {
+  .stc-main-header-subtitle {
     font-size: 1.5em;
   }
 
-  .stc-main__header-t-sup__desc {
+  .stc-main-header-desc {
     width: 90%;
     font-size: 1.2em;
   }
 
-  .stc-main__header-t-sup__btn {
+  .stc-main-header-btn {
     font-size: 1.4em;
   }
 
-  .stc-main__offer-t-sup__container {
+  .stc-main-offer-container {
     padding: 4em 0;
   }
 
-  .stc-main__offer__list--wrap {
+  .stc-main-offer-list--wrap-tech {
     top: 92px;
+  }
+
+  .stc-main-offer-list--wrap-dostavka {
+    top: 111px;
+    width: 500px;
   }
 
   .stc-main__advantages {
@@ -12734,7 +12795,14 @@ h3.productsPage-presentation__title {
     width: 450px;
     height: 4.5em;
     position: relative;
+  }
+
+  .stc-header-container--blue {
     border-bottom: 1px solid #0ccfdf;
+  }
+
+  .stc-header-container--purple {
+    border-bottom: 1px solid #c883f3;
   }
 
   .stc-header__logo--wrap {
@@ -12761,64 +12829,69 @@ h3.productsPage-presentation__title {
     width: 400px;
   }
 
-  .stc-main__header-t-sup__title--wrap {
+  .stc-main__header-tech__title--wrap {
     width: 400px;
     height: 55px;
   }
 
-  .stc-main__header-t-sup__title {
+  .stc-main-header-title {
     font-size: 1.6em;
     margin-bottom: 0;
   }
 
-  .stc-main__header-t-sup__subtitle {
+  .stc-main-header-subtitle {
     font-size: 1.3em;
   }
 
-  .stc-main__header-t-sup__desc {
+  .stc-main-header-desc {
     width: 95%;
     font-size: 1.1em;
   }
 
-  .stc-main__header-t-sup__btn {
+  .stc-main-header-btn {
     font-size: 1.3em;
   }
 
-  .stc-main__offer-t-sup__container {
+  .stc-main-offer-container {
     padding: 3.5em 0 3em;
   }
 
-  .stc-main__offer__title {
+  .stc-main-offer-title {
     font-size: 1.25em;
   }
 
-  .stc-main__offer__list--wrap {
+  .stc-main-offer-list--wrap-tech {
     top: 76px;
     width: 360px;
   }
 
-  .stc-main__offer__list--active {
-    height: 222px;
+  .stc-main-offer-list--wrap-dostavka {
+    top: 90px;
+    width: 340px;
   }
 
-  .stc-main__offer__list {
+  .stc-main-offer-list--active {
+    height: 215px;
+  }
+
+  .stc-main-offer-list {
     padding: 1.2em 1.8em 0;
   }
 
-  .stc-main__offer__list__item {
+  .stc-main-offer-list-item {
     padding-left: 2.5em;
     margin-bottom: 2em;
   }
-  .stc-main__offer__list__item::before {
+  .stc-main-offer-list-item::before {
     width: 2em;
     height: 2em;
   }
 
-  .stc-main__offer__list__title {
+  .stc-main-offer-list-title {
     font-size: 1.2em;
   }
 
-  .stc-main__offer__list__subtitle {
+  .stc-main-offer-list-subtitle {
     font-size: 1.05em;
   }
 
@@ -12865,14 +12938,7 @@ h3.productsPage-presentation__title {
     margin-left: 1em;
     padding-left: 2em;
   }
-
-  .stc-hedader__link__mail::before {
-    content: "";
-    width: 1.7em;
-    height: 1.7em;
-  }
-
-  .stc-hedader__link__tel::before {
+  .stc-header__link::before {
     width: 1.7em;
     height: 1.7em;
   }
@@ -12886,65 +12952,70 @@ h3.productsPage-presentation__title {
     width: 305px;
   }
 
-  .stc-main__header-t-sup__title--wrap {
+  .stc-main__header-tech__title--wrap {
     width: 305px;
     height: 40px;
   }
 
-  .stc-main__header-t-sup__title {
+  .stc-main-header-title {
     font-size: 1.3em;
     margin-bottom: 0;
   }
 
-  .stc-main__header-t-sup__subtitle {
+  .stc-main-header-subtitle {
     font-size: 1.15em;
   }
 
-  .stc-main__header-t-sup__desc {
+  .stc-main-header-desc {
     width: 100%;
     font-size: 1.05em;
   }
 
-  .stc-main__header-t-sup__btn {
+  .stc-main-header-btn {
     font-size: 1.15em;
   }
 
-  .stc-main__offer-t-sup__container {
+  .stc-main-offer-container {
     padding: 3em 0 2.5em;
   }
 
-  .stc-main__offer__title {
+  .stc-main-offer-title {
     font-size: 1.15em;
     text-align: center;
   }
 
-  .stc-main__offer__list--wrap {
+  .stc-main-offer-list--wrap-tech {
     top: 80px;
     width: 290px;
   }
 
-  .stc-main__offer__list--active {
-    height: 214px;
+  .stc-main-offer-list--wrap-dostavka {
+    top: 80px;
+    width: 250px;
   }
 
-  .stc-main__offer__list {
+  .stc-main-offer-list--active {
+    height: 210px;
+  }
+
+  .stc-main-offer-list {
     padding: 1em 1.5em 0;
   }
 
-  .stc-main__offer__list__item {
+  .stc-main-offer-list-item {
     padding-left: 2em;
     margin-bottom: 1.5em;
   }
-  .stc-main__offer__list__item::before {
+  .stc-main-offer-list-item::before {
     width: 1.7em;
     height: 1.7em;
   }
 
-  .stc-main__offer__list__title {
+  .stc-main-offer-list-title {
     font-size: 1.1em;
   }
 
-  .stc-main__offer__list__subtitle {
+  .stc-main-offer-list-subtitle {
     font-size: 1em;
   }
 
