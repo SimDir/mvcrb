@@ -12105,6 +12105,9 @@ h3.productsPage-presentation__title {
   width: 2em;
   height: 2em;
 }
+.stc-header__link a {
+  color: #fff;
+}
 
 .stc-hedader__link__mail--tech::before {
   background: url(/public/img/stocks/tech/stc-hedader__link__mail.png) center/contain;
@@ -12728,6 +12731,223 @@ h3.productsPage-presentation__title {
 .stc-main-consultation-typography--complex {
   width: 45%;
   left: 50%;
+}
+
+.stc-main__quiz {
+  width: 100%;
+  font-size: 10px;
+}
+
+.stc-main__quiz__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stc-main__quiz__title {
+  font-family: "Museo Sans 900";
+  text-transform: uppercase;
+  position: relative;
+  color: #000;
+  font-size: 3em;
+  line-height: 1.2em;
+  margin-bottom: 3em;
+}
+.stc-main__quiz__title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 25%;
+  height: 0.2em;
+  background-color: #8a164d;
+}
+
+.stc-main__quiz__body {
+  width: 100%;
+  height: 550px;
+  background-color: #fff;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
+  border-radius: 0.7em;
+  position: relative;
+}
+
+.stc-main__quiz__start {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.stc-main__quiz__start__typography {
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(to bottom, #febcdb, #fcceac 60%, #ed5519 150%);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+
+.stc-main__quiz__start__img-main {
+  width: 90%;
+  position: relative;
+  z-index: 11;
+}
+
+.stc-main__quiz__start__img {
+  width: 110%;
+  left: 4%;
+  top: 12%;
+  position: absolute;
+  z-index: 11;
+}
+
+.stc-main__quiz__start__content {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #fff;
+  position: relative;
+  z-index: 10;
+  padding: 0 15em;
+}
+
+.stc-main__quiz__start__title {
+  font-family: "Museo Sans 900";
+  text-transform: uppercase;
+  color: #000;
+  font-size: 3.4em;
+  line-height: 1.15em;
+  margin-bottom: 0.5em;
+}
+.stc-main__quiz__start__title--brown {
+  color: #8a164d;
+}
+
+.stc-main__quiz__start__subtitle {
+  font-family: "Museo Sans 700";
+  color: #454343;
+  font-size: 2.2em;
+  line-height: 1.1em;
+  margin-bottom: 2em;
+  position: relative;
+}
+.stc-main__quiz__start__subtitle::before {
+  content: "";
+  position: absolute;
+  bottom: -1em;
+  width: 25%;
+  height: 0.2em;
+  background-color: #8a164d;
+}
+
+.stc-main__quiz__start__desc {
+  font-family: "Museo Sans 300";
+  font-size: 1.5em;
+  line-height: 1.2em;
+  margin-bottom: 2em;
+  color: #373636;
+}
+
+.stc-main__quiz__start__btn {
+  font-family: "Museo Sans 700";
+  color: #fff;
+  font-size: 2.2em;
+  border: none;
+  border-radius: 1.5em;
+  padding: 0.25em 1.4em;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+.stc-main__quiz__start__btn:hover {
+  box-shadow: 0 0 1eem rgba(0, 0, 0, 0.25);
+  text-shadow: 0 0 1em rgba(255, 255, 255, 0.4);
+}
+.stc-main__quiz__start__btn:hover::before {
+  left: -100%;
+}
+.stc-main__quiz__start__btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(45deg, #ee632d, #fa8704, #ee632d);
+  z-index: -1;
+  transition: all 0.2s;
+}
+
+.stc-main__quiz__step {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-content: space-between;
+}
+
+.stc-main__quiz__step__hedaer {
+  width: 100%;
+  height: 8em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 8em;
+  border-bottom: 1px solid rgba(89, 89, 89, 0.4);
+}
+
+.stc-main__quiz__step__hedaer__img {
+  width: 45px;
+}
+
+.stc-main__quiz__step__hedaer__title {
+  font-family: "Museo Sans 500";
+  color: #454343;
+  font-size: 1.8em;
+  line-height: 1.2em;
+  margin-left: 1.5em;
+}
+
+.stc-main__quiz__step__footer {
+  width: 100%;
+  height: 8em;
+  border-top: 1px solid rgba(89, 89, 89, 0.4);
+  padding: 0em 3em 0 8em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.stc-main__quiz__step__footer__progress--wrap {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.stc-main__quiz__step__footer__progress--wrap progress {
+  width: 100%;
+}
+
+.stc-main__quiz__step__content {
+  width: 100%;
+  flex-grow: 1;
+  padding: 3em 8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 @media (max-width: 1500px) {
