@@ -13,10 +13,10 @@ $( document ).ready(function() {
     let stockHeader = document.querySelector('.stc-header');
     window.addEventListener('scroll', function() {
         if(pageYOffset > 0) {
-            stockHeader.classList.add('stc-header-bgc--tech');     
+            stockHeader.classList.add('stc-header-bgc--dostavka');     
         }
         else {
-            stockHeader.classList.remove('stc-header-bgc--tech');
+            stockHeader.classList.remove('stc-header-bgc--dostavka');
         }
     });
 });

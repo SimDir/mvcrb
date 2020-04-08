@@ -5,7 +5,7 @@ $( document ).ready(function() {
     for(let i=0; i<stocksOfferTitle.length; i++) {
         stocksOfferTitle[i].onclick = function() {
             for(let i=0; i< stocksOfferList.length; i++) {
-                stocksOfferList[i].classList.toggle('stc-main-offer-list--active')
+                stocksOfferList[i].classList.toggle('stc-main-offer-list--active-complex')
             }
         }
     }
@@ -13,10 +13,10 @@ $( document ).ready(function() {
     let stockHeader = document.querySelector('.stc-header');
     window.addEventListener('scroll', function() {
         if(pageYOffset > 0) {
-            stockHeader.classList.add('stc-header-bgc--tech');     
+            stockHeader.classList.add('stc-header-bgc--complex');     
         }
         else {
-            stockHeader.classList.remove('stc-header-bgc--tech');
+            stockHeader.classList.remove('stc-header-bgc--complex');
         }
     });
 });

@@ -1,4 +1,42 @@
 $height-stc-header: 10em;
+.stc-header-bgc--complex {
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        background: linear-gradient(to top, #FA8704, rgba(#FA8704, 0.95));
+        box-shadow:  0 .5em 5em rgba(#FA8704, 1);
+        animation: stc-header-bgc .3s ease-in-out forwards;
+    }
+}
+.stc-header-bgc--dostavka {
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        background: linear-gradient(to top, #9228FE, rgba(#9228FE, 0.95));
+        box-shadow:  0 .5em 5em rgba(#9228FE, 1);
+        animation: stc-header-bgc .3s ease-in-out forwards;
+    }
+}
+.stc-header-bgc--tech {
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        background: linear-gradient(to top, #167EC6, rgba(#167EC6, 0.95));
+        box-shadow:  0 .5em 5em rgba(#167EC6, 1);
+        animation: stc-header-bgc .3s ease-in-out forwards;
+    }
+}
+@keyframes stc-header-bgc {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 100%;
+    }
+}
 
 .stc-header {
     width: 100%;
@@ -51,6 +89,12 @@ $height-stc-header: 10em;
             background-color: #c883f3;
         }
     }
+    &--brown {
+        &::before {
+            background-color: #840b45;
+        }
+    }
+    
     &:hover {
         color: #fff;
         &::before {
@@ -112,6 +156,16 @@ $height-stc-header: 10em;
         background: url(/public/img/stocks/dostavka/stc-hedader__link__tel.png) center / contain;
     }
 }
+.stc-hedader__link__mail--complex {
+    &::before {
+        background: url(/public/img/stocks/complex/stc-hedader__link__mail.png) center / contain;
+    }
+}
+.stc-hedader__link__tel--complex {
+    &::before {
+        background: url(/public/img/stocks/complex/stc-hedader__link__tel.png) center / contain;
+    }
+}
 .stc-main {
     font-size: 10px;
     width: 100%;
@@ -136,6 +190,9 @@ $height-stc-header: 10em;
 }
 .stc-header-bgc-dostavka {
     background-image: url(/public/img/stocks/dostavka/stc-header-bgc-dostavka.png);
+}
+.stc-header-bgc-complex {
+    background-image: url(/public/img/stocks/complex/stc-header-bgc-complex.png);
 }
 .stc-main__container {
     width: 1200px;
@@ -327,10 +384,13 @@ $height-stc-header: 10em;
     align-items: center;
 }
 .stc-main-header-title--wrap-tech {
-    background: url(/public/img/stocks/tech/stc-main__header-tech__title-bgc.png) center / cover no-repeat;
+    background: url(/public/img/stocks/tech/stc-main__header__title-bgc.png) center / cover no-repeat;
 }
 .stc-main-header-title--wrap-dostavka {
-    background: url(/public/img/stocks/dostavka/stc-main__header-tech__title-bgc.png) center / cover no-repeat;
+    background: url(/public/img/stocks/dostavka/stc-main__header__title-bgc.png) center / cover no-repeat;
+}
+.stc-main-header-title--wrap-complex {
+    background: url(/public/img/stocks/complex/stc-main__header__title-bgc.png) center / cover no-repeat;
 }
 
 .stc-main-header-btn--tech  {
@@ -338,6 +398,9 @@ $height-stc-header: 10em;
 }
 .stc-main-header-btn--dostavka {
     background: linear-gradient(to bottom, #C165DD, #5C27FE);
+}
+.stc-main-header-btn--complex {
+    background: linear-gradient(to bottom, #EE642D, #FA8704);
 }
 .stc-main__offer__title--tech {
     &::before {
@@ -347,6 +410,11 @@ $height-stc-header: 10em;
 .stc-main__offer__title--dostavka {
     &::before {
         background: url(/public/img/stocks/dostavka/stc-main__offer__title.png) center / contain no-repeat;
+    }
+}
+.stc-main__offer__title--complex {
+    &::before {
+        background: url(/public/img/stocks/complex/stc-main__offer__title.png) center / contain no-repeat;
     }
 }
 .stc-main-offer-list--wrap-tech {
@@ -367,6 +435,16 @@ $height-stc-header: 10em;
         background: url(/public/img/stocks/dostavka/stc-main-offer-list-item.png) center / contain no-repeat;
     }
 }
+.stc-main-offer-list-item--complex {
+    &::before {
+        background: url(/public/img/stocks/complex/stc-main-offer-list-item.png) center / contain no-repeat;
+    }
+}
+.stc-main-offer-list-item--complex-last {
+    &::before {
+        background: url(/public/img/stocks/complex/stc-main-offer-list-item-last.png) center / contain no-repeat;
+    }
+}
 .stc-main-advantages-title--tech {
     &::before {
         background-color: #0ccfdf;
@@ -377,6 +455,11 @@ $height-stc-header: 10em;
         background-color: #c883f3;
     }
 }
+.stc-main-advantages-title--complex {
+    &::before {
+        background-color: #8a164d;
+    }
+}
 .stc-main-advantages-body--tech {
     &::before {
         background: linear-gradient(to right, #0CCFDF, #2AB4E7);
@@ -385,6 +468,11 @@ $height-stc-header: 10em;
 .stc-main-advantages-body--dostavka {
     &::before {
         background: linear-gradient(to right, #C165DD, #5D28FE);
+    }
+}
+.stc-main-advantages-body--complex {
+    &::before {
+        background: linear-gradient(to left, #EE632C, #F98604);
     }
 }
 .stc-main-advantages-container--tech {
@@ -571,6 +659,72 @@ $height-stc-header: 10em;
     color: #373636;
 }
 
+
+
+.stc-main-offer-list--wrap-complex {
+    top: 144px;
+    width: 540px;
+}
+.stc-main-offer-list--active-complex {
+    height: 430px;
+}
+.stc-main-offer-list-last-title {
+    font-family: "Museo Sans 700";
+    font-size: 2.2em;
+    line-height: 1.1em;
+    color: #181818;
+    &--bold {
+        font-family: "Museo Sans 900";
+    }
+}
+.stc-main-advantages-container--complex {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    z-index: 5;
+    padding: 3em 4em;
+    border-radius: 3em;
+    box-shadow: 0 .5em 1em rgba(#1a0939, .4);
+    margin-bottom: 13em;
+}
+.stc-main-complex__advantages__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 19%;
+}
+.stc-main-complex__advantages__item__img {
+    height: 7em;
+    margin-bottom: 1.5em;
+}
+.stc-main-complex__advantages__item__desc {
+    text-align: center;
+    font-size: 1.6em;
+    line-height: 1.2em;
+    color: #423737;
+    font-family: "Museo Sans 900";
+}
+.stc-main__consultation__title--brown {
+    color: #4e092a;
+}
+.stc-main-consultation-btn--complex {
+    background: linear-gradient(71deg, #EE642C,#FA8704);
+    &:hover {
+        box-shadow: 0 0 1em rgba(#FA8704, .7);
+    }
+}
+.stc-main-consultation-body--complex {
+    &::before {
+        background: linear-gradient(to right, #EE642C, #F98604);
+    }
+}
+.stc-main-consultation-typography--complex {
+    width: 45%;
+    left: 50%;
+}
+
 @media(max-width: 1500px) { 
     $height-stc-header-1500: 9.5em;
     .stc-header {
@@ -711,6 +865,31 @@ $height-stc-header: 10em;
     .stc-main__support__text {
         font-size: 3.6em;
     }
+    .stc-main-offer-list--wrap-complex {
+        top: 128px;
+        width: 480px;
+    }
+    .stc-main-offer-list--active-complex {
+        height: 380px;
+    }
+    .stc-main-offer-list-last-title {
+        font-size: 2em;
+    }
+    .stc-main-advantages-container--complex {
+        padding: 2.5em 3.5em;
+        margin-bottom: 11em;
+    }
+    .stc-main-complex__advantages__item__img {
+        height: 6.5em;
+        margin-bottom: 1.3em;
+    }
+    .stc-main-complex__advantages__item__desc {
+        font-size: 1.5em;
+    }
+    .stc-main-consultation-typography--complex {
+        width: 45%;
+        left: 50%;
+    }
 }
 @media(max-width: 1300px) { 
     $height-stc-header-1300: 9em;
@@ -848,6 +1027,31 @@ $height-stc-header: 10em;
     .stc-main__support__text {
         font-size: 3.2em;
     }
+    .stc-main-offer-list--wrap-complex {
+        top: 111px;
+        width: 440px;
+    }
+    .stc-main-offer-list--active-complex {
+        height: 305px;
+    }
+    .stc-main-offer-list-last-title {
+        font-size: 1.8em;
+    }
+    .stc-main-advantages-container--complex {
+        padding: 2.3em 3.3em;
+        margin-bottom: 9em;
+    }
+    .stc-main-complex__advantages__item__img {
+        height: 6em;
+        margin-bottom: 1.1em;
+    }
+    .stc-main-complex__advantages__item__desc {
+        font-size: 1.3em;
+    }
+    .stc-main-consultation-typography--complex {
+        width: 45%;
+        left: 50%;
+    }
 }
 @media(max-width: 1100px) { 
     $height-stc-header-1100: 8.5em;
@@ -953,6 +1157,29 @@ $height-stc-header: 10em;
     }
     .stc-main__support__text {
         font-size: 2.9em;
+    }
+    .stc-main-offer-list--wrap-complex {
+        top: 101px;
+        width: 430px;
+    }
+    .stc-main-offer-list--active-complex {
+        height: 315px;
+    }
+    .stc-main-advantages-container--complex {
+        padding: 2em 3em;
+        margin-bottom: 7em;
+    }
+    .stc-main-complex__advantages__item__img {
+        height: 5.5em;
+        margin-bottom: 1em;
+    }
+    .stc-main-complex__advantages__item__desc {
+        font-size: 1.2em;
+    }
+    .stc-main-consultation-typography--complex {
+        width: 45%;
+        left: 50%;
+        top: 0;
     }
 }
 @media(max-width: 900px) { 
@@ -1069,6 +1296,25 @@ $height-stc-header: 10em;
     .stc-main__support__text {
         font-size: 2.3em;
     }
+    .stc-main-offer-list--wrap-complex {
+        top: 91px;
+    }
+    .stc-main-advantages-container--complex {
+        padding: 1.8em 2.5em;
+        margin-bottom: 6em;
+    }
+    .stc-main-complex__advantages__item__img {
+        height: 5em;
+        margin-bottom: .8em;
+    }
+    .stc-main-complex__advantages__item__desc {
+        font-size: 1.1em;
+    }
+    .stc-main-consultation-typography--complex {
+        width: 45%;
+        left: 60%;
+        top: 1em;
+    }
 }
 @media(max-width: 700px) { 
     $height-stc-header-700: 7.5em;
@@ -1086,6 +1332,9 @@ $height-stc-header: 10em;
     }
     .stc-header-container--purple {
         border-bottom: 1px solid #c883f3;
+    }
+    .stc-header-container--brown {
+        border-bottom: 1px solid #840b45;
     }
     .stc-header__logo {
         &--wrap {
@@ -1214,6 +1463,38 @@ $height-stc-header: 10em;
     }
     .stc-main__support__text {
         font-size: 1.6em;
+    }
+    .stc-main-offer-list--wrap-complex {
+        top: 76px;
+        width: 340px;
+    }
+    .stc-main-offer-list--active-complex {
+        height: 265px;
+    }
+    .stc-main-offer-list-last-title {
+        font-size: 1.6em;
+    }
+    .stc-main-advantages-container--complex {
+        padding: 1.5em 2em 0.5em 2em;
+        margin-bottom: 4.5em;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    .stc-main-complex__advantages__item {
+        width: 30%;
+        margin-bottom: 1em;
+    }
+    .stc-main-complex__advantages__item__img {
+        height: 4em;
+        margin-bottom: .6em;
+    }
+    .stc-main-complex__advantages__item__desc {
+        font-size: 1.05em;
+    }
+    .stc-main-consultation-typography--complex {
+        width: 55%;
+        left: 70%;
+        top: 3em;
     }
 }
 @media(max-width: 500px) { 
@@ -1355,4 +1636,31 @@ $height-stc-header: 10em;
     .stc-main__support__text {
         font-size: 1.3em;
     }
+    .stc-main-offer-list--wrap-complex {
+        top: 80px;
+        width: 290px;
+    }
+    .stc-main-offer-list--active-complex {
+        height: 222px;
+    }
+    .stc-main-offer-list-last-title {
+        font-size: 1.4em;
+    }
+    .stc-main-advantages-container--complex {
+        padding: 1.5em 1.5em 0.5em;
+        margin-bottom: 3em;
+    }
+    .stc-main-complex__advantages__item {
+        width: 30%;
+        margin-bottom: 1em;
+    }
+    .stc-main-complex__advantages__item__img {
+        height: 3.5em;
+        margin-bottom: .4em;
+    }
+    .stc-main-consultation-typography--complex {
+        width: 60%;
+        left: 75%;
+        top: 3em;
+    }   
 }
