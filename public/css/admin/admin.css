@@ -9,13 +9,15 @@ html{
 }
 #admincontent{
     width:100%;
-
+    padding-right: 0 !important;
+    padding-left: 0 !important;
     /*padding:40px 0;*/
 }
 #scrollbox{
 /*    width:400px;
     height:300px;*/
-    overflow:auto; overflow-x:hidden;
+    /*overflow:auto;*/ 
+    overflow-x:hidden;
 }
 .feather {
     width: 16px;
@@ -33,7 +35,8 @@ html{
     bottom: 0;
     left: 0;
     z-index: 100; /* Behind the navbar */
-    padding: 48px 0 0; /* Height of navbar */
+    padding: 48px 0 0;
+    /*padding: 0;*/
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
 

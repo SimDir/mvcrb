@@ -232,6 +232,7 @@ class UserModel extends Model {
     }
 
     public function login($email, $password) {
+//        Session::init();
         $user = $this->findOne($this->TableName, '(email = :email) OR (login = :email)', [':email' => $email]);
         
         if ($user) {

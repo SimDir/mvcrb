@@ -10,7 +10,7 @@ defined('ROOT') OR die('No direct script access.');
  * @author ivan kolotilkin
  */
 class AdminController extends Controller {
-        public function __construct() {
+    public function __construct() {
         parent::__construct();
         $this->User = new UserModel();
         if ($this->User->GetCurrentUser()['role'] < 900) {
@@ -42,6 +42,7 @@ class AdminController extends Controller {
         $this->View->content = $this->View->execute('AdminWraper.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
+    
     public function UserAction($param = false) {
         if ($param) {
             $CollCom = mb_strtolower($param);
@@ -94,6 +95,48 @@ class AdminController extends Controller {
         $this->View->admincontent = $this->View->execute('users.html');
         $this->View->content = $this->View->execute('AdminWraper.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
+    }
+    
+    public function PagesAction() {
+        $this->View->admincontent = $this->View->execute('page.html');
+        $this->View->content = $this->View->execute('AdminWraper.html');
+        return $this->View->execute('index.html', TEMPLATE_DIR);
+    }
+
+    public function GetstaticpagelistAction($param = null) {
+        $directory = new \RecursiveDirectoryIterator(mvcrb::Config()['App_Templates_Dir'].'IndexController'.DS.'staticpage');
+        $iterator = new \RecursiveIteratorIterator($directory);
+        $files = [];
+        foreach ($iterator as $info) {
+            if (is_file($info->getPathname())) {
+                $files[] = basename($info->getPathname(), 'Controller.php');
+            }
+        }
+        return $files;
+    }
+    public function GetstaticpageAction($param = null) {
+        $PageName = json_decode($this->REQUEST,true)['PageName'];
+
+        $pageInDir = mvcrb::Config()['App_Templates_Dir'].'IndexController'.DS.'staticpage';
+
+        $PageFale = mvcrb::SearchFile($PageName, $pageInDir);
+        if(file_exists($PageFale)){
+            return ['PageContent'=> file_get_contents($PageFale)];
+        }
+        return ['error'];
+    }
+    
+    public function SavestaticpageAction($param = null) {
+        $PageName = json_decode($this->REQUEST, true)['PageName'];
+        $PageContent = json_decode($this->REQUEST, true)['PageContent'];
+        $pageInDir = mvcrb::Config()['App_Templates_Dir'] . 'IndexController' . DS . 'staticpage';
+
+        $PageFale = mvcrb::SearchFile($PageName, $pageInDir);
+        if (file_exists($PageFale)) {
+            $sucsses=file_put_contents($PageFale, $PageContent);
+            return ['sucsses' => $sucsses];
+        }
+        return ['error'];
     }
 
 }

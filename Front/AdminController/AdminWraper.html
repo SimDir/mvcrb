@@ -1,8 +1,8 @@
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow" id="mainbar">
 
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">            
         <div class="d-flex justify-content-center">
-            <img src="/public/img/logo-ny.svg" height="25" alt="agalogo">
+            <img src="/public/img/logo-ny.svg" height="28" alt="agalogo">
         </div>
     </a>
     <!--<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
@@ -12,23 +12,23 @@
         </li>
     </ul>
 </nav>
-<div class="container-fluid">
-    <div class="row">
+<div class="container-fluid h-100">
+    <div class="row h-100">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
                 <div class="list-group list-group-flush">
                     <a href="/admin/" class="list-group-item list-group-item-action bg-light">Главная</a>
                     <a href="/admin/fm/" class="list-group-item list-group-item-action bg-light">Файлы сервера</a>
                     <a href="/admin/user/" class="list-group-item list-group-item-action bg-light">Пользователи</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+                    <a href="/admin/pages/" class="list-group-item list-group-item-action bg-light">Страницы</a>
+<!--                    <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>-->
                 </div>
             </div>
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 h-100" id="admincontent">
-            <div id="scrollbox" >
+            <div class="h-100" id="scrollbox" >
                 <{ admincontent }>
             </div>
             

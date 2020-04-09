@@ -11,14 +11,14 @@
  * https://redbeanphp.com/index.php?p=/connection
  * 
  * если не знаете что поставить просто поставте значение 'db_driver' в SQLite
- * в этом случии вусе остальные поля будут проигнорированный 
+ * в этом случии все остальные поля будут проигнорированны 
  * 
  */
 return array(
     'db_driver' => 'MariaDB',
     'db_host' => '127.0.0.1',
     'db_port' => '3306',
-    'db_frozen' => false,
+    'db_freeze' => false,
     'db_name' => 'mvcrb',
     'db_login' => 'root',
     'db_pass' => ''

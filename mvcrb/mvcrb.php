@@ -121,6 +121,9 @@ class mvcrb {
         $errorHandler = new ErrorHandler();
         $errorHandler->register();
         echo Session::GarbageCollector();
+//        
+//        $ctrl = new UikController();
+//        $ret = $ctrl->ExeluserAction();
 //        echo 'Cron service stop';
     }
     /**
@@ -304,7 +307,7 @@ class mvcrb {
         self::$globalConfig['App_Config_Dir'] = CONFIG_DIR;
         self::$globalConfig['App_Controllers_Dir'] = self::$globalConfig['App_Dir'] . 'controllers' . DIRECTORY_SEPARATOR;
         self::$globalConfig['App_Models_Dir'] = self::$globalConfig['App_Dir'] . 'models' . DIRECTORY_SEPARATOR;
-        self::$globalConfig['App_User_locale'] = filter_input(INPUT_SERVER, "HTTP_ACCEPT_LANGUAGE", FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+        //self::$globalConfig['App_User_locale'] = filter_input(INPUT_SERVER, "HTTP_ACCEPT_LANGUAGE", FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
         self::$globalConfig['App_Templates_Dir'] = TEMPLATE_DIR; // . 'default' . DIRECTORY_SEPARATOR;
 
         if (!file_exists(self::$globalConfig['App_Config_Dir'] . 'AutoLoader.php')) {

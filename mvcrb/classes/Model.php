@@ -26,6 +26,7 @@ class Model extends R {
             $pass = $Config['db_pass'];
         } else {
             $Config['db_driver'] = 'SQLite';
+            $Config['db_freeze'] = false;
             //throw new Exception(__METHOD__ . " ошибка бaзы данных. неудалось найти фаил конфигурации $IncFile");
         }
 //        var_dump($Config);
@@ -44,6 +45,8 @@ class Model extends R {
             case "CUBRID":
                 $this->setup("cubrid:host=$host;port=$port;dbname=$dbname", $login, $pass);
                 break;
+            default:
+                die("В конфигурации \"$IncFile\" параметр db_driver \"{$Config['db_driver']}\" указан неверно! проверте конфигурационный фаил базы данных");
         }
 
 //        R::ext("xDispense", function ($table_name) {
@@ -52,10 +55,16 @@ class Model extends R {
 
         if (!$this->testConnection()) {
 //            $this->fancyDebug(TRUE);
-            die("ошибка бaзы данных $host:$port. неудалось установить соединение c БД $dbname");
+            die("ошибка бaзы данных $host:$port. неудалось установить соединение c БД $dbname. Проверте фаил конфигурации!");
 //            throw new \Exception(__METHOD__ . " ошибка бaзы данных $host:$port. неудалось установить соединение c БД $dbname");
         }
-
+        // https://redbeanphp.com/index.php?p=/fluid_and_frozen
+        /**
+         * Режим заморозки ускоряет работу с базой.
+         * если режим выключен база становится динамической
+         * и может изменять таблицы в зависимости от данных.
+         */
+        $this->freeze($Config['db_freeze']);
 
         return $this;
     }
