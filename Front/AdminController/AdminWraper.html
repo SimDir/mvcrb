@@ -1,90 +1,76 @@
-<!-- Navbar -->
-<nav class="navbar sticky-top navbar-expand-sm navbar-dark unique-color">
-    <div class="container-fluid">
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow" id="mainbar">
 
-        <!-- Brand -->
-        <a class="navbar-brand waves-effect" href="/" target="_blank">
-            <img src="/public/img/all-seeing-eye.webp" class="rounded-circle z-depth-0" alt="avatar image" height="35">
-        </a>
-<!--        <a class="navbar-brand waves-effect" href="/" target="_blank">
-            <strong class="blue-text">На сайт</strong>
-        </a>-->
-
-        <!-- Collapse -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Links -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">Подробнее об MDB</a>
-                </li>
-
-            </ul>
-
-            <!-- Right -->
-            <ul class="navbar-nav nav-flex-icons">
-                <li class="nav-item">
-                    <a href="https://github.com/SimDir/mvcrb" class="nav-link border border-secondary rounded waves-effect" target="_blank">
-                        <i class="fab fa-github mr-2"></i>фреймворк RusBeard на GitHub
-                    </a>
-                </li>
-
-
-            </ul>
-            <ul class="navbar-nav ml-auto nav-flex-icons">
-<!--                <li class="nav-item avatar">
-                    <a class="nav-link" >
-                        <img src="/public/img/all-seeing-eye.webp" class="rounded-circle z-depth-0" alt="avatar image" height="35">
-                    </a>
-                 
-                </li>-->
-                <li class="nav-item avatar">
-                    <a href="/user/logout" class="nav-link waves-effect waves-light"> Выход
-                        <i class="fas fa-sign-out-alt"></i>
-                    </a>
-                    
-                </li>
-            </ul>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">            
+        <div class="d-flex justify-content-center">
+            <img src="/public/img/logo-ny.svg" height="28" alt="agalogo">
         </div>
-
-    </div>
+    </a>
+    <!--<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="/user/logout">Выход</a>
+        </li>
+    </ul>
 </nav>
-<!-- Navbar -->
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <div class="list-group list-group-flush">
+                    <a href="/admin/" class="list-group-item list-group-item-action bg-light">Главная</a>
+                    <a href="/admin/fm/" class="list-group-item list-group-item-action bg-light">Файлы сервера</a>
+                    <a href="/admin/user/" class="list-group-item list-group-item-action bg-light">Пользователи</a>
+                    <a href="/admin/pages/" class="list-group-item list-group-item-action bg-light">Страницы</a>
+<!--                    <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>-->
+                </div>
+            </div>
+        </nav>
 
-<!-- Sidebar -->
-<div id="AdminMenu" class="sidebar-fixed position-fixed stylish-color-dark">
-   
-    <div class="list-group list-group-flush rounded-0">
-        <a v-for="item in Menu" :href="item.src" class="list-group-item list-group-item-action waves-effect d-flex justify-content-between">
-            <span>{{item.name}}</span><i :class="item.class"></i>
-        </a>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 h-100" id="admincontent">
+            <div class="h-100" id="scrollbox" >
+                <{ admincontent }>
+            </div>
+            
+        </main>
     </div>
 </div>
-<script>
-var AdminMenu = new Vue({
-    el: '#AdminMenu',
-    data: {
-      Menu:[]
-    },
-    beforeCreate() {
-        fetch('/admin/getmenu/?AJAX=1')
-            .then(res => res.json())
-            .then(res => {this.Menu = res;});
-    }
-});
-</script>
-<!-- Sidebar -->
+<!--<div class="d-flex" id="wrapper">
+
+     Sidebar 
+    <div class="bg-light" id="sidebar-wrapper">
+        <div class="d-flex justify-content-center">
+            <img src="/public/img/logo-ny.svg" height="50" alt="agalogo">
+        </div>
+        <div class="list-group list-group-flush">
+            <a href="/admin/" class="list-group-item list-group-item-action bg-light">Главная</a>
+            <a href="/admin/fm/" class="list-group-item list-group-item-action bg-light">Файлы сервера</a>
+            <a href="/admin/user/" class="list-group-item list-group-item-action bg-light">Пользователи</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+        </div>
+    </div>
+     /#sidebar-wrapper 
+
+     Page Content 
+    <div id="page-content-wrapper">
+
+       
+
+        <div class="container-fluid h-100" id="admincontent">
+            <{ admincontent }>
+        </div>
+    </div>
+     /#page-content-wrapper 
+
+</div>-->
 
 
-
-<!--Main layout-->
-<main>
-
-    <div class="mr-3 ml-3 mt-3"><{ admincontent }></div>
-
-</main>
-<!--Main layout-->
+<!-- Menu Toggle Script -->
+<!--<script>
+    $("#menu-toggle").click((e) => {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>-->

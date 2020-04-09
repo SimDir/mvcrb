@@ -10,6 +10,9 @@ defined('ROOT') OR die('No direct script access.');
  * @author ivan kolotilkin
  */
 class AdminController extends Controller {
+
+    private $User;
+
     public function __construct() {
         parent::__construct();
         $this->User = new UserModel();
@@ -23,12 +26,20 @@ class AdminController extends Controller {
                 die('Forbidden: Asses denide');
             } else {
                 Session::set('UserRedirect', mvcrb::$URI);
-                return mvcrb::Redirect('/user/login');
+                return mvcrb::Redirect('/user');
             }
         }
-        $this->View->AddCss('/css/admin.css');
-//        $this->View->AddCss('/css/sidebar.css');
+        $this->View->AddCss('/css/adminstyle.css');
         $this->View->title = 'Админка';
+    }
+
+    public function UpdateAction($param = null) {
+        $FileName = null;
+        foreach (glob(mvcrb::Config()['App_Controllers_Dir'] . '*Controller.php') as $file) {
+            //$LastModified[] = filemtime($file); // массив файлов со временем изменения файла
+            $FileName[] = $file; // массив всех файлов
+        }
+        dd($FileName);
     }
 
     public function IndexAction() {
@@ -37,20 +48,25 @@ class AdminController extends Controller {
         $this->View->content = $this->View->execute('AdminWraper.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
-    public function FmAction() {
-        $this->View->admincontent = $this->View->execute('FlieM.html');
-        $this->View->content = $this->View->execute('AdminWraper.html');
+
+    public function EditorAction($Editor = 'tinymce', $id = 0) {
+        $Page = new PageModel();
+        $p = $Page->GetPage($id);
+        $this->View->id = $p['id'];
+        $this->View->apikey='2vf7bxyhwhgjglrd05fapr353yk2xhegpnqdxgnhdk78rsie';
+        $this->View->EditorText = $p['content'];
+        $this->View->content = $this->View->execute('Editor.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
-    
-    public function UserAction($param = false) {
-        if ($param) {
+
+    public function UserAction($param=false) {
+        if($param){
             $CollCom = mb_strtolower($param);
             $PostData = json_decode($this->REQUEST);
             switch ($CollCom) {
                 case 'delete':
-                    $UserID = json_decode($this->REQUEST, true)['UserID'];
-                    return ['success' => true, 'id' => $this->User->DellUser($UserID)];
+                    $UserID = json_decode($this->REQUEST,true)['UserID'];
+                    return ['success' => true, 'id' =>$this->User->DellUser($UserID)];
                     break;
                 case 'edit':
                     return ['success' => true, 'id' => $this->User->EditUser($PostData->email, isset($PostData->password) ? $PostData->password : '', $PostData->login, $PostData->role, $PostData->firstname, $PostData->lastname, $PostData->phone, $PostData->id)];
@@ -76,16 +92,16 @@ class AdminController extends Controller {
                 case 'export':
                     $allowedFileType = ['application/vnd.ms-excel', 'text/xls', 'text/xlsx', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'];
 
-                    if (in_array($_FILES["file"]["type"], $allowedFileType)) {
+                    if(in_array($_FILES["file"]["type"], $allowedFileType)){
 
-                        $targetPath = SITE_DIR . 'public' . DS . 'uploads' . DS . $_FILES['file']['name'];
-
-                        if (move_uploaded_file($_FILES['file']['tmp_name'], $targetPath)) {
+                        $targetPath = SITE_DIR.'public'.DS. 'uploads'.DS.$_FILES['file']['name'];
+                        
+                        if(move_uploaded_file($_FILES['file']['tmp_name'], $targetPath)){
                             return $this->User->SetExel($targetPath);
                         }
                     }
 
-
+                    
                     break;
                 default:
                     return [$CollCom];
@@ -96,47 +112,48 @@ class AdminController extends Controller {
         $this->View->content = $this->View->execute('AdminWraper.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
-    
+
+    public function GetpagelistAction() {
+        $page = new PageModel();
+        return $page->GetList(json_decode($this->REQUEST));
+    }
+    public function AddpageAction() {
+        $PostData = json_decode($this->REQUEST, true);
+        $page = new PageModel();
+        return ['success' => true, 'id' => $page->Add($PostData)];
+    }
+    public function DelpageAction() {
+        $PostData = json_decode($this->REQUEST, true);
+        $page = new PageModel();
+        return ['success' => $page->Del($PostData['id'])];
+    }
+    public function EditpageAction($id) {
+        $PostData = json_decode($this->REQUEST, true);
+        $page = new PageModel();
+        return ['success' => true, 'id' => $page->Edit($PostData,$id)];
+    }
+
     public function PagesAction() {
-        $this->View->admincontent = $this->View->execute('page.html');
+        $this->View->admincontent = $this->View->execute('pages.html');
         $this->View->content = $this->View->execute('AdminWraper.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
 
-    public function GetstaticpagelistAction($param = null) {
-        $directory = new \RecursiveDirectoryIterator(mvcrb::Config()['App_Templates_Dir'].'IndexController'.DS.'staticpage');
-        $iterator = new \RecursiveIteratorIterator($directory);
-        $files = [];
-        foreach ($iterator as $info) {
-            if (is_file($info->getPathname())) {
-                $files[] = basename($info->getPathname(), 'Controller.php');
-            }
-        }
-        return $files;
+    public function ConfiguratorAction() {
+        $this->View->admincontent = $this->View->execute('Configurator.html');
+        $this->View->content = $this->View->execute('AdminWraper.html');
+        return $this->View->execute('index.html', TEMPLATE_DIR);
     }
-    public function GetstaticpageAction($param = null) {
-        $PageName = json_decode($this->REQUEST,true)['PageName'];
 
-        $pageInDir = mvcrb::Config()['App_Templates_Dir'].'IndexController'.DS.'staticpage';
-
-        $PageFale = mvcrb::SearchFile($PageName, $pageInDir);
-        if(file_exists($PageFale)){
-            return ['PageContent'=> file_get_contents($PageFale)];
-        }
-        return ['error'];
-    }
-    
-    public function SavestaticpageAction($param = null) {
-        $PageName = json_decode($this->REQUEST, true)['PageName'];
-        $PageContent = json_decode($this->REQUEST, true)['PageContent'];
-        $pageInDir = mvcrb::Config()['App_Templates_Dir'] . 'IndexController' . DS . 'staticpage';
-
-        $PageFale = mvcrb::SearchFile($PageName, $pageInDir);
-        if (file_exists($PageFale)) {
-            $sucsses=file_put_contents($PageFale, $PageContent);
-            return ['sucsses' => $sucsses];
-        }
-        return ['error'];
+    public function GetmenuAction() {
+        $Data = [
+            ['id' => '1', 'parent' => '0', 'name' => 'Главная', 'src' => '/admin', 'class' => 'fas fa-home'],
+            ['id' => '2', 'parent' => '0', 'name' => 'Пользователи', 'src' => '/admin/user', 'class' => 'fas fa-users-cog'],
+            ['id' => '3', 'parent' => '0', 'name' => 'Страницы', 'src' => '/admin/pages', 'class' => 'far fa-file'],
+            ['id' => '4', 'parent' => '3', 'name' => 'wisiwing', 'src' => '/admin/editor/tinymce', 'class' => 'far fa-file'],
+            ['id' => '5', 'parent' => '0', 'name' => 'Конфигуратор','src'=>'/admin/Configurator','class'=>'fas fa-calculator']
+        ];
+        return $Data;
     }
 
 }

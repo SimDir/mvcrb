@@ -79,7 +79,7 @@ class PageModel extends Model {
         if (is_null($Data))
             return false;
 //        $Table = $this->Dispense($this->TableName);
-        $Table = $this->findOne($this->TableName, 'id = ?', array($id));
+        $Table = $this->findOne($this->TableName, 'id = ?', [$id]);
         $Table->import($Data);
         $Table->editdatetime = date('Y-m-d H:i:s');
         return $this->store($Table);
@@ -89,6 +89,13 @@ class PageModel extends Model {
         $Ret = $this->findOne($this->TableName, '(name = :idname) OR (id = :idname)', [':idname' => $name]);
         if ($Ret) {
             return $Ret->export();
+        }
+        return FALSE;
+    }
+    public function GetAllNews() {
+        $Ret = $this->findAll($this->TableName, "(type = 'news')");
+        if ($Ret) {
+            return $this->exportAll($Ret, TRUE);
         }
         return FALSE;
     }

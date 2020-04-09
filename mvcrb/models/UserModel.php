@@ -14,8 +14,9 @@ class UserModel extends Model {
     private $TableName;
 
     public function __construct() {
-        parent::__construct();
+        parent::__construct();   
         Session::init();
+//        Session::set('BrowserHesh', mvcrb::BrouserHash());
         $this->TableName = 'user';
     }
     public function SetExel($ExelFileToRiad) {
@@ -150,7 +151,7 @@ class UserModel extends Model {
     public function GetCurrentUser() {
         $var = Session::get('LoggedUser');
         $AnonimUser = ['Name' => 'anonim', 'login' => 'anonim', 'role' => 0];
-
+//        dd($var);
         if ($var) {
             $user = $this->findOne($this->TableName, 'email = ?', array($var['email']));
 
@@ -231,24 +232,23 @@ class UserModel extends Model {
     }
 
     public function login($email, $password) {
-        $user = $this->findOne($this->TableName, 'email = ?', array($email));
-        if (!$user) {
-            $user = $this->findOne($this->TableName, 'login = ?', array($email));
-        }
+//        Session::init();
+        $user = $this->findOne($this->TableName, '(email = :email) OR (login = :email)', [':email' => $email]);
+        
         if ($user) {
             //логин существует
             if (password_verify($password, $user->password)) {
                 //если пароль совпадает, то нужно авторизовать пользователя
-
+                
                 $user->lastlogin = date('Y-m-d H:i:s');
                 $user->browser = $_SERVER['HTTP_USER_AGENT'];
-                $user->browserip = $_SERVER['REMOTE_ADDR'];
+                $user->ip = $_SERVER['REMOTE_ADDR'];
+//                $user->session = mvcrb::BrouserHash();
                 $this->store($user);
                 $VarUser = $user->export();
+//                dd($VarUser);
                 unset($VarUser['password']); // убираем хеш пароля.
                 Session::set('LoggedUser', $VarUser);
-                $browser = md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
-                Session::set('BrowserHesh', $browser);
                 return TRUE;
             }
         }

@@ -19,42 +19,56 @@ class Session {
      */
     private static $sessionStarted = false;
     public static $sessionName = '';
+    
+    public static function GarbageCollector($maxlifetime=7200) {
+        $LogMsg = 'Session garbage collector start'.PHP_EOL;
+        foreach (glob(SITE_DIR .'usersessions'.DS.'sess_*') as $file) {
+//            $LogMsg .= "Dele Ses file $file".PHP_EOL;
+            if (filemtime($file) + $maxlifetime < time() && file_exists($file)) {
+                $LogMsg .= "Dele Ses file $file ".time().PHP_EOL;
+                unlink($file);
+            }
+        }
+        $LogMsg .= 'Session garbage collector stop'.PHP_EOL;
+        return $LogMsg;
+    }
+
     /**
      * if session has not started, start sessions
      */
     private static function SecSessionStart() {
-        if(session_status() === PHP_SESSION_ACTIVE){ 
-            self::$sessionStarted = true;
-            return true;
-        }
         $SessionsDir = SITE_DIR . 'usersessions';
         ini_set("session.gc_probability", 30); /* Можно настроить на 100%, если у вас там нет никакого медленного кода */
         ini_set("session.gc_divisor", 100);
-        ini_set("session.gc_maxlifetime", 3600); /* Время жизни сессии в секундах (то самое, которое передается в функцию gc) */
+        ini_set("session.gc_maxlifetime", 7200); /* Время жизни сессии в секундах (то самое, которое передается в функцию gc) */
         session_save_path($SessionsDir);
+        
+//session_name(SESSION_PREFIX);
 //        session_name(self::$sessionName);
 //        session_id(self::$sessionName);
-
+        // Forces sessions to only use cookies.
         if (ini_set('session.use_only_cookies', 1) === FALSE) {
+            //header("Location: ../error.php?err=Could not initiate a safe session (ini_set)");
             exit('SecSessionStart(): Could not initiate a safe session (ini_set)');
         }
-
+        // Gets current cookies params.
         $cookieParams = session_get_cookie_params();
         session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], false);
         
-        $handler = new FileSessionHandler();
-        session_set_save_handler(
-                array($handler, 'open'),
-                array($handler, 'close'),
-                array($handler, 'read'),
-                array($handler, 'write'),
-                array($handler, 'destroy'),
-                array($handler, 'gc')
-        );
-        if(session_status() === PHP_SESSION_NONE) session_start();            // Start the PHP session 
-//        session_regenerate_id();    // regenerated the session, delete the old one. 
-//        
-        $BrowserHesh = self::get('BrowserHesh');
+//$handler = new FileSessionHandler();
+//        session_set_save_handler(
+//                array($handler, 'open'),
+//                array($handler, 'close'),
+//                array($handler, 'read'),
+//                array($handler, 'write'),
+//                array($handler, 'destroy'),
+//                array($handler, 'gc')
+//        );
+        session_start();            // Start the PHP session 
+        session_gc();
+        //session_regenerate_id();    // regenerated the session, delete the old one. 
+        
+        $BrowserHesh = false;//self::get('BrowserHesh');
         if($BrowserHesh){
             
             $browser = mvcrb::BrouserHash();
@@ -67,10 +81,12 @@ class Session {
     }
 
     public static function init() {
+        //session_gc();
         if (!self::$sessionStarted) {
 //            session_start();
             self::$sessionName = mvcrb::BrouserHash();
             self::SecSessionStart();
+            self::$sessionStarted = true;
         }
         return self::$sessionStarted;
     }
@@ -171,7 +187,6 @@ class Session {
             setcookie(session_name(), '', time() - 42000, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
             /** if key is empty and $prefix is false */
             if ($key == '' && $prefix == false) {
-                session_gc();
                 session_unset();
                 session_destroy();
             } elseif ($prefix == true) {
@@ -194,13 +209,30 @@ class Session {
 //            session_destroy();
 //            session_start();
 //            session_regenerate_id(true);
-            session_gc();
             session_unset();
             session_destroy();
             session_write_close();
 //            setcookie(session_name(), '', 0, '/');
 
             session_abort();
+        }
+    }
+
+    /**
+     * Display a one time message, then clear if from the session.
+     *
+     * @param  string $sessionName default session name
+     * @return string
+     */
+    public static function message($sessionName = 'success') {
+        $msg = Session::pull($sessionName);
+        if (!empty($msg)) {
+            return "<div class='alert alert-success alert-dismissable'>
+                    <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
+                    <h4><i class='fa fa-check'></i> " . $msg . "</h4>
+                  </div>";
+        } else {
+            return null;
         }
     }
 

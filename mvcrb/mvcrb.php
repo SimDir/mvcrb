@@ -13,7 +13,57 @@ function dd($str) {
 //    var_dump($str);
     die();
 }
+//https://swiftmailer.symfony.com/docs/sending.html
+function rr_mail(string $to , string $subject , string $messages, $additional_headers=null){
+    try {
+        // Create the SMTP Transport
+        $transport = (new \Swift_SmtpTransport('smtp.beget.com', 465))
+                ->setUsername('info@fprize.ru')
+                ->setPassword('Info73501505')->setEncryption('SSL');// jsU3Kr&k beget
+//$transport = new \Swift_SendmailTransport('/usr/sbin/sendmail -bs');
+//$transport = new \Swift_SmtpTransport('smtp.yandex.ru', 587, 'ssl');
+        // Create the Mailer using your created Transport
+        $mailer = new \Swift_Mailer($transport);
 
+        // Create a message
+        $message = new \Swift_Message();
+
+        // Set a "subject"
+        $message->setSubject($subject);
+
+        // Set the "From address"
+        $message->setFrom(['info@fprize.ru' => 'Робот отправки сообщений']);
+
+        // Set the "To address" [Use setTo method for multiple recipients, argument should be array]
+        $message->addTo($to, 'получатель '.$to);
+
+        // Add "CC" address [Use setCc method for multiple recipients, argument should be array]
+//        $message->addCc('recipient@gmail.com', 'recipient name');
+
+        // Add "BCC" address [Use setBcc method for multiple recipients, argument should be array]
+//        $message->addBcc('recipient@gmail.com', 'recipient name');
+
+        // Add an "Attachment" (Also, the dynamic data can be attached)
+//        $attachment = Swift_Attachment::fromPath('example.xls');
+//        $attachment->setFilename('report.xls');
+//        $message->attach($attachment);
+
+        // Add inline "Image"
+//        $inline_attachment = Swift_Image::fromPath('nature.jpg');
+//        $cid = $message->embed($inline_attachment);
+
+        // Set the plain-text "Body"
+        $message->setBody($messages);
+
+        // Set a "Body"
+        $message->addPart('Это сообщение отправленно роботом.<br>'.$messages.'<br>Не отвечайте на это сообщение', 'text/html');
+
+        // Send the message
+        return $mailer->send($message);
+    } catch (Exception $e) {
+        return $e->getMessage();
+    }
+}
 class mvcrb {
 
     public static $ErrorMessage;
@@ -58,13 +108,23 @@ class mvcrb {
         $whoops->pushHandler($whoops_plain_text_handler2);
         $whoops->register();
     }
+    /**
+     * Метод запускает крон задачу приложения. 
+     * 
+     */
     public static function RunCron() {
+//        echo 'Cron service start';
         self::SetupConfig();
 
         self::InitAutoload();
         
-        $errorHandler = new ErrorHandler;
+        $errorHandler = new ErrorHandler();
         $errorHandler->register();
+        echo Session::GarbageCollector();
+//        
+//        $ctrl = new UikController();
+//        $ret = $ctrl->ExeluserAction();
+//        echo 'Cron service stop';
     }
     /**
      * Основной метод запускает все приложение. так называемая точка входа
@@ -74,11 +134,12 @@ class mvcrb {
         if (SHOW_ERROR) {
             self::initWhoops();
         } else {
+            include_once APP.'libs'.DS.'ErrorHandler.php';
             $errorHandler = new ErrorHandler;
             $errorHandler->register();
         }
         self::SetupConfig();
-
+//        dd(self);
         self::InitAutoload();
         
         self::GetControllerAndAction();
@@ -86,12 +147,8 @@ class mvcrb {
         if (is_string(self::$ExecRetVal)) {
             echo self::$ExecRetVal;
         } else {
-            if (!headers_sent()){
-                header("Access-Control-Allow-Orgin: *");
-                header("Access-Control-Allow-Methods: *");
+            if (!headers_sent())
                 header('Content-type: application/json');
-            }
-                
             echo json_encode(self::$ExecRetVal);
         }
     }
@@ -250,12 +307,12 @@ class mvcrb {
         self::$globalConfig['App_Config_Dir'] = CONFIG_DIR;
         self::$globalConfig['App_Controllers_Dir'] = self::$globalConfig['App_Dir'] . 'controllers' . DIRECTORY_SEPARATOR;
         self::$globalConfig['App_Models_Dir'] = self::$globalConfig['App_Dir'] . 'models' . DIRECTORY_SEPARATOR;
-        self::$globalConfig['App_User_locale'] = filter_input(INPUT_SERVER, "HTTP_ACCEPT_LANGUAGE", FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+        //self::$globalConfig['App_User_locale'] = filter_input(INPUT_SERVER, "HTTP_ACCEPT_LANGUAGE", FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
         self::$globalConfig['App_Templates_Dir'] = TEMPLATE_DIR; // . 'default' . DIRECTORY_SEPARATOR;
 
         if (!file_exists(self::$globalConfig['App_Config_Dir'] . 'AutoLoader.php')) {
 //            exit('AutoLoaderConfig.php не найден');
-            self::$globalConfig['App_Clas_Loader_Dir_Array'] = ['libs', 'models', 'controllers'];
+            self::$globalConfig['App_Clas_Loader_Dir_Array'] = ['classes', 'models', 'controllers'];
         } else {
             self::$globalConfig['App_Clas_Loader_Dir_Array'] = include_once self::$globalConfig['App_Config_Dir'] . 'AutoLoader.php';
         }
@@ -342,13 +399,9 @@ class mvcrb {
 // Encrypt Function
     public static function StrEncrypt($encrypt, $key) {
         $ivlen = openssl_cipher_iv_length($cipher = "AES-128-CBC");
-        
         $iv = openssl_random_pseudo_bytes($ivlen);
-        
         $ciphertext_raw = openssl_encrypt($encrypt, $cipher, $key, $options = OPENSSL_RAW_DATA, $iv);
-
         $hmac = hash_hmac('sha256', $ciphertext_raw, $key, $as_binary = true);
-//        dd($hmac);
         return base64_encode($iv . $hmac . $ciphertext_raw);
     }
 
@@ -367,7 +420,6 @@ class mvcrb {
         }
     }
     public static function BrouserHash() {
-//        dd($_SERVER);
         return md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT'] . $_SERVER['HTTP_ACCEPT_LANGUAGE']);
     }
 }

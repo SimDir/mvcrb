@@ -1,8 +1,8 @@
 <div id="userlist">
     <!-- Список пользователей -->
-    <div v-if="state==0" class="card">
+    <div v-if="state==0">
         <!--Card content-->
-        <div  class="card-body d-flex flex-wrap justify-content-between">
+        <div  class="d-flex flex-wrap justify-content-between border">
                 
                     <div class="p-2">
                         <button @click="state=1" type="button" class="btn btn-primary" title="Добавить нового пользователя"><i class="fas fa-user-plus"></i></button>
@@ -52,8 +52,8 @@
 
         </div>
        
-        <div class="card-body d-flex justify-content-center" >
-            <div style="overflow-y: auto;">
+        <div class="d-flex justify-content-center" >
+            
             <table class="table table table-hover table-bordered">
                 <thead class="bg-warning">
                     <tr>
@@ -91,24 +91,25 @@
 
                 </tbody>
             </table>
-            </div>
+            
         </div>
        
     </div>
 
     <!-- Добавление пользователя -->
-    <div v-if="state==1" class="card mb-1">
+    <div v-if="state==1 || state==2" class="bg-defaults">
         <!--Card content-->
-        <div class="card-body d-flex justify-content-between">
+        <div class="d-flex justify-content-between">
             <div class="p-2">
                 <button @click="ResetState" type="button" class="btn btn-primary" title="Вернутся"><i class="fas fa-arrow-circle-left"></i></button>
             </div>
         </div>
-        <div class="card-body d-flex justify-content-center">
+        <div class="d-flex justify-content-center">
             <!-- Добавление нового пользователя -->
 
-            <form  class="text-center border border-light p-5" action="/" @submit="AddUserForm" style="width: 500px;">
-                <p class="h4 mb-4">Добавить пользователя</p>
+            <div class="text-center border border-light p-5">
+                <p v-if="state==1" class="h4">Добавить пользователя</p>
+                <p v-if="state==2" class="h4">Редактировать пользователя</p>
                 <div v-if="errors" class="alert alert-danger" role="alert">
                     {{errors}}
                     <button @click="errors=false" type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -116,7 +117,7 @@
                     </button>
                 </div>
                 <div v-if="success" class="alert alert-success" role="alert">
-                    пользователь с ID{{id}} добален успешно.
+                    {{ success }}
                     <button @click="success=false" type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -163,22 +164,22 @@
 
 
                 <!-- Sign up button -->
-                <button class="btn btn-info my-4 btn-block" type="submit">Создать</button>
-
-            </form>
+                <button v-if="state==1" class="btn btn-info my-4 btn-block" @click="AddUserForm">Создать</button>
+                <button v-if="state==2" class="btn btn-info my-4 btn-block" @click="EditUserForm">Сохранить</button>
+            </div>
 
         </div>
         
     </div>
     <!-- Редактирование пользователя -->
-    <div v-if="state==2" class="card mb-1">
+<!--    <div v-if="state==2" class="card mb-1">
         <div class="card-body d-flex justify-content-between">
             <div class="p-2">
                 <button @click="ResetState" type="button" class="btn btn-primary" title="Вернутся"><i class="fas fa-arrow-circle-left"></i></button>
             </div>
         </div>
         <div class="card-body d-flex justify-content-center">
-            <!-- Форма редактирования пользователя -->
+             Форма редактирования пользователя 
             <form v-if="state==2" class="text-center border border-light p-5" action="/" @submit="EditUserForm" style="width: 500px;">
 
                 <p class="h4 mb-4">Изменить пользователя с ID{{id}}</p>
@@ -194,35 +195,35 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <!-- login -->
+                 login 
                 <input type="text" id="login" class="form-control" aria-describedby="LoginHelpBlock" placeholder="Логин" v-model="User.login" required>
                 <small id="LoginHelpBlock" class="form-text text-muted mb-4">
                     Логин для входа в систему
                 </small>
                 <div class="form-row mb-4">
                     <div class="col-6">
-                        <!-- First name -->
+                         First name 
                         <input type="text" id="FirstName" class="form-control" placeholder="Имя" v-model="User.firstname" required>
                     </div>
                     <div class="col-6">
-                        <!-- Last name -->
+                         Last name 
                         <input type="text" id="LastName" class="form-control" placeholder="Фамилия" v-model="User.lastname" required>
                     </div>
                 </div>
 
-                <!-- E-mail -->
+                 E-mail 
                 <input type="email" id="Email" class="form-control" placeholder="E-mail" aria-describedby="EmailHelpBlock" v-model="User.email" required>
                 <small id="EmailHelpBlock" class="form-text text-muted mb-4">
                     Почта пользователя                         
                 </small>
-                <!-- Password -->
+                 Password 
                 <input type="password" id="Password" class="form-control" placeholder="Пароль" aria-describedby="PasswordHelpBlock" v-model="User.password">
                 <small id="PasswordHelpBlock" class="form-text text-muted mb-4">
                     Пароль от 4 до 64 символов.<br>
                     <span class="text-muted">Если не заполнить поля пароля то пароль не будет изменен и останется тем который был изначально</span>
                 </small>
 
-                <!-- Phone number -->
+                 Phone number 
                 <input type="tel" id="Phone" class="form-control" placeholder="Номер телефона" aria-describedby="PhoneHelpBlock" v-model="User.phone">
                 <small id="PhoneHelpBlock" class="form-text text-muted mb-4">
                     Номер телефона 
@@ -238,15 +239,15 @@
                 </select>
 
 
-                <!-- Sign up button -->
+                 Sign up button 
                 <button class="btn btn-info my-4 btn-block" type="submit">Сохранить</button>
 
             </form>
         </div>
     </div>
-    
-    <div v-if="state==3" class="card">
-        <div class="card-body d-flex flex-wrap justify-content-between">
+    -->
+    <div v-if="state==3" class="carda">
+        <div class="d-flex flex-wrap justify-content-between">
             <div class="p-2">
                 <button @click="state=0" type="button" class="btn btn-primary" title="Вернутся"><i class="fas fa-arrow-left"></i></button>
 <!--            </div>
@@ -254,7 +255,7 @@
                 <a href="/admin/user/getexel" class="btn btn-primary" title="Скачать"><i class="far fa-arrow-alt-circle-down"></i></a>
             </div>
         </div>
-        <div class="card-body d-flex flex-wrap justify-content-between">
+        <div class="d-flex flex-wrap justify-content-between">
             <h3 class="p-2">Експорт файла Excel в базу данных MySQL </h3>
 
             <div class="p-2">

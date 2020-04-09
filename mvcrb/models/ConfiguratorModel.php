@@ -51,5 +51,68 @@ class ConfiguratorModel extends Model{
         $Table->createdatetime = date('Y-m-d H:i:s');
         return $this->store($Table);
     }
-
+    public function AddParam($Data = null) {
+        if (is_null($Data))
+            return false;
+        $Table = $this->Dispense('configuratorparam');
+        $Table->import($Data);
+        $Table->createdatetime = date('Y-m-d H:i:s');
+        return $this->store($Table);
+    }
+    public function SaveParam($Data = null,$id=0) {
+        if (is_null($Data))
+            return false;
+//        $Table = $this->Dispense('configuratorparam');
+        $Table = $this->load('configuratorparam',$id);
+        $Table->import($Data);
+        $Table->editdatetime = date('Y-m-d H:i:s');
+        return $this->store($Table);
+    }
+    public function GetParam($id=0) {
+        if($id>0){
+            $tempbean = $this->findAll('configuratorparam','(step = :id)',[':id' => $id]);
+        }else{
+            $tempbean = $this->findAll('configuratorparam');
+        }
+        return $this->exportAll($tempbean, TRUE);
+    }
+    public function GetParamId($id=0) {
+        if($id<=0) return false;
+        $tempbean = $this->load('configuratorparam', $id);
+        
+        return $tempbean->export();
+    }
+    
+    public function GetSetting($name=false) {
+        if($name){
+            $tempbean = $this->findAll('setting',"(name = :name) AND (module = 'Configurator')",[':name' => $name]);
+        }else{
+            $tempbean = $this->findAll('setting',"(module = 'Configurator')");
+        }
+        return $this->exportAll($tempbean, TRUE);
+    }
+    public function AddSetting($Data = null) {
+        if (is_null($Data))
+            return false;
+        $Table = $this->Dispense('setting');
+        $Table->module = 'Configurator';
+        $Table->import($Data);
+//        $Table->createdatetime = date('Y-m-d H:i:s');
+        return $this->store($Table);
+    }
+    public function SaveSetting($Data = null) {
+        if (is_null($Data))
+            return false;
+//        dd($Data);
+        $id = $this->findOne( 'setting', ' name = ? ', [ $Data['name'] ] );
+        if($id>0){
+            $Table = $this->load('setting',$id);
+        }else{
+            $Table = $this->Dispense('setting');
+        }
+        
+        $Table->import($Data);
+        $Table->module = 'Configurator';
+        return $this->store($Table);
+    }
 }

@@ -7,7 +7,7 @@ defined('ROOT') OR die('No direct script access.');
 /**
  * Description of FileSessionHandler
  *
- * @author я
+ * @author Ivan Kolotilkin
  * 
  */
 class FileSessionHandler {
