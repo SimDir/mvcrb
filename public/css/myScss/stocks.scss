@@ -871,7 +871,7 @@ $height-stc-header: 10em;
     }
 }
 
-.stc-main__quiz__step {
+.stc-main__quiz__steps {
     width: 100%;
     height: 100%;
     display: flex;
@@ -918,21 +918,216 @@ $height-stc-header: 10em;
         width: 100%;
     }
 }
+.stc-main__quiz__step__footer__progress__title {
+    font-family: "Museo Sans 500";
+    font-size: 1.3em;
+    line-height: 1.2em;
+    color: #454343;
+    margin-bottom: .5em;
+    margin-top: -1em;
+    &-value {
+        font-size: 1.6em;
+        color: #ff7200;
+        padding-left: 0.3em;
+    }
+}
+.stc-main__quiz__step__footer__progress {
+    width: 100%;
+    height: 0.7em;
+    border-radius: 2rem;
+    background-color: #e3e2e0;
+    position: relative;
+    overflow: hidden;
+    &__track {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0%;
+        background-color: #ff7200;
+        transition: all .2s;
+    }
+}
+.stc-main__quiz__step__footer__btn--wrap {
+    display: flex;
+    align-items: center;
+}
+.stc-main__quiz__step__footer__prev-btn {
+    border-radius: 50%;
+    background-color: #e3e2e0;
+    width: 3.5em;
+    height: 3.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1.5em 0 2.5em;
+    border: none;
+    box-shadow: 0 0 .5em rgba(#000, .3);
+    transition: all .2s;
+    opacity: .7;
+    cursor: not-allowed !important;
+}
+.stc-main__quiz__step__footer__prev-btn--active {
+    cursor: pointer !important;
+    opacity: 1;
+    &:hover {
+        box-shadow: 0 0 .5em rgba(#000, .5);
+    }
+}
+.stc-main__quiz__step__footer__next-btn {
+    background: linear-gradient(102deg, #ee632d, #fa8704);
+    color: #fff;
+    border: none;
+    font-family: "Museo Sans 700";
+    font-size: 1.8em;
+    padding: 0.3em 2.2em 0.3em 1.2em;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 .5em rgba(#000, .3);
+    position: relative;
+    overflow: hidden;
+    transition: all .2s;
+    opacity: .7;
+    cursor: not-allowed !important;
+    &::before {
+        content: '';
+        position: absolute;
+        right: 1em;
+        top: 40%;
+        background: url(/public/img/stocks/complex/next.png) center / contain no-repeat;
+        width: 0.85em;
+        height: 0.57em;
+    }
+}
+.stc-main__quiz__step__footer__next-btn--active {
+    cursor: pointer !important;
+    opacity: 1;
+    &:hover {
+        text-shadow: 0 0 .7em rgba(#fff, .7);
+        box-shadow: 0 0 .5em rgba(#000, .5);
+    }
+}
+
+
+
 .stc-main__quiz__step__content {
     width: 100%;
     flex-grow: 1;
-    padding: 3em 8em;
+    position: relative;
+}
+.stc-main__quiz__step {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    transform: scale(0);
+    position: absolute;
+    left: 0;top: 0;
+    padding: 3em 8em;
 }
-.stc-main__quiz__step-1 {
-    
-    
+.stc-main__quiz__step__content__title {
+    color: #454343;
+    font-size: 3em;
+    line-height: 1.2em;
+    margin-bottom: 1.3em;
+    font-family: "Museo Sans 700";
+}
+.stc-main__quiz__step__content__form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.stc-main__quiz__step__content__label {
+    width: 46%;
+    border: 1px solid #b7b7b7;
+    color: #454343;
+    font-size: 1.6em;
+    line-height: 1.2em;
+    padding: .9em 1em .9em 2.5em;
+    border-radius: .5rem;
+    margin-bottom: 1.5em;
+    font-family: "Museo Sans 300";
+    position: relative;
+    transition: all .2s;
+    cursor: pointer;
+    &:hover {
+        border: 1px solid #f7be6d;
+        box-shadow: 0 0 .5em rgba(#c24732, .4);
+    }
+    input[type="radio"] {
+        display: none;
+        &:checked + .stc-main__quiz__step__content__check  {
+            border: .2em solid #FAB171;
+            background-color: #C24831;
+        }
+    }
+    input[type="checkbox"] {
+        display: none;
+        &:checked + .stc-main__quiz__step__content__check  {
+            border: .2em solid #FAB171;
+            background-color: #C24831;
+        }
+    }
     
 }
-
+.stc-main__quiz__step__content__check {
+    position: absolute;
+    left: 1em;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: #b7b7b7;
+    transition: all .2s;
+}
+.stc-main__quiz__step-2__input {
+    width: 80%;
+    border: 1px solid #b7b7b7;
+    padding: .9em 1.2em;
+    background-color: #E3E3E3;
+    border-radius: .5rem;
+    color: #454343;
+    font-size: 1.6em;
+    line-height: 1.2em;
+    font-family: "Museo Sans 300";
+}
+.quiz__step-4__title {
+    position: relative;
+    &::before {
+        content: 'выберите один или несколько';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        font-family: "Museo Sans 300";
+        color: #fff;
+        font-size: .4em;
+        line-height: 1em;
+        padding: .6em .6em .6em 2em;
+        background: url(/public/img/stocks/complex/quiz__step-4__title.png) left .6em center / 1em .8em no-repeat #ff7200;
+        border-radius: .5rem;
+        opacity: .7;
+    }
+}
+.stc-main__quiz__step__content__textarea--wrap {
+    position: relative;
+    height: 50px;
+    overflow: hidden;
+}
+.stc-main__quiz__step-9 textarea {
+    position: absolute;
+    left: 2.5em;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    border: none;
+    background-color: #fff;
+    padding: .9em 1.2em;
+    background-color: #E3E3E3;
+    color: #454343;
+    font-family: "Museo Sans 300";
+}
 
 
 @media(max-width: 1500px) { 
