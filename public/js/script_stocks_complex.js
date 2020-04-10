@@ -61,6 +61,16 @@ $( document ).ready(function() {
     let step_8 = document.querySelector('.stc-main__quiz__step-8');
     let step_9 = document.querySelector('.stc-main__quiz__step-9');
     let stepFinal = document.querySelector('.stc-main__quiz__final');
+
+    let quizForms = document.querySelectorAll('.stc-main__quiz__step__content__form');
+    for(let i=0; i<quizForms.length; i++) {
+        quizForms[i].keydown = function(e) {
+            if(event.keyCode == 13) {
+                event.preventDefault();
+                return false;
+            }
+        }
+    }
     
 
     quizStep.addEventListener('click', function(e) {

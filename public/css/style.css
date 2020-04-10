@@ -12189,6 +12189,31 @@ h3.productsPage-presentation__title {
   text-transform: uppercase;
   font-family: "Museo Sans 900";
   border: 0.1em solid #fff;
+  position: relative;
+}
+.stc-main-header-title:hover::before {
+  width: 40%;
+}
+.stc-main-header-title::before {
+  content: "";
+  position: absolute;
+  left: 0.5em;
+  bottom: 0.25em;
+  transition: all 0.2s;
+  height: 0.1em;
+  width: 0;
+}
+
+.stc-main-header-title--complex::before {
+  background-color: #fff;
+}
+
+.stc-main-header-title--dostavka::before {
+  background-color: #fff;
+}
+
+.stc-main-header-title--tech::before {
+  background-color: #fff;
 }
 
 .stc-main-header-subtitle {
