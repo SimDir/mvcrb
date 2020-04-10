@@ -59,6 +59,12 @@ return array(
     'mediacenter/events/gadzhets_GTCOM.html' => 'page/page/gadzhets_GTCOM.html',
     'mediacenter/events/kipr_international_relations.html' => 'page/page/kipr_international_relations.html',
     'mediacenter/events/ICEM.html' => 'page/page/ICEM.html',
+
+
+    'promo/tech999.html' => 'page/page/tech999.html',
+    'promo/dostavka.html' => 'page/page/dostavka.html',
+    'promo/complex.html' => 'page/page/complex.html',
+    '^promo/([-_a-zA-Z0-9]+.html)' => 'promo/index/$1',
     
     '^page/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+.html)' => 'page/page/$2/$1',
     '^page/([-_a-zA-Z0-9]+.html)' => 'page/page/$1',
