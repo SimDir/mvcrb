@@ -1,5 +1,8 @@
 'use strict';
 $( document ).ready(function() { 
+
+
+
     let stocksOfferTitle = document.querySelectorAll('.stc-main-offer-title');
     let stocksOfferList = document.querySelectorAll('.stc-main-offer-list--wrap');
     for(let i=0; i<stocksOfferTitle.length; i++) {
@@ -57,7 +60,7 @@ $( document ).ready(function() {
     let step_7 = document.querySelector('.stc-main__quiz__step-7');
     let step_8 = document.querySelector('.stc-main__quiz__step-8');
     let step_9 = document.querySelector('.stc-main__quiz__step-9');
-    let stepFinal = document.querySelector('.stc-main__quiz__step__final');
+    let stepFinal = document.querySelector('.stc-main__quiz__final');
     
 
     quizStep.addEventListener('click', function(e) {
@@ -297,6 +300,8 @@ $( document ).ready(function() {
                         quizStepProgressValue.innerText = sterpValuePercentRound+'%';
                         step_9.style.transition = 'all .2s ease';
                         step_9.style.transform = 'scale(0)';
+                        quizStep.style.transition = 'all 0.2s ease';
+                        quizStep.style.transform = 'scale(0)';
                         stepFinal.style.transition = 'all .2s ease .2s';
                         stepFinal.style.transform = 'scale(1)';
                         this.classList.remove('stc-main__quiz__step__footer__next-btn--active');
@@ -316,5 +321,10 @@ $( document ).ready(function() {
     })
         
 
-    
+    let quizFinalBtn = document.querySelector('.stc-main__quiz__final__btn');
+    let quizFinalSuccess = document.querySelector('.stc-main__quiz__final__success');
+    quizFinalBtn.onclick=function() {
+        quizFinalSuccess.style.transform = 'scale(1)';
+    }
+        
 });
