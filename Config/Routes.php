@@ -61,9 +61,9 @@ return array(
     'mediacenter/events/ICEM.html' => 'page/page/ICEM.html',
 
 
-    'promo/tech999.html' => 'page/page/tech999.html',
-    'promo/dostavka.html' => 'page/page/dostavka.html',
-    'promo/complex.html' => 'page/page/complex.html',
+    'promo/tekhnicheskaya-podderzhka-sajta.html' => 'page/page/tekhnicheskaya-podderzhka-sajta.html',
+    'promo/biznes-onlajn.html' => 'page/page/biznes-onlajn.html',
+    'promo/kompleksnyj-internet-marketing.html' => 'page/page/kompleksnyj-internet-marketing.html',
     
     '^page/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+.html)' => 'page/page/$2/$1',
     '^page/([-_a-zA-Z0-9]+.html)' => 'page/page/$1',
