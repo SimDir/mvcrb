@@ -64,6 +64,7 @@ return array(
     'promo/tekhnicheskaya-podderzhka-sajta.html' => 'page/page/tekhnicheskaya-podderzhka-sajta.html',
     'promo/biznes-onlajn.html' => 'page/page/biznes-onlajn.html',
     'promo/kompleksnyj-internet-marketing.html' => 'page/page/kompleksnyj-internet-marketing.html',
+    'promo/promo-navigation.html' => 'page/page/promo-navigation.html',
     
     '^page/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+.html)' => 'page/page/$2/$1',
     '^page/([-_a-zA-Z0-9]+.html)' => 'page/page/$1',
