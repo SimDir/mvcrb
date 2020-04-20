@@ -53,7 +53,7 @@ class IndexController extends Controller {
 
         $to = 'komdir@agatech.ru';
         $subject = 'Сообщение с формы сайта. молнию продаж';
-        $message = 'Новое сообщение от ФИО <b>' . $postdata['fio'] . '</b> на сайте молния продаж.<br>Контактный телефон <b>' . $postdata['phone'] . '</b><br>' . PHP_EOL;
+        $message = 'Новое сообщение от пользователя <b>' . $postdata['fio'] . '</b> на сайте Агатечь.<br>Контактный телефон <b>' . $postdata['phone'] . '</b><br>' . PHP_EOL;
         $message .= 'оставил свой маил адрес почты <b>' . $postdata['email'] . '</b> и написал вот такое сообщение ' . PHP_EOL . PHP_EOL . '<h5>' . $postdata['message'] . '</h5>';
         $headers = 'From: ' . $postdata['email'] . "\r\n" .
 //                'Reply-To: admin@agatech.ru' . "\r\n" .
