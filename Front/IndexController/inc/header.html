@@ -440,24 +440,24 @@
       <div v-if="showForm" class="popup-static">
          <img src="/public/img/popup/message.png" alt="message" class="popup-static__img">
          <form  @submit="sbmt" class="popup-static__form form">
-             <label for="" class="form__label">
-                 <span class="form__title">Имя: 
-                 </span>
-                 <input v-model="message.fio" type="text" class="form__input" placeholder="Введите имя...">
-             </label>
-             <label for="" class="form__label">
-                 <span class="form__title">Телефон:</span>
-                 <input v-model="message.phone" type="tel" class="form__input" placeholder="Введите номер телефона...">
-             </label>
-             <label for="" class="form__label">
-                 <span class="form__title">E-mail:</span>
-                 <input v-model="message.email" type="email" class="form__input" placeholder="Введите почту...">
-             </label>
-             <label for="" class="form__label">
-                 <span class="form__title">Комментарий:</span>
-             <textarea v-model="message.message" class="form__textarea" placeholder="Введите текст сообщения..."></textarea>
-             </label>
-             <input type="submit" value="Отправить" class="form__submit">
+                <label for="" class="form__label">
+                    <span class="form__title">Имя: 
+                    </span>
+                    <input v-model="message.fio" type="text" class="form__input" placeholder="Введите имя...">
+                </label>
+                <label for="" class="form__label">
+                    <span class="form__title">Телефон:</span>
+                    <input v-model="message.phone" type="tel" class="form__input" placeholder="Введите номер телефона...">
+                </label>
+                <label for="" class="form__label">
+                    <span class="form__title">E-mail:</span>
+                    <input v-model="message.email" type="email" class="form__input" placeholder="Введите почту...">
+                </label>
+                <label for="" class="form__label">
+                    <span class="form__title">Комментарий:</span>
+                <textarea v-model="message.message" class="form__textarea" placeholder="Введите текст сообщения..."></textarea>
+                </label>
+                <input type="submit" value="Отправить" class="form__submit">
          </form>
       </div>
        
