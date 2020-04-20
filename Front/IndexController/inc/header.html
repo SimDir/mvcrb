@@ -443,19 +443,19 @@
              <label for="" class="form__label">
                  <span class="form__title">Имя: 
                  </span>
-                 <input type="text" class="form__input" placeholder="Введите имя...">
+                 <input v-model="message.fio" type="text" class="form__input" placeholder="Введите имя...">
              </label>
              <label for="" class="form__label">
                  <span class="form__title">Телефон:</span>
-                 <input type="tel" class="form__input" placeholder="Введите номер телефона...">
+                 <input v-model="message.phone" type="tel" class="form__input" placeholder="Введите номер телефона...">
              </label>
              <label for="" class="form__label">
                  <span class="form__title">E-mail:</span>
-                 <input type="email" class="form__input" placeholder="Введите почту...">
+                 <input v-model="message.email" type="email" class="form__input" placeholder="Введите почту...">
              </label>
              <label for="" class="form__label">
                  <span class="form__title">Комментарий:</span>
-             <textarea class="form__textarea" placeholder="Введите текст сообщения..."></textarea>
+             <textarea v-model="message.message" class="form__textarea" placeholder="Введите текст сообщения..."></textarea>
              </label>
              <input type="submit" value="Отправить" class="form__submit">
          </form>
@@ -476,12 +476,31 @@
    var app = new Vue({
    el: '#app',
    data: {
-      showForm:true
+      showForm:true,message:{fio:'',phone:'',email:'',message:''}
       },
       methods: {
          sbmt(e) {
             e.preventDefault();
-            this.showForm=false;
+            fetch('/index/feedback', {
+                    mode: 'cors',
+                    method: 'POST',
+                    body: JSON.stringify(this.message)
+                })
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Network response was not ok');
+                })
+                .then((json) => {
+                    this.message={fio:'',phone:'',email:'',message:''};
+                    this.showForm=false;
+                    console.log(json);
+                })
+                .catch((error) => {
+                    console.log('FormLogin', error);
+                });
+            
          },
          show() {
             this.showForm=true;

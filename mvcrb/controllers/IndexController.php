@@ -45,5 +45,26 @@ class IndexController extends Controller {
         $this->View->content = $this->View->execute('error.html');
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
+    public function FeedbackAction() {
+        if (!$this->POST)
+            return ['Error' => "Only POST REQUEST"];
+
+        $postdata = json_decode($this->REQUEST, true);
+
+        $to = 'komdir@agatech.ru';
+        $subject = 'Сообщение с формы сайта. молнию продаж';
+        $message = 'Новое сообщение от ФИО <b>' . $postdata['fio'] . '</b> на сайте молния продаж.<br>Контактный телефон <b>' . $postdata['phone'] . '</b><br>' . PHP_EOL;
+        $message .= 'оставил свой маил адрес почты <b>' . $postdata['email'] . '</b> и написал вот такое сообщение ' . PHP_EOL . PHP_EOL . '<h5>' . $postdata['message'] . '</h5>';
+        $headers = 'From: ' . $postdata['email'] . "\r\n" .
+//                'Reply-To: admin@agatech.ru' . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
+
+        $success = rr_mail($to, $subject, $message, $headers);
+        if (!$success) {
+            $success = error_get_last()['message'];
+        }
+        return ['SendStatus' => $success, 'SendTO' => $to];
+//        return $postdata;
+    }
 
 }
