@@ -134,7 +134,7 @@ class mvcrb {
         if (SHOW_ERROR) {
             self::initWhoops();
         } else {
-            include_once APP.'libs'.DS.'ErrorHandler.php';
+            include_once APP.'classes'.DS.'ErrorHandler.php';
             $errorHandler = new ErrorHandler;
             $errorHandler->register();
         }
