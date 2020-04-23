@@ -5598,15 +5598,15 @@ header.header {
 }
 
 .news-slide-1 {
-  background-image: url(/public/img/new_center/news/presentation_Internet_project/presentation-Internet-project-header.jpg);
+  background-image: url(/public/img/new_center/news/vote_for_ulyanovsk/vote-for-ulyanovsk-header.jpg);
 }
 
 .news-slide-2 {
-  background-image: url(/public/img/new_center/news/fruits_of_digitalization/fruits-of-digitalization-header.jpg);
+  background-image: url(/public/img/new_center/news/city_online/city-online-header.jpg);
 }
 
 .news-slide-3 {
-  background-image: url(/public/img/new_center/news/person_of_year_2019/person-of-year-2019-header.jpg);
+  background-image: url(/public/img/new_center/news/UUSP/UUSP-header.jpg);
 }
 
 .events-slide-1 {
@@ -9476,6 +9476,18 @@ h3.productsPage-presentation__title {
 
 .cooperationInternational-header {
   background-image: url(/public/img/cooperation/сooperationInternational-bgc.png);
+}
+
+.news-vote-for-ulyanovsk {
+  background-image: url(/public/img/new_center/news/vote_for_ulyanovsk/vote-for-ulyanovsk-header.jpg);
+}
+
+.news-city-online {
+  background-image: url(/public/img/new_center/news/city_online/city-online-header.jpg);
+}
+
+.news-UUSP {
+  background-image: url(/public/img/new_center/news/UUSP/UUSP-header.jpg);
 }
 
 .news-presentation-Internet-project {
