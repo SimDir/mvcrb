@@ -785,6 +785,47 @@
     justify-content: space-between;
     margin-bottom: 45px;
  }
+ .productsPage__desc {
+    width: 100%;
+   margin-bottom: 2.5em;
+   font-family: "Museo Sans 300";
+   color: #000;
+   font-size: 18px;
+   line-height: 1.5em;
+   margin-top: -1.5em;
+ }
+ .productsPage__title {
+   font-family: "Museo Sans 700";
+   color: #7787aa;
+   font-size: 30px;
+   line-height: 1.1em;
+   align-self: flex-start;
+   margin-bottom: .7em;
+ }
+ .productsPage__price-text--wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 1em;
+ }
+ .productsPage__price-text__title {
+   font-family: "Museo Sans 700";
+   color: #7787aa;
+   font-size: 1em;
+   line-height: 1.1em;
+   margin-bottom: .1em;
+ }
+ .productsPage__price-text__subtitle {
+   font-family: "Museo Sans 300";
+   color: #7787aa;
+   font-size: 18px;
+   line-height: 1.2em;
+ }
+
  .productsPage-top__advantages {
     display: flex;
     flex-direction: column;
@@ -937,6 +978,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 40px;
  }
  .productsPage-presentation--row-2 {
     margin-top: 60px;
@@ -1076,6 +1118,18 @@
     .productsPage-top {
        margin-bottom: 40px;
     }
+    .productsPage__desc {
+      font-size: 16px;
+    }
+    .productsPage__title {
+      font-size: 28px;
+    }
+    .productsPage__price-text--wrap {
+      font-size: 28px;
+    }
+    .productsPage__price-text__subtitle {
+      font-size: 16px;
+    }
     .productsPage-top__advantages {
        width: 520px;
     }
@@ -1158,10 +1212,25 @@
     .presentation__item-download {
        font-size: 14px;
     }
+    .productsPage-presentation {
+      margin-bottom: 35px;
+   }
  }
  @media(max-width: 1300px) { 
     .productsPage-top {
        margin-bottom: 35px;
+    }
+    .productsPage__desc {
+      font-size: 14px;
+    }
+    .productsPage__title {
+      font-size: 26px;
+    }
+    .productsPage__price-text--wrap {
+      font-size: 26px;
+    }
+    .productsPage__price-text__subtitle {
+      font-size: 14px;
     }
     .productsPage-top__advantages {
        width: 420px;
@@ -1246,8 +1315,18 @@
     .presentation__item-download {
        font-size: 13px;
     }
+    .productsPage-presentation {
+      margin-bottom: 30px;
+   }
  }
  @media(max-width: 1100px) { 
+   .productsPage__title {
+      font-size: 24px;
+    }
+    .productsPage__price-text--wrap {
+      font-size: 24px;
+      margin-bottom: .5em;
+    }
     .productsPage-top {
        flex-direction: column;
        justify-content: flex-start;
@@ -1283,8 +1362,17 @@
     .productsPage-presentation__item {
        margin: 10px;
     }
+    .productsPage-presentation {
+      margin-bottom: 25px;
+   }
  }
  @media(max-width: 900px) { 
+   .productsPage__title {
+      font-size: 22px;
+    }
+    .productsPage__price-text--wrap {
+      font-size: 22px;
+    }
     .top__other-video--wrap {
        height: 170px;
        margin-bottom: 15px;
@@ -1378,7 +1466,19 @@
        font-size: 12px; 
     }
  }
- @media(max-width: 500px) { 
+ @media(max-width: 500px) {
+   .productsPage__title {
+      font-size: 20px;
+    }
+   .productsPage__desc {
+      font-size: 12px;
+    } 
+    .productsPage__price-text--wrap {
+      font-size: 20px;
+    }
+    .productsPage__price-text__subtitle {
+      font-size: 12px;
+    }
     .productsPage-top {
       margin-bottom: 25px;
     }
@@ -1451,5 +1551,8 @@
     .presentation__item-download {
        font-size: 11px; 
     }
+    .productsPage-presentation {
+      margin-bottom: 20px;
+   }
  }
  
