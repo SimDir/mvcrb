@@ -180,11 +180,11 @@
 
 
 
-<div id="complete1" onclick="ym(57492568, 'reachGoal', 'complete1'); return true;" class="popup--wrap app">
+<div class="popup--wrap app">
     <div class="popup">
        <div v-if="showForm" class="popup-static">
           <img src="/public/img/popup/message.png" alt="message" class="popup-static__img">
-          <form  @submit="sbmt" class="popup-static__form form">
+          <form  @submit="sbmt" class="popup-static__form form" id="complete1" onclick="ym(57492568, 'reachGoal', 'complete1'); return true;" >
               <label for="" class="form__label">
                   <span class="form__title">Имя: 
                   </span>
@@ -202,7 +202,7 @@
                   <span class="form__title">Комментарий:</span>
               <textarea class="form__textarea" placeholder="Введите текст сообщения..."></textarea>
               </label>
-              <input type="submit" value="Отправить" class="form__submit">
+              <input type="submit" value="Отправить" class="form__submit" id="send1" onclick="ym(57492568, 'reachGoal', 'send1'); return true;">
           </form>
        </div>
         
@@ -213,7 +213,7 @@
              <img src="/public/img/popup/message.png" alt="message" class="popup-success__img">
           </div>
           <span class="popup-success__title">ФОРМА УСПЕШНО ОТПРАВЛЕНА!</span>
-          <button class="popup-success__btn" id="send1" onclick="ym(57492568, 'reachGoal', 'send1'); return true;" v-on:click="show">Вернуться</button>
+          <button class="popup-success__btn" v-on:click="show">Вернуться</button>
         </div>
     </div>
  </div>
