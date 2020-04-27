@@ -167,10 +167,83 @@ $this->metakeywords = "Битрикс24 контакт центр, битрик�
 			<!-- /.productsPage-presentation -->
 			<div class="productsPage__price-text--wrap">
                 <p class="productsPage__price-text__subtitle">А Вы готовы к тому, что Ваш бизнес будет автоматизирован и работать корректно 24/7 и обеспечит Вам приток заказов? Тогда пишите нам!</p>
-            </div>
+			</div>
+			
+
+
+			<div class="productsPage-request">
+                <p class="productsPage-request__text">
+                    А Вы готовы к тому, <strong>что Ваш бизнес будет автоматизирован 
+                    и работать корректно 24/7 и обеспечит Вам приток заказов?</strong>
+                    <br>
+                    Тогда пишите нам! 
+                </p>
+                <button class="productsPage-request__btn call-popup-btn">Оставить заявку</button>
+                <img src="/public/img/products/request.png" alt="" class="productsPage-request__img">
+            </div> 
 		</div>
 		<!-- /.main-content__container -->
 	</div>
 	<!-- /.main-content -->
 </main>
 <!-- /#products -->
+
+
+
+
+
+
+<div class="popup--wrap app">
+    <div class="popup">
+       <div v-if="showForm" class="popup-static">
+          <img src="/public/img/popup/message.png" alt="message" class="popup-static__img">
+          <form  @submit="sbmt" class="popup-static__form form">
+              <label for="" class="form__label">
+                  <span class="form__title">Имя: 
+                  </span>
+                  <input type="text" class="form__input" placeholder="Введите имя...">
+              </label>
+              <label for="" class="form__label">
+                  <span class="form__title">Телефон:</span>
+                  <input type="tel" class="form__input" placeholder="Введите номер телефона...">
+              </label>
+              <label for="" class="form__label">
+                  <span class="form__title">E-mail:</span>
+                  <input type="email" class="form__input" placeholder="Введите почту...">
+              </label>
+              <label for="" class="form__label">
+                  <span class="form__title">Комментарий:</span>
+              <textarea class="form__textarea" placeholder="Введите текст сообщения..."></textarea>
+              </label>
+              <input type="submit" value="Отправить" class="form__submit">
+          </form>
+       </div>
+        
+        <div v-if="!showForm" class="popup-success">
+          <div class="popup-success__img--wrap">
+             <img src="/public/img/popup/message-right.png" alt="message-right" class="popup-success__img-right animated infinite swing">
+             <img src="/public/img/popup/message-left.png" alt="message-left" class="popup-success__img-left animated infinite swing">
+             <img src="/public/img/popup/message.png" alt="message" class="popup-success__img">
+          </div>
+          <span class="popup-success__title">ФОРМА УСПЕШНО ОТПРАВЛЕНА!</span>
+          <button class="popup-success__btn" v-on:click="show">Вернуться</button>
+        </div>
+    </div>
+ </div>
+ <script>
+    var app = new Vue({
+    el: '.app',
+    data: {
+       showForm:true
+       },
+       methods: {
+          sbmt(e) {
+             e.preventDefault();
+             this.showForm=false;
+          },
+          show() {
+             this.showForm=true;
+          }
+       }
+    })
+ </script>
