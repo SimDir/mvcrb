@@ -14,257 +14,351 @@
     background-image: url(/public/img/solutions/solutionsbgc-crm.png);
  }
  .solutions {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
  }
+
  .solutions-item {
-    width: 255px;
-    height: 195px;
-    margin: 10px;
-    filter: grayscale(100%);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    transition: all .7s;
+      width: 33.3%;
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+      &:hover {
+         &::before {
+            top: -100%;
+         }
+      }
+      &::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 200%;
+         transition: all .2s;
+      }
  }
- .solutions-item::before {
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    background-image: url(/public/img/solutions/arrow.png);
-    background-size: 100% 100%;
-    width: 35px;
-    height: 35px;
-    z-index: 99;
-    transform: translate(0px, 500px);
-    transition: all .7s ease .4s;
+ .toyota-item {
+    &::before {
+      background: url(/public/img/solutions/1-toyota.jpg) top center / cover no-repeat;
+    }
  }
- .solutions-item:hover {
-    filter: grayscale(0%);
+ #optic-item {
+   &::before {
+      background: url(/public/img/solutions/1-optic.jpg) top center / cover no-repeat;
+    }
  }
- .solutions-item:hover::before {
-    transform: translate(0px, 0px);
+ #parkmera-item {
+   &::before {
+      background: url(/public/img/solutions/2-parkmera.jpg) top center / cover no-repeat;
+    }
  }
- .solutions-item:hover .solutions-item__cirlce--big {
-    transform: translate(0px, 0px);
+ #bassein73-item {
+   &::before {
+      background: url(/public/img/solutions/3-bassein73.jpg) top center / cover no-repeat;
+    }
  }
- .solutions-item:hover .solutions-item__cirlce--small {
-    transform: translate(0px, 0px);
+ #buongiorno73-item {
+   &::before {
+      background: url(/public/img/solutions/4-buongiorno73.jpg) top center / cover no-repeat;
+    }
  }
- .solutions-item__cirlce--big {
-    position: absolute;
-    width: 270px;
-    height: 270px;
-    background-color: rgba(52,77,115,.4);
-    border-radius: 50%;
-    transform: translate(-500px, -500px);
-    transition: all .7s;
+ #marko73-item {
+   &::before {
+      background: url(/public/img/solutions/5-marko73.jpg) top center / cover no-repeat;
+    }
  }
- .solutions-item__cirlce--small {
-    position: absolute;
-    width: 230px;
-    height: 230px;
-    background-color: rgba(52,77,115,.9);
-    border-radius: 50%;
-    transform: translate(500px, 500px);
-    transition: all .7s ease .1s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-family: "Museo Sans 700";
-    color: #fff;
-    font-size: 16px;
-    line-height: 16px;
+ #kadoor-item {
+   &::before {
+      background: url(/public/img/solutions/6-kadoor.jpg) top center / cover no-repeat;
+    }
  }
- #toyota-item {
-    background-image: url(/public/img/solutions/1-toyota.png);
+ #arenda73-item {
+   &::before {
+      background: url(/public/img/solutions/7-arenda73.jpg) top center / cover no-repeat;
+    }
  }
- #canon-item {
-    background-image: url(/public/img/solutions/2-canon.png);
+ #sl73-item {
+   &::before {
+      background: url(/public/img/solutions/8-sl73.jpg) top center / cover no-repeat;
+    }
  }
- #forma-item {
-    background-image: url(/public/img/solutions/3-forma.png);
+ #kpmgarant-item {
+   &::before {
+      background: url(/public/img/solutions/9-kpmgarant.jpg) top center / cover no-repeat;
+    }
  }
- #cronos-item {
-    background-image: url(/public/img/solutions/4-kronos.png);
+ #autostickers-item {
+   &::before {
+      background: url(/public/img/solutions/10-autostickers.jpg) top center / cover no-repeat;
+    }
  }
- #ARB-item {
-    background-image: url(/public/img/solutions/5-APB.png);
+ #newkso-item {
+   &::before {
+      background: url(/public/img/solutions/11-newkso.jpg) top center / cover no-repeat;
+    }
  }
- #comet-item {
-    background-image: url(/public/img/solutions/6-comet.png);
+ #srm73-item {
+   &::before {
+      background: url(/public/img/solutions/12-srm73.jpg) top center / cover no-repeat;
+    }
  }
- #bebrand-item {
-    background-image: url(/public/img/solutions/7-bebrand.png);
+ #keramzit73-item {
+   &::before {
+      background: url(/public/img/solutions/13-keramzit73.jpg) top center / cover no-repeat;
+    }
  }
- #BSK-item {
-    background-image: url(/public/img/solutions/8-bsk.png);
+ #kotelochag-item {
+   &::before {
+      background: url(/public/img/solutions/14-kotelochag.jpg) top center / cover no-repeat;
+    }
  }
- #RMH-item {
-    background-image: url(/public/img/solutions/9-rmh.png);
+ #davidov73-item {
+   &::before {
+      background: url(/public/img/solutions/15-davidov73.jpg) top center / cover no-repeat;
+    }
  }
- #BUSINESS-item {
-    background-image: url(/public/img/solutions/10-bl.png);
+ #hostelsv-item {
+   &::before {
+      background: url(/public/img/solutions/16-hostelsv.jpg) top center / cover no-repeat;
+    }
  }
- #circus-item {
-    background-image: url(/public/img/solutions/11-cirk.png);
+ #ulnavto-item {
+   &::before {
+      background: url(/public/img/solutions/17-ulnavto.jpg) top center / cover no-repeat;
+    }
+ }
+ #trud73-item {
+   &::before {
+      background: url(/public/img/solutions/18-trud73.jpg) top center / cover no-repeat;
+    }
+ }
+ #dilavtogaz-item {
+   &::before {
+      background: url(/public/img/solutions/19-dilavtogaz.jpg) top center / cover no-repeat;
+    }
+ }
+ #ritual73-item {
+   &::before {
+      background: url(/public/img/solutions/20-ritual73.jpg) top center / cover no-repeat;
+    }
+ }
+ #kitchendelta-item {
+   &::before {
+      background: url(/public/img/solutions/21-kitchendelta.jpg) top center / cover no-repeat;
+    }
+ }
+ #myonestore-item {
+   &::before {
+      background: url(/public/img/solutions/22-myonestore.jpg) top center / cover no-repeat;
+    }
+ }
+ #parkadrenalin-item {
+   &::before {
+      background: url(/public/img/solutions/23-parkadrenalin.jpg) top center / cover no-repeat;
+    }
+ }
+ #allclean73-item {
+   &::before {
+      background: url(/public/img/solutions/24-allclean73.jpg) top center / cover no-repeat;
+    }
+ }
+ #fontanka73-item {
+   &::before {
+      background: url(/public/img/solutions/25-fontanka73.jpg) top center / cover no-repeat;
+    }
+ }
+ #appstory24-item {
+   &::before {
+      background: url(/public/img/solutions/26-appstory24.jpg) top center / cover no-repeat;
+    }
+ }
+ #stor-item {
+   &::before {
+      background: url(/public/img/solutions/27-stor.jpg) top center / cover no-repeat;
+    }
+ }
+ #threedplus73-item {
+   &::before {
+      background: url(/public/img/solutions/28-threedplus73.jpg) top center / cover no-repeat;
+    }
+ }
+ #mfcm-item {
+   &::before {
+      background: url(/public/img/solutions/29-mfcm.jpg) top center / cover no-repeat;
+    }
+ }
+ #semenovna-item {
+   &::before {
+      background: url(/public/img/solutions/30-semenovna.jpg) top center / cover no-repeat;
+    }
+ }
+ #agatech-item {
+   &::before {
+      background: url(/public/img/solutions/31-agatech.jpg) top center / cover no-repeat;
+    }
+ }
+ #zakazatkartiny-item {
+   &::before {
+      background: url(/public/img/solutions/32-zakazatkartiny.jpg) top center / cover no-repeat;
+    }
+ }
+ #zavodkometa-item {
+   &::before {
+      background: url(/public/img/solutions/33-zavodkometa.jpg) top center / cover no-repeat;
+    }
+ }
+ #magickristall-item {
+   &::before {
+      background: url(/public/img/solutions/34-magickristall.jpg) top center / cover no-repeat;
+    }
+ }
+ #manakovskaya-item {
+   &::before {
+      background: url(/public/img/solutions/35-manakovskaya.jpg) top center / cover no-repeat;
+    }
+ }
+ #zvezda73-item {
+   &::before {
+      background: url(/public/img/solutions/36-zvezda73.jpg) top center / cover no-repeat;
+    }
+ }
+ #ti73-item {
+   &::before {
+      background: url(/public/img/solutions/37-ti73.jpg) top center / cover no-repeat;
+    }
+ }
+ #agro73-item {
+   &::before {
+      background: url(/public/img/solutions/38-agro73.jpg) top center / cover no-repeat;
+    }
+ }
+ #knigatain-item {
+   &::before {
+      background: url(/public/img/solutions/39-knigatain.jpg) top center / cover no-repeat;
+    }
+ }
+ #dantist73-item {
+   &::before {
+      background: url(/public/img/solutions/40-dantist73.jpg) top center / cover no-repeat;
+    }
+ }
+ #zsp73-item {
+   &::before {
+      background: url(/public/img/solutions/41-zsp73.jpg) top center / cover no-repeat;
+    }
+ }
+ #ivolga-item {
+   &::before {
+      background: url(/public/img/solutions/42-ivolga.jpg) top center / cover no-repeat;
+    }
+ }
+ #ulpravda-item {
+   &::before {
+      background: url(/public/img/solutions/43-ulpravda.jpg) top center / cover no-repeat;
+    }
+ }
+ #cirkzapashnih-item {
+   &::before {
+      background: url(/public/img/solutions/44-cirkzapashnih.jpg) top center / cover no-repeat;
+    }
+ }
+ #incom73-item {
+   &::before {
+      background: url(/public/img/solutions/45-incom73.jpg) top center / cover no-repeat;
+    }
+ }
+ #shashlik73-item {
+   &::before {
+      background: url(/public/img/solutions/46-shashlik73.jpg) top center / cover no-repeat;
+    }
+ }
+ #radio2x2-item {
+   &::before {
+      background: url(/public/img/solutions/47-radio2x2.jpg) top center / cover no-repeat;
+    }
+ }
+ #specavto-item {
+   &::before {
+      background: url(/public/img/solutions/48-specavto.jpg) top center / cover no-repeat;
+    }
  }
  #evita-item {
-    background-image: url(/public/img/solutions/12-evita.png);
- }
- 
- 
- #specauto-item {
-    background-image: url(/public/img/solutions/promoion/specauto.png);
- }
- #dantist-item {
-    background-image: url(/public/img/solutions/promoion/dantist.png);
- }
- #dilav-item {
-    background-image: url(/public/img/solutions/promoion/dilav.png);
- }
- #full-service-item {
-    background-image: url(/public/img/solutions/promoion/fullservice.png);
- }
- #fkm-item {
-    background-image: url(/public/img/solutions/promoion/fkm.png);
- }
- #goal-item {
-    background-image: url(/public/img/solutions/promoion/goal.png);
- }
- #vizcenter-item {
-    background-image: url(/public/img/solutions/promoion/vizcenter.png);
- }
- #wedding-gown-item {
-    background-image: url(/public/img/solutions/promoion/wedding-gown.png);
- }
- #green-street-item {
-    background-image: url(/public/img/solutions/promoion/green-street.png);
- }
- @media(max-width: 1500px) { 
-    .solutions-item {
-       width: 210px;
-       height: 150px;
-       margin: 8px;
-    }
-    .solutions-item::before {
-       bottom: 4px;
-       width: 25px;
-       height: 25px;
-    }
-    .solutions-item__cirlce--big {
-       width: 240px;
-       height: 240px;
-    }
-    .solutions-item__cirlce--small {
-       width: 190px;
-       height: 190px;
-       font-size: 15px;
-       line-height: 15px;
+   &::before {
+      background: url(/public/img/solutions/49-evita.jpg) top center / cover no-repeat;
     }
  }
+ #fitness-item {
+   &::before {
+      background: url(/public/img/solutions/50-fitness.jpg) top center / cover no-repeat;
+    }
+ }
+ #toyota-item {
+   &::before {
+      background: url(/public/img/solutions/51-toyota.jpg) top center / cover no-repeat;
+    }
+ }
+
+ #smm-gryzoperevozki-item {
+   &::before {
+      background: url(/public/img/solutions/smm-06-gryzoperevozki.jpg) top center / cover no-repeat;
+    }
+ }
+ #smm-nezavisimost-item {
+   &::before {
+      background: url(/public/img/solutions/smm-05-nezavisimost.jpg) top center / cover no-repeat;
+    }
+ }
+ #smm-liniyakrasoty73-item {
+   &::before {
+      background: url(/public/img/solutions/smm-04-liniyakrasoty73.jpg) top center / cover no-repeat;
+    }
+ }
+ #smm-aquvarel-item {
+   &::before {
+      background: url(/public/img/solutions/smm-03-aquvarel.jpg) top center / cover no-repeat;
+    }
+ }
+ #smm-dilavtogaz-item {
+   &::before {
+      background: url(/public/img/solutions/smm-02-dilavtogaz.jpg) top center / cover no-repeat;
+    }
+ }
+ #smm-agatech-item {
+   &::before {
+      background: url(/public/img/solutions/smm-01-agatech.jpg) top center / cover no-repeat;
+    }
+ }
+@media(max-width: 1500px) { 
+   .solutions-item {
+      height: 220px;
+   }
+}
  @media(max-width: 1300px) { 
-    .solutions-item {
-       width: 224px;
-       height: 164px;
-       margin: 8px;
-    }
-    .solutions-item__cirlce--big {
-       width: 254px;
-       height: 254px;
-    }
-    .solutions-item__cirlce--small {
-       width: 204px;
-       height: 204px;
-    }
+   .solutions-item {
+      height: 180px;
+   }
  }
  @media(max-width: 1100px) { 
-    .solutions-item {
-       width: 194px;
-       height: 134px;
-       margin: 6px;
-    }
-    .solutions-item::before {
-       bottom: 3px;
-       width: 22px;
-       height: 22px;
-    }
-    .solutions-item__cirlce--big {
-       width: 224px;
-       height: 224px;
-    }
-    .solutions-item__cirlce--small {
-       width: 174px;
-       height: 174px;
-       font-size: 14px;
-       line-height: 14px;
-    }
+   .solutions-item {
+      height: 150px;
+   }
  }
  @media(max-width: 900px) { 
-    .solutions-item {
-       width: 169px;
-       height: 119px;
-       margin: 4px;
-    }
-    .solutions-item__cirlce--big {
-       width: 179px;
-       height: 179px;
-    }
-    .solutions-item__cirlce--small {
-       width: 149px;
-       height: 149px;
-       font-size: 13px;
-       line-height: 13px;
-    }
+   .solutions-item {
+      height: 120px;
+   }
  }
  @media(max-width: 700px) { 
-    .solutions-item {
-       width: 167px;
-       height: 117px;
-       margin: 4px;
-    }
-    .solutions-item__cirlce--big {
-       width: 177px;
-       height: 177px;
-    }
-    .solutions-item__cirlce--small {
-       width: 147px;
-       height: 147px;
-    }
+   .solutions-item {
+      width: 50%;
+   }
  }
  @media(max-width: 500px) { 
-    .solutions-item {
-       width: 167px;
-       width: 132px;
-       height: 82px;
-       margin: 3px;
-    }
-    .solutions-item::before {
-       bottom: 2px;
-       width: 15px;
-       height: 15px;
-       transform: translate(0px, 250px);
-    }
-    .solutions-item__cirlce--big {
-       width: 142px;
-       height: 142px;
-       transform: translate(-250px, -250px);
-    }
-    .solutions-item__cirlce--small {
-       width: 112px;
-       height: 112px;
-       transform: translate(250px, 250px); 
-       font-size: 12px;
-       line-height: 12px;
-    }
+   .solutions-item {
+      height: 90px;
+   }
  }
  
  
