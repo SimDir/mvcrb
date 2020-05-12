@@ -36,14 +36,13 @@
          left: 0;
          width: 100%;
          height: 200%;
-         transition: all .2s;
+         transition: all .2s; 
       }
  }
- .toyota-item {
-    &::before {
-      background: url(/public/img/solutions/1-toyota.jpg) top center / cover no-repeat;
-    }
- }
+
+
+
+
  #optic-item {
    &::before {
       background: url(/public/img/solutions/1-optic.jpg) top center / cover no-repeat;
@@ -300,6 +299,57 @@
     }
  }
 
+
+
+ #mareca-item {
+   &::before {
+     background: url(/public/img/solutions/52-mareca.jpg) top center / cover no-repeat;
+   }
+}
+
+ #ulprof-item {
+   &::before {
+     background: url(/public/img/solutions/53-ulprof.jpg) top center / cover no-repeat;
+   }
+}
+#vtsul-item {
+   &::before {
+     background: url(/public/img/solutions/54-vtsul.jpg) top center / cover no-repeat;
+   }
+}
+#ulkronos-item {
+   &::before {
+     background: url(/public/img/solutions/55-ulkronos.jpg) top center / cover no-repeat;
+   }
+}
+#fprize-item {
+   &::before {
+     background: url(/public/img/solutions/56-fprize.jpg) top center / cover no-repeat;
+   }
+}
+#worx73-item {
+   &::before {
+     background: url(/public/img/solutions/57-worx73.jpg) top center / cover no-repeat;
+   }
+}
+#silavtravah-item {
+   &::before {
+     background: url(/public/img/solutions/58-silavtravah.jpg) top center / cover no-repeat;
+   }
+}
+#mkp-item {
+   &::before {
+     background: url(/public/img/solutions/59-mkp.jpg) top center / cover no-repeat;
+   }
+}
+#prodos-item {
+   &::before {
+     background: url(/public/img/solutions/60-prodos.jpg) top center / cover no-repeat;
+   }
+}
+
+
+
  #smm-gryzoperevozki-item {
    &::before {
       background: url(/public/img/solutions/smm-06-gryzoperevozki.jpg) top center / cover no-repeat;
@@ -330,6 +380,8 @@
       background: url(/public/img/solutions/smm-01-agatech.jpg) top center / cover no-repeat;
     }
  }
+ 
+
 @media(max-width: 1500px) { 
    .solutions-item {
       height: 220px;
