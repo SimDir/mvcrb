@@ -51,10 +51,10 @@ class IndexController extends Controller {
 
         $postdata = json_decode($this->REQUEST, true);
 
-        $to = 'komdir@agatech.ru';
-        $subject = 'Сообщение с формы сайта. молнию продаж';
-        $message = 'Новое сообщение от пользователя <b>' . $postdata['fio'] . '</b> на сайте Агатечь.<br>Контактный телефон <b>' . $postdata['phone'] . '</b><br>' . PHP_EOL;
-        $message .= 'оставил свой маил адрес почты <b>' . $postdata['email'] . '</b> и написал вот такое сообщение ' . PHP_EOL . PHP_EOL . '<h5>' . $postdata['message'] . '</h5>';
+        $to = 'support@agatech.ru';
+        $subject = 'Сообщение от Робота';
+        $message = '<h4>Новое сообщение от пользователя <b>' . $postdata['fio'] . '</b> на сайте Агатечь.<br>Контактный телефон <b>' . $postdata['phone'] . '</b><br>' . PHP_EOL;
+        $message .= 'оставил свой маил адрес почты <b>' . $postdata['email'] . '</b> и написал вот такое сообщение</h4>' . PHP_EOL . PHP_EOL . '<h5>' . $postdata['message'] . '</h5>';
         $headers = 'From: ' . $postdata['email'] . "\r\n" .
 //                'Reply-To: admin@agatech.ru' . "\r\n" .
                 'X-Mailer: PHP/' . phpversion();
@@ -63,6 +63,8 @@ class IndexController extends Controller {
         if (!$success) {
             $success = error_get_last()['message'];
         }
+        rr_mail('komdir@agatech.ru', $subject, $message, $headers);
+//        rr_mail('logic@xaker.ru', $subject, $message, $headers);
         return ['SendStatus' => $success, 'SendTO' => $to];
 //        return $postdata;
     }
