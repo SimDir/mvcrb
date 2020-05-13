@@ -63,10 +63,36 @@ class IndexController extends Controller {
         if (!$success) {
             $success = error_get_last()['message'];
         }
+        $this->B24Hook($postdata);
         rr_mail('komdir@agatech.ru', $subject, $message, $headers);
 //        rr_mail('logic@xaker.ru', $subject, $message, $headers);
         return ['SendStatus' => $success, 'SendTO' => $to];
 //        return $postdata;
+    }
+    
+    private function B24Hook($param=[]) {
+        
+        $queryUrl = 'https://agatech73.bitrix24.ru/rest/250/nfygbgftk5skkez5/crm.lead.add.json';
+
+        $queryData = http_build_query(array('fields' => array("TITLE" => 'ФОС и КВИЗ - ' . $param['fio'],
+                "NAME" => $param['fio'],
+                //"LAST_NAME" => $PostData['UserData']['name'],
+                "STATUS_ID" => "NEW",
+                "OPENED" => "Y",
+                "ASSIGNED_BY_ID" => 354,
+                "CREATED_BY_ID" => 354,
+                //"OPPORTUNITY" => $PostData['OrderSum'],
+                "COMMENTS" => $param['message'],
+                //"UF_CRM_1576841134415" => $PostData['UID'],
+                "PHONE" => array(array("VALUE" => $param['phone'], "VALUE_TYPE" => "WORK")),
+                "EMAIL" => array(array("VALUE" => $param['email'], "VALUE_TYPE" => "WORK")),),
+            'params' => array("REGISTER_SONET_EVENT" => "Y")));
+
+        $curl = curl_init();
+        curl_setopt_array($curl, array(CURLOPT_SSL_VERIFYPEER => 0, CURLOPT_POST => 1, CURLOPT_HEADER => 0, CURLOPT_RETURNTRANSFER => 1, CURLOPT_URL => $queryUrl, CURLOPT_POSTFIELDS => $queryData,));
+        $result = curl_exec($curl);
+        curl_close($curl);
+        return ["curl_RET"=>$result];
     }
 
 }

@@ -78,4 +78,6 @@ class PageController extends Controller {
         $this->View->content = $this->View->execute('pages.html',TEMPLATE_DIR.'IndexController'.DS);
         return $this->View->execute('index.html', TEMPLATE_DIR);
     }
+    
+
 }

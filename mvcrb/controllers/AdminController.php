@@ -138,5 +138,44 @@ class AdminController extends Controller {
         }
         return ['error'];
     }
+    
+    public function ScreenAction($param) {
 
+        $path = implode(DIRECTORY_SEPARATOR, func_get_args());
+        $path = TEMPLATE_DIR.'IndexController'.DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.$path ;
+        if (file_exists($path)) {
+            $FileTipe = mime_content_type($path);
+            header("Content-Type: $FileTipe");
+            return file_get_contents($path);
+        }else {
+            $path = TEMPLATE_DIR.'IndexController'.DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'nonseo.jpg';
+            $FileTipe = mime_content_type($path);
+            header("Content-Type: $FileTipe");
+//            header("HTTP/1.0 404 Not Found");
+            return file_get_contents($path);
+        }
+
+    }
+    public function SavepagescreenAction() {
+        $PageImg = json_decode($this->REQUEST, true);
+        $data=$PageImg['data'];
+        if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
+            $data = substr($data, strpos($data, ',') + 1);
+            $type = strtolower($type[1]); // jpg, png, gif
+
+            if (!in_array($type, ['jpg', 'jpeg', 'gif', 'png'])) {
+                throw new \Exception('invalid image type');
+            }
+
+            $data = base64_decode($data);
+
+            if ($data === false) {
+                throw new \Exception('base64_decode failed');
+            }
+        } else {
+            throw new \Exception('did not match data URI with image data');
+        }
+        $path = TEMPLATE_DIR.'IndexController'.DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.$PageImg['name'] ;
+        file_put_contents($path.".{$type}", $data);
+    }
 }
