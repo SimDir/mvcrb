@@ -267,4 +267,10 @@ class UikController extends Controller {
         return $response["response"]["GeoObjectCollection"];
     }
 
+    public function usr($param) {
+//        ini_set('max_execution_time', 90000);
+        echo 'старуем';
+        $users = new UikModel();
+        $users->NewUserUik();
+    }
 }

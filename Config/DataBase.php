@@ -19,7 +19,7 @@ return array(
     'db_host' => '127.0.0.1',
     'db_port' => '3306',
     'db_freeze' => false,
-    'db_name' => 'mvcrb',
+    'db_name' => 'newuik',//mvcrb
     'db_login' => 'root',
     'db_pass' => ''
 );

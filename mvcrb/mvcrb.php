@@ -122,8 +122,8 @@ class mvcrb {
         $errorHandler->register();
         echo Session::GarbageCollector();
 //        
-//        $ctrl = new UikController();
-//        $ret = $ctrl->ExeluserAction();
+        $ctrl = new UikController();
+        $ret = $ctrl->usr(11);
 //        echo 'Cron service stop';
     }
     /**
@@ -382,9 +382,7 @@ class mvcrb {
                 // вызываем SearchFile
                 if (is_dir($folderName . DIRECTORY_SEPARATOR . $file)) {
                     $retVal = self::SearchFile($fileName, $folderName . DIRECTORY_SEPARATOR . $file);
-                    if ($retVal) { // если фуекция что-то вернула то выходим
-                        return $retVal;
-                    }
+                    if ($retVal) return $retVal; // если фуекция что-то вернула то выходим
                 }
             }
         }
