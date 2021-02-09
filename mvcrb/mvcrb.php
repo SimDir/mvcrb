@@ -322,6 +322,13 @@ class mvcrb {
         self::$globalConfig['Router_Default_Action'] = 'index';
 //        $str_value = serialize(self::$globalConfig);
 //        echo $str_value;
+        if (file_exists(self::$globalConfig['App_Config_Dir'] . 'System.json')) {
+            //self::$globalConfig = include_once self::$globalConfig['App_Config_Dir'] . 'System.php';
+            self::$globalConfig = json_decode(file_get_contents(self::$globalConfig['App_Config_Dir'] . 'System.json'), true);
+        } else {
+            file_put_contents(self::$globalConfig['App_Config_Dir'] .'System.json', json_encode(self::$globalConfig));
+            //file_put_contents(self::$globalConfig['App_Config_Dir'] . 'Systems.php', serialize(self::$globalConfig));
+        }
     }
 
     /**

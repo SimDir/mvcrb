@@ -27,9 +27,9 @@
             <a href="#how-it-working" class="stc-header__anchor stc-header__anchor--brown">Как это работает?</a>
             <!-- /.stc-header__anchor -->
             <div class="stc-header__link--wrap">
-                <a href="mailto:support@agatech.ru" class="stc-header__link stc-hedader__link__mail--complex">support@agatech.ru</a> 
+                <a href="mailto:support@agatech.ru" id="email2" onclick="ym(57492568, 'reachGoal', 'email2'); return true;" class="stc-header__link stc-hedader__link__mail--complex" >support@agatech.ru</a> 
                 <!-- /.stc-header__link -->
-                <a href="tel:+79272795339" class="stc-header__link stc-hedader__link__tel--complex">+7 927 270 53 30</a> 
+                <a href="tel:+79272795339" id="mobile2" onclick="ym(57492568, 'reachGoal', 'mobile2'); return true;" class="stc-header__link stc-hedader__link__tel--complex">+7 927 270 53 30</a> 
                 <!-- /.stc-header__link -->
             </div>
             <!-- /.stc-header__link--wrap -->
@@ -52,7 +52,7 @@
             <!-- /.stc-main-header-subtitle -->
             <p class="stc-main-header-desc">В кризис с сильными маркетинговыми решениями, уже доказавшими свою эффективность! Опишите нам ключевые маркетинговые цели и задачи вашей компании на ближайшее время, либо на 2020 год полностью, нажав "Оставить заявку", и мы подготовим для вас индивидуальное маркетинговое решение.</p>
             <!-- /.stc-main-header-desc -->
-           <button class="stc-main-header-btn stc-main-header-btn--complex call-popup-btn" id="how-it-working">Оставить заявку</button>
+           <button class="stc-main-header-btn stc-main-header-btn--complex call-popup-btn" id="how-it-working leave_request2" onclick="ym(57492568, 'reachGoal', 'leave_request2'); return true;">Оставить заявку</button>
         </div>
         <!-- /.stc-main__container -->
     </section>
@@ -175,14 +175,14 @@
     </section>
     <!-- /.stc-main__consultation -->
     
-    <section class="stc-main__quiz">
+    <section class="stc-main__quiz" id="stc-quiz">
         <div class="stc-main__container stc-main__quiz__container">
             <h4 class="stc-main__quiz__title">Сделайте первый шаг к увеличению масштабов бизнеса! </h4>
             <!-- /.stc-main__quiz__title -->
             
             <div class="stc-main__quiz__body">
 
-                <div class="stc-main__quiz__start">
+                <div class="stc-main__quiz__start" v-show="step<1">
                     <div class="stc-main__quiz__start__typography">
                         <img src="/public/img/stocks/complex/stc-main__quiz__start__img-main.png" alt="" class="stc-main__quiz__start__img-main">
                         <img src="/public/img/stocks/complex/stc-main__quiz__start__img.png" alt="" class="stc-main__quiz__start__img">
@@ -203,7 +203,7 @@
                         <!-- /.stc-main__quiz__start__subtitle -->
                         <p class="stc-main__quiz__start__desc">Но для начала давайте познакомимся поближе</p>
                         <!-- /.stc-main__quiz__start__desc -->
-                        <button class="stc-main__quiz__start__btn">Начать</button>
+                        <button class="stc-main__quiz__start__btn" @click="step=1">Начать</button>
                         <!-- /.stc-main__quiz__start__btn -->
                     </div>
                     <!-- /.stc-main__quiz__start__content -->
@@ -212,7 +212,7 @@
 
 
 
-                <div class="stc-main__quiz__steps">
+                <div class="stc-main__quiz__steps" style="transform:scale(1);" v-show="step>=1 && step<=9">
                     <header class="stc-main__quiz__step__hedaer">
                         <img src="/public/img/stocks/complex/stc-main__quiz__step__hedaer__img.png" alt="" class="stc-main__quiz__step__hedaer__img">
                         <p class="stc-main__quiz__step__hedaer__title">Получи индивидуальное предложение по развитию своего бизнеса</p>
@@ -222,37 +222,37 @@
 
 
                     <div class="stc-main__quiz__step__content">
-                        <div class="stc-main__quiz__step stc-main__quiz__step-1" style="transform: scale(1);">
+                        <div v-show="step==1"  class="stc-main__quiz__step stc-main__quiz__step-1" style="transform: scale(1);">
                             <span class="stc-main__quiz__step__content__title">Какой у вас текущий статус?</span> 
                             <!-- /.stc-main__quiz__step__content__title -->
                             <form action="" class="stc-main__quiz__step__content__form">
                                 <label for="step-1-1" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-1" id="step-1-1">
+                                    <input v-model="checkedStep1" value="Уже имею бизнес" type="radio" name="step-1" id="step-1-1">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Уже имею бизнес
                                 </label>
                                 <label for="step-1-2" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-1" id="step-1-2">
+                                    <input v-model="checkedStep1" value="Хочу создать свой бизнес" type="radio" name="step-1" id="step-1-2">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Хочу создать свой бизнес
                                 </label>
                                 <label for="step-1-3" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-1" id="step-1-3">
+                                    <input v-model="checkedStep1" value="Маркетолог" type="radio" name="step-1" id="step-1-3">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Маркетолог
                                 </label>
                                 <label for="step-1-4" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-1" id="step-1-4">
+                                    <input v-model="checkedStep1" value="Начинающий предприниматель" type="radio" name="step-1" id="step-1-4">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Начинающий предприниматель
                                 </label>
                                 <label for="step-1-5" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-1" id="step-1-5">
+                                    <input v-model="checkedStep1" value="Работник компании"  type="radio" name="step-1" id="step-1-5">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Работник компании
                                 </label>
                                 <label for="step-1-6" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-1" id="step-1-6">
+                                    <input v-model="checkedStep1" value="Конкурент" type="radio" name="step-1" id="step-1-6">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Конкурент
                                 </label>
@@ -260,36 +260,36 @@
                         </div>
 
 
-                        <div class="stc-main__quiz__step stc-main__quiz__step-2">
+                        <div v-show="step==2" style="transform: scale(1);" class="stc-main__quiz__step stc-main__quiz__step-2">
                              <span class="stc-main__quiz__step__content__title">В каком городе/регионе Вы работаете?</span> 
                             <!-- /.stc-main__quiz__step__content__title -->
                             <form action="" class="stc-main__quiz__step__content__form">
-                                <input type="text" class="stc-main__quiz__step-2__input" placeholder="Например: Центр РФ или только Москва"> 
+                                <input v-model="checkedStep1" type="text" class="stc-main__quiz__step-2__input" placeholder="Например: Центр РФ или только Москва"> 
                             </form>
                         </div>
 
 
-                        <div class="stc-main__quiz__step stc-main__quiz__step-3">
+                        <div v-show="step==3" style="transform: scale(1);" class="stc-main__quiz__step stc-main__quiz__step-3">
                             <span class="stc-main__quiz__step__content__title">Есть ли у Вас рабочий сайт?</span> 
                             <!-- /.stc-main__quiz__step__content__title -->
                             <form action="" class="stc-main__quiz__step__content__form">
                                 <label for="step-3-1" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-3" id="step-3-1">
+                                    <input v-model="checkedStep1" value="Да, отлично работает!" type="radio" name="step-3" id="step-3-1">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Да, отлично работает! 
                                 </label>
                                 <label for="step-3-2" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-3" id="step-3-2">
+                                    <input v-model="checkedStep1" value="Нет, но хочу, чтобы был!" type="radio" name="step-3" id="step-3-2">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Нет, но хочу, чтобы был!    
                                 </label>
                                 <label for="step-3-3" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-3" id="step-3-3">
+                                    <input v-model="checkedStep1" value="Да, но не привлекает лиды" type="radio" name="step-3" id="step-3-3">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Да, но не привлекает лиды 
                                 </label>
                                 <label for="step-3-4" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-3" id="step-3-4">
+                                    <input v-model="checkedStep1" value="Нет, и  не надо" type="radio" name="step-3" id="step-3-4">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Нет, и  не надо 
                                 </label>
@@ -297,65 +297,65 @@
                         </div>
                        
 
-                        <div class="stc-main__quiz__step stc-main__quiz__step-4">
+                        <div v-show="step==4" style="transform: scale(1);" class="stc-main__quiz__step stc-main__quiz__step-4">
                             <span class="stc-main__quiz__step__content__title quiz__step-4__title">Пользуетесь ли вы рекламой?</span> 
                             <!-- /.stc-main__quiz__step__content__title -->
 
                             <form action="" class="stc-main__quiz__step__content__form">
                                 <label for="step-4-1" class="stc-main__quiz__step__content__label">
-                                    <input type="checkbox" name="step-4" id="step-4-1">
+                                    <input v-model="checkedStep4" value="SEO" type="checkbox" name="step-4" id="step-4-1">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     SEO 
                                 </label>
                                 <label for="step-4-2" class="stc-main__quiz__step__content__label">
-                                    <input type="checkbox" name="step-4" id="step-4-2">
+                                    <input v-model="checkedStep4" value="Контекстная реклама" type="checkbox" name="step-4" id="step-4-2">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Контекстная реклама     
                                 </label>
                                 <label for="step-4-3" class="stc-main__quiz__step__content__label">
-                                    <input type="checkbox" name="step-4" id="step-4-3">
+                                    <input v-model="checkedStep4" value="Социальные сети" type="checkbox" name="step-4" id="step-4-3">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Социальные сети  
                                 </label>
                                 <label for="step-4-4" class="stc-main__quiz__step__content__label">
-                                    <input type="checkbox" name="step-4" id="step-4-4">
+                                    <input v-model="checkedStep4" value="Таргетированная реклама" type="checkbox" name="step-4" id="step-4-4">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Таргетированная реклама  
                                 </label>
                                 <label for="step-4-5" class="stc-main__quiz__step__content__label">
-                                    <input type="checkbox" name="step-4" id="step-4-5">
+                                    <input v-model="checkedStep4" value="Не в курсе рекламы" type="checkbox" name="step-4" id="step-4-5">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Не в курсе рекламы    
                                 </label>
                                 <label for="step-4-6" class="stc-main__quiz__step__content__label">
-                                    <input type="checkbox" name="step-4" id="step-4-6">
+                                    <input v-model="checkedStep4" value="Нет, вообще не рекламируюсь" type="checkbox" name="step-4" id="step-4-6">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Нет, вообще не рекламируюсь  
                                 </label>
                             </form>
                         </div>
 
-                        <div class="stc-main__quiz__step stc-main__quiz__step-5">
+                        <div v-show="step==5" style="transform: scale(1);" class="stc-main__quiz__step stc-main__quiz__step-5">
                             <span class="stc-main__quiz__step__content__title">Для чего Вы к нам обратились?</span> 
                             <!-- /.stc-main__quiz__step__content__title -->
                             <form action="" class="stc-main__quiz__step__content__form">
                                 <label for="step-5-1" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-5" id="step-5-1">
+                                    <input v-model="checkedStep1" value="Нужно больше лидов" type="radio" name="step-5" id="step-5-1">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Нужно больше лидов  
                                 </label>
                                 <label for="step-5-2" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-5" id="step-5-2">
+                                    <input v-model="checkedStep1" value="Хочу улучшить интернет-маркетинг в компании" type="radio" name="step-5" id="step-5-2">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Хочу улучшить интернет-маркетинг в компании    
                                 </label>
                                 <label for="step-5-3" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-5" id="step-5-3">
+                                    <input v-model="checkedStep1" value="Хочу снизить расходы" type="radio" name="step-5" id="step-5-3">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Хочу снизить расходы 
                                 </label>
                                 <label for="step-5-4" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-5" id="step-5-4">
+                                    <input v-model="checkedStep1" value="Нужна консультация специалиста" type="radio" name="step-5" id="step-5-4">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Нужна консультация специалиста 
                                 </label>
@@ -363,32 +363,32 @@
                         </div>
 
 
-                        <div class="stc-main__quiz__step stc-main__quiz__step-6">
+                        <div v-show="step==6" style="transform: scale(1);" class="stc-main__quiz__step stc-main__quiz__step-6">
                             <span class="stc-main__quiz__step__content__title">Сколько заявок Вы хотите получать в месяц?</span> 
                             <!-- /.stc-main__quiz__step__content__title -->
                             <form action="" class="stc-main__quiz__step__content__form">
                                 <label for="step-6-1" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-6" id="step-6-1">
+                                    <input v-model="checkedStep1" value="1-10" type="radio" name="step-6" id="step-6-1">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     1-10
                                 </label>
                                 <label for="step-6-2" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-6" id="step-6-2">
+                                    <input v-model="checkedStep1" value="10-50" type="radio" name="step-6" id="step-6-2">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     10-50   
                                 </label>
                                 <label for="step-6-3" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-6" id="step-6-3">
+                                    <input v-model="checkedStep1" value="50-150" type="radio" name="step-6" id="step-6-3">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     50-150
                                 </label>
                                 <label for="step-6-4" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-6" id="step-6-4">
+                                    <input v-model="checkedStep1" value="150-300" type="radio" name="step-6" id="step-6-4">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     150-300
                                 </label>
                                 <label for="step-6-5" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-6" id="step-6-5">
+                                    <input v-model="checkedStep1" value="Более 300" type="radio" name="step-6" id="step-6-5">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Более 300
                                 </label>
@@ -396,17 +396,17 @@
                         </div>
 
 
-                        <div class="stc-main__quiz__step stc-main__quiz__step-7">
+                        <div v-show="step==7" style="transform: scale(1);" class="stc-main__quiz__step stc-main__quiz__step-7">
                             <span class="stc-main__quiz__step__content__title"> У Вас есть отдел продаж?</span> 
                             <!-- /.stc-main__quiz__step__content__title -->
                             <form action="" class="stc-main__quiz__step__content__form">
                                 <label for="step-7-1" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-7" id="step-7-1">
+                                    <input v-model="checkedStep1" value="Да" type="radio" name="step-7" id="step-7-1">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Да
                                 </label>
                                 <label for="step-7-2" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-7" id="step-7-2">
+                                    <input v-model="checkedStep1" value="Нет" type="radio" name="step-7" id="step-7-2">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Нет   
                                 </label>
@@ -415,27 +415,27 @@
 
 
 
-                        <div class="stc-main__quiz__step stc-main__quiz__step-8">
+                        <div v-show="step==8" style="transform: scale(1);" class="stc-main__quiz__step stc-main__quiz__step-8">
                             <span class="stc-main__quiz__step__content__title">Когда Вы хотите начать сотрудничество?</span> 
                             <!-- /.stc-main__quiz__step__content__title -->
                             <form action="" class="stc-main__quiz__step__content__form">
                                 <label for="step-8-1" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-8" id="step-8-1">
+                                    <input v-model="checkedStep1" value="Чем скорее, тем лучше" type="radio" name="step-8" id="step-8-1">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Чем скорее, тем лучше 
                                 </label>
                                 <label for="step-8-2" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-8" id="step-8-2">
+                                    <input v-model="checkedStep1" value="В обозримом будущем" type="radio" name="step-8" id="step-8-2">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     В обозримом будущем  
                                 </label>
                                 <label for="step-8-3" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-8" id="step-8-3">
+                                    <input v-model="checkedStep1" value="Я просто смотрю, сравниваю подрядчиков" type="radio" name="step-8" id="step-8-3">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Я просто смотрю, сравниваю подрядчиков…  
                                 </label>
                                 <label for="step-8-4" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-8" id="step-8-4">
+                                    <input v-model="checkedStep1" value="Вообще не тороплюсь" type="radio" name="step-8" id="step-8-4">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Вообще не тороплюсь 
                                 </label>
@@ -443,17 +443,17 @@
                         </div>
                         
 
-                        <div class="stc-main__quiz__step stc-main__quiz__step-9">
+                        <div v-show="step==9" style="transform: scale(1);" class="stc-main__quiz__step stc-main__quiz__step-9">
                             <span class="stc-main__quiz__step__content__title">Как Вы о нас узнали? </span> 
                             <!-- /.stc-main__quiz__step__content__title -->
                             <form action="" class="stc-main__quiz__step__content__form">
                                 <label for="step-9-1" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-9" id="step-9-1">
+                                    <input v-model="checkedStep1" value="Наткнулся на Вашу рекламу в интернете" type="radio" name="step-9" id="step-9-1">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Наткнулся на Вашу рекламу в интернете
                                 </label>
                                 <label for="step-9-2" class="stc-main__quiz__step__content__label">
-                                    <input type="radio" name="step-9" id="step-9-2">
+                                    <input v-model="checkedStep1" value="Порекомендовали знакомые/коллеги" type="radio" name="step-9" id="step-9-2">
                                     <span class="stc-main__quiz__step__content__check"></span>
                                     Порекомендовали знакомые/коллеги   
                                 </label>
@@ -473,7 +473,7 @@
                             <span class="stc-main__quiz__step__footer__progress__title">
                                 Готово:
                                 <span class="stc-main__quiz__step__footer__progress__title-value">
-                                    0%
+                                    {{userProgress}}%
                                 </span>
                             </span>
                             <div class="stc-main__quiz__step__footer__progress">
@@ -482,10 +482,10 @@
                         </div>
                         <!-- /.stc-main__quiz__step__footer__progress--wrap -->
                         <div class="stc-main__quiz__step__footer__btn--wrap">
-                            <button class="stc-main__quiz__step__footer__prev-btn">
+                            <button @click="step--" class="stc-main__quiz__step__footer__prev-btn">
                                 <img src="/public/img/stocks/complex/prev.png" alt="">
                             </button>
-                            <button class="stc-main__quiz__step__footer__next-btn">Начать</button>
+                            <button @click="NextStep" v-if="NxtBtn" class="stc-main__quiz__step__footer__next-btn">{{checkedStep1}}</button>
                         </div>
                         <!-- /.stc-main__quiz__step__footer__btn--wrap -->
                         
@@ -495,24 +495,30 @@
                 <!-- /.stc-main__quiz__steps -->
 
 
-                <div class="stc-main__quiz__final">
+                <div v-show="step==10" style="transform: scale(1);" class="stc-main__quiz__final">
                     <p class="stc-main__quiz__final__title">Заполните форму, и мы с Вами обязательно свяжемся в течение <span class="stc-main__quiz__final__title--bold">10 минут!</span></p>
 
-                    <form action="" class="stc-main__quiz__final__from">
+                    <form @submit="sbmt" class="stc-main__quiz__final__from">
                         <label for="" class="stc-main__quiz__final__label">
                             <span class="stc-main__quiz__final__label__title">*Имя</span>
-                            <input type="text" class="stc-main__quiz__final__input" placeholder="Введите имя" required>
+                            <input v-model="message.fio" type="text" class="stc-main__quiz__final__input" placeholder="Введите имя" required>
                         </label>
                         <label for="" class="stc-main__quiz__final__label">
                             <span class="stc-main__quiz__final__label__title">*Телефон</span>
-                            <input type="tel" class="stc-main__quiz__final__input" placeholder="Введите номер телефона" required>
+                            <input v-model="message.phone" type="tel" class="stc-main__quiz__final__input" placeholder="Введите номер телефона" required>
                         </label>
                         <label for="" class="stc-main__quiz__final__label">
                             <span class="stc-main__quiz__final__label__title">E-mail</span>
-                            <input type="email" class="stc-main__quiz__final__input" placeholder="Введите почту">
+                            <input v-model="message.email" type="email" class="stc-main__quiz__final__input" placeholder="Введите почту">
                         </label>
                         <input type="submit" class="stc-main__quiz__final__btn">
 
+                    </form>
+                </div>
+                
+                <div v-show="step==11" style="transform: scale(1);" class="stc-main__quiz__final">
+                    
+                    <form @click="step=0" class="stc-main__quiz__final__from">
 
                         <div class="stc-main__quiz__final__success">
                             <img src="/public/img/stocks/complex/stc-main__quiz__final__success__img.png" alt="" class="stc-main__quiz__final__success__img">
@@ -527,8 +533,147 @@
         </div>
         <!-- /.stc-main__container stc-main__quiz__container -->
     </section>
+    
+<script>
+    var mainQuiz = new Vue({
+    el: '#stc-quiz',
+    data: {
+       showStep:false,
+       showFinal:false,
+       userProgress:0,step:0,
+       checkedStep1:false,checkedStep4:[],qStep1:'',NxtBtn:false,
+       qStep:[
+           ['Какой у вас текущий статус?'],
+           ['В каком городе/регионе Вы работаете?'],
+           ['Есть ли у Вас рабочий сайт?'],
+           ['Пользуетесь ли вы рекламой?'],
+           ['Для чего Вы к нам обратились?'],
+           ['Сколько заявок Вы хотите получать в месяц?'],
+           ['У Вас есть отдел продаж?'],
+           ['Когда Вы хотите начать сотрудничество?'],
+           ['Как Вы о нас узнали?'],
+           ['']
+       ],
+       message:{fio:'',phone:'',email:'',message:''}
+       },
+       watch: {
+           step(val){
+               this.userProgress=Math.round(100/9 * (val-1) );
+               let quizStepProgressTrack = document.querySelector('.stc-main__quiz__step__footer__progress__track');
+               quizStepProgressTrack.style.width = this.userProgress+'%';
+           },
+           checkedStep4(val){
+//               console.log(val);
+               this.checkedStep1 = val.join('. ');
+           },
+           checkedStep1(val){
+//               console.log(val);
+                if(this.checkedStep1){
+                    this.NxtBtn=true;
+                }
+           }
+       },
+       methods: {
+          sbmt(e) {
+            e.preventDefault();
+            fetch('/index/feedback', {
+                    mode: 'cors',
+                    method: 'POST',
+                    body: JSON.stringify(this.message)
+                })
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Network response was not ok');
+                })
+                .then((json) => {
+                    this.message={fio:'',phone:'',email:'',message:''};
+                    this.step++;
+                    console.log(json);
+                })
+                .catch((error) => {
+                    console.log('FormLogin', error);
+                });
+             console.log(this.checkedStep1);
+             
+          },
+          NextStep(){
+              
+//              console.log('Шаг '+this.qStep[this.step-1],this.checkedStep1);
+              this.message.message = this.message.message + '<br>\r\n Вопрос: '+this.qStep[this.step-1]+"<br>\r\n Ответ: "+this.checkedStep1;
+              
+              
+//              console.log(this.message);
+              
+              this.NxtBtn=false;
+              this.checkedStep1='';
+              this.step++;
+          },
+          show() {
+             this.showStep=true;
+          }
+       }
+    })
+ </script>
     <!-- /.stc-main__quiz -->
 </main>
 <!-- /.stc-main -->
 
-<{addjs(/public/js/script_stocks_complex.js)}>
+
+<div class="popup--wrap app">
+    <div class="popup">
+       <div v-if="showForm" class="popup-static">
+          <img src="/public/img/popup/message.png" alt="message" class="popup-static__img">
+          <form  @submit="sbmt" class="popup-static__form form" id="complete2" onclick="ym(57492568, 'reachGoal', 'complete2'); return true;">
+              <label for="" class="form__label">
+                  <span class="form__title">Имя: 
+                  </span>
+                  <input type="text" class="form__input" placeholder="Введите имя...">
+              </label>
+              <label for="" class="form__label">
+                  <span class="form__title">Телефон:</span>
+                  <input type="tel" class="form__input" placeholder="Введите номер телефона...">
+              </label>
+              <label for="" class="form__label">
+                  <span class="form__title">E-mail:</span>
+                  <input type="email" class="form__input" placeholder="Введите почту...">
+              </label>
+              <label for="" class="form__label">
+                  <span class="form__title">Комментарий:</span>
+              <textarea class="form__textarea" placeholder="Введите текст сообщения..."></textarea>
+              </label>
+              <input type="submit" value="Отправить" class="form__submit" id="send2" onclick="ym(57492568, 'reachGoal', 'send2'); return true;">
+          </form>
+       </div>
+        
+        <div v-if="!showForm" class="popup-success">
+          <div class="popup-success__img--wrap">
+             <img src="/public/img/popup/message-right.png" alt="message-right" class="popup-success__img-right animated infinite swing">
+             <img src="/public/img/popup/message-left.png" alt="message-left" class="popup-success__img-left animated infinite swing">
+             <img src="/public/img/popup/message.png" alt="message" class="popup-success__img">
+          </div>
+          <span class="popup-success__title">ФОРМА УСПЕШНО ОТПРАВЛЕНА!</span>
+          <button class="popup-success__btn" v-on:click="show">Вернуться</button>
+        </div>
+    </div>
+ </div>
+ <script>
+    var app = new Vue({
+    el: '.app',
+    data: {
+       showForm:true
+       },
+       methods: {
+          sbmt(e) {
+             e.preventDefault();
+             this.showForm=false;
+          },
+          show() {
+             this.showForm=true;
+          }
+       }
+    })
+ </script>
+
+<!--{addjs(/public/js/script_stocks_complex.js)}-->

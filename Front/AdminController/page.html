@@ -1,7 +1,20 @@
 <script src="https://cdn.tiny.cloud/1/2vf7bxyhwhgjglrd05fapr353yk2xhegpnqdxgnhdk78rsie/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <div class="content">
     <div id="PageManager" class="contentmain">
-        <div v-show="EditorShow">
+        <div class="sp" v-show="State===0">
+            <div class="spinner-grow" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="sp" v-show="State===3">
+            <button  @click="State=1" type="button" class="btn btn-secondary">Назад</button>
+            <div v-for="(sitem, index) in stc" class="m-2 bg-light">
+                <p class="h5">{{index}}</p>
+                <pre class="btn-white">{{sitem}}</pre>
+            </div>
+            <!--<pre>{{stc}}</pre>-->
+        </div>
+        <div v-show="State===2">
             <textarea class="visual-editor"></textarea>
         </div>
 <!--        <div class="d-flex flex-row align-items-baseline">
@@ -11,12 +24,28 @@
                 <button @click="SetContenToEditor" type="button" class="btn btn-primary">Test MCE</button>
             </div>
         </div>-->
-        <div v-if="!EditorShow" class="d-flex flex-row align-items-baseline">
+        <div v-if="State===1" class="d-flex flex-row align-items-baseline">
             <div class="p-2">
                 
-                <div class="list-group">
-                    <div class="list-group-item list-group-item-action" v-for="item in StaticPage" @click="loadPage(item)" >
-                      {{ item }}
+                <div class="d-flex flex-wrap">
+                    <div v-for="item in StaticPage" style="min-width: 350px; max-width: 960px;">
+                        <div class="card m-2">
+                            
+                            <img class="card-img-top" :src="'/admin/screen/'+item+'.jpeg'" style="min-width: 300px;">
+                            
+
+                            <!--<image width="350" height="300" :href="itemsrc[item]"/>-->
+                            <!--{{itemsrc[item]}}-->
+                            <div class="card-body">
+                                <p class="h6">{{ item }}</p>
+                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                    <button @click="loadPage(item)" type="button" class="btn btn-primary">Изменить</button>
+                                    <button @click="LoadScrenn(item)" type="button" class="btn btn-secondary">Обновить SEO</button>
+                                    <button v-if="itemsrc[item]" @click="Getitemsrc(item)" type="button" class="btn btn-secondary">SEO Подробно</button>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 <!--                    <div class="list-group-item list-group-item-action">
                         Dapibus ac facilisis in
@@ -34,18 +63,22 @@
             </div>-->
             
         </div>
-        <script type="text/javascript">
+        
+    </div>
+    
+    <script type="text/javascript">
             var PageManager = new Vue({
                 el: '#PageManager',
                 data: {
-                  editor:tinymce,EditorShow:false,
-                  StaticPage:[],EditNameStaticPage:''
+                  editor:tinymce,State:0,
+                  StaticPage:[],EditNameStaticPage:'',
+                  itemsrc:[],itemstc:[],stc:''
                 },
                 created(){
-                    this.loadPageList();
+                    this.State = 0;
                 }, 
                 beforeMount(){
-                    
+                    this.loadPageList();
                 }, 
                 mounted(){
 //                    this.editor = tinymce;
@@ -66,114 +99,150 @@
                         fullpage_default_doctype: "<!DOCTYPE html>",
                         toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
                         toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor  | insertdatetime preview | forecolor | code",
-                        toolbar3: "save | CloseMCE | table | hr removeformat | subscript superscript | charmap emoticons | print | fullscreen | ltr rtl | visualchars visualblocks nonbreaking | template media image filemanager",
-                        external_filemanager_path: "/fm/",
-                        filemanager_title: "Файловый менеджер",
-                        external_plugins: {"filemanager": "/fm/plugin.min.js"},
+                    toolbar3: "save | CloseMCE | table | hr removeformat | subscript superscript | charmap emoticons | print | fullscreen | ltr rtl | visualchars visualblocks nonbreaking | template media image filemanager",
+                    external_filemanager_path: "/fm/",
+                    filemanager_title: "Файловый менеджер",
+                    external_plugins: {"filemanager": "/fm/plugin.min.js"},
 //                        autoresize_min_height: 550,
-                        
-                        
-                        protect: [
-                        /<\?php[\s\S]*?\?>/g, 
+
+
+                    protect: [
+                        /<\?php[\s\S]*?\?>/g,
                         /<\{(.*)\}>/g
-                        ],
-                        schema: 'html5',
-                        keep_styles: false,
-                        forced_root_block : "", 
-                        force_br_newlines : true,
-                        force_p_newlines : false,
-                        content_css: [
-                            '/public/css/bootstrap.css',
-                            '/public/css/style.css'
-                        ],
-                        setup: (editor) => {
-                            editor.ui.registry.addButton('CloseMCE', {
+                    ],
+                    schema: 'html5',
+                    keep_styles: false,
+                    forced_root_block: "",
+                    force_br_newlines: true,
+                    force_p_newlines: false,
+                    content_css: [
+                        '/public/css/bootstrap.css',
+                        '/public/css/style.css'
+                    ],
+                    setup: (editor) => {
+                        editor.ui.registry.addButton('CloseMCE', {
 //                              text: 'Закрыть Редактор',
-                              tooltip: 'Закрыть редактор кода и перейти к выбору страниц',
-                              icon: 'close',
-                              onAction: () => {
-                                  
+                            tooltip: 'Закрыть редактор кода и перейти к выбору страниц',
+                            icon: 'close',
+                            onAction: () => {
+
 //                                  alert('Button clicked!');
-                                  this.EditorShow=false;
-                              }
-                            });
-                            editor.ui.registry.addButton('SavePage', {
+                                this.State = 1;
+                            }
+                        });
+                        editor.ui.registry.addButton('SavePage', {
 //                              text: 'Закрыть Редактор',
-                              tooltip: 'Эта кнопка сохраняет измененный вами текст в редакторе и отправляет эти данные на сервер!',
-                              icon: 'save',
-                              onAction: () => {
-                                  
-                                  alert('Сохранениеотключено нафиг!!! мучайти Владислава');
-                                  this.EditorShow=false;
-                              }
-                            });
-                        },
-                        save_onsavecallback:()=> { 
-                            var content = this.editor.activeEditor.getContent();
-                            fetch('/admin/savestaticpage', {
+                            tooltip: 'Эта кнопка сохраняет измененный вами текст в редакторе и отправляет эти данные на сервер!',
+                            icon: 'save',
+                            onAction: () => {
+
+                                alert('Сохранениеотключено нафиг!!! мучайти Владислава');
+                                this.State = 1;
+                            }
+                        });
+                    },
+                    save_onsavecallback: () => {
+                        var content = this.editor.activeEditor.getContent();
+                        fetch('/admin/savestaticpage', {
                             mode: 'cors',
                             method: 'POST',
                             cache: 'no-cache',
                             credentials: 'same-origin',
-                            body: JSON.stringify({PageName:this.EditNameStaticPage,PageContent:content})
-                            })
+                            body: JSON.stringify({PageName: this.EditNameStaticPage, PageContent: content})
+                        })
+                                .then(res => res.json())
+                                .then(res => {
+                                    console.log(res);
+//                                this.editor.activeEditor.setContent(res.PageContent);
+                                    this.loadPageList();
+                                    //                            this.StaticPage=res;
+                                }).catch((e) => console.log('Запрос серверу отправлен но ответ вернулся ошибочный! ' + e));
+//                            console.log(content); 
+                    }
+                });
+//                  console.log(this.editor);
+            },
+            methods: {
+                Getitemsrc(Pname){
+                    this.stc = this.itemstc[Pname].lighthouseResult.audits;
+                    this.State = 3;
+                },
+                LoadScrenn(Pname){
+                    this.State = 0;
+                    this.itemsrc[Pname]=false;
+                    fetch('https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https://agatech.ru/page/'+Pname+'&key=AIzaSyBfzj9SP9ABFvgTKr7fODE2NUdhukqiL5A&screenshot=true')
+                    .then(res => res.json())
+                    .then(res => {
+//                        console.log(res.lighthouseResult.audits['final-screenshot'].details);
+                        this.itemsrc[Pname]=res.lighthouseResult.audits['final-screenshot'].details.data;
+                        this.SaveScreen(Pname,this.itemsrc[Pname]);
+                        this.itemstc[Pname]=res;
+                        console.log(this.itemsrc[Pname]);
+                        this.Getitemsrc(Pname);
+                        this.State = 3;
+                        return this.itemsrc[Pname];
+
+                    }).catch((e) => console.log('Запрос серверу отправлен но ответ вернулся ошибочный! ' + e));
+                },
+                SaveScreen(name,data){
+                    fetch('/admin/Savepagescreen', {
+                        mode: 'cors',
+                        method: 'POST',
+                        cache: 'no-cache',
+                        credentials: 'same-origin',
+                        body: JSON.stringify({name:name,data:data})
+                    })
+                    .then(res => res.json())
+                    .then(res => {
+                        console.log(res);
+
+                    }).catch((e) => console.log('Запрос серверу отправлен но ответ вернулся ошибочный! ' + e));
+                },
+                SetContenToEditor() {
+                    this.editor.activeEditor.setContent('<strong>Some contents</strong>');
+//                        tinymce.activeEditor.selection.setContent('<strong>Some contents</strong>');
+                    var cnt = this.editor.activeEditor.getContent();
+                    console.log(cnt);
+                },
+                loadPageList() {
+                    fetch('/admin/getstaticpagelist', {
+                        mode: 'cors',
+                        method: 'POST',
+                        cache: 'no-cache',
+                        credentials: 'same-origin',
+                        //                    body: JSON.stringify({UserID:id})
+                    })
+                    .then(res => res.json())
+                    .then(res => {
+                        // console.log(res);
+                        this.StaticPage = res;
+                        this.State = 1;
+                    }).catch((e) => console.log('Запрос серверу отправлен но ответ вернулся ошибочный! ' + e));
+                },
+                loadPage(PageName) {
+                    this.State = 0;
+                    this.EditNameStaticPage = PageName;
+                    fetch('/admin/getstaticpage', {
+                        mode: 'cors',
+                        method: 'POST',
+                        cache: 'no-cache',
+                        credentials: 'same-origin',
+                        body: JSON.stringify({PageName: PageName})
+                    })
                             .then(res => res.json())
                             .then(res => {
                                 console.log(res);
-//                                this.editor.activeEditor.setContent(res.PageContent);
-                                    this.loadPageList();
-    //                            this.StaticPage=res;
-                            }).catch((e) => console.log('Запрос серверу отправлен но ответ вернулся ошибочный! '+ e));
-//                            console.log(content); 
-                        }
-                    });
-//                  console.log(this.editor);
-                },
-                methods: {
-                    SetContenToEditor() {
-                        this.editor.activeEditor.setContent('<strong>Some contents</strong>');
-//                        tinymce.activeEditor.selection.setContent('<strong>Some contents</strong>');
-                        var cnt = this.editor.activeEditor.getContent();
-                        console.log(cnt);
-                    },
-                    loadPageList(){
-                        fetch('/admin/getstaticpagelist', {
-                        mode: 'cors',
-                        method: 'POST',
-                        cache: 'no-cache',
-                        credentials: 'same-origin',
-    //                    body: JSON.stringify({UserID:id})
-                        })
-                        .then(res => res.json())
-                        .then(res => {
-    //                        console.log(res);
-                            this.StaticPage=res;
-                        }).catch((e) => console.log('Запрос серверу отправлен но ответ вернулся ошибочный! '+ e));
-                    },
-                    loadPage(PageName){
-                        this.EditorShow=true;
-                        this.EditNameStaticPage=PageName;
-                        fetch('/admin/getstaticpage', {
-                        mode: 'cors',
-                        method: 'POST',
-                        cache: 'no-cache',
-                        credentials: 'same-origin',
-                        body: JSON.stringify({PageName:PageName})
-                        })
-                        .then(res => res.json())
-                        .then(res => {
-                            console.log(res);
-                            this.editor.activeEditor.setContent(res.PageContent);
-                            
-//                            this.StaticPage=res;
-                        }).catch((e) => console.log('Запрос серверу отправлен но ответ вернулся ошибочный! '+ e));
-                    }
-                    
-                    
-                }
-            });
+                                this.editor.activeEditor.setContent(res.PageContent);
+                                this.State = 2;
 
-            
-        </script>
-    </div>
+//                            this.StaticPage=res;
+                            }).catch((e) => console.log('Запрос серверу отправлен но ответ вернулся ошибочный! ' + e));
+                }
+
+
+            }
+        });
+
+
+    </script>
 </div>
