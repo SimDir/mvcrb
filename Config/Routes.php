@@ -5,6 +5,7 @@ return array(
     '^error/([0-9]+)' => 'index/eror/$1',
     
     'index.html' => 'index/index/',
+    
     'digitalagency/company.html' => 'page/page/company.html',
     'digitalagency/team.html' => 'page/page/team.html',
     'digitalagency/progress.html' => 'page/page/progress.html',
@@ -14,6 +15,7 @@ return array(
     'mediacenter/news/news.html' => 'page/page/news.html',
     'mediacenter/events/events.html' => 'page/page/events.html',
     'mediacenter/video/video.html' => 'page/page/video.html',
+    
     'solutions/solutions.html' => 'page/page/solutions.html',
     'solutions/CRM.html' => 'page/page/s_CRM.html',
     'solutions/corporation.html' => 'page/page/s_corporation.html',
@@ -22,6 +24,8 @@ return array(
     'solutions/mobile.html' => 'page/page/s_mobile.html',
     'solutions/complex.html' => 'page/page/s_complex.html',
     'solutions/smm.html' => 'page/page/s_smm.html',
+    'solutions/support.html' => 'page/page/support.html', // https://agatech.ru/solutions/support.html
+    
     'products/products.html' => 'page/page/products.html',
     'products/digitalagency/digitalagency.html' => 'page/page/digitalagency.html',
     'products/digitalagency/corporation.html' => 'page/page/corporation.html',
