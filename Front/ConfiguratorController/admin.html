@@ -1,0 +1,65 @@
+Этот раздель только для сотрудников компании
+<div id="ConfiguratorAdmin">
+<div class="table-responsive">
+  <!--Table-->
+  <table class="table table-striped">
+
+    <!--Table head-->
+    <thead>
+      <tr>
+        <th>Порядковый № заказа</th>
+
+        <th>Уникальный Код</th>
+        <th>Дата</th>
+        <th>Сумма заказа</th>
+        <th>Тип движка</th>
+        <th>Тип сайта</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr v-for="(option, index) in OrderList">
+        <th scope="row">{{option.id}}</th>
+        <td>{{option.uid}}</td>
+        <td>{{option.createdatetime}}</td>
+        <td>{{option.ordersum}} Руб.</td>
+        <td>{{option.enginetyp}}</td>
+        <td>{{option.sitetyp}}</td>
+      </tr>
+    </tbody>
+    <!--Table body-->
+  </table>
+  <!--Table-->
+</div>
+</div>
+<script type="text/javascript">
+var ConfiguratorAdmin = new Vue({
+    el: '#ConfiguratorAdmin',
+    data: {
+        OrderList:{}
+    },
+    created(){
+        fetch( '/configurator/get/?AJAX=1',{
+        mode: 'cors',
+        method: 'POST',
+//        body: JSON.stringify(OrderData)
+        })
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Network response was not ok');
+        })
+        .then((json) => {
+              
+            this.OrderList=json.data;
+//            console.log(this.OrderList);
+        })
+        .catch((error) => {
+            console.log('Ошибка отправки данных конфигуратора ',error);
+        });
+            
+    }
+});
+
+</script>

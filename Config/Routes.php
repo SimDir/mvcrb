@@ -17,6 +17,7 @@ return array(
     'mediacenter/video/video.html' => 'page/page/video.html',
     
     'solutions/solutions.html' => 'page/page/solutions.html',
+'solutions/digital.html' => 'page/page/digital.html',
     'solutions/CRM.html' => 'page/page/s_CRM.html',
     'solutions/corporation.html' => 'page/page/s_corporation.html',
     'solutions/promo.html' => 'page/page/s_promo.html',
@@ -49,6 +50,8 @@ return array(
     'cooperation/russia/russia.html' => 'page/page/russia.html',
     'cooperation/international/international.html' => 'page/page/international.html',
 
+    'mediacenter/news/arriving_future.html' => 'page/page/arriving_future.html',
+    'mediacenter/news/open_day.html' => 'page/page/open_day.html',
     'mediacenter/news/vote_for_ulyanovsk.html' => 'page/page/vote_for_ulyanovsk.html',
     'mediacenter/news/city_online.html' => 'page/page/city_online.html',
     'mediacenter/news/UUSP.html' => 'page/page/UUSP.html',

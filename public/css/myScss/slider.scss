@@ -391,6 +391,10 @@
    &--upcs {
       text-transform: uppercase;
    }  
+   &--small {
+      font-size: .7em;
+      line-height: 0.3em;
+   }
 }
 .slide-preview-btn {
    box-shadow: 0.1em 0 .5em rgba(#000, .2);
@@ -614,25 +618,10 @@
 .slide-complex__prewiew__btn {
    color: #f57f00;
    border: 1px solid #000;
+   align-self: flex-end;
    &:hover {
       color: #f57f00;
       box-shadow:  0.1em 0 .5em rgba(#000, .2), .2em .2em 0em #f57f00;
-   }
-}
-.slide-preview-price {
-   position: absolute;
-   right: 0;
-   bottom: 2em;
-   color: #fff;
-   background-color: #f67f00;
-   font-family: "Museo Sans 700";
-   font-size: 2.4em;
-   line-height: 1.2em;
-   letter-spacing: 0.005em;
-   padding: 0.4em 2em 0.4em 1em;
-   transform: rotate(-5deg) translateX(1.2em);
-   &--bold {
-      font-family: "Museo Sans 900";
    }
 }
 @media(max-width: 1700px) {
@@ -652,9 +641,6 @@
    .slide-complex__prewiew__item__text {
       font-size: 2em;
    }
-   .slide-preview-price {
-      font-size: 2.2em;
-   }
 }
 @media(max-width: 1500px) {
    .slide-complex__content {
@@ -672,9 +658,6 @@
    }
    .slide-complex__prewiew__item__text {
       font-size: 1.8em;
-   }
-   .slide-preview-price {
-      font-size: 1.9em;
    }
 }
 

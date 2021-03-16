@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow" id="mainbar">
+<nav class="navbar navbar-dark fixed-top bg-primary flex-md-nowrap p-0 shadow" id="mainbar">
 
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">            
         <div class="d-flex justify-content-center">
@@ -6,6 +6,9 @@
         </div>
     </a>
     <!--<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
+    <ul class="navbar-nav">
+        <p class="lead text-white">Добро пожаловать на страницу администрирования сайта</p>
+    </ul>
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
             <a class="nav-link" href="/user/logout">Выход</a>
@@ -17,12 +20,12 @@
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
                 <div class="list-group list-group-flush">
-                    <a href="/admin/" class="list-group-item list-group-item-action bg-light">Главная</a>
-                    <a href="/admin/fm/" class="list-group-item list-group-item-action bg-light">Файлы сервера</a>
-                    <a href="/admin/user/" class="list-group-item list-group-item-action bg-light">Пользователи</a>
-                    <a href="/admin/pages/" class="list-group-item list-group-item-action bg-light">Страницы</a>
-<!--                    <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>-->
+                    <a href="/admin/" class="btn btn-blue-grey">Главная</a>
+                    <a href="/admin/fm/" class="btn btn-blue-grey">Файлы сервера</a>
+                    <a href="/admin/user/" class="btn btn-blue-grey">Пользователи</a>
+                    <a href="/admin/pages/" class="btn btn-blue-grey">Страницы</a>
+                    <a href="#" class="btn btn-blue-grey">Профиль</a>
+                    <a href="#" class="btn btn-blue-grey">Статус</a>
                 </div>
             </div>
         </nav>
@@ -35,3 +38,42 @@
         </main>
     </div>
 </div>
+<!--<div class="d-flex" id="wrapper">
+
+     Sidebar 
+    <div class="bg-light" id="sidebar-wrapper">
+        <div class="d-flex justify-content-center">
+            <img src="/public/img/logo-ny.svg" height="50" alt="agalogo">
+        </div>
+        <div class="list-group list-group-flush">
+            <a href="/admin/" class="list-group-item list-group-item-action bg-light">Главная</a>
+            <a href="/admin/fm/" class="list-group-item list-group-item-action bg-light">Файлы сервера</a>
+            <a href="/admin/user/" class="list-group-item list-group-item-action bg-light">Пользователи</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+        </div>
+    </div>
+     /#sidebar-wrapper 
+
+     Page Content 
+    <div id="page-content-wrapper">
+
+       
+
+        <div class="container-fluid h-100" id="admincontent">
+            <{ admincontent }>
+        </div>
+    </div>
+     /#page-content-wrapper 
+
+</div>-->
+
+
+<!-- Menu Toggle Script -->
+<!--<script>
+    $("#menu-toggle").click((e) => {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>-->
